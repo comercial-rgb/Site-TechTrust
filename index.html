@@ -30,7 +30,15 @@
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
   .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,#38bdf8, #60a5fa); box-shadow:0 4px 18px rgba(56,189,248,.45)}
   /* If using an <img> for the logo, use .logo-img to size/crop */
-  .logo-img{width:36px; height:36px; border-radius:10px; object-fit:cover; display:inline-block}
+  .logo-img{width:36px; height:36px; border-radius:10px; object-fit:cover; display:inline-block; vertical-align:middle; box-shadow:0 4px 12px rgba(2,6,23,.25); border:1px solid rgba(255,255,255,.03)}
+  /* Responsive logo: slightly larger on wider screens */
+  @media (min-width: 940px){
+    .logo-img{width:48px; height:48px}
+    .brand{gap:14px}
+  }
+  @media (min-width: 1400px){
+    .logo-img{width:56px; height:56px}
+  }
     .brand span{font-weight:800; letter-spacing:.3px; color:#e2e8f0}
     .nav-links{display:flex; gap:18px; align-items:center}
     .nav-links a{color:var(--silver); text-decoration:none; font-weight:600; font-size:.95rem}
