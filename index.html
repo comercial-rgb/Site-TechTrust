@@ -25,9 +25,10 @@
     html,body{height:100%}
     body{margin:0; font-family:Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial; background:linear-gradient(180deg, #0b1220 0%, #0c1324 60%, #0a1328 100%); color:var(--text); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
     a{color:var(--accent)} .container{max-width:var(--maxw); margin-inline:auto; padding:0 20px}
+    html{scroll-behavior:smooth; scroll-padding-top:150px}
     header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(160%) blur(8px); background:linear-gradient(180deg, rgba(2,6,23,.85), rgba(2,6,23,.55)); border-bottom:1px solid rgba(148,163,184,.15)}
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0; gap:24px}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; margin-right:32px}
   .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,#38bdf8, #60a5fa); box-shadow:0 4px 18px rgba(56,189,248,.45)}
   /* If using an <img> for the logo, use .logo-img to size/crop */
   .logo-img{width:36px; height:36px; border-radius:10px; object-fit:cover; display:inline-block; vertical-align:middle; box-shadow:0 4px 12px rgba(2,6,23,.25); border:1px solid rgba(255,255,255,.03)}
@@ -39,11 +40,18 @@
   @media (min-width: 1400px){
     .logo-img{width:56px; height:56px}
   }
-    .brand span{font-weight:800; letter-spacing:.3px; color:#e2e8f0}
-    .nav-links{display:flex; gap:18px; align-items:center}
-    .nav-links a{color:var(--silver); text-decoration:none; font-weight:600; font-size:.95rem}
+    .brand span{font-weight:800; letter-spacing:.3px; color:#e2e8f0; white-space:nowrap}
+    .nav-links{display:flex; gap:18px; align-items:center; flex-wrap:nowrap}
+    .nav-links a{color:var(--silver); text-decoration:none; font-weight:600; font-size:.95rem; white-space:nowrap; padding:8px 14px; border-radius:8px; transition:all 0.2s ease}
+    .nav-links a:hover{background:rgba(56,189,248,.1); color:var(--accent)}
     .cta{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#06121f; text-decoration:none; font-weight:800; box-shadow:var(--shadow)}
     .cta.secondary{background:transparent; border:1px solid rgba(148,163,184,.35); color:var(--text)}
+    .cta, .cta.btn, .hero-cta .cta, .hero-cta .cta.secondary {
+      min-width:260px;
+      justify-content:center;
+      font-size:clamp(15px,1.1vw,17px);
+      padding:16px 20px;
+    }
     .lang{display:flex; gap:10px; align-items:center}
     .lang button{background:transparent; border:1px solid rgba(148,163,184,.3); color:var(--silver); padding:6px 10px; border-radius:999px; cursor:pointer; font-weight:700}
     .lang button.active{border-color:var(--accent); color:#0b1220; background:linear-gradient(135deg,var(--accent),var(--accent-2))}
@@ -54,13 +62,23 @@
     h1{font-size:clamp(34px, 4.5vw, 58px); line-height:1.05; margin:14px 0 14px; font-weight:900}
     .lead{font-size:clamp(16px, 1.4vw, 20px); color:var(--silver)}
     .hero-cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:20px}
+    .hero-cta.centered {
+      justify-content: center;
+    }
     .panel{background:radial-gradient(1200px 600px at 80% -10%, rgba(96,165,250,.25), transparent 50%), linear-gradient(180deg, rgba(2,6,23,.6), rgba(2,6,23,.35)); border:1px solid rgba(148,163,184,.2); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
-    section{padding:70px 0}
+    section{padding:38px 0}
     .section-title{font-size:clamp(26px,3.2vw,40px); margin:0 0 12px; font-weight:900}
     .section-sub{color:var(--muted); max-width:850px}
     .pillars{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px}
     .card{background:linear-gradient(180deg,#0B1324,#0B1428); border:1px solid rgba(148,163,184,.18); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
     .icon{width:38px; height:38px; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; color:#06121f; font-weight:900}
+    .callout-text {
+      font-size:clamp(13px,1vw,15px)!important;
+      font-weight:400;
+      color:var(--muted);
+      margin:0 0 8px 0;
+      text-align:center;
+    }
     .list{margin:14px 0 0; padding-left:18px}
     .list li{margin:8px 0}
   .services{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px}
@@ -68,6 +86,7 @@
   .slider{position:relative; margin:18px 0 6px; overflow:hidden; border-radius:12px; border:1px solid rgba(148,163,184,.18)}
   .slides{display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:0}
   .slides img{flex:0 0 100%; width:100%; height:300px; object-fit:cover; scroll-snap-align:center; display:block}
+  .slides img{flex:0 0 100%; width:100%; height:340px; object-fit:cover; scroll-snap-align:center; display:block}
   .slider-nav{position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; pointer-events:none}
   .slider-btn{pointer-events:auto; background:rgba(2,6,23,.5); border:1px solid rgba(148,163,184,.25); color:#e2e8f0; width:42px; height:42px; border-radius:999px; display:grid; place-items:center; margin:0 8px}
   .forms-row{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin-top:14px}
@@ -83,8 +102,9 @@
     @media (max-width: 940px){
       .hero-wrap{grid-template-columns:1fr; padding:42px 0}
       .about-split{grid-template-columns:1fr}
-      .nav{flex-wrap:wrap; gap:10px}
-      .nav-links{flex-wrap:wrap; gap:12px}
+      .nav{flex-direction:column; gap:12px; align-items:flex-start}
+      .brand{margin-right:0}
+      .nav-links{flex-wrap:wrap; gap:12px; width:100%}
       .lead{font-size:clamp(15px, 1.6vw, 18px)}
       .hero-img{height:360px}
     }
@@ -310,6 +330,27 @@
       const slideWidth = ()=> slides?.querySelector('img')?.getBoundingClientRect().width || 0;
       prev?.addEventListener('click', ()=> slides.scrollBy({left: -slideWidth(), behavior:'smooth'}));
       next?.addEventListener('click', ()=> slides.scrollBy({left: slideWidth(), behavior:'smooth'}));
+      // Autoplay com loop
+      let autoPlayInt = null;
+      function startAutoplay(){
+        if(autoPlayInt) clearInterval(autoPlayInt);
+        autoPlayInt = setInterval(()=>{
+          if(!slides) return;
+          const maxScroll = slides.scrollWidth - slides.clientWidth;
+          // Se chegou ao final, volta para o início
+          if (Math.abs(slides.scrollLeft - maxScroll) < 2 || slides.scrollLeft >= maxScroll - 2) {
+            slides.scrollTo({left: 0, behavior: 'smooth'});
+          } else {
+            slides.scrollBy({left: slideWidth(), behavior:'smooth'});
+          }
+        }, 3500);
+      }
+      function stopAutoplay(){
+        if(autoPlayInt) clearInterval(autoPlayInt);
+      }
+      slides?.addEventListener('mouseenter', stopAutoplay);
+      slides?.addEventListener('mouseleave', startAutoplay);
+      startAutoplay();
 
       // Toggle forms
       const btnSchedule = document.getElementById('btnSchedule');
@@ -463,6 +504,10 @@
             <a class="cta" href="#contact" data-i18n="cta_demo"></a>
             <a class="cta secondary" href="#services" data-i18n="cta_services"></a>
           </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;justify-content:center">
+            <a class="cta secondary" href="#service-buttons" style="min-width:auto;padding:10px 16px;font-size:.9rem" data-i18n="svc_schedule_btn"></a>
+            <a class="cta" href="#service-buttons" style="min-width:auto;padding:10px 16px;font-size:.9rem" data-i18n="svc_mobile_btn"></a>
+          </div>
           <div class="card" style="margin-top:16px">
             <span data-i18n="florida_coverage"></span>
           </div>
@@ -481,6 +526,66 @@
     </section>
 
     <!-- Mission -->
+    <!-- Services / Solutions (moved above Pillars) -->
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title" data-i18n="services_title"></h2>
+        <p class="section-sub" data-i18n="services_sub"></p>
+        <div class="slider" aria-label="Service photos slider">
+          <div class="slides" id="service-slides">
+            <img src="/foto-02-site.png" alt="Service photo 1">
+            <img src="/foto-03-site.png" alt="Service photo 2">
+            <img src="/foto-04-site.png" alt="Service photo 3" onerror="this.style.display='none'">
+            <img src="/foto-05-site.png" alt="Service photo 4">
+            <img src="/foto-06-site.png" alt="Service photo 5">
+            <img src="/foto-07-site.png" alt="Service photo 6">
+          </div>
+          <div class="slider-nav">
+            <button class="slider-btn" id="prevSlide" aria-label="Prev">‹</button>
+            <button class="slider-btn" id="nextSlide" aria-label="Next">›</button>
+          </div>
+        </div>
+        <div class="services" style="margin-top:18px">
+          <div class="card"><h3 data-i18n="svc_1t"></h3><p data-i18n="svc_1d"></p></div>
+          <div class="card"><h3 data-i18n="svc_2t"></h3><p data-i18n="svc_2d"></p></div>
+          <div class="card"><h3 data-i18n="svc_3t"></h3><p data-i18n="svc_3d"></p></div>
+          <div class="card"><h3 data-i18n="svc_4t"></h3><p data-i18n="svc_4d"></p></div>
+          <div class="card"><h3 data-i18n="svc_5t"></h3><p data-i18n="svc_5d"></p></div>
+          <div class="card"><h3 data-i18n="svc_6t"></h3><p data-i18n="svc_6d"></p></div>
+        </div>
+        <div class="card" style="margin-top:24px;background:linear-gradient(135deg, rgba(56,189,248,.15), rgba(96,165,250,.15));border-color:rgba(56,189,248,.4)">
+          <p class="callout-text" data-i18n="suggestion_callout"></p>
+        </div>
+        <div id="service-buttons" class="hero-cta centered" style="margin-top:24px">
+          <button class="cta" id="btnSchedule" data-i18n="svc_schedule_btn" type="button"></button>
+          <button class="cta" id="btnMobile" data-i18n="svc_mobile_btn" type="button"></button>
+        </div>
+        <small style="display:block;margin-top:8px;color:var(--muted);text-align:center;" data-i18n="svc_mobile_note"></small>
+        <div class="forms-row" id="serviceForms" style="margin-top:22px">
+          <form id="formSchedule" class="card hidden" aria-labelledby="scheduleTitle">
+            <h3 id="scheduleTitle" data-i18n="schedule_form_title"></h3>
+            <label><span data-i18n="schedule_name"></span><br><input name="name" required></label>
+            <label><span data-i18n="schedule_vehicle"></span><br><input name="vehicle" required></label>
+            <label><span data-i18n="schedule_datetime"></span><br><input name="datetime" type="datetime-local" required></label>
+            <input type="hidden" name="type" value="schedule">
+            <button class="cta btn" type="submit" data-i18n="schedule_submit"></button>
+            <p class="hidden" id="scheduleError" style="color:#f87171" data-i18n="schedule_unavailable"></p>
+          </form>
+          <form id="formMobile" class="card hidden" aria-labelledby="mobileTitle">
+            <h3 id="mobileTitle" data-i18n="mobile_form_title"></h3>
+            <label><span data-i18n="mobile_name"></span><br><input name="name" required></label>
+            <label><span data-i18n="mobile_vehicle"></span><br><input name="vehicle" required></label>
+            <label><span data-i18n="mobile_address"></span><br><input name="address" required></label>
+            <label><span data-i18n="mobile_summary"></span><br><textarea name="summary" required></textarea></label>
+            <label><span data-i18n="mobile_datetime"></span><br><input name="datetime" type="datetime-local"></label>
+            <input type="hidden" name="type" value="mobile">
+            <small style="color:var(--muted)" data-i18n="mobile_hours"></small>
+            <small style="color:var(--muted);display:block;margin-top:6px" data-i18n="mobile_disclaimer"></small>
+            <button class="cta btn" type="submit" data-i18n="mobile_submit"></button>
+          </form>
+        </div>
+      </div>
+    </section>
     <section>
       <div class="container about-split">
         <div>
@@ -552,67 +657,6 @@
             <li><strong>Focus:</strong> Preventive mechanical services, basic electrical, A/C, towing</li>
             <li><strong>Certifications:</strong> DOT/FMCSA-oriented programs, ASE-ready</li>
           </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services / Solutions (moved above Pillars) -->
-    <section id="services">
-      <div class="container">
-        <h2 class="section-title" data-i18n="services_title"></h2>
-        <p class="section-sub" data-i18n="services_sub"></p>
-        <div class="slider" aria-label="Service photos slider">
-          <div class="slides" id="service-slides">
-            <img src="/foto-02-site.png" alt="Service photo 1">
-            <img src="/foto-03-site.png" alt="Service photo 2">
-            <img src="/foto-04-site.png" alt="Service photo 3" onerror="this.style.display='none'">
-            <img src="/foto-05-site.png" alt="Service photo 4">
-            <img src="/foto-06-site.png" alt="Service photo 5">
-            <img src="/foto-07-site.png" alt="Service photo 6">
-          </div>
-          <div class="slider-nav">
-            <button class="slider-btn" id="prevSlide" aria-label="Prev">‹</button>
-            <button class="slider-btn" id="nextSlide" aria-label="Next">›</button>
-          </div>
-        </div>
-        <div class="services" style="margin-top:18px">
-          <div class="card"><h3 data-i18n="svc_1t"></h3><p data-i18n="svc_1d"></p></div>
-          <div class="card"><h3 data-i18n="svc_2t"></h3><p data-i18n="svc_2d"></p></div>
-          <div class="card"><h3 data-i18n="svc_3t"></h3><p data-i18n="svc_3d"></p></div>
-          <div class="card"><h3 data-i18n="svc_4t"></h3><p data-i18n="svc_4d"></p></div>
-          <div class="card"><h3 data-i18n="svc_5t"></h3><p data-i18n="svc_5d"></p></div>
-          <div class="card"><h3 data-i18n="svc_6t"></h3><p data-i18n="svc_6d"></p></div>
-        </div>
-        <div class="card" style="margin-top:24px;background:linear-gradient(135deg, rgba(56,189,248,.15), rgba(96,165,250,.15));border-color:rgba(56,189,248,.4)">
-          <p style="margin:0;font-size:clamp(15px,1.1vw,17px);line-height:1.6" data-i18n="suggestion_callout"></p>
-        </div>
-        <div class="hero-cta" style="margin-top:24px">
-          <button class="cta" id="btnSchedule" data-i18n="svc_schedule_btn" type="button"></button>
-          <button class="cta secondary" id="btnMobile" data-i18n="svc_mobile_btn" type="button"></button>
-        </div>
-        <small style="display:block;margin-top:8px;color:var(--muted)" data-i18n="svc_mobile_note"></small>
-        <div class="forms-row" id="serviceForms" style="margin-top:22px">
-          <form id="formSchedule" class="card hidden" aria-labelledby="scheduleTitle">
-            <h3 id="scheduleTitle" data-i18n="schedule_form_title"></h3>
-            <label><span data-i18n="schedule_name"></span><br><input name="name" required></label>
-            <label><span data-i18n="schedule_vehicle"></span><br><input name="vehicle" required></label>
-            <label><span data-i18n="schedule_datetime"></span><br><input name="datetime" type="datetime-local" required></label>
-            <input type="hidden" name="type" value="schedule">
-            <button class="cta btn" type="submit" data-i18n="schedule_submit"></button>
-            <p class="hidden" id="scheduleError" style="color:#f87171" data-i18n="schedule_unavailable"></p>
-          </form>
-          <form id="formMobile" class="card hidden" aria-labelledby="mobileTitle">
-            <h3 id="mobileTitle" data-i18n="mobile_form_title"></h3>
-            <label><span data-i18n="mobile_name"></span><br><input name="name" required></label>
-            <label><span data-i18n="mobile_vehicle"></span><br><input name="vehicle" required></label>
-            <label><span data-i18n="mobile_address"></span><br><input name="address" required></label>
-            <label><span data-i18n="mobile_summary"></span><br><textarea name="summary" required></textarea></label>
-            <label><span data-i18n="mobile_datetime"></span><br><input name="datetime" type="datetime-local"></label>
-            <input type="hidden" name="type" value="mobile">
-            <small style="color:var(--muted)" data-i18n="mobile_hours"></small>
-            <small style="color:var(--muted);display:block;margin-top:6px" data-i18n="mobile_disclaimer"></small>
-            <button class="cta btn" type="submit" data-i18n="mobile_submit"></button>
-          </form>
         </div>
       </div>
     </section>
