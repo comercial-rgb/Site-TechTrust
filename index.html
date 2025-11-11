@@ -54,7 +54,13 @@
       padding:16px 24px;
     }
     .lang{display:flex; gap:10px; align-items:center}
-    .lang button{background:transparent; border:1px solid rgba(148,163,184,.3); color:var(--silver); padding:6px 10px; border-radius:999px; cursor:pointer; font-weight:700}
+    .lang button{background:transparent; border:1px solid rgba(148,163,184,.3); color:var(--silver); padding:6px 10px; border-radius:999px; cursor:pointer; font-weight:700; font-size:1.2rem; line-height:1; min-width:40px}
+    .lang button .flag-fallback{display:none; font-size:.75rem; font-weight:700}
+    @supports not (font-family: "Segoe UI Emoji"){
+      .lang button{font-size:.75rem}
+      .lang button .flag-emoji{display:none}
+      .lang button .flag-fallback{display:inline}
+    }
     .lang button.active{border-color:var(--accent); color:#0b1220; background:linear-gradient(135deg,var(--accent),var(--accent-2))}
     .hero{position:relative; overflow:hidden}
     .hero-wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:36px; align-items:center; padding:64px 0}
@@ -131,6 +137,32 @@
       .hero-cta .cta{width:100%; max-width:320px}
       .hero-img{height:240px}
       .slides img{height:240px}
+    }
+    
+    /* Flag emoji fallback support */
+    .flag-fallback {
+      display: none;
+    }
+    
+    @supports not ((font-family: "Segoe UI Emoji") or (font-family: "Apple Color Emoji") or (font-family: "Noto Color Emoji")) {
+      .flag-emoji {
+        display: none;
+      }
+      .flag-fallback {
+        display: inline;
+        font-weight: bold;
+      }
+    }
+    
+    /* Hide emoji if browser doesn't support color emoji fonts */
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      .flag-emoji {
+        display: none;
+      }
+      .flag-fallback {
+        display: inline;
+        font-weight: bold;
+      }
     }
   </style>
   <script>
@@ -493,9 +525,9 @@
         <a href="#industries" data-i18n="nav_industries"></a>
         <a href="#contact" data-i18n="nav_contact"></a>
         <div class="lang" aria-label="Language switcher">
-          <button data-lang="en" aria-label="English">🇺🇸</button>
-          <button data-lang="pt" aria-label="Português">🇧🇷</button>
-          <button data-lang="es" aria-label="Español">🇪🇸</button>
+          <button data-lang="en" aria-label="English"><span class="flag-emoji">🇺🇸</span><span class="flag-fallback">EN</span></button>
+          <button data-lang="pt" aria-label="Português"><span class="flag-emoji">🇧🇷</span><span class="flag-fallback">PT</span></button>
+          <button data-lang="es" aria-label="Español"><span class="flag-emoji">🇪🇸</span><span class="flag-fallback">ES</span></button>
         </div>
   <a class="cta" href="#contact" data-i18n="cta_demo"></a>
       </nav>
