@@ -96,6 +96,8 @@
     .industries{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px}
     .about-split{display:grid; grid-template-columns:1.1fr .9fr; gap:24px}
     form{display:grid; gap:14px}
+    form label{width:100%}
+    form input, form select, form textarea{width:100%; box-sizing:border-box}
     input, select, textarea{background:#0b1220; color:var(--text); border:1px solid rgba(148,163,184,.25); border-radius:12px; padding:12px 14px; font:inherit}
     textarea{min-height:120px}
     .btn{cursor:pointer}
@@ -107,12 +109,14 @@
       .nav{flex-direction:column; gap:12px; align-items:flex-start}
       .brand{margin-right:0}
       .nav-links{flex-wrap:wrap; gap:12px; width:100%}
+      .nav-links .cta{min-width:auto; padding:10px 16px; font-size:.9rem}
       .lead{font-size:clamp(15px, 1.6vw, 18px)}
       .hero-img{height:360px}
       .slides img{height:340px}
     }
     @media (max-width: 768px){
       .nav-links a{font-size:.9rem}
+      .nav-links .cta{font-size:.85rem; padding:8px 14px}
       .container{padding:0 16px}
       h1{font-size:clamp(28px, 7vw, 42px)}
       .hero-cta{gap:10px}
@@ -622,8 +626,9 @@
           <div class="card" style="margin-top:16px"><strong data-i18n="mission_slogan"></strong></div>
         </div>
         <div class="panel">
-          <p style="margin:0;color:var(--muted)">Email: <a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a> • Domain: techtrustautosolutions.com</p>
-          <p style="margin:6px 0 0;color:var(--muted)">Stack recomendado: Google Workspace (Gmail, Drive, Meet). Hosting: AWS / GCP / Hostinger US.</p>
+          <h3 style="margin:0 0 8px 0;font-size:1.1rem;font-weight:700">Your Trusted Fleet Service & Technology Partner</h3>
+          <p style="margin:0;color:var(--muted)">Contact: <a href="mailto:contact@techtrustautosolutions.com" style="color:var(--accent)">contact@techtrustautosolutions.com</a></p>
+          <p style="margin:12px 0 0;color:var(--silver);font-size:.95rem">Powered by Google Workspace and hosted on AWS infrastructure to ensure performance, reliability, and data security across the U.S.</p>
         </div>
       </div>
     </section>
