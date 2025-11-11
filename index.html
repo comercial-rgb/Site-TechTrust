@@ -49,6 +49,7 @@
     .lang button.active{border-color:var(--accent); color:#0b1220; background:linear-gradient(135deg,var(--accent),var(--accent-2))}
     .hero{position:relative; overflow:hidden}
     .hero-wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:36px; align-items:center; padding:64px 0}
+  .hero-img{width:100%; height:450px; object-fit:cover; border-radius:10px; border:1px solid rgba(148,163,184,.2)}
     .badge{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; background:rgba(56,189,248,.12); border:1px solid rgba(56,189,248,.25); color:#e0f2fe; border-radius:999px; font-weight:700; font-size:.85rem}
     h1{font-size:clamp(34px, 4.5vw, 58px); line-height:1.05; margin:14px 0 14px; font-weight:900}
     .lead{font-size:clamp(16px, 1.4vw, 20px); color:var(--silver)}
@@ -62,7 +63,15 @@
     .icon{width:38px; height:38px; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; color:#06121f; font-weight:900}
     .list{margin:14px 0 0; padding-left:18px}
     .list li{margin:8px 0}
-    .services{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px}
+  .services{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px}
+  /* Slider */
+  .slider{position:relative; margin:18px 0 6px; overflow:hidden; border-radius:12px; border:1px solid rgba(148,163,184,.18)}
+  .slides{display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:0}
+  .slides img{flex:0 0 100%; width:100%; height:300px; object-fit:cover; scroll-snap-align:center; display:block}
+  .slider-nav{position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; pointer-events:none}
+  .slider-btn{pointer-events:auto; background:rgba(2,6,23,.5); border:1px solid rgba(148,163,184,.25); color:#e2e8f0; width:42px; height:42px; border-radius:999px; display:grid; place-items:center; margin:0 8px}
+  .forms-row{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin-top:14px}
+  .hidden{display:none}
     .industries{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px}
     .about-split{display:grid; grid-template-columns:1.1fr .9fr; gap:24px}
     form{display:grid; gap:14px}
@@ -71,15 +80,36 @@
     .btn{cursor:pointer}
     footer{padding:50px 0; border-top:1px solid rgba(148,163,184,.18); color:var(--muted)}
     .f-grid{display:grid; grid-template-columns:1fr auto; gap:18px; align-items:center}
-    @media (max-width: 940px){.hero-wrap{grid-template-columns:1fr}.about-split{grid-template-columns:1fr}}
+    @media (max-width: 940px){
+      .hero-wrap{grid-template-columns:1fr; padding:42px 0}
+      .about-split{grid-template-columns:1fr}
+      .nav{flex-wrap:wrap; gap:10px}
+      .nav-links{flex-wrap:wrap; gap:12px}
+      .lead{font-size:clamp(15px, 1.6vw, 18px)}
+      .hero-img{height:360px}
+    }
+    @media (max-width: 768px){
+      .nav-links a{font-size:.9rem}
+      .container{padding:0 16px}
+      h1{font-size:clamp(28px, 7vw, 42px)}
+      .hero-cta{gap:10px}
+      .hero-img{height:300px}
+    }
+    @media (max-width: 480px){
+      .nav{gap:8px}
+      .nav-links{gap:10px}
+      .cta{padding:10px 14px}
+      .hero-cta{flex-direction:column; align-items:stretch}
+      .hero-img{height:240px}
+    }
   </style>
   <script>
     const I18N = {
       en: {
         nav_home: "Home", nav_about: "About", nav_services: "Services", nav_software: "Software", nav_industries: "Industries", nav_contact: "Contact",
         hero_badge: "Beyond Repair",
-        hero_h1: "The Integrated Fleet Performance Solution.",
-        hero_sub: "Minimize Total Cost of Ownership and maximize Uptime with the perfect fusion of certified maintenance services and cutting-edge Fleet Management Software.",
+  hero_h1: "Florida’s Integrated Fleet Service & Technology Hub.",
+  hero_sub: "From our Port St. Lucie service base, we deliver certified mechanical, brake, electrical, A/C, oil change and towing solutions — powered by our advanced Fleet Management Software for total operational control.",
         cta_demo: "REQUEST A FREE DEMO", cta_services: "EXPLORE OUR SERVICES",
         mission_title: "Transforming Fleet Management",
         mission_body: "We founded TechTrust AutoSolutions because managing a fleet shouldn't mean constant trade-offs between vehicle health and budget control. Our mission is to eliminate that compromise by providing a single, unified ecosystem where real-time data informs every service decision.",
@@ -101,12 +131,11 @@
         about_body: "Founded on the belief that fleet management shouldn't be a headache, TechTrust AutoSolutions bridges the gap between the shop floor and management efficiency. We're more than an automotive service center; we're your productivity partners.",
         about_mission: "Our Mission: Ensure every vehicle runs at peak performance and minimum cost, using data intelligence to anticipate problems before they stop your business.",
         about_diff: "Our Difference: We don't just repair or maintain; we optimize. Our fleet software powers our services so every intervention is strategic and grounded in real data.",
-        services_title: "Smart Fleet Maintenance Services", services_sub: "Quality, compliance, and downtime reduction—critical across the U.S.",
-        svc_1t: "Certified Fleet Maintenance: Powered by Data", svc_1d: "Our service centers support commercial fleets to meet operational goals and FMCSA standards.",
-        svc_2t: "DOT Compliance Inspections", svc_2d: "We handle required inspections to meet federal and state safety regulations.",
-        svc_3t: "Predictive Diagnostics", svc_3d: "Leverage Fleet Management Software telemetry to diagnose issues early and plan scheduled service.",
-        svc_4t: "Warranty & Repair Management", svc_4d: "Efficient warranty handling and detailed repair tracking, logged in your portal.",
-        svc_5t: "Tire & Component Life Cycle", svc_5d: "Proactive management of high-wear parts to maximize life and prevent failures.",
+  services_title: "Comprehensive Fleet Maintenance & Assistance Services", services_sub: "From our Port St. Lucie base, we deliver certified in-shop and on-site maintenance — combining mechanical expertise, compliance, and reliability across Florida.",
+  svc_1t: "Full-Service Fleet Maintenance & Repairs", svc_1d: "Our Port St. Lucie service center is equipped to handle all types of commercial vehicles — from cars and vans to trucks and buses. We offer preventive and corrective maintenance, brake services, electrical diagnostics, A/C repair, oil changes, and towing assistance.",
+  svc_2t: "DOT & FMCSA Compliance Inspections", svc_2d: "We perform comprehensive DOT inspections and safety checks that ensure every fleet vehicle meets state and federal standards, helping you maintain full compliance and avoid costly downtime.",
+  svc_3t: "Predictive & Connected Diagnostics", svc_3d: "Leveraging Fleet Management Software telemetry, our technicians detect potential issues before failures occur — allowing scheduled maintenance and real-time coordination with our mobile service units for on-site repairs.",
+  svc_4t: "Warranty, Repair & Assistance Management", svc_4d: "We handle warranty claims, track all service activity, and coordinate roadside assistance and towing — all digitally managed through your customer portal and integrated with our Fleet Management Software.",
         software_title: "TechTrust AutoSolutions — Compliance, Control, and Cost Savings",
         software_sub: "A cloud platform giving U.S. fleet managers total visibility and control.",
         sw_1t: "Compliance & Driver Safety", sw_1a: "HOS & ELD Integration", sw_1b: "Driver Scorecard", sw_1c: "License & Certification Tracking",
@@ -119,12 +148,16 @@
         contact_title: "Contact & Support", contact_sub: "Request a demo, ask a question, or start a custom quote.",
         form_name: "Full name", form_email: "Work email", form_company: "Company", form_size: "Fleet size", form_msg: "Message", form_send: "Send",
         footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. All rights reserved.",
+  florida_coverage: "Wherever your fleet goes, service follows. Through our statewide Florida network of certified repair shops and fuel partners, your vehicles get the support they need — from routine maintenance to emergency towing — all managed seamlessly within our Fleet Management Software.",
+  svc_schedule_btn: "Schedule a Service", svc_mobile_btn: "Request Mobile Mechanic", svc_mobile_note: "Home mechanic / on-site service may incur additional costs.",
+  schedule_form_title: "Schedule a Service", schedule_name: "Full name", schedule_vehicle: "Vehicle model", schedule_datetime: "Date & time", schedule_submit: "Book Slot", schedule_unavailable: "Selected slot unavailable. Choose another.",
+  mobile_form_title: "Request Mobile Mechanic", mobile_name: "Full name", mobile_vehicle: "Vehicle model", mobile_address: "Address", mobile_summary: "Request summary", mobile_datetime: "Preferred date & time", mobile_submit: "Send Request", mobile_disclaimer: "Date & time will be confirmed after we contact you.", mobile_hours: "Mobile service available 8 a.m. – 7 p.m.",
       },
       pt: {
         nav_home: "Início", nav_about: "Sobre Nós", nav_services: "Serviços", nav_software: "Software", nav_industries: "Indústrias", nav_contact: "Contato",
         hero_badge: "Além do Conserto",
-        hero_h1: "A Solução Integrada de Performance de Frotas.",
-        hero_sub: "Minimize o Total Cost of Ownership e maximize o Uptime com a fusão de manutenção certificada e um avançado Fleet Management Software.",
+  hero_h1: "O Centro Integrado de Serviços e Tecnologia para Frotas da Flórida.",
+  hero_sub: "A partir da nossa base em Port St. Lucie, oferecemos serviços certificados de mecânica, freios, elétrica, ar-condicionado, troca de óleo e guincho — impulsionados pelo nosso avançado Software de Gestão de Frotas, garantindo controle total da operação.",
         cta_demo: "SOLICITAR DEMO GRATUITA", cta_services: "CONHEÇA NOSSOS SERVIÇOS",
         mission_title: "Transformando a Gestão de Frotas",
         mission_body: "Fundamos a TechTrust AutoSolutions porque gerir uma frota não deve ser um equilíbrio constante entre saúde do veículo e orçamento. Nossa missão é eliminar esse compromisso com um ecossistema unificado, onde dados em tempo real orientam cada decisão de serviço.",
@@ -146,12 +179,11 @@
         about_body: "Nascemos da crença de que a gestão de frotas não precisa ser uma dor de cabeça. Unimos o chão da oficina à eficiência da gestão. Somos mais do que um centro automotivo: somos parceiros de produtividade.",
         about_mission: "Nossa Missão: Operação no máximo desempenho e menor custo, antecipando problemas com inteligência de dados.",
         about_diff: "Diferencial: Não apenas consertamos; otimizamos. O software de gestão de frotas alimenta nossos serviços para intervenções estratégicas e baseadas em dados.",
-        services_title: "Serviços Inteligentes de Manutenção de Frotas", services_sub: "Qualidade, conformidade e redução de downtime — cruciais nos EUA.",
-        svc_1t: "Manutenção Certificada Guiada por Dados", svc_1d: "Centros equipados para frotas comerciais, alinhados às metas operacionais e à FMCSA.",
-        svc_2t: "Inspeções de Conformidade (DOT)", svc_2d: "Cuidamos das inspeções exigidas por normas federais e estaduais.",
-        svc_3t: "Diagnóstico Preditivo", svc_3d: "Telemetria do Fleet Management Software para identificar falhas cedo e planejar paradas.",
-        svc_4t: "Gestão de Garantia e Reparos", svc_4d: "Tratativa eficiente de garantias e rastreio de reparos no seu portal.",
-        svc_5t: "Ciclo de Vida de Pneus e Componentes", svc_5d: "Gestão proativa de itens críticos para evitar falhas.",
+  services_title: "Serviços Completos de Manutenção e Assistência de Frotas", services_sub: "A partir da nossa base em Port St. Lucie, oferecemos manutenção certificada em oficina e atendimento móvel — unindo expertise mecânica, conformidade e confiabilidade em toda a Flórida.",
+  svc_1t: "Manutenção e Reparos Completos de Frotas", svc_1d: "Nossa unidade em Port St. Lucie está equipada para atender veículos comerciais de todos os portes — de carros e vans a caminhões e ônibus. Realizamos manutenção preventiva e corretiva, serviços de freios, elétrica básica, ar-condicionado, trocas de óleo e guincho.",
+  svc_2t: "Inspeções de Conformidade DOT e FMCSA", svc_2d: "Executamos inspeções completas e verificações de segurança conforme os padrões estaduais e federais, garantindo total conformidade e evitando paradas não planejadas.",
+  svc_3t: "Diagnóstico Preditivo e Conectado", svc_3d: "Com base nos dados do nosso Software de Gestão de Frotas, nossos técnicos identificam falhas antes que ocorram — permitindo manutenções programadas e suporte em campo através das nossas unidades móveis.",
+  svc_4t: "Gestão de Garantias, Reparos e Assistência", svc_4d: "Cuidamos das garantias, rastreamos todas as manutenções e coordenamos atendimentos de guincho e assistência — tudo de forma digital pelo seu portal e integrado ao nosso sistema de gestão de frotas.",
         software_title: "TechTrust AutoSolutions — Compliance, Controle e Economia", software_sub: "Plataforma em nuvem para visibilidade e controle total da frota.",
         sw_1t: "Compliance & Segurança do Motorista", sw_1a: "Integração HOS & ELD", sw_1b: "Scorecard do Motorista", sw_1c: "Gestão de Licenças e Certificações",
         sw_2t: "Controle de Custos & Eficiência de Combustível", sw_2a: "Analytics de Combustível", sw_2b: "Relatórios de Total Cost of Ownership",
@@ -163,12 +195,16 @@
         contact_title: "Contato & Suporte", contact_sub: "Peça uma demo, tire dúvidas ou solicite uma cotação.",
         form_name: "Nome completo", form_email: "E-mail corporativo", form_company: "Empresa", form_size: "Tamanho da frota", form_msg: "Mensagem", form_send: "Enviar",
         footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos os direitos reservados.",
+  florida_coverage: "Onde sua frota estiver, o serviço vai até você. Com nossa rede de oficinas certificadas e parceiros de combustível em toda a Flórida, seus veículos recebem suporte completo — desde manutenções preventivas até guinchos de emergência — tudo gerenciado de forma integrada pelo nosso Software de Gestão de Frotas.",
+  svc_schedule_btn: "Agendar um serviço", svc_mobile_btn: "Solicitar mecânico em casa", svc_mobile_note: "Serviço móvel / em casa pode gerar custos adicionais.",
+  schedule_form_title: "Agendar um Serviço", schedule_name: "Nome completo", schedule_vehicle: "Modelo do veículo", schedule_datetime: "Data e horário", schedule_submit: "Reservar horário", schedule_unavailable: "Horário indisponível. Escolha outro.",
+  mobile_form_title: "Solicitar Mecânico em Casa", mobile_name: "Nome completo", mobile_vehicle: "Modelo do veículo", mobile_address: "Endereço", mobile_summary: "Resumo da solicitação", mobile_datetime: "Data e horário preferidos", mobile_submit: "Enviar solicitação", mobile_disclaimer: "Data e horário serão confirmados após contato.", mobile_hours: "Serviço móvel disponível das 8h às 19h.",
       },
       es: {
         nav_home: "Inicio", nav_about: "Nosotros", nav_services: "Servicios", nav_software: "Software", nav_industries: "Industrias", nav_contact: "Contacto",
         hero_badge: "Más allá de la reparación",
-        hero_h1: "La solución integrada de rendimiento de flotas.",
-        hero_sub: "Minimice el Total Cost of Ownership y maximice el uptime con la fusión de mantenimiento certificado y un avanzado Fleet Management Software.",
+  hero_h1: "El Centro Integrado de Servicios y Tecnología de Flotas de Florida.",
+  hero_sub: "Desde nuestra base de servicios en Port St. Lucie, brindamos mantenimiento mecánico certificado, frenos, electricidad, aire acondicionado, cambio de aceite y remolque — impulsado por nuestro avanzado Software de Gestión de Flotas para control operativo total.",
         cta_demo: "SOLICITE UNA DEMO GRATUITA", cta_services: "EXPLORAR SERVICIOS",
         mission_title: "Transformando la gestión de flotas",
         mission_body: "Fundamos TechTrust AutoSolutions para eliminar los compromisos entre salud del vehículo y presupuesto, con un ecosistema unificado donde los datos en tiempo real guían cada decisión.",
@@ -190,12 +226,11 @@
         about_body: "Unimos el taller con la eficiencia de gestión. Más que un centro automotriz: socios en productividad.",
         about_mission: "Asegurar máximo rendimiento al menor costo, anticipando problemas con datos.",
         about_diff: "Diferencial: No solo reparamos; optimizamos con software.",
-        services_title: "Servicios Inteligentes de Mantenimiento", services_sub: "Calidad, cumplimiento y menos tiempo fuera de servicio.",
-        svc_1t: "Mantenimiento Certificado impulsado por datos", svc_1d: "Centros para flotas comerciales alineados a FMCSA.",
-        svc_2t: "Inspecciones de Cumplimiento (DOT)", svc_2d: "Nos encargamos de inspecciones federales y estatales.",
-        svc_3t: "Diagnóstico Predictivo", svc_3d: "Telemetría del Fleet Management Software para planificar servicio programado.",
-        svc_4t: "Gestión de Garantías y Reparaciones", svc_4d: "Gestión eficiente y trazabilidad en su portal.",
-        svc_5t: "Ciclo de Vida de Neumáticos y Componentes", svc_5d: "Gestión proactiva de piezas críticas.",
+  services_title: "Servicios Integrales de Mantenimiento y Asistencia de Flotas", services_sub: "Desde nuestra base en Port St. Lucie, ofrecemos mantenimiento certificado en taller y asistencia móvil — combinando experiencia mecánica, cumplimiento y confiabilidad en toda Florida.",
+  svc_1t: "Mantenimiento y Reparaciones Completas de Flotas", svc_1d: "Nuestro centro en Port St. Lucie atiende vehículos comerciales de todo tipo — autos, vans, camiones y autobuses. Realizamos mantenimiento preventivo y correctivo, frenos, electricidad básica, aire acondicionado, cambios de aceite y servicio de grúa.",
+  svc_2t: "Inspecciones de Cumplimiento DOT y FMCSA", svc_2d: "Realizamos inspecciones y controles de seguridad conforme a las normas estatales y federales, asegurando el cumplimiento total y evitando tiempos de inactividad costosos.",
+  svc_3t: "Diagnóstico Predictivo y Conectado", svc_3d: "Con los datos del Software de Gestión de Flotas, nuestros técnicos detectan fallas antes de que ocurran, programan el mantenimiento y coordinan reparaciones en sitio con nuestras unidades móviles.",
+  svc_4t: "Gestión de Garantías, Reparaciones y Asistencia", svc_4d: "Gestionamos garantías, seguimiento de servicios, asistencia en carretera y remolque — todo de manera digital desde su portal y conectado con nuestro Software de Gestión de Flotas.",
         software_title: "Cumplimiento, Control y Ahorros", software_sub: "Plataforma en la nube para visibilidad total.",
         sw_1t: "Cumplimiento y Seguridad", sw_1a: "Integración HOS & ELD", sw_1b: "Scorecard del Conductor", sw_1c: "Gestión de Licencias",
         sw_2t: "Control de Costos y Combustible", sw_2a: "Analítica de Combustible", sw_2b: "Reportes de Total Cost of Ownership",
@@ -207,6 +242,10 @@
         contact_title: "Contacto y Soporte", contact_sub: "Solicite una demo o una cotización.",
         form_name: "Nombre completo", form_email: "Correo corporativo", form_company: "Empresa", form_size: "Tamaño de la flota", form_msg: "Mensaje", form_send: "Enviar",
         footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos los derechos reservados.",
+  florida_coverage: "Donde esté su flota, el servicio la acompaña. A través de nuestra red estatal de talleres certificados y socios de combustible en Florida, sus vehículos reciben soporte completo — desde mantenimiento preventivo hasta asistencia y remolque de emergencia — todo gestionado de manera integrada con nuestro Software de Gestión de Flotas.",
+  svc_schedule_btn: "Programar un servicio", svc_mobile_btn: "Solicitar mecánico móvil", svc_mobile_note: "Servicio móvil / en domicilio puede generar costos adicionales.",
+  schedule_form_title: "Programar un Servicio", schedule_name: "Nombre completo", schedule_vehicle: "Modelo del vehículo", schedule_datetime: "Fecha y hora", schedule_submit: "Reservar", schedule_unavailable: "Horario no disponible. Elija otro.",
+  mobile_form_title: "Solicitar Mecánico en Domicilio", mobile_name: "Nombre completo", mobile_vehicle: "Modelo del vehículo", mobile_address: "Dirección", mobile_summary: "Resumen de la solicitud", mobile_datetime: "Fecha y hora preferidas", mobile_submit: "Enviar solicitud", mobile_disclaimer: "La fecha y hora se confirmarán tras el contacto.", mobile_hours: "Servicio móvil disponible de 8 a.m. a 7 p.m.",
       }
     };
 
@@ -225,22 +264,141 @@
       });
       setLang('en');
 
+      // Detect local static preview (no serverless) and warn
+      const serverlessWarning = document.createElement('div');
+      serverlessWarning.style.cssText = 'background:#1e293b;color:#fbbf24;padding:10px 14px;border:1px solid #fbbf24;border-radius:10px;font-size:13px;margin:12px 0';
+      serverlessWarning.textContent = 'Aviso: API indisponível em servidor estático local. Use "vercel dev" para testar envio de formulários.';
+      fetch('/api/contact', { method:'OPTIONS'}).catch(()=>{
+        // If OPTIONS fails quickly, assume no serverless runtime
+        document.querySelector('#contact .container')?.prepend(serverlessWarning);
+      });
+
       const form = document.getElementById('contact-form');
+      const contactStatus = document.createElement('p');
+      contactStatus.style.cssText='font-size:13px;margin:6px 0 0';
+      form?.appendChild(contactStatus);
       form?.addEventListener('submit', async (e)=>{
         e.preventDefault();
+        contactStatus.textContent='Enviando...'; contactStatus.style.color='#60a5fa';
         const data = Object.fromEntries(new FormData(form).entries());
         try{
           const res = await fetch('/api/contact',{
             method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)
           });
           if(!res.ok) throw new Error('Network response was not ok');
-          alert(`Obrigado! Entraremos em contato em ${data.email}.`);
+          contactStatus.textContent=`Obrigado! Entraremos em contato em ${data.email}.`; contactStatus.style.color='#38bdf8';
           form.reset();
         }catch(err){
           console.error(err);
-          alert('Não foi possível enviar agora. Tente novamente em instantes ou envie para contact@techtrustautosolutions.com');
+          contactStatus.textContent='Falha ao enviar. Verifique sua conexão ou tente via vercel dev.'; contactStatus.style.color='#f87171';
         }
       })
+
+      // Slider controls
+      const slides = document.getElementById('service-slides');
+      const prev = document.getElementById('prevSlide');
+      const next = document.getElementById('nextSlide');
+      const slideWidth = ()=> slides?.querySelector('img')?.getBoundingClientRect().width || 0;
+      prev?.addEventListener('click', ()=> slides.scrollBy({left: -slideWidth(), behavior:'smooth'}));
+      next?.addEventListener('click', ()=> slides.scrollBy({left: slideWidth(), behavior:'smooth'}));
+
+      // Toggle forms
+      const btnSchedule = document.getElementById('btnSchedule');
+      const btnMobile = document.getElementById('btnMobile');
+      const formSchedule = document.getElementById('formSchedule');
+      const formMobile = document.getElementById('formMobile');
+      btnSchedule?.addEventListener('click', ()=>{
+        formSchedule?.classList.toggle('hidden');
+        if(!formSchedule?.classList.contains('hidden')) formMobile?.classList.add('hidden');
+      });
+      btnMobile?.addEventListener('click', ()=>{
+        formMobile?.classList.toggle('hidden');
+        if(!formMobile?.classList.contains('hidden')) formSchedule?.classList.add('hidden');
+      });
+
+      // Business hours validation (8am-5pm) and 1h slot simulation
+      function withinBusinessHours(dt){
+        const h = dt.getHours();
+        return h >= 8 && h < 17; // 5pm exclusive
+      }
+      function parseLocalDateTime(val){
+        // val like '2025-11-11T10:00'
+        return val ? new Date(val) : null;
+      }
+
+      document.getElementById('formSchedule')?.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const f = e.target;
+        const data = Object.fromEntries(new FormData(f).entries());
+        const dt = parseLocalDateTime(data.datetime);
+        const err = document.getElementById('scheduleError');
+        let status = document.getElementById('scheduleStatus');
+        if(!status){
+          status = document.createElement('p');
+          status.id = 'scheduleStatus';
+          status.style.cssText = 'font-size:13px;margin:6px 0 0;color:#60a5fa';
+          f.appendChild(status);
+        }
+        if(!dt || !withinBusinessHours(dt)){
+          err?.classList.remove('hidden');
+          status.textContent='';
+          return;
+        }
+        err?.classList.add('hidden');
+        status.textContent='Verificando disponibilidade...';
+        // Check Google Calendar availability (serverless)
+        try{
+          const availRes = await fetch('/api/availability', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ datetime: data.datetime }) });
+          if(!availRes.ok){
+            throw new Error('availability failed');
+          }
+          const avail = await availRes.json();
+          if(!avail.ok || avail.available === false){
+            err?.classList.remove('hidden');
+            status.textContent='';
+            return;
+          }
+        }catch(_){
+          // on error, assume available and proceed
+        }
+        status.textContent='Enviando...';
+        try{
+          const res = await fetch('/api/contact',{method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({
+            type:'schedule', name:data.name, vehicle:data.vehicle, datetime:data.datetime, email:'contact@techtrustautosolutions.com'
+          })});
+          if(!res.ok) throw new Error('Failed');
+          status.textContent='Agendamento enviado! Confirmaremos por e-mail.'; status.style.color='#38bdf8';
+          f.reset();
+        }catch(err){
+          console.error(err);
+          status.textContent='Falha ao enviar. Tente novamente.'; status.style.color='#f87171';
+        }
+      });
+
+      document.getElementById('formMobile')?.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const f = e.target;
+        const data = Object.fromEntries(new FormData(f).entries());
+        let status = document.getElementById('mobileStatus');
+        if(!status){
+          status = document.createElement('p');
+          status.id='mobileStatus';
+          status.style.cssText='font-size:13px;margin:6px 0 0;color:#60a5fa';
+          f.appendChild(status);
+        }
+        status.textContent='Enviando...';
+        try{
+          const res = await fetch('/api/contact',{method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({
+            type:'mobile', name:data.name, vehicle:data.vehicle, address:data.address, summary:data.summary, datetime:data.datetime||null, email:'contact@techtrustautosolutions.com'
+          })});
+          if(!res.ok) throw new Error('Failed');
+          status.textContent='Solicitação enviada! Entraremos em contato para confirmar.'; status.style.color='#38bdf8';
+          f.reset();
+        }catch(err){
+          console.error(err);
+          status.textContent='Falha ao enviar. Tente novamente.'; status.style.color='#f87171';
+        }
+      });
     })
   </script>
   <script type="application/ld+json">
@@ -279,7 +437,7 @@
           <button data-lang="pt" aria-label="Português">PT</button>
           <button data-lang="es" aria-label="Español">ES</button>
         </div>
-        <a class="cta" href="#demo" data-i18n="cta_demo"></a>
+  <a class="cta" href="#contact" data-i18n="cta_demo"></a>
       </nav>
     </div>
   </header>
@@ -297,7 +455,7 @@
             <a class="cta secondary" href="#services" data-i18n="cta_services"></a>
           </div>
           <div class="card" style="margin-top:16px">
-            <strong>Florida Coverage:</strong> Base e serviços em <b>Port St. Lucie</b> com atendimento em toda a <b>Flórida</b> através de uma rede integrada de <b>oficinas e postos de combustíveis</b>. O cliente acessa a rede credenciada e adquire os serviços que precisar.
+            <span data-i18n="florida_coverage"></span>
           </div>
         </div>
         <div class="panel">
@@ -305,10 +463,10 @@
           <div class="grid" style="grid-template-columns:1fr; gap:10px">
             <picture>
               <source type="image/webp" srcset="/foto-site-1.webp 1x, /foto-site-1@2x.webp 2x">
-              <img src="/foto-site.png" alt="Fleet image" style="width:100%;height:450px;object-fit:cover;border-radius:10px;border:1px solid rgba(148,163,184,.2)">
+              <img class="hero-img" src="/foto-site.png" alt="Fleet image">
             </picture>
           </div>
-          <small style="color:var(--muted);display:block;margin-top:10px">Imagens ilustrativas — trocaremos por fotos próprias e telas do Fleet Management Software.</small>
+          <small style="color:var(--muted);display:block;margin-top:10px">Imagens ilustrativas.</small>
         </div>
       </div>
     </section>
@@ -389,17 +547,58 @@
       </div>
     </section>
 
-    <!-- Services / Solutions -->
+    <!-- Services / Solutions (moved above Pillars) -->
     <section id="services">
       <div class="container">
         <h2 class="section-title" data-i18n="services_title"></h2>
         <p class="section-sub" data-i18n="services_sub"></p>
+        <div class="slider" aria-label="Service photos slider">
+          <div class="slides" id="service-slides">
+            <img src="/foto-02-site.png" alt="Service photo 1">
+            <img src="/foto-03-site.png" alt="Service photo 2">
+            <img src="/foto-04-site.png" alt="Service photo 3" onerror="this.style.display='none'">
+            <img src="/foto-05-site.png" alt="Service photo 4">
+            <img src="/foto-06-site.png" alt="Service photo 5">
+            <img src="/foto-07-site.png" alt="Service photo 6">
+          </div>
+          <div class="slider-nav">
+            <button class="slider-btn" id="prevSlide" aria-label="Prev">‹</button>
+            <button class="slider-btn" id="nextSlide" aria-label="Next">›</button>
+          </div>
+        </div>
         <div class="services" style="margin-top:18px">
           <div class="card"><h3 data-i18n="svc_1t"></h3><p data-i18n="svc_1d"></p></div>
           <div class="card"><h3 data-i18n="svc_2t"></h3><p data-i18n="svc_2d"></p></div>
           <div class="card"><h3 data-i18n="svc_3t"></h3><p data-i18n="svc_3d"></p></div>
           <div class="card"><h3 data-i18n="svc_4t"></h3><p data-i18n="svc_4d"></p></div>
-          <div class="card"><h3 data-i18n="svc_5t"></h3><p data-i18n="svc_5d"></p></div>
+        </div>
+        <div class="hero-cta" style="margin-top:24px">
+          <button class="cta" id="btnSchedule" data-i18n="svc_schedule_btn" type="button"></button>
+          <button class="cta secondary" id="btnMobile" data-i18n="svc_mobile_btn" type="button"></button>
+        </div>
+        <small style="display:block;margin-top:8px;color:var(--muted)" data-i18n="svc_mobile_note"></small>
+        <div class="forms-row" id="serviceForms" style="margin-top:22px">
+          <form id="formSchedule" class="card hidden" aria-labelledby="scheduleTitle">
+            <h3 id="scheduleTitle" data-i18n="schedule_form_title"></h3>
+            <label><span data-i18n="schedule_name"></span><br><input name="name" required></label>
+            <label><span data-i18n="schedule_vehicle"></span><br><input name="vehicle" required></label>
+            <label><span data-i18n="schedule_datetime"></span><br><input name="datetime" type="datetime-local" required></label>
+            <input type="hidden" name="type" value="schedule">
+            <button class="cta btn" type="submit" data-i18n="schedule_submit"></button>
+            <p class="hidden" id="scheduleError" style="color:#f87171" data-i18n="schedule_unavailable"></p>
+          </form>
+          <form id="formMobile" class="card hidden" aria-labelledby="mobileTitle">
+            <h3 id="mobileTitle" data-i18n="mobile_form_title"></h3>
+            <label><span data-i18n="mobile_name"></span><br><input name="name" required></label>
+            <label><span data-i18n="mobile_vehicle"></span><br><input name="vehicle" required></label>
+            <label><span data-i18n="mobile_address"></span><br><input name="address" required></label>
+            <label><span data-i18n="mobile_summary"></span><br><textarea name="summary" required></textarea></label>
+            <label><span data-i18n="mobile_datetime"></span><br><input name="datetime" type="datetime-local"></label>
+            <input type="hidden" name="type" value="mobile">
+            <small style="color:var(--muted)" data-i18n="mobile_hours"></small>
+            <small style="color:var(--muted);display:block;margin-top:6px" data-i18n="mobile_disclaimer"></small>
+            <button class="cta btn" type="submit" data-i18n="mobile_submit"></button>
+          </form>
         </div>
       </div>
     </section>
