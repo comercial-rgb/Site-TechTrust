@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TechTrust AutoSolutions — Fleet Performance, Beyond Repair</title>
-  <meta name="description" content="TechTrust AutoSolutions unifies certified fleet maintenance and advanced Fleet Management Software to minimize Total Cost of Ownership and maximize uptime." />
-  <meta name="keywords" content="Fleet Management Software, DOT, FMCSA, ELD, HOS, Predictive Maintenance, Fleet Maintenance, Uptime, Total Cost of Ownership, Fuel Management, Driver Safety, Florida" />
-  <meta property="og:title" content="TechTrust AutoSolutions — Fleet Performance, Beyond Repair" />
-  <meta property="og:description" content="The integrated ecosystem for certified maintenance + Fleet Management Software. Minimize Total Cost of Ownership and maximize uptime." />
+  <title>TechTrust AutoSolutions — Fleet Management App & Service Center</title>
+  <meta name="description" content="Manage your entire fleet from your phone. Request services, track vehicles with cameras, control costs, and monitor fuel — powered by our Port St. Lucie service center and Florida-wide network." />
+  <meta name="keywords" content="Fleet Management App, Mobile Fleet Management, Vehicle Tracking, Fleet GPS, Service Requests, Cost Control, Fuel Management, Port St. Lucie, Florida, DOT Compliance, Auto Maintenance App" />
+  <meta property="og:title" content="TechTrust AutoSolutions — Fleet Management App & Service Center" />
+  <meta property="og:description" content="The all-in-one mobile app for fleet management. Request services, track vehicles with cameras, control costs, and manage fuel across Florida." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://techtrustautosolutions.com/" />
   <meta property="og:image" content="/assets/og-image.jpg" />
@@ -101,6 +101,13 @@
   .hidden{display:none}
     .industries{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px}
     .about-split{display:grid; grid-template-columns:1.1fr .9fr; gap:24px}
+    /* How It Works Steps */
+    .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:28px; margin-top:32px}
+    .step-card{background:linear-gradient(135deg,rgba(56,189,248,.08),rgba(96,165,250,.08)); border:1px solid rgba(56,189,248,.25); border-radius:var(--radius); padding:28px 24px; position:relative; transition:transform 0.3s ease, box-shadow 0.3s ease}
+    .step-card:hover{transform:translateY(-4px); box-shadow:0 16px 40px rgba(56,189,248,.2)}
+    .step-number{position:absolute; top:-16px; left:24px; width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#06121f; font-weight:900; font-size:1.5rem; display:grid; place-items:center; box-shadow:0 4px 12px rgba(56,189,248,.4)}
+    .step-card h3{margin:24px 0 12px; font-size:1.3rem; font-weight:800}
+    .step-card p{margin:0; color:var(--silver); line-height:1.6}
     form{display:grid; gap:14px}
     form label{width:100%}
     form input, form select, form textarea{width:100%; box-sizing:border-box}
@@ -168,14 +175,14 @@
   <script>
     const I18N = {
       en: {
-        nav_home: "Home", nav_about: "About", nav_services: "Services", nav_software: "Software", nav_industries: "Industries", nav_contact: "Contact",
-        hero_badge: "Beyond Repair",
-  hero_h1: "Florida’s Integrated Fleet Service & Technology Hub.",
-  hero_sub: "From our Port St. Lucie service base, we deliver certified mechanical, brake, electrical, A/C, oil change and towing solutions — powered by our advanced Fleet Management Software for total operational control.",
-        cta_demo: "REQUEST A FREE DEMO", cta_services: "EXPLORE OUR SERVICES",
-        mission_title: "Transforming Fleet Management",
-        mission_body: "We founded TechTrust AutoSolutions because managing a fleet shouldn't mean constant trade-offs between vehicle health and budget control. Our mission is to eliminate that compromise by providing a single, unified ecosystem where real-time data informs every service decision.",
-        mission_slogan: "We don't just fix vehicles; we optimize your logistics operation.",
+        nav_home: "Home", nav_about: "About", nav_services: "App Features", nav_software: "Software", nav_industries: "Industries", nav_contact: "Contact",
+        hero_badge: "All-in-One Fleet App",
+  hero_h1: "Manage Your Entire Fleet from Your Phone.",
+  hero_sub: "From our Port St. Lucie headquarters, we combine a light service center with our powerful mobile app — giving you total control over service requests, vehicle tracking, cost management, and fuel monitoring across Florida.",
+        cta_demo: "REQUEST A FREE DEMO", cta_services: "DOWNLOAD THE APP", cta_ios: "Download on App Store", cta_android: "Get it on Google Play",
+        mission_title: "Transforming Fleet Management Through Mobile Technology",
+        mission_body: "We founded TechTrust AutoSolutions to put complete fleet control in the palm of your hand. Our mobile app connects you with certified service providers across Florida while our Port St. Lucie headquarters handles light maintenance — oil changes, brakes, diagnostics, and basic electrical work.",
+        mission_slogan: "We don't just fix vehicles; we give you the tools to manage your entire fleet from anywhere.",
         pillars_title: "The TechTrust AutoSolutions Ecosystem: Two Pillars of Performance",
         pillars_sub: "With our solution, your Fleet Management Software data guides maintenance so you never overspend or suffer unexpected breakdowns.",
         p1_title: "Certified Fleet Maintenance Services",
@@ -190,22 +197,23 @@
         proof_res: "Proven Results: 5% lower fuel spend, up to 10% lower maintenance costs, plus advanced tracking for demanding operations.",
         proof_cta: "GET STARTED: REQUEST A CUSTOM QUOTE",
   hq_headquarters_label: "Headquarters:", hq_headquarters: "Port St. Lucie, Florida",
-  hq_coverage_label: "Coverage:", hq_coverage: "Our main service base operates in Port St. Lucie, offering full coverage across Florida through an integrated network of certified repair shops and fuel partners. Fleet managers can easily access authorized providers and request maintenance, repairs, refueling, and towing directly through our platform.",
-  hq_focus_label: "Focus:", hq_focus: "Preventive and corrective mechanical services, brake and electrical systems, A/C diagnostics and repair, oil changes, and emergency towing assistance — all aligned with professional fleet management standards.",
-  hq_cert_label: "Certifications:", hq_cert: "DOT/FMCSA-compliant procedures and ASE-certified readiness programs ensure quality, safety, and operational reliability for every fleet we serve.",
-  hq_commit_label: "Commitment:", hq_commit: "We combine local expertise with cutting-edge technology to keep your fleet running efficiently, safely, and without interruptions across Florida.",
-        about_title: "From Shop Floor to Dashboard: Optimizing Your Fleet with Technology.",
-        about_body: "Founded on the belief that fleet management shouldn't be a headache, TechTrust AutoSolutions bridges the gap between the shop floor and management efficiency. We're more than an automotive service center; we're your productivity partners.",
-        about_mission: "Our Mission: Ensure every vehicle runs at peak performance and minimum cost, using data intelligence to anticipate problems before they stop your business.",
-        about_diff: "Our Difference: We don't just repair or maintain; we optimize. Our fleet software powers our services so every intervention is strategic and grounded in real data.",
-  services_title: "Comprehensive Fleet Maintenance & Assistance Services", services_sub: "From our Port St. Lucie base, we deliver certified in-shop and on-site maintenance — combining mechanical expertise, compliance, and reliability across Florida.",
-  svc_1t: "Full-Service Fleet Maintenance & Repairs", svc_1d: "Our Port St. Lucie service center is equipped to handle all types of commercial vehicles — from cars and vans to trucks and buses. We offer preventive and corrective maintenance, brake services, electrical diagnostics, A/C repair, oil changes, and towing assistance.",
-  svc_2t: "DOT & FMCSA Compliance Inspections", svc_2d: "We perform comprehensive DOT inspections and safety checks that ensure every fleet vehicle meets state and federal standards, helping you maintain full compliance and avoid costly downtime.",
-  svc_3t: "Predictive & Connected Diagnostics", svc_3d: "Our technicians use advanced data analytics within the Fleet Management Software to identify potential issues early — enabling preventive maintenance, smarter scheduling, and real-time coordination with our mobile service units for on-site repairs.",
-  svc_4t: "Warranty, Repair & Assistance Management", svc_4d: "We handle warranty claims, track all service activity, and coordinate roadside assistance and towing — all digitally managed through your customer portal and integrated with our Fleet Management Software.",
-  svc_5t: "Mobile & On-Site Assistance", svc_5d: "Our mobile service units extend our workshop to your fleet's location. Whether it's emergency towing, oil change, electrical repair, or A/C service, we deliver certified quality wherever your vehicle is — saving time and keeping your fleet on the move.",
-  svc_6t: "Integrated Service Management Platform", svc_6d: "Experience total control with our digital platform — from scheduling and approvals to cost tracking and service history. Every maintenance action, inspection, and report is logged automatically, connecting our technicians, your fleet, and your business in real time.",
-  suggestion_callout: "Now serving fleets across Florida with mobile units, certified workshops, and a fully integrated digital management system — ensuring quality, agility, and complete visibility for your operations.",
+  hq_coverage_label: "Coverage:", hq_coverage: "Our Port St. Lucie headquarters serves as our main office and light service center. Through our mobile app, fleet managers across Florida can request services from our certified partner network — from routine maintenance to emergency towing — all managed digitally.",
+  hq_focus_label: "On-Site Services:", hq_focus: "Light maintenance at our Port St. Lucie facility: oil changes, brake service, basic electrical diagnostics, A/C service, and vehicle inspections. For major repairs, our app connects you with certified partners statewide.",
+  hq_cert_label: "App Features:", hq_cert: "Real-time vehicle tracking with camera integration, automated service alerts, complete cost tracking, fuel management analytics, and instant access to our certified service network across Florida.",
+  hq_commit_label: "Commitment:", hq_commit: "We combine hands-on local service with cutting-edge mobile technology to keep your fleet running efficiently, safely, and affordably across Florida.",
+        about_title: "From Mobile App to Service Bay: Your Complete Fleet Solution.",
+        about_body: "Founded on the belief that fleet management should be accessible from anywhere, TechTrust AutoSolutions bridges mobile convenience with hands-on service. Our app puts powerful management tools in your pocket while our Port St. Lucie center handles your light maintenance needs.",
+        about_mission: "Our Mission: Give fleet managers complete control through mobile technology, backed by reliable service from our headquarters and partner network across Florida.",
+        about_diff: "Our Difference: We're not just a service shop or just an app — we're both. Request services, track vehicles, monitor costs, and manage fuel, all while knowing you have a certified team ready to help at our Port St. Lucie facility.",
+  florida_coverage: "Wherever your fleet goes, service follows. Through our app, we connect you with our certified repair shop network across Florida — from routine maintenance to emergency towing — all managed digitally from your phone.",
+  app_features_title: "Everything You Need in One App", app_features_sub: "Request services, track vehicles, control costs and manage fuel — all from your mobile device. Our Port St. Lucie service center handles light maintenance while our network covers all your fleet needs across Florida.",
+  app_1t: "Request Any Auto Service", app_1d: "Need an oil change, brake repair, electrical work, diagnostics, or towing? Simply open the app, select your vehicle, describe the issue, and we'll connect you with certified technicians from our Florida network. From Port St. Lucie to statewide coverage.",
+  app_2t: "Real-Time Vehicle Tracking", app_2d: "Monitor your entire fleet's location in real-time with optional integrated cameras. Get instant alerts on routes, stops, idle time, and driver behavior — giving you complete visibility and control from anywhere.",
+  app_3t: "Service Alerts & Maintenance Scheduling", app_3d: "Never miss oil changes, brake inspections, or DOT compliance deadlines. Our app tracks mileage and service history, sending automatic alerts and letting you schedule maintenance with one tap at our Port St. Lucie center or any partner shop.",
+  app_4t: "Complete Cost Control", app_4d: "Track every expense: repairs, parts, labor, fuel, and towing. Generate reports instantly, identify spending patterns, and make data-driven decisions to reduce your Total Cost of Ownership across your entire fleet.",
+  app_5t: "Smart Fuel Management", app_5d: "Monitor fuel consumption in real-time, detect anomalies, identify inefficient routes and excessive idling. Our integrated fuel solution helps you reduce waste and save up to 5% on fuel costs through data-driven insights.",
+  app_6t: "Port St. Lucie Service Center", app_6d: "Our headquarters offers light maintenance services: oil changes, brake service, basic electrical work, and diagnostics. Book directly through the app and get priority scheduling at our certified facility.",
+  app_callout: "Download the TechTrust AutoSolutions app today and experience the future of fleet management — combining mobile convenience with our Port St. Lucie service expertise and Florida-wide network.",
   software_title: "TechTrust AutoSolutions — Compliance, Control, and Cost Savings",
         software_sub: "A cloud platform giving U.S. fleet managers total visibility and control.",
         sw_1t: "Compliance & Driver Safety", sw_1a: "HOS & ELD Integration", sw_1b: "Driver Scorecard", sw_1c: "License & Certification Tracking",
@@ -217,21 +225,21 @@
         ind3_t: "Field Services & Last‑Mile Delivery", ind3_d: "Smart routing, proof of service, and express preventive maintenance for light-duty fleets.",
         contact_title: "Contact & Support", contact_sub: "Request a demo, ask a question, or start a custom quote.",
         form_name: "Full name", form_email: "Work email", form_company: "Company", form_size: "Fleet size", form_msg: "Message", form_send: "Send",
-        footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. All rights reserved.",
+        footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolapp, we connect you with our certified repair shop network across Florida — from routine maintenance to emergency towing — all managed digitally from your phon
   florida_coverage: "Wherever your fleet goes, service follows. Through our statewide Florida network of certified repair shops and fuel partners, your vehicles get the support they need — from routine maintenance to emergency towing — all managed seamlessly within our Fleet Management Software.",
   svc_schedule_btn: "Schedule a Service", svc_mobile_btn: "Request Mobile Mechanic", svc_mobile_note: "Home mechanic / on-site service may incur additional costs.",
   schedule_form_title: "Schedule a Service", schedule_name: "Full name", schedule_email: "Email", schedule_phone: "Phone", schedule_vehicle: "Vehicle model", schedule_datetime: "Date & time", schedule_submit: "Book Slot", schedule_unavailable: "Selected slot unavailable. Choose another.",
   mobile_form_title: "Request Mobile Mechanic", mobile_name: "Full name", mobile_email: "Email", mobile_phone: "Phone", mobile_vehicle: "Vehicle model", mobile_address: "Address", mobile_summary: "Request summary", mobile_datetime: "Preferred date & time", mobile_submit: "Send Request", mobile_disclaimer: "Date & time will be confirmed after we contact you.", mobile_hours: "Mobile service available 8 a.m. – 7 p.m.",
       },
       pt: {
-        nav_home: "Início", nav_about: "Sobre Nós", nav_services: "Serviços", nav_software: "Software", nav_industries: "Indústrias", nav_contact: "Contato",
-        hero_badge: "Além do Conserto",
-  hero_h1: "O Centro Integrado de Serviços e Tecnologia para Frotas da Flórida.",
-  hero_sub: "A partir da nossa base em Port St. Lucie, oferecemos serviços certificados de mecânica, freios, elétrica, ar-condicionado, troca de óleo e guincho — impulsionados pelo nosso avançado Software de Gestão de Frotas, garantindo controle total da operação.",
-        cta_demo: "SOLICITAR DEMO GRATUITA", cta_services: "CONHEÇA NOSSOS SERVIÇOS",
-        mission_title: "Transformando a Gestão de Frotas",
-        mission_body: "Fundamos a TechTrust AutoSolutions porque gerir uma frota não deve ser um equilíbrio constante entre saúde do veículo e orçamento. Nossa missão é eliminar esse compromisso com um ecossistema unificado, onde dados em tempo real orientam cada decisão de serviço.",
-        mission_slogan: "Não apenas consertamos veículos; otimizamos sua operação logística.",
+        nav_home: "Início", nav_about: "Sobre Nós", nav_services: "Funcionalidades", nav_software: "Software", nav_industries: "Indústrias", nav_contact: "Contato",
+        hero_badge: "App Completo para Frotas",
+  hero_h1: "Gerencie Toda Sua Frota pelo Celular.",
+  hero_sub: "Da nossa sede em Port St. Lucie, combinamos um centro de serviços leves com nosso poderoso aplicativo móvel — dando controle total sobre solicitações de serviços, rastreamento veicular, gestão de custos e monitoramento de combustível em toda a Flórida.",
+        cta_demo: "SOLICITAR DEMO GRATUITA", cta_services: "BAIXAR O APP", cta_ios: "Baixar na App Store", cta_android: "Baixar no Google Play",
+        mission_title: "Transformando a Gestão de Frotas com Tecnologia Móvel",
+        mission_body: "Fundamos a TechTrust AutoSolutions para colocar o controle total da sua frota na palma da sua mão. Nosso aplicativo móvel conecta você com prestadores de serviço certificados em toda a Flórida enquanto nossa sede em Port St. Lucie cuida de manutenções leves — troca de óleo, freios, diagnóstico e elétrica básica.",
+        mission_slogan: "Não apenas consertamos veículos; damos as ferramentas para você gerenciar toda sua frota de qualquer lugar.",
         pillars_title: "O Ecossistema TechTrust AutoSolutions: Dois Pilares de Performance",
         pillars_sub: "Com nossa solução, os dados do seu Fleet Management Software guiam a manutenção para você nunca gastar demais ou sofrer quebras inesperadas.",
         p1_title: "Serviços Certificados de Manutenção de Frotas",
@@ -246,23 +254,26 @@
         proof_res: "Resultados Comprovados: 5% de redução em combustível, até 10% menos custos de manutenção e rastreamento avançado para clientes mais exigentes.",
         proof_cta: "COMEÇAR: SOLICITAR COTAÇÃO PERSONALIZADA",
   hq_headquarters_label: "Sede:", hq_headquarters: "Port St. Lucie, Flórida",
-  hq_coverage_label: "Cobertura:", hq_coverage: "Nossa base principal de serviços está em Port St. Lucie, com atendimento em toda a Flórida através de uma rede integrada de oficinas certificadas e parceiros de combustível. Gestores de frota podem acessar sua rede credenciada e solicitar manutenções, reparos, abastecimentos e guinchos diretamente pela plataforma.",
-  hq_focus_label: "Foco:", hq_focus: "Serviços mecânicos preventivos e corretivos, freios, elétrica básica, diagnóstico e reparo de ar-condicionado, trocas de óleo e assistência de guincho — sempre alinhados aos padrões profissionais de gestão de frotas.",
-  hq_cert_label: "Certificações:", hq_cert: "Procedimentos em conformidade com DOT/FMCSA e programas de qualificação ASE, garantindo qualidade, segurança e confiabilidade operacional.",
-  hq_commit_label: "Compromisso:", hq_commit: "Unimos experiência local e tecnologia avançada para manter sua frota operando com eficiência, segurança e disponibilidade total em toda a Flórida.",
-        about_title: "Da Oficina ao Painel: Otimizando Sua Frota com Tecnologia.",
-        about_body: "Nascemos da crença de que a gestão de frotas não precisa ser uma dor de cabeça. Unimos o chão da oficina à eficiência da gestão. Somos mais do que um centro automotivo: somos parceiros de produtividade.",
-        about_mission: "Nossa Missão: Operação no máximo desempenho e menor custo, antecipando problemas com inteligência de dados.",
-        about_diff: "Diferencial: Não apenas consertamos; otimizamos. O software de gestão de frotas alimenta nossos serviços para intervenções estratégicas e baseadas em dados.",
-  services_title: "Serviços Completos de Manutenção e Assistência de Frotas", services_sub: "A partir da nossa base em Port St. Lucie, oferecemos manutenção certificada em oficina e atendimento móvel — unindo expertise mecânica, conformidade e confiabilidade em toda a Flórida.",
-  svc_1t: "Manutenção e Reparos Completos de Frotas", svc_1d: "Nossa unidade em Port St. Lucie está equipada para atender veículos comerciais de todos os portes — de carros e vans a caminhões e ônibus. Realizamos manutenção preventiva e corretiva, serviços de freios, elétrica básica, ar-condicionado, trocas de óleo e guincho.",
-  svc_2t: "Inspeções de Conformidade DOT e FMCSA", svc_2d: "Executamos inspeções completas e verificações de segurança conforme os padrões estaduais e federais, garantindo total conformidade e evitando paradas não planejadas.",
-  svc_3t: "Diagnóstico Preditivo e Conectado", svc_3d: "Nossos técnicos utilizam recursos avançados de análise de dados no Software de Gestão de Frotas para identificar falhas potenciais antes que aconteçam — permitindo manutenção preventiva, agendamento inteligente e coordenação em tempo real com nossas unidades móveis para reparos no local.",
-  svc_4t: "Gestão de Garantias, Reparos e Assistência", svc_4d: "Cuidamos das garantias, rastreamos todas as manutenções e coordenamos atendimentos de guincho e assistência — tudo de forma digital pelo seu portal e integrado ao nosso sistema de gestão de frotas.",
-  svc_5t: "Atendimento Móvel e no Local", svc_5d: "Nossas unidades móveis levam a oficina até o seu veículo. Seja para guincho, troca de óleo, reparos elétricos ou serviço de ar-condicionado, entregamos qualidade certificada onde sua frota estiver — economizando tempo e garantindo produtividade.",
-  svc_6t: "Plataforma Integrada de Gestão de Serviços", svc_6d: "Tenha controle total com nossa plataforma digital — do agendamento e aprovações ao controle de custos e histórico de serviços. Cada manutenção, inspeção e relatório é registrado automaticamente, conectando nossos técnicos à sua operação em tempo real.",
-  suggestion_callout: "Agora atendendo frotas em toda a Flórida com unidades móveis, oficinas certificadas e um sistema de gestão digital totalmente integrado — garantindo qualidade, agilidade e visibilidade total da operação.",
-  software_title: "TechTrust AutoSolutions — Compliance, Controle e Economia", software_sub: "Plataforma em nuvem para visibilidade e controle total da frota.",
+  hq_coverage_label: "Cobertura:", hq_coverage: "Nossa sede em Port St. Lucie serve como escritório principal e centro de serviços leves. Através do nosso app, gestores de frota em toda a Flórida podem solicitar serviços da nossa rede de parceiros certificados — desde manutenção de rotina até guincho de emergência — tudo gerenciado digitalmente.",
+  hq_focus_label: "Serviços Locais:", hq_focus: "Manutenção leve em nossa instalação de Port St. Lucie: troca de óleo, freios, diagnóstico elétrico básico, ar-condicionado e inspeções. Para grandes reparos, nosso app conecta você com parceiros certificados em todo estado.",
+  hq_cert_label: "Funcionalidades do App:", hq_cert: "Rastreamento veicular em tempo real com integração de câmeras, alertas automáticos de serviço, controle completo de custos, análise de gestão de combustível e acesso instantâneo à nossa rede de serviços certificados na Flórida.",
+  hq_commit_label: "Compromisso:", hq_commit: "Combinamos serviço local prático com tecnologia móvel avançada para manter sua frota operando com eficiência, segurança e economia em toda a Flórida.",
+        about_title: "Do App Móvel à Oficina: Sua Solução Completa de Frotas.",
+        about_body: "Fundada na crença de que a gestão de frotas deve ser acessível de qualquer lugar, a TechTrust AutoSolutions une conveniência móvel com serviço prático. Nosso app coloca ferramentas poderosas no seu bolso enquanto nosso centro em Port St. Lucie cuida das suas necessidades de manutenção leve.",
+        about_mission: "Nossa Missão: Dar aos gestores de frota controle total através de tecnologia móvel, apoiado por serviço confiável da nossa sede e rede de parceiros na Flórida.",
+        about_diff: "Diferencial: Não somos apenas uma oficina ou apenas um app — somos ambos. Solicite serviços, rastreie veículos, monitore custos e gerencie combustível, sabendo que tem uma equipe certificada pronta para ajudar em Port St. Lucie.",
+  app_features_title: "Tudo o Que Você Precisa em Um App", app_features_sub: "Solicite serviços, rastreie veículos, controle custos e gerencie combustível — tudo do seu celular. Nosso centro em Port St. Lucie cuida de manutenções leves enquanto nossa rede cobre todas as necessidades da sua frota na Flórida.",
+  app_1t: "Solicite Qualquer Serviço Automotivo", app_1d: "Precisa de troca de óleo, freios, elétrica, diagnóstico ou guincho? Abra o app, selecione o veículo, descreva o problema e conectaremos você com técnicos certificados da nossa rede na Flórida. De Port St. Lucie a cobertura estadual.",
+  app_2t: "Rastreamento Veicular em Tempo Real", app_2d: "Monitore a localização de toda sua frota em tempo real com câmeras integradas opcionais. Receba alertas instantâneos sobre rotas, paradas, tempo ocioso e comportamento do motorista — visibilidade e controle total de qualquer lugar.",
+  app_3t: "Alertas de Serviço e Agendamento", app_3d: "Nunca perca trocas de óleo, inspeções de freio ou prazos de conformidade DOT. Nosso app rastreia quilometragem e histórico, enviando alertas automáticos e permitindo agendar manutenção com um toque em Port St. Lucie ou qualquer parceiro.",
+  app_4t: "Controle Total de Custos", app_4d: "Rastreie cada despesa: reparos, peças, mão de obra, combustível e guincho. Gere relatórios instantaneamente, identifique padrões de gastos e tome decisões baseadas em dados para reduzir o Custo Total de Propriedade da sua frota.",
+  app_5t: "Gestão Inteligente de Combustível", app_5d: "Monitore consumo de combustível em tempo real, detecte anomalias, identifique rotas ineficientes e ociosidade excessiva. Nossa solução integrada de abastecimento ajuda a reduzir desperdício e economizar até 5% em combustível através de insights baseados em dados.",
+  app_6t: "Centro de Serviços Port St. Lucie", app_6d: "Nossa sede oferece serviços de manutenção leve: troca de óleo, freios, elétrica básica e diagnóstico. Agende direto pelo app e tenha prioridade de atendimento em nossa instalação certificada.",
+  app_callout: "Baixe o app TechTrust AutoSolutions hoje e experimente o futuro da gestão de frotas — combinando conveniência móvel com nossa expertise em Port St. Lucie e rede em toda a Flórida."  how_it_works_title: "Como Funciona", how_it_works_sub: "Comece com a TechTrust em 4 passos simples",
+  step_1_title: "Baixe e Cadastre-se", step_1_desc: "Baixe o app na App Store ou Google Play. Crie sua conta e adicione os veículos da sua frota em minutos.",
+  step_2_title: "Solicite Serviços", step_2_desc: "Precisa de manutenção, reparos ou guincho? Selecione o veículo, descreva o problema e conectaremos você com técnicos certificados da nossa rede na Flórida.",
+  step_3_title: "Rastreie em Tempo Real", step_3_desc: "Monitore a localização da sua frota, receba atualizações de serviço, alertas de manutenção e rastreie todos os custos em um único painel.",
+  step_4_title: "Gerencie e Otimize", step_4_desc: "Revise relatórios detalhados, analise consumo de combustível, otimize rotas e reduza seu Custo Total de Propriedade com insights baseados em dados.",        software_title: "TechTrust AutoSolutions — Compliance, Controle e Economia", software_sub: "Plataforma em nuvem para visibilidade e controle total da frota.",
         sw_1t: "Compliance & Segurança do Motorista", sw_1a: "Integração HOS & ELD", sw_1b: "Scorecard do Motorista", sw_1c: "Gestão de Licenças e Certificações",
         sw_2t: "Controle de Custos & Eficiência de Combustível", sw_2a: "Analytics de Combustível", sw_2b: "Relatórios de Total Cost of Ownership",
         sw_3t: "Gestão de Manutenção", sw_3a: "Ordens de Serviço Digitais", sw_3b: "Histórico Completo do Veículo",
@@ -272,21 +283,21 @@
         ind3_t: "Serviços de Campo & Última Milha", ind3_d: "Roteirização inteligente, prova de serviço e manutenção expressa para leves.",
         contact_title: "Contato & Suporte", contact_sub: "Peça uma demo, tire dúvidas ou solicite uma cotação.",
         form_name: "Nome completo", form_email: "E-mail corporativo", form_company: "Empresa", form_size: "Tamanho da frota", form_msg: "Mensagem", form_send: "Enviar",
-        footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos os direitos reservados.",
-  florida_coverage: "Onde sua frota estiver, o serviço vai até você. Com nossa rede de oficinas certificadas e parceiros de combustível em toda a Flórida, seus veículos recebem suporte completo — desde manutenções preventivas até guinchos de emergência — tudo gerenciado de forma integrada pelo nosso Software de Gestão de Frotas.",
+        footer_rights: "© " + new Date().getFullYear() + " TechTrust Através do nosso app, conectamos você com nossa rede de oficinas certificadas em toda a Flórida — desde manutenções de rotina até guincho de emergência — tudo gerenciado digitalmente pelo celular
+  florida_coverage: "Onde sua frota estiver, o serviço vai até você. Através do nosso app, conectamos você com nossa rede de oficinas certificadas e parceiros em toda a Flórida — desde manutenções de rotina até guincho de emergência — tudo gerenciado digitalmente pelo celular.",
   svc_schedule_btn: "Agendar um serviço", svc_mobile_btn: "Solicitar mecânico em casa", svc_mobile_note: "Serviço móvel / em casa pode gerar custos adicionais.",
   schedule_form_title: "Agendar um Serviço", schedule_name: "Nome completo", schedule_email: "E-mail", schedule_phone: "Telefone", schedule_vehicle: "Modelo do veículo", schedule_datetime: "Data e horário", schedule_submit: "Reservar horário", schedule_unavailable: "Horário indisponível. Escolha outro.",
   mobile_form_title: "Solicitar Mecânico em Casa", mobile_name: "Nome completo", mobile_email: "E-mail", mobile_phone: "Telefone", mobile_vehicle: "Modelo do veículo", mobile_address: "Endereço", mobile_summary: "Resumo da solicitação", mobile_datetime: "Data e horário preferidos", mobile_submit: "Enviar solicitação", mobile_disclaimer: "Data e horário serão confirmados após contato.", mobile_hours: "Serviço móvel disponível das 8h às 19h.",
       },
       es: {
-        nav_home: "Inicio", nav_about: "Nosotros", nav_services: "Servicios", nav_software: "Software", nav_industries: "Industrias", nav_contact: "Contacto",
-        hero_badge: "Más allá de la reparación",
-  hero_h1: "El Centro Integrado de Servicios y Tecnología de Flotas de Florida.",
-  hero_sub: "Desde nuestra base de servicios en Port St. Lucie, brindamos mantenimiento mecánico certificado, frenos, electricidad, aire acondicionado, cambio de aceite y remolque — impulsado por nuestro avanzado Software de Gestión de Flotas para control operativo total.",
-        cta_demo: "SOLICITE UNA DEMO GRATUITA", cta_services: "EXPLORAR SERVICIOS",
-        mission_title: "Transformando la gestión de flotas",
-        mission_body: "Fundamos TechTrust AutoSolutions para eliminar los compromisos entre salud del vehículo y presupuesto, con un ecosistema unificado donde los datos en tiempo real guían cada decisión.",
-        mission_slogan: "No solo reparamos vehículos; optimizamos su operación logística.",
+        nav_home: "Inicio", nav_about: "Nosotros", nav_services: "Funciones", nav_software: "Software", nav_industries: "Industrias", nav_contact: "Contacto",
+        hero_badge: "App Completa para Flotas",
+  hero_h1: "Gestione Toda Su Flota desde el Móvil.",
+  hero_sub: "Desde nuestra sede en Port St. Lucie, combinamos un centro de servicios ligeros con nuestra potente aplicación móvil — brindando control total sobre solicitudes de servicio, rastreo vehicular, gestión de costos y monitoreo de combustible en toda Florida.",
+        cta_demo: "SOLICITE UNA DEMO GRATUITA", cta_services: "DESCARGAR LA APP", cta_ios: "Descargar en App Store", cta_android: "Disponible en Google Play"
+        mission_title: "Transformando la gestión de flotas con tecnología móvil",
+        mission_body: "Fundamos TechTrust AutoSolutions para poner el control total de su flota en la palma de su mano. Nuestra app móvil lo conecta con proveedores de servicio certificados en toda Florida mientras nuestra sede en Port St. Lucie se encarga del mantenimiento ligero — cambio de aceite, frenos, diagnóstico y electricidad básica.",
+        mission_slogan: "No solo reparamos vehículos; le damos las herramientas para gestionar toda su flota desde cualquier lugar.",
         pillars_title: "Ecosistema TechTrust AutoSolutions: Dos Pilares del Desempeño",
         pillars_sub: "Con nuestra solución, los datos del Fleet Management Software guían el mantenimiento para evitar gastos excesivos y fallas inesperadas.",
         p1_title: "Servicios Certificados de Mantenimiento de Flotas",
@@ -301,14 +312,14 @@
         proof_res: "Resultados: 5% menos en combustible, hasta 10% menos en mantenimiento y rastreo avanzado para clientes exigentes.",
         proof_cta: "EMPEZAR: SOLICITAR COTIZACIÓN",
   hq_headquarters_label: "Sede:", hq_headquarters: "Port St. Lucie, Florida",
-  hq_coverage_label: "Cobertura:", hq_coverage: "Nuestra base principal opera en Port St. Lucie, brindando cobertura total en Florida mediante una red integrada de talleres certificados y socios de combustible. Los gestores de flotas pueden acceder fácilmente a la red autorizada y solicitar mantenimiento, reparaciones, abastecimiento y remolque directamente desde la plataforma.",
-  hq_focus_label: "Enfoque:", hq_focus: "Servicios mecánicos preventivos y correctivos, frenos, electricidad básica, diagnóstico y reparación de aire acondicionado, cambio de aceite y asistencia de remolque — todo conforme a los estándares profesionales de gestión de flotas.",
-  hq_cert_label: "Certificaciones:", hq_cert: "Procedimientos conformes a DOT/FMCSA y programas de certificación ASE, garantizando calidad, seguridad y confiabilidad operativa.",
-  hq_commit_label: "Compromiso:", hq_commit: "Combinamos experiencia local y tecnología avanzada para mantener su flota operando con eficiencia, seguridad y continuidad en toda Florida.",
-        about_title: "Del taller al panel: optimizando su flota con tecnología.",
-        about_body: "Unimos el taller con la eficiencia de gestión. Más que un centro automotriz: socios en productividad.",
-        about_mission: "Asegurar máximo rendimiento al menor costo, anticipando problemas con datos.",
-        about_diff: "Diferencial: No solo reparamos; optimizamos con software.",
+  hq_coverage_label: "Cobertura:", hq_coverage: "Nuestra sede en Port St. Lucie sirve como oficina principal y centro de servicios ligeros. A través de nuestra app, los gestores de flotas en toda Florida pueden solicitar servicios de nuestra red de socios certificados — desde mantenimiento rutinario hasta remolque de emergencia — todo gestionado digitalmente.",
+  hq_focus_label: "Servicios Locales:", hq_focus: "Mantenimiento ligero en nuestras instalaciones de Port St. Lucie: cambio de aceite, frenos, diagnóstico eléctrico básico, aire acondicionado e inspecciones. Para reparaciones mayores, nuestra app lo conecta con socios certificados en todo el estado.",
+  hq_cert_label: "Funciones de la App:", hq_cert: "Rastreo vehicular en tiempo real con integración de cámaras, alertas automáticas de servicio, control completo de costos, análisis de gestión de combustible y acceso instantáneo a nuestra red de servicios certificados en Florida.",
+  hq_commit_label: "Compromiso:", hq_commit: "Combinamos servicio local práctico con tecnología móvil avanzada para mantener su flota operando con eficiencia, seguridad y economía en toda Florida.",
+        about_title: "De la App Móvil al Taller: Su Solución Completa de Flotas.",
+        about_body: "Fundada en la creencia de que la gestión de flotas debe ser accesible desde cualquier lugar, TechTrust AutoSolutions une conveniencia móvil con servicio práctico. Nuestra app pone herramientas poderosas en su bolsillo mientras nuestro centro en Port St. Lucie se encarga de sus necesidades de mantenimiento ligero.",
+        about_mission: "Nuestra Misión: Dar a los gestores de flotas control total a través de tecnología móvil, respaldado por servicio confiable de nuestra sede y red de socios en Florida.",
+        about_diff: "Diferencia: No somos solo un taller o solo una app — somos ambos. Solicite servicios, rastree vehículos, monitoree costos y gestione combustible, sabiendo que tiene un equipo certificado listo para ayudar en Port St. Lucie.",
   services_title: "Servicios Integrales de Mantenimiento y Asistencia de Flotas", services_sub: "Desde nuestra base en Port St. Lucie, ofrecemos mantenimiento certificado en taller y asistencia móvil — combinando experiencia mecánica, cumplimiento y confiabilidad en toda Florida.",
   svc_1t: "Mantenimiento y Reparaciones Completas de Flotas", svc_1d: "Nuestro centro em Port St. Lucie atiende veículos comerciais de todo tipo — autos, vans, camiones e autobuses. Realizamos manutenção preventiva e corretiva, freios, eletricidade básica, ar-condicionado, trocas de óleo e serviço de guincho.",
   svc_2t: "Inspecciones de Cumplimiento DOT e FMCSA", svc_2d: "Realizamos inspecciones y controles de seguridad conforme a las normas estatales y federales, asegurando el cumplimiento total y evitando tiempos de inactividad costosos.",
@@ -317,21 +328,36 @@
   svc_5t: "Asistencia Móvil e en Sitio", svc_5d: "Nuestras unidades móviles llevan el taller hasta su veículo. Ya sea remolque, cambio de óleo, reparación elétrica o serviço de ar-condicionado, ofrecemos qualidade certificada onde sua frota lo necesite — ahorrando tiempo y manteniendo la operación activa.",
   svc_6t: "Plataforma Integrada de Gestão de Serviços", svc_6d: "Obtenga control total con nuestra plataforma digital — desde la programación y aprobación hasta el control de costos e historial de servicios. Cada mantenimiento, inspección y reporte se registra automáticamente, conectando técnicos y flota en tiempo real.",
   suggestion_callout: "Ahora atendemos flotas en toda Florida con unidades móviles, talleres certificados y un sistema de gestión digital completamente integrado — garantizando calidad, agilidad y visibilidad total de las operaciones.",
-  software_title: "Cumplimiento, Control y Ahorros", software_sub: "Plataforma en la nube para visibilidad total.",
-        sw_1t: "Compliance & Driver Safety", sw_1a: "HOS & ELD Integration", sw_1b: "Driver Scorecard", sw_1c: "License & Certification Tracking",
-        sw_2t: "Cost Control & Fuel Efficiency", sw_2a: "Fuel Management Analytics", sw_2b: "Total Cost of Ownership Reporting",
-        sw_3t: "Maintenance Management", sw_3a: "Digital Work Orders", sw_3b: "Full Vehicle History",
-        industries_title: "Tailored Solutions for Every Commercial Fleet", industries_sub: "Your fleet is unique. So are our solutions.",
-        ind1_t: "Transportation & Logistics", ind1_d: "Road efficiency and DOT/FMCSA compliance to control fuel and avoid unexpected breakdowns.",
-        ind2_t: "Construction & Heavy Equipment", ind2_d: "Mixed-asset control with usage-based maintenance and operator safety.",
-        ind3_t: "Field Services & Last‑Mile Delivery", ind3_d: "Smart routing, proof of service, and express preventive maintenance for light-duty fleets.",
-        contact_title: "Contact & Support", contact_sub: "Request a demo, ask a question, or start a custom quote.",
-        form_name: "Full name", form_email: "Work email", form_company: "Company", form_size: "Fleet size", form_msg: "Message", form_send: "Send",
-        footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. All rights reserved.",
-  florida_coverage: "Wherever your fleet goes, service follows. Through our statewide Florida network of certified repair shops and fuel partners, your vehicles get the support they need — from routine maintenance to emergency towing — all managed seamlessly within our Fleet Management Software.",
-  svc_schedule_btn: "Schedule a Service", svc_mobile_btn: "Request Mobile Mechanic", svc_mobile_note: "Home mechanic / on-site service may incur additional costs.",
-  schedule_form_title: "Schedule a Service", schedule_name: "Full name", schedule_email: "Email", schedule_phone: "Phone", schedule_vehicle: "Vehicle model", schedule_datetime: "Date & time", schedule_submit: "Book Slot", schedule_unavailable: "Selected slot unavailable. Choose another.",
-  mobile_form_title: "Request Mobile Mechanic", mobile_name: "Full name", mobile_email: "Email", mobile_phone: "Phone", mobile_vehicle: "Vehicle model", mobile_address: "Address", mobile_summary: "Request summary", mobile_datetime: "Preferred date & time", mobile_submit: "Send Request", mobile_disclaimer: "Date & time will be confirmed after we contact you.", mobile_hours: "Mobile service available 8 a.m. – 7 p.m.",
+  app_features_title: "Todo lo Que Necesita en Una App", app_features_sub: "Solicite servicios, rastree vehículos, controle costos y gestione combustible — todo desde su móvil. Nuestro centro en Port St. Lucie se encarga del mantenimiento ligero mientras nuestra red cubre las necesidades de su flota en Florida.",
+  app_1t: "Solicite Cualquier Servicio Automotriz", app_1d: "¿Necesita cambio de aceite, frenos, electricidad, diagnóstico o remolque? Abra la app, seleccione el vehículo, describa el problema y lo conectaremos con técnicos certificados de nuestra red en Florida. De Port St. Lucie a cobertura estatal.",
+  app_2t: "Rastreo Vehicular en Tiempo Real", app_2d: "Monitoree la ubicación de toda su flota en tiempo real con cámaras integradas opcionales. Reciba alertas instantáneas sobre rutas, paradas, tiempo de ralentí y comportamiento del conductor — visibilidad y control total desde cualquier lugar.",
+  app_3t: "Alertas de Servicio y Programación", app_3d: "Nunca pierda cambios de aceite, inspecciones de freno o plazos de cumplimiento DOT. Nuestra app rastrea kilometraje e historial, enviando alertas automáticas y permitiendo programar mantenimiento con un toque en Port St. Lucie o cualquier socio.",
+  app_4t: "Control Total de Costos", app_4d: "Rastree cada gasto: reparaciones, piezas, mano de obra, combustible y remolque. Genere informes al instante, identifique patrones de gastos y tome decisiones basadas en datos para reducir el Costo Total de Propiedad de su flota.",
+  how_it_works_title: "Cómo Funciona", how_it_works_sub: "Comience con TechTrust en 4 pasos simples",
+  step_1_title: "Descargue e Inscríbase", step_1_desc: "Descargue la app desde App Store o Google Play. Cree su cuenta y agregue los vehículos de su flota en minutos.",
+  step_2_title: "Solicite Servicios", step_2_desc: "¿Necesita mantenimiento, reparaciones o remolque? Seleccione el vehículo, describa el problema y lo conectaremos con técnicos certificados de nuestra red en Florida.",
+  step_3_title: "Rastree en Tiempo Real", step_3_desc: "Monitoree la ubicación de su flota, reciba actualizaciones de servicio, alertas de mantenimiento y rastree todos los costos en un solo panel.",
+  step_4_title: "Gestione y Optimice", step_4_desc: "Revise informes detallados, analice consumo de combustible, optimice rutas y reduzca su Costo Total de Propiedad con insights basados en datos.",
+  app_5t: "Gestión Inteligente de Combustible", app_5d: "Monitoree consumo de combustible en tiempo real, detecte anomalías, identifique rutas ineficientes y ralentí excesivo. Nuestra solución integrada de combustible ayuda a reducir desperdicio y ahorrar hasta 5% en combustible mediante insights basados en datos.",
+  app_6t: "Centro de Servicios Port St. Lucie", app_6d: "Nuestra sede ofrece servicios de mantenimiento ligero: cambio de aceite, frenos, electricidad básica y diagnóstico. Agende directamente desde la app y obtenga prioridad de atención en nuestras instalaciones certificadas.",
+  app_callout: "Descargue la app TechTrust AutoSolutions hoy y experimente el futuro de la gestión de flotas — combinando conveniencia móvil con nuestra experiencia en Port St. Lucie y red en toda Florida.",
+  how_it_works_title: "Cómo Funciona", how_it_works_sub: "Comience con TechTrust en 4 pasos simples",
+  step_1_title: "Descargue e Inscríbase", step_1_desc: "Descargue la app desde App Store o Google Play. Cree su cuenta y agregue los vehículos de su flota en minutos.",
+  step_2_title: "Solicite Servicios", step_2_desc: "¿Necesita mantenimiento, reparaciones o remolque? Seleccione el vehículo, describa el problema y lo conectaremos con técnicos certificados de nuestra red en Florida.",
+  step_3_title: "Rastree en Tiempo Real", step_3_desc: "Monitoree la ubicación de su flota, reciba actualizaciones de servicio, alertas de mantenimiento y rastree todos los costos en un solo panel.",
+  step_4_title: "Gestione y Optimice", step_4_desc: "Revise informes detallados, analice consumo de combustible, optimice rutas y reduzca su Costo Total de Propiedad con insights basados en datos.",
+        software_title: "Cumplimiento, Control y Ahorros", software_sub: "Plataforma en la nube para visibilidad total.",
+        sw_1t: "Cumplimiento y Seguridad del Conductor", sw_1a: "Integración HOS y ELD", sw_1b: "Tarjeta de Puntuación del Conductor", sw_1c: "Seguimiento de Licencias y Certificaciones",
+        sw_2t: "Control de Costos y Eficiencia de Combustible", sw_2a: "Analítica de Gestión de Combustible", sw_2b: "Informes de Costo Total de Propiedad",
+        sw_3t: "Gestión de Mantenimiento", sw_3a: "Órdenes de Trabajo Digitales", sw_3b: "Historial Completo del Vehículo",
+        industries_title: "Soluciones Personalizadas para Cada Flota Comercial", industries_sub: "Su flota es única. Nuestras soluciones también.",
+        ind1_t: "Transporte y Logística", ind1_d: "Eficiencia en carretera y cumplimiento DOT/FMCSA para controlar combustible y evitar averías inesperadas.",
+        ind2_t: "Construcción y Equipo Pesado", ind2_d: "Control de activos mixtos con mantenimiento basado en uso y seguridad del operador.",
+        ind3_t: "Servicios de Campo y Última Milla", ind3_d: "Enrutamiento inteligente, prueba de servicio y mantenimiento preventivo express para flotas ligeras.",
+        contact_title: "Contacto y Soporte", contact_sub: "Solicite una demo, haga preguntas o comience una cotización personalizada.",
+        form_name: "Nombre completo", form_email: "Correo corporativo", form_company: "Empresa", form_size: "Tamaño de flota", form_msg: "Mensaje", form_send: "Enviar",
+        footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. app, lo conectamos con nuestra red de talleres certificados en toda Florida — desde mantenimiento rutinario hasta remolque de emergencia — todo gestionado digitalmente desde el móvil
+  florida_coverage: "Donde vaya su flota, el servicio la sigue. A través de nuestra app, lo conectamos con nuestra red de talleres certificados y socios en toda Florida — desde mantenimiento rutinario hasta remolque de emergencia — todo gestionado digitalmente desde el móvil.",
       }
     };
 
@@ -408,104 +434,6 @@
       slides?.addEventListener('mouseenter', stopAutoplay);
       slides?.addEventListener('mouseleave', startAutoplay);
       startAutoplay();
-
-      // Toggle forms
-      const btnSchedule = document.getElementById('btnSchedule');
-      const btnMobile = document.getElementById('btnMobile');
-      const formSchedule = document.getElementById('formSchedule');
-      const formMobile = document.getElementById('formMobile');
-      btnSchedule?.addEventListener('click', ()=>{
-        formSchedule?.classList.toggle('hidden');
-        if(!formSchedule?.classList.contains('hidden')) formMobile?.classList.add('hidden');
-      });
-      btnMobile?.addEventListener('click', ()=>{
-        formMobile?.classList.toggle('hidden');
-        if(!formMobile?.classList.contains('hidden')) formSchedule?.classList.add('hidden');
-      });
-
-      // Business hours validation (8am-5pm) and 1h slot simulation
-      function withinBusinessHours(dt){
-        const h = dt.getHours();
-        return h >= 8 && h < 17; // 5pm exclusive
-      }
-      function parseLocalDateTime(val){
-        // val like '2025-11-11T10:00'
-        return val ? new Date(val) : null;
-      }
-
-      document.getElementById('formSchedule')?.addEventListener('submit', async (e)=>{
-        e.preventDefault();
-        const f = e.target;
-        const data = Object.fromEntries(new FormData(f).entries());
-        const dt = parseLocalDateTime(data.datetime);
-        const err = document.getElementById('scheduleError');
-        let status = document.getElementById('scheduleStatus');
-        if(!status){
-          status = document.createElement('p');
-          status.id = 'scheduleStatus';
-          status.style.cssText = 'font-size:13px;margin:6px 0 0;color:#60a5fa';
-          f.appendChild(status);
-        }
-        if(!dt || !withinBusinessHours(dt)){
-          err?.classList.remove('hidden');
-          status.textContent='';
-          return;
-        }
-        err?.classList.add('hidden');
-        status.textContent='Verificando disponibilidade...';
-        // Check Google Calendar availability (serverless)
-        try{
-          const availRes = await fetch('/api/availability', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ datetime: data.datetime }) });
-          if(!availRes.ok){
-            throw new Error('availability failed');
-          }
-          const avail = await availRes.json();
-          if(!avail.ok || avail.available === false){
-            err?.classList.remove('hidden');
-            status.textContent='';
-            return;
-          }
-        }catch(_){
-          // on error, assume available and proceed
-        }
-        status.textContent='Enviando...';
-        try{
-          const res = await fetch('/api/contact',{method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({
-            type:'schedule', name:data.name, vehicle:data.vehicle, datetime:data.datetime, email:'contact@techtrustautosolutions.com'
-          })});
-          if(!res.ok) throw new Error('Failed');
-          status.textContent='Agendamento enviado! Confirmaremos por e-mail.'; status.style.color='#38bdf8';
-          f.reset();
-        }catch(err){
-          console.error(err);
-          status.textContent='Falha ao enviar. Tente novamente.'; status.style.color='#f87171';
-        }
-      });
-
-      document.getElementById('formMobile')?.addEventListener('submit', async (e)=>{
-        e.preventDefault();
-        const f = e.target;
-        const data = Object.fromEntries(new FormData(f).entries());
-        let status = document.getElementById('mobileStatus');
-        if(!status){
-          status = document.createElement('p');
-          status.id='mobileStatus';
-          status.style.cssText='font-size:13px;margin:6px 0 0;color:#60a5fa';
-          f.appendChild(status);
-        }
-        status.textContent='Enviando...';
-        try{
-          const res = await fetch('/api/contact',{method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({
-            type:'mobile', name:data.name, vehicle:data.vehicle, address:data.address, summary:data.summary, datetime:data.datetime||null, email:'contact@techtrustautosolutions.com'
-          })});
-          if(!res.ok) throw new Error('Failed');
-          status.textContent='Solicitação enviada! Entraremos em contato para confirmar.'; status.style.color='#38bdf8';
-          f.reset();
-        }catch(err){
-          console.error(err);
-          status.textContent='Falha ao enviar. Tente novamente.'; status.style.color='#f87171';
-        }
-      });
     })
   </script>
   <script type="application/ld+json">
@@ -557,8 +485,14 @@
           <span class="badge" data-i18n="hero_badge"></span>
           <h1><span data-i18n="hero_h1"></span></h1>
           <p class="lead" data-i18n="hero_sub"></p>
-          <div class="hero-cta">
-            <a class="cta" href="#contact" data-i18n="cta_demo"></a>
+          <div class="her" href="https://apps.apple.com/app/techtrust" target="_blank" rel="noopener" style="min-width:200px;padding:12px 20px;font-size:.9rem;display:inline-flex;align-items:center;gap:8px">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span data-i18n="cta_ios"></span>
+            </a>
+            <a class="cta secondary" href="https://play.google.com/store/apps/details?id=com.techtrust" target="_blank" rel="noopener" style="min-width:200px;padding:12px 20px;font-size:.9rem;display:inline-flex;align-items:center;gap:8px">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+              <span data-i18n="cta_android"></span>
+            
             <a class="cta secondary" href="#services" data-i18n="cta_services"></a>
           </div>
           <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;justify-content:center">
@@ -578,11 +512,11 @@
             </picture>
           </div>
           <small style="color:var(--muted);display:block;margin-top:10px">Imagens ilustrativas.</small>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mission -->
+        <App Features -->
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title" data-i18n="app_features_title"></h2>
+        <p class="section-sub" data-i18n="app_featur
     <!-- Services / Solutions (moved above Pillars) -->
     <section id="services">
       <div class="container">
@@ -616,47 +550,91 @@
             </picture>
           </div>
           <div class="slider-nav">
-            <button class="slider-btn" id="prevSlide" aria-label="Prev">‹</button>
-            <button class="slider-btn" id="nextSlide" aria-label="Next">›</button>
+            <button class="s
+            <div class="icon">📱</div>
+            <h3 data-i18n="app_1t"></h3>
+            <p data-i18n="app_1d"></p>
+          </div>
+          <div class="card">
+            <div class="icon">📍</div>
+            <h3 data-i18n="app_2t"></h3>
+            <p data-i18n="app_2d"></p>
+          </div>
+          <div class="card">
+            <div class="icon">🔔</div>
+            <h3 data-i18n="app_3t"></h3>
+            <p data-i18n="app_3d"></p>
+          </div>
+          <div class="card">
+            <div class="icon">💰</div>
+            <h3 data-i18n="app_4t"></h3>
+            <p data-i18n="app_4d"></p>
+          </div>
+          <div class="card">
+            <div class="icon">⛽</div>
+            <h3 data-i18n="app_5t"></h3>
+            <p data-i18n="app_5d"></p>
+          </div>
+          <div class="card">
+            <div class="icon">🔧</div>
+            <h3 data-i18n="app_6t"></h3>
+            <p data-i18n="app_6d"></p>
           </div>
         </div>
-        <div class="services" style="margin-top:18px">
-          <div class="card"><h3 data-i18n="svc_1t"></h3><p data-i18n="svc_1d"></p></div>
-          <div class="card"><h3 data-i18n="svc_2t"></h3><p data-i18n="svc_2d"></p></div>
-          <div class="card"><h3 data-i18n="svc_3t"></h3><p data-i18n="svc_3d"></p></div>
-          <div class="card"><h3 data-i18n="svc_4t"></h3><p data-i18n="svc_4d"></p></div>
-          <div class="card"><h3 data-i18n="svc_5t"></h3><p data-i18n="svc_5d"></p></div>
-          <div class="card"><h3 data-i18n="svc_6t"></h3><p data-i18n="svc_6d"></p></div>
+
+    <!-- How It Works -->
+    <section style="background:linear-gradient(180deg, rgba(56,189,248,.03), transparent); padding:56px 0">
+      <div class="container">
+        <h2 class="section-title" style="text-align:center" data-i18n="how_it_works_title"></h2>
+        <p class="section-sub" style="text-align:center; max-width:700px; margin:0 auto 0" data-i18n="how_it_works_sub"></p>
+        <div class="steps">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3 data-i18n="step_1_title"></h3>
+            <p data-i18n="step_1_desc"></p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3 data-i18n="step_2_title"></h3>
+            <p data-i18n="step_2_desc"></p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3 data-i18n="step_3_title"></h3>
+            <p data-i18n="step_3_desc"></p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3 data-i18n="step_4_title"></h3>
+            <p data-i18n="step_4_desc"></p>
+          </div>
         </div>
+        <div class="hero-cta centered" style="margin-top:40px">
+          <a class="cta" href="https://apps.apple.com/app/techtrust" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span data-i18n="cta_ios"></span>
+          </a>
+          <a class="cta secondary" href="https://play.google.com/store/apps/details?id=com.techtrust" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+            <span data-i18n="cta_android"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission -->
         <div class="card" style="margin-top:24px;background:linear-gradient(135deg, rgba(56,189,248,.15), rgba(96,165,250,.15));border-color:rgba(56,189,248,.4)">
-          <p class="callout-text" data-i18n="suggestion_callout"></p>
+          <p class="callout-text" data-i18n="app_callout"></p>
         </div>
-        <div id="service-buttons" class="hero-cta centered" style="margin-top:24px">
-          <button class="cta" id="btnSchedule" data-i18n="svc_schedule_btn" type="button"></button>
-          <button class="cta" id="btnMobile" data-i18n="svc_mobile_btn" type="button"></button>
-        </div>
-        <small style="display:block;margin-top:8px;color:var(--muted);text-align:center;" data-i18n="svc_mobile_note"></small>
-        <div class="forms-row" id="serviceForms" style="margin-top:22px">
-          <form id="formSchedule" class="card hidden" aria-labelledby="scheduleTitle">
-            <h3 id="scheduleTitle" data-i18n="schedule_form_title"></h3>
-            <label><span data-i18n="schedule_name"></span><br><input name="name" required></label>
-            <label><span data-i18n="schedule_email"></span><br><input name="email" type="email" required></label>
-            <label><span data-i18n="schedule_phone"></span><br><input name="phone" type="tel" required></label>
-            <label><span data-i18n="schedule_vehicle"></span><br><input name="vehicle" required></label>
-            <label><span data-i18n="schedule_datetime"></span><br><input name="datetime" type="datetime-local" required></label>
-            <input type="hidden" name="type" value="schedule">
-            <button class="cta btn" type="submit" data-i18n="schedule_submit"></button>
-            <p class="hidden" id="scheduleError" style="color:#f87171" data-i18n="schedule_unavailable"></p>
-          </form>
-          <form id="formMobile" class="card hidden" aria-labelledby="mobileTitle">
-            <h3 id="mobileTitle" data-i18n="mobile_form_title"></h3>
-            <label><span data-i18n="mobile_name"></span><br><input name="name" required></label>
-            <label><span data-i18n="mobile_email"></span><br><input name="email" type="email" required></label>
-            <label><span data-i18n="mobile_phone"></span><br><input name="phone" type="tel" required></label>
-            <label><span data-i18n="mobile_vehicle"></span><br><input name="vehicle" required></label>
-            <label><span data-i18n="mobile_address"></span><br><input name="address" required></label>
-            <label><span data-i18n="mobile_summary"></span><br><textarea name="summary" required></textarea></label>
-            <label><span data-i18n="mobile_datetime"></span><br><input name="datetime" type="datetime-local"></label>
+        <div class="hero-cta centered" style="margin-top:24px">
+          <a class="cta" href="https://apps.apple.com/app/techtrust" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span data-i18n="cta_ios"></span>
+          </a>
+          <a class="cta secondary" href="https://play.google.com/store/apps/details?id=com.techtrust" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+            <span data-i18n="cta_android"></span>
+          </ael><span data-i18n="mobile_datetime"></span><br><input name="datetime" type="datetime-local"></label>
             <input type="hidden" name="type" value="mobile">
             <small style="color:var(--muted)" data-i18n="mobile_hours"></small>
             <small style="color:var(--muted);display:block;margin-top:6px" data-i18n="mobile_disclaimer"></small>
