@@ -28,7 +28,7 @@
     html,body{height:100%}
     body{margin:0; font-family:Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial; background:linear-gradient(180deg, #0b1220 0%, #0c1324 60%, #0a1328 100%); color:var(--text); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
     a{color:var(--accent)} .container{max-width:var(--maxw); margin-inline:auto; padding:0 20px}
-    html{scroll-behavior:smooth; scroll-padding-top:150px}
+    html{scroll-behavior:smooth; scroll-padding-top:110px}
     header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(160%) blur(8px); background:linear-gradient(180deg, rgba(2,6,23,.85), rgba(2,6,23,.55)); border-bottom:1px solid rgba(148,163,184,.15)}
     .nav{display:flex; align-items:center; justify-content:space-between; padding:7px 0; gap:14px; flex-wrap:wrap}
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none; margin-right:auto}
@@ -101,7 +101,10 @@
     .slides{display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:0; scrollbar-width:none}
     .slides::-webkit-scrollbar{display:none}
     .slides picture{flex:0 0 100%; width:100%; display:block; scroll-snap-align:center}
+    .slide-item{flex:0 0 100%; width:100%; scroll-snap-align:center; position:relative}
+    .slide-item picture{display:block; width:100%}
     .slides img{width:100%; height:480px; object-fit:cover; display:block}
+    .slide-caption{position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent, rgba(2,6,23,.85)); color:#e5e7eb; padding:32px 24px 18px; font-size:.95rem; font-weight:600; text-align:center}
     .slider-nav{position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; pointer-events:none}
     .slider-btn{pointer-events:auto; background:rgba(2,6,23,.5); border:1px solid rgba(148,163,184,.25); color:#e2e8f0; width:42px; height:42px; border-radius:999px; display:grid; place-items:center; margin:0 8px}
     .forms-row{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin-top:14px}
@@ -121,6 +124,7 @@
     input, select, textarea{background:#0b1220; color:var(--text); border:1px solid rgba(148,163,184,.25); border-radius:12px; padding:12px 14px; font:inherit}
     textarea{min-height:120px}
     .btn{cursor:pointer}
+    .lang-bar{position:sticky; top:52px; z-index:49; background:rgba(15,23,42,.92); backdrop-filter:blur(6px); border-bottom:1px solid rgba(148,163,184,.1); padding:6px 0}
     footer{padding:50px 0; border-top:1px solid rgba(148,163,184,.18); color:var(--muted)}
     .f-grid{display:grid; grid-template-columns:1fr auto; gap:18px; align-items:center}
     @media (max-width: 940px){
@@ -175,9 +179,9 @@
     const I18N = {
       en: {
         nav_home: "Home", nav_about: "About Us", nav_services: "How It Works", nav_software: "Fleet Tools", nav_industries: "For Everyone", nav_contact: "Contact",
-        hero_badge: "America's #1 Vehicle Care App",
-        hero_h1: "Every Vehicle Service You Need — One Tap Away.",
-        hero_sub: "Download TechTrust AutoSolutions and connect instantly with certified mechanics, shops, and towing services near you. Get competitive quotes, approve with one tap, and track everything in real-time. From your daily car to a 500-vehicle fleet — we serve every vehicle owner in America.",
+        hero_badge: "Trusted by Vehicle Owners Across America",
+        hero_h1: "Stop Overpaying for Auto Repair. Start Choosing.",
+        hero_sub: "TechTrust AutoSolutions puts certified mechanics, shops, and towing services at your fingertips. Get multiple competitive quotes, compare side by side, and approve the best deal — all from your phone. From a single car to a 500-vehicle fleet, we help every owner save money and drive with confidence.",
         cta_demo: "GET THE APP", cta_services: "SEE HOW IT WORKS", cta_ios: "Download on App Store", cta_android: "Get it on Google Play",
         select_language: "Select your language:",
         hero_images_caption: "Illustrative images.",
@@ -236,7 +240,7 @@
         form_name: "Full name", form_email: "Email", form_company: "Company (optional)", form_size: "Number of vehicles", form_msg: "Message", form_send: "Send Message",
         footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. All rights reserved.",
         app_features_title: "Everything You Need — Right in Your Pocket",
-        app_features_sub: "One app to request services, track vehicles, manage costs, and connect with certified providers across America.",
+        app_features_sub: "Two apps, one platform. Request services from certified providers OR track your vehicles in real-time — use one, or combine both for complete control.",
         app_1t: "Request Any Service", app_1d: "Oil change, brakes, engine, electrical, towing — describe what you need and get competitive quotes from certified providers in minutes.",
         app_2t: "Real-Time GPS Tracking", app_2d: "Track every vehicle 24/7 with real-time GPS. Integrated cameras and door sensors add an extra layer of security. See routes, stops, and driving behavior instantly.",
         app_3t: "Smart Alerts", app_3d: "Get instant notifications for scheduled maintenance, unauthorized door access, route deviations, service completions, and cost thresholds.",
@@ -264,13 +268,21 @@
         user_4_title: "Commercial Fleet Managers",
         user_4_desc: "Enterprise-grade fleet management: DOT compliance, driver scorecards, fuel analytics, camera integration, and door sensors. Complete visibility and control over 10, 100, or 1,000+ vehicles.",
         final_cta_title: "Ready to Take Control of Your Vehicle Care?",
-        final_cta_desc: "Download TechTrust AutoSolutions free today. Get your first competitive quote in minutes or start tracking your vehicle right now. Available on iOS and Android — in English, Portuguese, and Spanish."
+        final_cta_desc: "Download TechTrust AutoSolutions free today. Get your first competitive quote in minutes or start tracking your vehicle right now. Use one app or both — you choose. Available on iOS and Android in English, Portuguese, and Spanish.",
+        gallery_title: "See TechTrust in Action",
+        gallery_sub: "Real scenarios showing how our platform helps vehicle owners and fleet managers every day.",
+        slide_1_caption: "Manage your entire fleet from one intuitive dashboard",
+        slide_2_caption: "Certified mechanics ready to serve you anywhere",
+        slide_3_caption: "Real-time GPS tracking with camera integration",
+        slide_4_caption: "Compare competitive quotes side by side",
+        slide_5_caption: "Complete cost analytics and spending reports",
+        slide_6_caption: "From daily cars to commercial fleets — we serve everyone"
       },
       pt: {
         nav_home: "Início", nav_about: "Sobre Nós", nav_services: "Como Funciona", nav_software: "Ferramentas", nav_industries: "Para Todos", nav_contact: "Contato",
-        hero_badge: "O App #1 Para Seu Veículo nos EUA",
-        hero_h1: "Todo Serviço Automotivo Que Você Precisa — A Um Toque.",
-        hero_sub: "Baixe o TechTrust AutoSolutions e conecte-se instantaneamente com mecânicos, oficinas e guinchos certificados perto de você. Receba orçamentos competitivos, aprove com um toque e rastreie tudo em tempo real. Do seu carro do dia a dia a uma frota de 500 veículos — atendemos todos os proprietários nos Estados Unidos.",
+        hero_badge: "A Confiança dos Proprietários de Veículos na América",
+        hero_h1: "Pare de Pagar Caro em Reparo. Comece a Escolher.",
+        hero_sub: "O TechTrust AutoSolutions coloca mecânicos, oficinas e guinchos certificados ao seu alcance. Receba múltiplos orçamentos competitivos, compare lado a lado e aprove o melhor negócio — tudo pelo celular. De um único carro a uma frota de 500 veículos, ajudamos cada proprietário a economizar e dirigir com confiança.",
         cta_demo: "BAIXE O APP", cta_services: "VEJA COMO FUNCIONA", cta_ios: "Baixar na App Store", cta_android: "Baixar no Google Play",
         select_language: "Selecione seu idioma:",
         hero_images_caption: "Imagens ilustrativas.",
@@ -329,7 +341,7 @@
         form_name: "Nome completo", form_email: "Email", form_company: "Empresa (opcional)", form_size: "Número de veículos", form_msg: "Mensagem", form_send: "Enviar Mensagem",
         footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos os direitos reservados.",
         app_features_title: "Tudo Que Você Precisa — No Seu Bolso",
-        app_features_sub: "Um app para solicitar serviços, rastrear veículos, controlar custos e conectar com prestadores certificados em toda a América.",
+        app_features_sub: "Dois apps, uma plataforma. Solicite serviços de prestadores certificados OU rastreie seus veículos em tempo real — use um, ou combine ambos para controle total.",
         app_1t: "Solicite Qualquer Serviço", app_1d: "Troca de óleo, freios, motor, elétrica, guincho — descreva o que precisa e receba orçamentos competitivos de prestadores certificados em minutos.",
         app_2t: "Rastreamento GPS em Tempo Real", app_2d: "Rastreie cada veículo 24/7 com GPS em tempo real. Câmeras integradas e sensores de porta adicionam segurança extra. Veja rotas, paradas e comportamento do motorista.",
         app_3t: "Alertas Inteligentes", app_3d: "Receba notificações instantâneas sobre manutenção programada, acesso não autorizado às portas, desvios de rota, conclusão de serviços e limites de custo.",
@@ -357,13 +369,21 @@
         user_4_title: "Gestores de Frotas Comerciais",
         user_4_desc: "Gestão de frota de nível empresarial: compliance DOT, scorecards de motoristas, análise de combustível, câmeras integradas e sensores de porta. Visibilidade e controle total sobre 10, 100 ou 1.000+ veículos.",
         final_cta_title: "Pronto Para Assumir o Controle do Seu Veículo?",
-        final_cta_desc: "Baixe o TechTrust AutoSolutions grátis hoje. Receba seu primeiro orçamento competitivo em minutos ou comece a rastrear seu veículo agora. Disponível para iOS e Android — em inglês, português e espanhol."
+        final_cta_desc: "Baixe o TechTrust AutoSolutions grátis hoje. Receba seu primeiro orçamento competitivo em minutos ou comece a rastrear seu veículo agora. Use um app ou ambos — você escolhe. Disponível para iOS e Android em inglês, português e espanhol.",
+        gallery_title: "Veja o TechTrust em Ação",
+        gallery_sub: "Cenários reais mostrando como nossa plataforma ajuda proprietários e gestores de frota todos os dias.",
+        slide_1_caption: "Gerencie toda sua frota em um painel intuitivo",
+        slide_2_caption: "Mecânicos certificados prontos para atendê-lo em qualquer lugar",
+        slide_3_caption: "Rastreamento GPS em tempo real com integração de câmeras",
+        slide_4_caption: "Compare orçamentos competitivos lado a lado",
+        slide_5_caption: "Análise completa de custos e relatórios de gastos",
+        slide_6_caption: "De carros do dia a dia a frotas comerciais — atendemos todos"
       },
       es: {
         nav_home: "Inicio", nav_about: "Nosotros", nav_services: "Cómo Funciona", nav_software: "Herramientas", nav_industries: "Para Todos", nav_contact: "Contacto",
-        hero_badge: "La App #1 Para Su Vehículo en EE.UU.",
-        hero_h1: "Todo Servicio Automotriz Que Necesita — A Un Toque.",
-        hero_sub: "Descargue TechTrust AutoSolutions y conéctese al instante con mecánicos, talleres y grúas certificados cerca de usted. Reciba cotizaciones competitivas, apruebe con un toque y rastree todo en tiempo real. De su auto del día a día a una flota de 500 vehículos — atendemos a todos los propietarios en Estados Unidos.",
+        hero_badge: "La Confianza de los Propietarios en América",
+        hero_h1: "Deje de Pagar de Más en Reparaciones. Empiece a Elegir.",
+        hero_sub: "TechTrust AutoSolutions pone mecánicos, talleres y grúas certificados al alcance de su mano. Reciba múltiples cotizaciones competitivas, compare lado a lado y apruebe la mejor oferta — todo desde su teléfono. De un solo auto a una flota de 500 vehículos, ayudamos a cada propietario a ahorrar y conducir con confianza.",
         cta_demo: "DESCARGUE LA APP", cta_services: "VEA CÓMO FUNCIONA", cta_ios: "Descargar en App Store", cta_android: "Disponible en Google Play",
         select_language: "Seleccione su idioma:",
         hero_images_caption: "Imágenes ilustrativas.",
@@ -422,7 +442,7 @@
         form_name: "Nombre completo", form_email: "Email", form_company: "Empresa (opcional)", form_size: "Número de vehículos", form_msg: "Mensaje", form_send: "Enviar Mensaje",
         footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos los derechos reservados.",
         app_features_title: "Todo Lo Que Necesita — En Su Bolsillo",
-        app_features_sub: "Una app para solicitar servicios, rastrear vehículos, controlar costos y conectar con proveedores certificados en toda América.",
+        app_features_sub: "Dos apps, una plataforma. Solicite servicios de proveedores certificados O rastree sus vehículos en tiempo real — use una, o combine ambas para control total.",
         app_1t: "Solicite Cualquier Servicio", app_1d: "Cambio de aceite, frenos, motor, electricidad, grúa — describa lo que necesita y reciba cotizaciones competitivas de proveedores certificados en minutos.",
         app_2t: "Rastreo GPS en Tiempo Real", app_2d: "Rastree cada vehículo 24/7 con GPS en tiempo real. Cámaras integradas y sensores de puerta añaden seguridad extra. Vea rutas, paradas y comportamiento del conductor.",
         app_3t: "Alertas Inteligentes", app_3d: "Reciba notificaciones instantáneas sobre mantenimiento programado, acceso no autorizado a puertas, desvíos de ruta, finalizaciones de servicio y umbrales de costo.",
@@ -450,7 +470,15 @@
         user_4_title: "Gestores de Flotas Comerciales",
         user_4_desc: "Gestión de flotas de nivel empresarial: cumplimiento DOT, scorecards de conductores, análisis de combustible, cámaras integradas y sensores de puerta. Visibilidad y control total sobre 10, 100 o 1,000+ vehículos.",
         final_cta_title: "¿Listo Para Tomar el Control del Cuidado de Su Vehículo?",
-        final_cta_desc: "Descargue TechTrust AutoSolutions gratis hoy. Reciba su primera cotización competitiva en minutos o comience a rastrear su vehículo ahora. Disponible para iOS y Android — en inglés, portugués y español."
+        final_cta_desc: "Descargue TechTrust AutoSolutions gratis hoy. Reciba su primera cotización competitiva en minutos o comience a rastrear su vehículo ahora. Use una app o ambas — usted elige. Disponible para iOS y Android en inglés, portugués y español.",
+        gallery_title: "Vea TechTrust en Acción",
+        gallery_sub: "Escenarios reales que muestran cómo nuestra plataforma ayuda a propietarios y gestores de flotas todos los días.",
+        slide_1_caption: "Gestione toda su flota desde un panel intuitivo",
+        slide_2_caption: "Mecánicos certificados listos para atenderlo en cualquier lugar",
+        slide_3_caption: "Rastreo GPS en tiempo real con integración de cámaras",
+        slide_4_caption: "Compare cotizaciones competitivas lado a lado",
+        slide_5_caption: "Análisis completo de costos e informes de gastos",
+        slide_6_caption: "De autos del día a día a flotas comerciales — atendemos a todos"
       }
     };
 
@@ -505,11 +533,7 @@
 
       // Slider controls
       const slides = document.getElementById('service-slides');
-      const prev = document.getElementById('prevSlide');
-      const next = document.getElementById('nextSlide');
-      const slideWidth = ()=> slides?.querySelector('img')?.getBoundingClientRect().width || 0;
-      prev?.addEventListener('click', ()=> slides.scrollBy({left: -slideWidth(), behavior:'smooth'}));
-      next?.addEventListener('click', ()=> slides.scrollBy({left: slideWidth(), behavior:'smooth'}));
+      const slideWidth = ()=> slides?.querySelector('.slide-item')?.getBoundingClientRect().width || slides?.querySelector('img')?.getBoundingClientRect().width || 0;
 
       // Autoplay com loop
       let autoPlayInt = null;
@@ -564,15 +588,20 @@
         <a href="#software" data-i18n="nav_software"></a>
         <a href="#industries" data-i18n="nav_industries"></a>
         <a href="#contact" data-i18n="nav_contact"></a>
-        <div class="lang" aria-label="Language switcher">
-          <button data-lang="en" aria-label="English"><span class="flag-emoji">🇺🇸</span><span class="flag-fallback">EN</span></button>
-          <button data-lang="pt" aria-label="Português"><span class="flag-emoji">🇧🇷</span><span class="flag-fallback">PT</span></button>
-          <button data-lang="es" aria-label="Español"><span class="flag-emoji">🇪🇸</span><span class="flag-fallback">ES</span></button>
-        </div>
         <a class="cta" href="#contact" data-i18n="cta_demo"></a>
       </nav>
     </div>
   </header>
+  <div class="lang-bar">
+    <div class="container" style="display:flex;align-items:center;justify-content:center;gap:12px">
+      <span data-i18n="select_language" style="font-size:.8rem;color:var(--muted);font-weight:600"></span>
+      <div class="lang" aria-label="Language switcher">
+        <button data-lang="en" aria-label="English"><span class="flag-emoji">🇺🇸</span><span class="flag-fallback">EN</span></button>
+        <button data-lang="pt" aria-label="Português"><span class="flag-emoji">🇧🇷</span><span class="flag-fallback">PT</span></button>
+        <button data-lang="es" aria-label="Español"><span class="flag-emoji">🇪🇸</span><span class="flag-fallback">ES</span></button>
+      </div>
+    </div>
+  </div>
 
   <main>
     <!-- Hero -->
@@ -593,7 +622,6 @@
             </a>
             <a class="cta secondary" href="#services" data-i18n="cta_services"></a>
           </div>
-          <p style="margin-top:12px;font-size:.85rem;color:var(--muted)" data-i18n="select_language"></p>
           <div class="card" style="margin-top:16px">
             <p style="margin:0;font-size:.9rem" data-i18n="language_notice"></p>
           </div>
@@ -651,34 +679,54 @@
     </section>
 
     <!-- Services Gallery -->
-    <section style="background:#f8f9fa;padding:56px 0">
+    <section style="padding:56px 0">
       <div class="container">
+        <h2 class="section-title" style="text-align:center" data-i18n="gallery_title"></h2>
+        <p class="section-sub" style="text-align:center;max-width:700px;margin:0 auto 24px" data-i18n="gallery_sub"></p>
         <div class="slider" aria-label="Service photos slider">
           <div class="slides" id="service-slides">
-            <picture>
-              <source media="(min-width: 941px)" srcset="/foto-02-site-desktop.png">
-              <img src="/foto-02-site.png" alt="Service photo 1">
-            </picture>
-            <picture>
-              <source media="(min-width: 941px)" srcset="/foto-03-site-desktop.png">
-              <img src="/foto-03-site.png" alt="Service photo 2">
-            </picture>
-            <picture>
-              <source media="(min-width: 941px)" srcset="/foto-04-site-desktop.png">
-              <img src="/foto-04-site.jpg" alt="Service photo 3">
-            </picture>
-            <picture>
-              <source media="(min-width: 941px)" srcset="/foto-05-site-desktop.png">
-              <img src="/foto-05-site.png" alt="Service photo 4">
-            </picture>
-            <picture>
-              <source media="(min-width: 941px)" srcset="/foto-06-site-desktop.png">
-              <img src="/foto-06-site.png" alt="Service photo 5">
-            </picture>
-            <picture>
-              <source media="(min-width: 941px)" srcset="/foto-07-site-desktop.png">
-              <img src="/foto-07-site.png" alt="Service photo 6">
-            </picture>
+            <div class="slide-item">
+              <picture>
+                <source media="(min-width: 941px)" srcset="/foto-02-site-desktop.png">
+                <img src="/foto-02-site.png" alt="Fleet management dashboard">
+              </picture>
+              <div class="slide-caption" data-i18n="slide_1_caption"></div>
+            </div>
+            <div class="slide-item">
+              <picture>
+                <source media="(min-width: 941px)" srcset="/foto-03-site-desktop.png">
+                <img src="/foto-03-site.png" alt="Certified mechanic at work">
+              </picture>
+              <div class="slide-caption" data-i18n="slide_2_caption"></div>
+            </div>
+            <div class="slide-item">
+              <picture>
+                <source media="(min-width: 941px)" srcset="/foto-04-site-desktop.png">
+                <img src="/foto-04-site.jpg" alt="Vehicle tracking system">
+              </picture>
+              <div class="slide-caption" data-i18n="slide_3_caption"></div>
+            </div>
+            <div class="slide-item">
+              <picture>
+                <source media="(min-width: 941px)" srcset="/foto-05-site-desktop.png">
+                <img src="/foto-05-site.png" alt="Service quote comparison">
+              </picture>
+              <div class="slide-caption" data-i18n="slide_4_caption"></div>
+            </div>
+            <div class="slide-item">
+              <picture>
+                <source media="(min-width: 941px)" srcset="/foto-06-site-desktop.png">
+                <img src="/foto-06-site.png" alt="Cost analytics dashboard">
+              </picture>
+              <div class="slide-caption" data-i18n="slide_5_caption"></div>
+            </div>
+            <div class="slide-item">
+              <picture>
+                <source media="(min-width: 941px)" srcset="/foto-07-site-desktop.png">
+                <img src="/foto-07-site.png" alt="Fleet operations">
+              </picture>
+              <div class="slide-caption" data-i18n="slide_6_caption"></div>
+            </div>
           </div>
           <div class="slider-nav">
             <button class="slider-prev" onclick="document.getElementById('service-slides').scrollBy({left: -document.getElementById('service-slides').clientWidth * 0.9, behavior: 'smooth'})" aria-label="Previous">‹</button>
