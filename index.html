@@ -42,7 +42,8 @@
       .logo-img{width:56px; height:56px}
     }
     .brand span{font-weight:800; letter-spacing:.3px; color:#e2e8f0; white-space:nowrap}
-    .nav-links{display:flex; gap:16px; align-items:center; flex-wrap:wrap}
+    .nav-links{display:flex; gap:14px; align-items:center; flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none}
+    .nav-links::-webkit-scrollbar{display:none}
     .nav-links a{color:var(--silver); text-decoration:none; font-weight:600; font-size:.95rem; white-space:nowrap; padding:4px 10px; border-radius:8px; transition:all 0.2s ease}
     .nav-links a:hover{background:rgba(56,189,248,.1); color:var(--accent)}
     .cta{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#06121f; text-decoration:none; font-weight:800; box-shadow:var(--shadow)}
@@ -136,7 +137,7 @@
       .nav{gap:12px}
       .brand{margin-right:0; font-size:.95rem}
       .brand span{font-size:.95rem}
-      .nav-links{flex-wrap:wrap; gap:10px; width:100%; justify-content:center}
+      .nav-links{flex-wrap:nowrap; gap:10px; width:auto; justify-content:flex-end; overflow-x:auto}
       .nav-links a{font-size:.85rem; padding:4px 8px}
       .nav-links > .cta{min-width:140px; padding:8px 14px; font-size:.85rem}
       .lead{font-size:clamp(15px, 1.6vw, 18px)}
@@ -146,7 +147,7 @@
     }
     @media (max-width: 768px){
       .brand span{display:none}
-      .nav-links{gap:8px}
+      .nav-links{gap:8px; flex-wrap:nowrap}
       .nav-links a{font-size:.8rem; padding:3px 6px}
       .nav-links > .cta{min-width:120px; padding:8px 12px; font-size:.8rem}
       .container{padding:0 16px}
@@ -244,7 +245,7 @@
         footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. All rights reserved.",
         app_features_title: "Everything You Need — Right in Your Pocket",
         app_features_sub: "Two apps, one platform. Request services from certified providers OR track your vehicles in real-time — use one, or combine both for complete control.",
-        app_1t: "Request Any Service", app_1d: "Oil change, brakes, engine, electrical, towing — describe what you need and get competitive quotes from certified providers in minutes.",
+        app_1t: "Request Any Service", app_1d: "Oil change, brakes, engine, electrical, towing — describe what you need and get competitive quotes from certified providers in minutes. Plus, visit our Port St. Lucie headquarters for light maintenance: oil changes, brake service, A/C, lighting, and diagnostics.",
         app_2t: "Real-Time GPS Tracking", app_2d: "Track every vehicle 24/7 with real-time GPS. Integrated cameras and door sensors add an extra layer of security. See routes, stops, and driving behavior instantly.",
         app_3t: "Smart Alerts", app_3d: "Get instant notifications for scheduled maintenance, unauthorized door access, route deviations, service completions, and cost thresholds.",
         app_4t: "Cost Control Dashboard", app_4d: "Track every dollar spent on services, parts, and fuel. Generate reports, spot trends, and make smarter decisions for your vehicle or fleet.",
@@ -345,7 +346,7 @@
         footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos os direitos reservados.",
         app_features_title: "Tudo Que Você Precisa — No Seu Bolso",
         app_features_sub: "Dois apps, uma plataforma. Solicite serviços de prestadores certificados OU rastreie seus veículos em tempo real — use um, ou combine ambos para controle total.",
-        app_1t: "Solicite Qualquer Serviço", app_1d: "Troca de óleo, freios, motor, elétrica, guincho — descreva o que precisa e receba orçamentos competitivos de prestadores certificados em minutos.",
+        app_1t: "Solicite Qualquer Serviço", app_1d: "Troca de óleo, freios, motor, elétrica, guincho — descreva o que precisa e receba orçamentos competitivos de prestadores certificados em minutos. Além disso, visite nossa sede em Port St. Lucie para manutenção leve: troca de óleo, freios, ar-condicionado, iluminação e diagnóstico.",
         app_2t: "Rastreamento GPS em Tempo Real", app_2d: "Rastreie cada veículo 24/7 com GPS em tempo real. Câmeras integradas e sensores de porta adicionam segurança extra. Veja rotas, paradas e comportamento do motorista.",
         app_3t: "Alertas Inteligentes", app_3d: "Receba notificações instantâneas sobre manutenção programada, acesso não autorizado às portas, desvios de rota, conclusão de serviços e limites de custo.",
         app_4t: "Painel de Controle de Custos", app_4d: "Rastreie cada dólar gasto em serviços, peças e combustível. Gere relatórios, identifique tendências e tome decisões mais inteligentes para seu veículo ou frota.",
@@ -446,7 +447,7 @@
         footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos los derechos reservados.",
         app_features_title: "Todo Lo Que Necesita — En Su Bolsillo",
         app_features_sub: "Dos apps, una plataforma. Solicite servicios de proveedores certificados O rastree sus vehículos en tiempo real — use una, o combine ambas para control total.",
-        app_1t: "Solicite Cualquier Servicio", app_1d: "Cambio de aceite, frenos, motor, electricidad, grúa — describa lo que necesita y reciba cotizaciones competitivas de proveedores certificados en minutos.",
+        app_1t: "Solicite Cualquier Servicio", app_1d: "Cambio de aceite, frenos, motor, electricidad, grúa — describa lo que necesita y reciba cotizaciones competitivas de proveedores certificados en minutos. Además, visite nuestra sede en Port St. Lucie para mantenimiento ligero: cambio de aceite, frenos, aire acondicionado, iluminación y diagnóstico.",
         app_2t: "Rastreo GPS en Tiempo Real", app_2d: "Rastree cada vehículo 24/7 con GPS en tiempo real. Cámaras integradas y sensores de puerta añaden seguridad extra. Vea rutas, paradas y comportamiento del conductor.",
         app_3t: "Alertas Inteligentes", app_3d: "Reciba notificaciones instantáneas sobre mantenimiento programado, acceso no autorizado a puertas, desvíos de ruta, finalizaciones de servicio y umbrales de costo.",
         app_4t: "Panel de Control de Costos", app_4d: "Rastree cada dólar gastado en servicios, piezas y combustible. Genere informes, detecte tendencias y tome decisiones más inteligentes para su vehículo o flota.",
@@ -1002,6 +1003,13 @@
             <p style="color:var(--muted)">Port St. Lucie, FL • <a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a></p>
             <div style="margin-top:10px">
               <iframe title="PSL Map" style="width:100%;height:280px;border:1px solid rgba(148,163,184,.2); border-radius:12px" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Port%20St.%20Lucie,%20FL&output=embed"></iframe>
+            </div>
+            <div style="margin-top:16px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap">
+              <img src="https://flagcdn.com/w80/us.png" alt="United States" style="height:40px;border-radius:4px;border:1px solid rgba(148,163,184,.2)" />
+              <img src="https://flagcdn.com/w60/us-fl.png" alt="Florida" style="height:32px;border-radius:4px;border:1px solid rgba(148,163,184,.2)" onerror="this.style.display='none'" />
+              <span style="color:rgba(148,163,184,.4);font-size:1.2rem">|</span>
+              <img src="https://flagcdn.com/w48/es.png" alt="España" style="height:28px;border-radius:4px;border:1px solid rgba(148,163,184,.2)" />
+              <img src="https://flagcdn.com/w48/br.png" alt="Brasil" style="height:28px;border-radius:4px;border:1px solid rgba(148,163,184,.2)" />
             </div>
           </div>
         </div>
