@@ -30,8 +30,8 @@
     a{color:var(--accent)} .container{max-width:var(--maxw); margin-inline:auto; padding:0 20px}
     html{scroll-behavior:smooth; scroll-padding-top:150px}
     header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(160%) blur(8px); background:linear-gradient(180deg, rgba(2,6,23,.85), rgba(2,6,23,.55)); border-bottom:1px solid rgba(148,163,184,.15)}
-  .nav{display:flex; align-items:center; justify-content:space-between; padding:7px 0; gap:14px}
-    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; margin-right:32px}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:7px 0; gap:14px; flex-wrap:wrap}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; margin-right:auto}
   .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,#38bdf8, #60a5fa); box-shadow:0 4px 18px rgba(56,189,248,.45)}
   /* If using an <img> for the logo, use .logo-img to size/crop */
   .logo-img{width:36px; height:36px; border-radius:10px; object-fit:cover; display:inline-block; vertical-align:middle; box-shadow:0 4px 12px rgba(2,6,23,.25); border:1px solid rgba(255,255,255,.03)}
@@ -44,17 +44,22 @@
     .logo-img{width:56px; height:56px}
   }
     .brand span{font-weight:800; letter-spacing:.3px; color:#e2e8f0; white-space:nowrap}
-  .nav-links{display:flex; gap:16px; align-items:center; flex-wrap:nowrap}
+  .nav-links{display:flex; gap:16px; align-items:center; flex-wrap:wrap}
   .nav-links a{color:var(--silver); text-decoration:none; font-weight:600; font-size:.95rem; white-space:nowrap; padding:4px 10px; border-radius:8px; transition:all 0.2s ease}
     .nav-links a:hover{background:rgba(56,189,248,.1); color:var(--accent)}
     .cta{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#06121f; text-decoration:none; font-weight:800; box-shadow:var(--shadow)}
     .cta.secondary{background:transparent; border:1px solid rgba(148,163,184,.35); color:var(--text)}
-    .cta, .cta.btn, .hero-cta .cta, .hero-cta .cta.secondary {
+    .hero-cta .cta, .hero-cta .cta.secondary {
       min-width:280px;
       justify-content:center;
       text-align:center;
       font-size:clamp(15px,1.1vw,17px);
       padding:16px 24px;
+    }
+    .nav-links > .cta{
+      min-width:200px;
+      padding:10px 18px;
+      font-size:.9rem;
     }
     .lang{display:flex; gap:10px; align-items:center}
     .lang button{background:transparent; border:1px solid rgba(148,163,184,.3); color:var(--silver); padding:6px 10px; border-radius:999px; cursor:pointer; font-weight:700; font-size:1.2rem; line-height:1; min-width:40px}
@@ -91,8 +96,7 @@
     }
     .list{margin:14px 0 0; padding-left:18px}
     .list li{margin:8px 0}
-  .services{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px}
-  /* Slider */
+  .services{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px}    .app-features-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:24px; margin-top:24px}  /* Slider */
   .slider{position:relative; margin:18px 0 6px; overflow:hidden; border-radius:12px; border:1px solid rgba(148,163,184,.18)}
   .slides{display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:0; scrollbar-width:none}
   .slides::-webkit-scrollbar{display:none}
@@ -122,31 +126,40 @@
     @media (max-width: 940px){
       .hero-wrap{grid-template-columns:1fr; padding:42px 0}
       .about-split{grid-template-columns:1fr}
-      .nav{flex-direction:column; gap:12px; align-items:flex-start}
-      .brand{margin-right:0}
-      .nav-links{flex-wrap:wrap; gap:12px; width:100%}
-      .nav-links .cta{min-width:auto; padding:10px 16px; font-size:.9rem}
+      .nav{gap:12px}
+      .brand{margin-right:0; font-size:.95rem}
+      .brand span{font-size:.95rem}
+      .nav-links{flex-wrap:wrap; gap:10px; width:100%; justify-content:center}
+      .nav-links a{font-size:.85rem; padding:4px 8px}
+      .nav-links > .cta{min-width:140px; padding:8px 14px; font-size:.85rem}
       .lead{font-size:clamp(15px, 1.6vw, 18px)}
       .hero-img{height:360px}
       .slides img{height:340px}
+      .app-features-grid{grid-template-columns:1fr; gap:18px}
     }
     @media (max-width: 768px){
-      .nav-links a{font-size:.9rem}
-      .nav-links .cta{font-size:.85rem; padding:8px 14px}
+      .brand span{display:none}
+      .nav-links{gap:8px}
+      .nav-links a{font-size:.8rem; padding:3px 6px}
+      .nav-links > .cta{min-width:120px; padding:8px 12px; font-size:.8rem}
       .container{padding:0 16px}
       h1{font-size:clamp(28px, 7vw, 42px)}
       .hero-cta{gap:10px}
       .hero-img{height:300px}
       .slides img{height:280px}
+      .app-features-grid{grid-template-columns:1fr}
     }
     @media (max-width: 480px){
-      .nav{gap:8px}
-      .nav-links{gap:10px}
-      .cta{padding:14px 20px; min-width:100%}
-      .hero-cta{flex-direction:column; align-items:center; width:100%}
-      .hero-cta .cta{width:100%; max-width:320px}
+      .nav{gap:8px; padding:10px 0}
+      .nav-links{gap:8px; justify-content:flex-start}
+      .nav-links a{display:none}
+      .lang{order:-1}
+      .nav-links > .cta{min-width:auto; flex:1; padding:10px 14px; font-size:.85rem}
+      .hero-cta{flex-direction:column; align-items:stretch; width:100%}
+      .hero-cta .cta{width:100%; max-width:100%; min-width:100%}
       .hero-img{height:240px}
       .slides img{height:240px}
+      .app-features-grid{grid-template-columns:1fr}
     }
     
     /* Flag emoji fallback support */
