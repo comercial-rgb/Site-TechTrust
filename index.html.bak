@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>TechTrust AutoSolutions — Fleet Management App & Service Center</title>
+  <meta name="description" content="Manage your entire fleet from your phone. Request services, track vehicles with cameras, control costs, and monitor fuel — powered by our Port St. Lucie service center and Florida-wide network." />
+  <meta name="keywords" content="Fleet Management App, Mobile Fleet Management, Vehicle Tracking, Fleet GPS, Service Requests, Cost Control, Fuel Management, Port St. Lucie, Florida, DOT Compliance, Auto Maintenance App" />
+  <meta property="og:title" content="TechTrust AutoSolutions — Fleet Management App & Service Center" />
+  <meta property="og:description" content="The all-in-one mobile app for fleet management. Request services, track vehicles with cameras, control costs, and manage fuel across Florida." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://techtrustautosolutions.com/" />
+  <meta property="og:image" content="/assets/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/apple-touch-icon.png">
+  <style>
+    :root{
+      --bg:#0b1220; --bg-alt:#0f172a; --card:#111827; --muted:#94a3b8; --text:#e5e7eb; --accent:#38bdf8; --accent-2:#60a5fa; --silver:#cbd5e1; --maxw:1200px; --radius:18px; --shadow:0 10px 30px rgba(2,6,23,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial; background:linear-gradient(180deg, #0b1220 0%, #0c1324 60%, #0a1328 100%); color:var(--text); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
+    a{color:var(--accent)} .container{max-width:var(--maxw); margin-inline:auto; padding:0 20px}
+    html{scroll-behavior:smooth; scroll-padding-top:150px}
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(160%) blur(8px); background:linear-gradient(180deg, rgba(2,6,23,.85), rgba(2,6,23,.55)); border-bottom:1px solid rgba(148,163,184,.15)}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:7px 0; gap:14px; flex-wrap:wrap}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; margin-right:auto}
+  .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,#38bdf8, #60a5fa); box-shadow:0 4px 18px rgba(56,189,248,.45)}
+  /* If using an <img> for the logo, use .logo-img to size/crop */
+  .logo-img{width:36px; height:36px; border-radius:10px; object-fit:cover; display:inline-block; vertical-align:middle; box-shadow:0 4px 12px rgba(2,6,23,.25); border:1px solid rgba(255,255,255,.03)}
+  /* Responsive logo: slightly larger on wider screens */
+  @media (min-width: 940px){
+    .logo-img{width:48px; height:48px}
+    .brand{gap:14px}
+  }
+  @media (min-width: 1400px){
+    .logo-img{width:56px; height:56px}
+  }
+    .brand span{font-weight:800; letter-spacing:.3px; color:#e2e8f0; white-space:nowrap}
+  .nav-links{display:flex; gap:16px; align-items:center; flex-wrap:wrap}
+  .nav-links a{color:var(--silver); text-decoration:none; font-weight:600; font-size:.95rem; white-space:nowrap; padding:4px 10px; border-radius:8px; transition:all 0.2s ease}
+    .nav-links a:hover{background:rgba(56,189,248,.1); color:var(--accent)}
+    .cta{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#06121f; text-decoration:none; font-weight:800; box-shadow:var(--shadow)}
+    .cta.secondary{background:transparent; border:1px solid rgba(148,163,184,.35); color:var(--text)}
+    .hero-cta .cta, .hero-cta .cta.secondary {
+      min-width:280px;
+      justify-content:center;
+      text-align:center;
+      font-size:clamp(15px,1.1vw,17px);
+      padding:16px 24px;
+    }
+    .nav-links > .cta{
+      min-width:200px;
+      padding:10px 18px;
+      font-size:.9rem;
+    }
+    .lang{display:flex; gap:10px; align-items:center}
+    .lang button{background:transparent; border:1px solid rgba(148,163,184,.3); color:var(--silver); padding:6px 10px; border-radius:999px; cursor:pointer; font-weight:700; font-size:1.2rem; line-height:1; min-width:40px}
+    .lang button .flag-fallback{display:none; font-size:.75rem; font-weight:700}
+    @supports not (font-family: "Segoe UI Emoji"){
+      .lang button{font-size:.75rem}
+      .lang button .flag-emoji{display:none}
+      .lang button .flag-fallback{display:inline}
+    }
+    .lang button.active{border-color:var(--accent); color:#0b1220; background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+    .hero{position:relative; overflow:hidden}
+    .hero-wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:36px; align-items:center; padding:64px 0}
+  .hero-img{width:100%; height:450px; object-fit:cover; border-radius:10px; border:1px solid rgba(148,163,184,.2)}
+    .badge{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; background:rgba(56,189,248,.12); border:1px solid rgba(56,189,248,.25); color:#e0f2fe; border-radius:999px; font-weight:700; font-size:.85rem}
+    h1{font-size:clamp(34px, 4.5vw, 58px); line-height:1.05; margin:14px 0 14px; font-weight:900}
+    .lead{font-size:clamp(16px, 1.4vw, 20px); color:var(--silver)}
+    .hero-cta{display:flex; gap:16px; flex-wrap:wrap; margin-top:20px; justify-content:center; align-items:center}
+    .hero-cta.centered {
+      justify-content: center;
+    }
+    .panel{background:radial-gradient(1200px 600px at 80% -10%, rgba(96,165,250,.25), transparent 50%), linear-gradient(180deg, rgba(2,6,23,.6), rgba(2,6,23,.35)); border:1px solid rgba(148,163,184,.2); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+    section{padding:38px 0}
+    .section-title{font-size:clamp(26px,3.2vw,40px); margin:0 0 12px; font-weight:900}
+    .section-sub{color:var(--muted); max-width:850px}
+    .pillars{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px}
+    .card{background:linear-gradient(180deg,#0B1324,#0B1428); border:1px solid rgba(148,163,184,.18); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
+    .icon{width:38px; height:38px; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; color:#06121f; font-weight:900}
+    .callout-text {
+      font-size:clamp(13px,1vw,15px)!important;
+      font-weight:400;
+      color:var(--muted);
+      margin:0 0 8px 0;
+      text-align:center;
+    }
+    .list{margin:14px 0 0; padding-left:18px}
+    .list li{margin:8px 0}
+  .services{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px}    .app-features-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:24px; margin-top:24px}  /* Slider */
+  .slider{position:relative; margin:18px 0 6px; overflow:hidden; border-radius:12px; border:1px solid rgba(148,163,184,.18)}
+  .slides{display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:0; scrollbar-width:none}
+  .slides::-webkit-scrollbar{display:none}
+  .slides picture{flex:0 0 100%; width:100%; display:block; scroll-snap-align:center}
+  .slides img{width:100%; height:480px; object-fit:cover; display:block}
+  .slider-nav{position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; pointer-events:none}
+  .slider-btn{pointer-events:auto; background:rgba(2,6,23,.5); border:1px solid rgba(148,163,184,.25); color:#e2e8f0; width:42px; height:42px; border-radius:999px; display:grid; place-items:center; margin:0 8px}
+  .forms-row{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin-top:14px}
+  .hidden{display:none}
+    .industries{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px}
+    .about-split{display:grid; grid-template-columns:1.1fr .9fr; gap:24px}
+    /* How It Works Steps */
+    .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:28px; margin-top:32px}
+    .step-card{background:linear-gradient(135deg,rgba(56,189,248,.08),rgba(96,165,250,.08)); border:1px solid rgba(56,189,248,.25); border-radius:var(--radius); padding:28px 24px; position:relative; transition:transform 0.3s ease, box-shadow 0.3s ease}
+    .step-card:hover{transform:translateY(-4px); box-shadow:0 16px 40px rgba(56,189,248,.2)}
+    .step-number{position:absolute; top:-16px; left:24px; width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#06121f; font-weight:900; font-size:1.5rem; display:grid; place-items:center; box-shadow:0 4px 12px rgba(56,189,248,.4)}
+    .step-card h3{margin:24px 0 12px; font-size:1.3rem; font-weight:800}
+    .step-card p{margin:0; color:var(--silver); line-height:1.6}
+    form{display:grid; gap:14px}
+    form label{width:100%}
+    form input, form select, form textarea{width:100%; box-sizing:border-box}
+    input, select, textarea{background:#0b1220; color:var(--text); border:1px solid rgba(148,163,184,.25); border-radius:12px; padding:12px 14px; font:inherit}
+    textarea{min-height:120px}
+    .btn{cursor:pointer}
+    footer{padding:50px 0; border-top:1px solid rgba(148,163,184,.18); color:var(--muted)}
+    .f-grid{display:grid; grid-template-columns:1fr auto; gap:18px; align-items:center}
+    @media (max-width: 940px){
+      .hero-wrap{grid-template-columns:1fr; padding:42px 0}
+      .about-split{grid-template-columns:1fr}
+      .nav{gap:12px}
+      .brand{margin-right:0; font-size:.95rem}
+      .brand span{font-size:.95rem}
+      .nav-links{flex-wrap:wrap; gap:10px; width:100%; justify-content:center}
+      .nav-links a{font-size:.85rem; padding:4px 8px}
+      .nav-links > .cta{min-width:140px; padding:8px 14px; font-size:.85rem}
+      .lead{font-size:clamp(15px, 1.6vw, 18px)}
+      .hero-img{height:360px}
+      .slides img{height:340px}
+      .app-features-grid{grid-template-columns:1fr; gap:18px}
+    }
+    @media (max-width: 768px){
+      .brand span{display:none}
+      .nav-links{gap:8px}
+      .nav-links a{font-size:.8rem; padding:3px 6px}
+      .nav-links > .cta{min-width:120px; padding:8px 12px; font-size:.8rem}
+      .container{padding:0 16px}
+      h1{font-size:clamp(28px, 7vw, 42px)}
+      .hero-cta{gap:10px}
+      .hero-img{height:300px}
+      .slides img{height:280px}
+      .app-features-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 480px){
+      .nav{gap:8px; padding:10px 0}
+      .nav-links{gap:8px; justify-content:flex-start}
+      .nav-links a{display:none}
+      .lang{order:-1}
+      .nav-links > .cta{min-width:auto; flex:1; padding:10px 14px; font-size:.85rem}
+      .hero-cta{flex-direction:column; align-items:stretch; width:100%}
+      .hero-cta .cta{width:100%; max-width:100%; min-width:100%}
+      .hero-img{height:240px}
+      .slides img{height:240px}
+      .app-features-grid{grid-template-columns:1fr}
+    }
+    
+    /* Flag emoji fallback support */
+    .flag-fallback {
+      display: none;
+    }
+    
+    @supports not ((font-family: "Segoe UI Emoji") or (font-family: "Apple Color Emoji") or (font-family: "Noto Color Emoji")) {
+      .flag-emoji {
+        display: none;
+      }
+      .flag-fallback {
+        display: inline;
+        font-weight: bold;
+      }
+    }
+    
+    /* Hide emoji if browser doesn't support color emoji fonts */
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      .flag-emoji {
+        display: none;
+      }
+      .flag-fallback {
+        display: inline;
+        font-weight: bold;
+      }
+    }
+  </style>
+  <script>
+    const I18N = {
+      en: {
+        nav_home: "Home", nav_about: "About", nav_services: "How It Works", nav_software: "Our Apps", nav_industries: "For Everyone", nav_contact: "Contact",
+        hero_badge: "Complete Vehicle Care Solution",
+  hero_h1: "Your Vehicle Deserves Expert Care at the Best Price.",
+  hero_sub: "Two powerful apps: Request services from certified shops with competitive quotes, or track your vehicle in real-time. Use one, both, or all features — you choose what you need. From cars to commercial fleets, we serve all vehicle owners across the United States.",
+        cta_demo: "GET STARTED TODAY", cta_services: "LEARN MORE", cta_ios: "Download on App Store", cta_android: "Get it on Google Play",
+        mission_title: "Making America Great, One Vehicle at a Time",
+        mission_body: "TechTrust AutoSolutions connects vehicle owners with certified repair shops through our service marketplace, while our tracking app gives you complete visibility. Whether you own a car, truck, van, or manage a full fleet — we make vehicle care simple, affordable, and secure.",
+        mission_slogan: "We don't just connect you with shops; we create a trusted marketplace where quality meets competitive pricing.",
+        security_title: "Trust & Security First",
+        security_sub: "Advanced anti-fraud protection safeguards both vehicle owners and repair shops.",
+        sec_1_title: "Verified Shops Only",
+        sec_1_desc: "All repair shops in our network are certified and verified. We check credentials, insurance, and customer reviews before approval.",
+        sec_2_title: "Secure Payments",
+        sec_2_desc: "All transactions processed through encrypted, PCI-compliant payment systems. Your financial information is never shared with shops.",
+        sec_3_title: "Fraud Protection",
+        sec_3_desc: "Advanced anti-fraud algorithms monitor every transaction. Suspicious activity triggers immediate review. Both customers and shops are protected.",
+        
+        benefits_title: "Why Vehicle Owners Choose TechTrust",
+        benefits_sub: "Whether you own one car or manage 100 trucks, we make vehicle care easier and more affordable.",
+        ben_1_title: "Competitive Pricing",
+        ben_1_desc: "Multiple shops compete for your business. Get the best price without compromising quality.",
+        ben_2_title: "Service Flexibility",
+        ben_2_desc: "Choose at-home service, drive to the shop, or request roadside assistance. You decide what works best.",
+        ben_3_title: "Complete Transparency",
+        ben_3_desc: "See all costs upfront. Read shop reviews. Track service progress. No surprises, no hidden fees.",
+        proof_cta: "DOWNLOAD NOW AND GET YOUR FIRST QUOTE",
+  hq_headquarters_label: "Headquarters:", hq_headquarters: "Port St. Lucie, Florida",
+  hq_coverage_label: "Coverage:", hq_coverage: "Our Port St. Lucie headquarters serves as our main office and light service center. Through our mobile app, fleet managers across Florida can request services from our certified partner network — from routine maintenance to emergency towing — all managed digitally.",
+  hq_focus_label: "On-Site Services:", hq_focus: "Light maintenance at our Port St. Lucie facility: oil changes, brake service, basic electrical diagnostics, A/C service, and vehicle inspections. For major repairs, our app connects you with certified partners statewide.",
+  hq_cert_label: "App Features:", hq_cert: "Real-time vehicle tracking with camera integration, automated service alerts, complete cost tracking, fuel management analytics, and instant access to our certified service network across Florida.",
+  hq_commit_label: "Commitment:", hq_commit: "We combine hands-on local service with cutting-edge mobile technology to keep your fleet running efficiently, safely, and affordably across Florida.",
+        about_title: "From Mobile App to Service Bay: Your Complete Fleet Solution.",
+        about_body: "Founded on the belief that fleet management should be accessible from anywhere, TechTrust AutoSolutions bridges mobile convenience with hands-on service. Our app puts powerful management tools in your pocket while our Port St. Lucie center handles your light maintenance needs.",
+        about_mission: "Our Mission: Give fleet managers complete control through mobile technology, backed by reliable service from our headquarters and partner network across Florida.",
+        about_diff: "Our Difference: We're not just a service shop or just an app — we're both. Request services, track vehicles, monitor costs, and manage fuel, all while knowing you have a certified team ready to help at our Port St. Lucie facility.",
+  language_notice: "English interface with full support in Portuguese and Spanish. Customer service available in all three languages.",
+  two_apps_title: "Two Powerful Apps, One Complete Solution",
+  two_apps_sub: "Choose the app that fits your needs — or use both for complete vehicle management.",
+  
+  app_service_title: "📱 Service Request App",
+  app_service_subtitle: "Competitive Quotes from Certified Shops",
+  app_service_desc: "Request any repair or maintenance service. Certified shops respond with competitive quotes. You choose the best price and approve the work. Services available: at your location, at the shop, or roadside assistance with variable distance fees. One simple platform fee.",
+  
+  app_tracking_title: "📍 Vehicle Tracking App",
+  app_tracking_subtitle: "Real-Auto Care Technology Partner",
+  partner_contact_label: "Contact:",
+  partner_infrastructure: "Powered by enterprise-grade AWS infrastructure with bank-level encryption. Your data is secure and protected across the United States. English interface with Portuguese and Spanish support available.",
+        software_title: "Advanced Features for Fleet Managers",
+        software_sub: "Professional-grade tools for businesses managing 10+ vehicles.",
+        sw_1t: "DOT Compliance & Safety", sw_1a: "HOS & ELD Integration", sw_1b: "Driver Scorecards", sw_1c: "License Tracking",
+        sw_2t: "Cost Analytics", sw_2a: "Fuel Consumption Reports", sw_2b: "Total Cost of Ownership",
+        sw_3t: "Maintenance Tracking", sw_3a: "Automated Service Alerts", sw_3b: "Complete Vehicle History",
+        contact_title: "Get Started Today", contact_sub: "Questions? Want to learn more? Contact our team.",
+        form_name: "Full name", form_email: "Email", form_company: "Company (optional)", form_size: "Number of vehicles", form_msg: "Message", form_send: "Send",
+        footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. All rights reserved.",
+        select_language: "Select your language:",
+        hero_images_caption: "Illustrative images.",
+        app_features_title: "Everything You Need in Your Pocket",
+        app_features_sub: "Powerful features to manage your vehicles from anywhere.",
+        app_1t: "Service Requests", app_1d: "Request any repair or maintenance. Get competitive quotes from certified shops in minutes.",
+        app_2t: "Real-Time Tracking", app_2d: "Know where your vehicles are at all times. Complete GPS tracking with route history.",
+        app_3t: "Instant Alerts", app_3d: "Get notified of maintenance needs, service completions, and important updates immediately.",
+        app_4t: "Cost Management", app_4d: "Track all service costs. Analyze spending patterns. Make data-driven fleet decisions.",
+        app_5t: "Fuel Analytics", app_5d: "Monitor fuel consumption. Identify idle time. Optimize routes for better efficiency.",
+        app_6t: "Certified Network", app_6d: "Access our verified network of certified repair shops across the United States.",
+        how_it_works_title: "How the Service Marketplace Works",
+        how_it_works_sub: "Get competitive quotes and quality service in 4 simple steps.",
+        step_1_title: "Create Account & Register Vehicle",
+        step_1_desc: "Download TechTrust AutoSolutions from App Store or Google Play. Create your account, add your vehicle information, and register a valid payment method. Works for cars, trucks, vans, and all vehicle types.",
+        step_2_title: "Request Service",
+        step_2_desc: "Describe what your vehicle needs: oil change, brake repair, diagnostics, electrical, towing, or any other service. Select location: at your home, at the shop, or roadside assistance.",
+        step_3_title: "Receive & Compare Quotes",
+        step_3_desc: "Certified shops from our network respond with competitive quotes. Review pricing, ratings, and reviews. Compare options and choose the best value for your needs.",
+        step_4_title: "Approve & Track Service",
+        step_4_desc: "Approve your chosen quote with one tap. Track service progress in real-time. All payments processed securely through the app. One simple platform fee — no hidden charges.",
+        for_everyone_title: "For Every Vehicle Owner",
+        for_everyone_sub: "From daily drivers to commercial fleets, our platform serves all vehicle types and owners.",
+        user_1_title: "Individual Car Owners",
+        user_1_desc: "Get fair quotes for your car, SUV, or truck. Compare prices, choose quality shops, and pay securely through the app.",
+        user_2_title: "Small Business Fleets",
+        user_2_desc: "Manage multiple vehicles efficiently. Track all service costs, monitor vehicle location, and keep your business moving.",
+        user_3_title: "Commercial Fleet Managers",
+        user_3_desc: "Complete control over vehicle maintenance, driver monitoring, and compliance. Real-time tracking and detailed analytics for fleet optimization.",
+        user_4_title: "Work Vans & Light Trucks",
+        user_4_desc: "Specialized service for work vans, delivery vehicles, and light commercial trucks. Fast response times to minimize downtime.",
+        final_cta_title: "Ready to Transform Your Vehicle Care Experience?",
+        final_cta_desc: "Download the app today and get your first competitive quote or start tracking your vehicle in minutes. Available on iOS and Android."
+      },
+      pt: {
+        nav_home: "Início", nav_about: "Sobre", nav_services: "Como Funciona", nav_software: "Nossos Apps", nav_industries: "Para Todos", nav_contact: "Contato",
+        hero_badge: "Solução Completa para Seu Veículo",
+  hero_h1: "Seu Veículo Merece Cuidado Expert pelo Melhor Preço.",
+  hero_sub: "Dois apps poderosos: Solicite serviços de oficinas certificadas com orçamentos competitivos, ou rastreie seu veículo em tempo real. Use um, ambos ou todos os recursos — você escolhe o que precisa. De carros a frotas comerciais, atendemos todos os proprietários nos Estados Unidos.",
+        cta_demo: "COMEÇAR HOJE", cta_services: "SAIBA MAIS", cta_ios: "Baixar na App Store", cta_android: "Baixar no Google Play",
+        mission_title: "Fazendo a América Grande, Um Veículo de Cada Vez",
+        mission_body: "TechTrust AutoSolutions conecta proprietários de veículos com oficinas certificadas através do nosso marketplace de serviços, enquanto nosso app de rastreamento oferece visibilidade completa. Seja você dono de um carro, caminhão, van ou gerenciador de frota — tornamos o cuidado veicular simples, acessível e seguro.",
+        mission_slogan: "Não apenas conectamos você com oficinas; criamos um marketplace confiável onde qualidade encontra preços competitivos.",
+        language_notice: "Interface em inglês com suporte completo em português e espanhol. Atendimento disponível nos três idiomas.",
+  two_apps_title: "Dois Apps Poderosos, Uma Solução Completa",
+  two_apps_sub: "Escolha o app que atende suas necessidades — ou use ambos para gestão vehicular completa.",
+  app_service_title: "🔧 App de Solicitação de Serviços",
+  app_service_subtitle: "Orçamentos Competitivos de Oficinas Certificadas",
+  app_service_desc: "Solicite qualquer serviço de reparo ou manutenção. Oficinas certificadas respondem com orçamentos competitivos. Você escolhe o melhor preço e aprova o trabalho. Serviços disponíveis: no seu local, na oficina ou assistência na estrada com taxas variáveis por distância. Uma taxa única de plataforma.",
+  app_tracking_title: "📍 App de Rastreamento Veicular",
+  app_tracking_subtitle: "Monitoramento em Tempo Real & Gestão de Frota",
+  app_tracking_desc: "Monitore a localização do seu veículo em tempo real, rastreie agendamentos de manutenção, analise custos e otimize rotas. Perfeito para gestores de frota ou qualquer pessoa que quer supervisão completa. Funciona independentemente ou integrado ao nosso app de serviços.",
+  flexibility_callout: "Use apenas o App de Serviços para reparos, apenas o App de Rastreamento para monitoramento, ou ambos juntos para gestão veicular completa. Você decide o que precisa.",
+  app_callout: "Download TechTrust AutoSolutions from App Store or Google Play. Available for all vehicle owners across America — from individual car owners to large commercial fleets.",
+        hero_images_caption: "Illustrative images.",
+      },
+      pt: {
+        nav_home: "Início", nav_about: "Sobre", nav_services: "Como Funciona", nav_software: "Nossos Apps", nav_industries: "Para Todos", nav_contact: "Contato",
+        hero_badge: "Solução Completa para Seu Veículo",
+  hero_h1: "Seu Veículo Merece Cuidado Expert pelo Melhor Preço.",
+  hero_sub: "Dois apps poderosos: Solicite serviços de oficinas certificadas com orçamentos competitivos, ou rastreie seu veículo em tempo real. Use um, ambos ou todos os recursos — você escolhe o que precisa. De carros a frotas comerciais, atendemos todos os proprietários nos Estados Unidos.",
+        cta_demo: "COMEÇAR HOJE", cta_services: "SAIBA MAIS", cta_ios: "Baixar na App Store", cta_android: "Baixar no Google Play",
+        mission_title: "Fazendo a América Grande, Um Veículo de Cada Vez",
+        mission_body: "TechTrust AutoSolutions conecta proprietários de veículos com oficinas certificadas através do nosso marketplace de serviços, enquanto nosso app de rastreamento oferece visibilidade completa. Seja você dono de um carro, caminhão, van ou gerenciador de frota — tornamos o cuidado veicular simples, acessível e seguro.",
+        mission_slogan: "Não apenas conectamos você com oficinas; criamos um marketplace confiável onde qualidade encontra preços competitivos.",
+        language_notice: "Interface em inglês com suporte completo em português e espanhol. Atendimento disponível nos três idiomas.",
+  two_apps_title: "Dois Apps Poderosos, Uma Solução Completa",
+  two_apps_sub: "Escolha o app que atende suas necessidades — ou use ambos para gestão veicular completa.",
+  app_service_title: "📱 App de Solicitação de Serviços",
+  app_service_subtitle: "Orçamentos Competitivos de Oficinas Certificadas",
+  app_service_desc: "Solicite qualquer serviço de reparo ou manutenção. Oficinas certificadas respondem com orçamentos competitivos. Você escolhe o melhor preço e aprova o trabalho. Serviços disponíveis: no seu local, na oficina ou assistência na estrada com taxas variáveis por distância. Uma taxa única de plataforma.",
+  app_tracking_title: "📍 App de Rastreamento Veicular",
+  app_tracking_subtitle: "Monitoramento em Tempo Real & Gestão de Frota",
+  app_tracking_desc: "Monitore a localização do seu veículo em tempo real, rastreie agendamentos de manutenção, analise custos e otimize rotas. Perfeito para gestores de frota ou qualquer pessoa que quer supervisão completa. Funciona independentemente ou integrado ao nosso app de serviços.",
+  flexibility_callout: "Use apenas o App de Serviços para reparos, apenas o App de Rastreamento para monitoramento, ou ambos juntos para gestão veicular completa. Você decide o que precisa.",
+  app_callout: "Baixe TechTrust AutoSolutions da App Store ou Google Play. Disponível para todos proprietários de veículos na América — de donos individuais a grandes frotas comerciais.",
+  select_language: "Selecione seu idioma:",
+  hero_images_caption: "Imagens ilustrativas.",
+  app_features_title: "Tudo Que Você Precisa no Bolso",
+  app_features_sub: "Recursos poderosos para gerenciar seus veículos de qualquer lugar.",
+  app_1t: "Solicitações de Serviço", app_1d: "Solicite qualquer reparo ou manutenção. Obtenha orçamentos competitivos de oficinas certificadas em minutos.",
+  app_2t: "Rastreamento em Tempo Real", app_2d: "Saiba onde seus veículos estão o tempo todo. Rastreamento GPS completo com histórico de rotas.",
+  app_3t: "Alertas Instantâneos", app_3d: "Seja notificado de necessidades de manutenção, conclusões de serviço e atualizações importantes imediatamente.",
+  app_4t: "Gestão de Custos", app_4d: "Rastreie todos os custos de serviço. Analise padrões de gastos. Tome decisões baseadas em dados para sua frota.",
+  app_5t: "Análise de Combustível", app_5d: "Monitore consumo de combustível. Identifique tempo ocioso. Otimize rotas para melhor eficiência.",
+  app_6t: "Rede Certificada", app_6d: "Acesse nossa rede verificada de oficinas certificadas em todos os Estados Unidos.",
+  how_it_works_title: "Como o Marketplace de Serviços Funciona", how_it_works_sub: "Obtenha orçamentos competitivos e serviço de qualidade em 4 passos simples",
+  step_1_title: "Crie Conta & Registre Veículo", step_1_desc: "Baixe TechTrust AutoSolutions da App Store ou Google Play. Crie sua conta, adicione informações do seu veículo e registre meio de pagamento válido. Funciona para carros, caminhões, vans e todos os tipos de veículos.",
+  step_2_title: "Solicite Serviço", step_2_desc: "Descreva o que seu veículo precisa: troca de óleo, reparo de freio, diagnóstico, elétrica, guincho ou qualquer outro serviço. Selecione o local: na sua casa, na oficina ou assistência na estrada.",
+  step_3_title: "Receba & Compare Orçamentos", step_3_desc: "Oficinas certificadas da nossa rede respondem com orçamentos competitivos. Revise preços, avaliações e comentários. Compare opções e escolha o melhor custo-benefício.",
+  step_4_title: "Aprove & Rastreie Serviço", step_4_desc: "Aprove o orçamento escolhido com um toque. Rastreie o progresso do serviço  em tempo real. Todos os pagamentos processados com segurança pelo app. Uma taxa única de plataforma — sem cobranças ocultas.",
+        security_title: "Confiança & Segurança em Primeiro Lugar",
+        security_sub: "Proteção antifraude avançada protege proprietários de veículos e oficinas.",
+        sec_1_title: "Apenas Oficinas Verificadas",
+        sec_1_desc: "Todas as oficinas da nossa rede são certificadas e verificadas. Checamos credenciais, seguro e avaliações antes da aprovação.",
+        sec_2_title: "Pagamentos Seguros",
+        sec_2_desc: "Todas as transações processadas através de sistemas de pagamento criptografados e PCI-compliant. Suas informações financeiras nunca são compartilhadas com oficinas.",
+        sec_3_title: "Proteção Antifraude",
+        sec_3_desc: "Algoritmos avançados antifraude monitoram cada transação. Atividade suspeita dispara revisão imediata. Clientes e oficinas são protegidos.",
+        benefits_title: "Por Que Proprietários Escolhem TechTrust",
+        benefits_sub: "Seja você dono de um carro ou gerente de 100 caminhões, tornamos o cuidado veicular mais fácil e acessível.",
+        ben_1_title: "Preços Competitivos",
+        ben_1_desc: "Múltiplas oficinas competem pelo seu negócio. Obtenha o melhor preço sem comprometer qualidade.",
+        ben_2_title: "Flexibilidade de Serviço",
+        ben_2_desc: "Escolha serviço em casa, vá até a oficina ou solicite assistência na estrada. Você decide o que funciona melhor.",
+        ben_3_title: "Transparência Completa",
+        ben_3_desc: "Veja todos os custos antecipadamente. Leia avaliações das oficinas. Rastreie progresso do serviço. Sem surpresas, sem taxas ocultas.",
+        proof_cta: "BAIXE AGORA E OBTENHA SEU PRIMEIRO ORÇAMENTO",
+        for_everyone_title: "Para Todos os Proprietários", for_everyone_sub: "De motoristas diários a frotas comerciais, nossa plataforma atende todos os tipos de veículos e proprietários.",
+        user_1_title: "Proprietários Individuais",
+        user_1_desc: "Obtenha orçamentos justos para seu carro, SUV ou caminhonete. Compare preços, escolha oficinas de qualidade e pague com segurança pelo app.",
+        user_2_title: "Pequenas Frotas",
+        user_2_desc: "Gerencie múltiplos veículos com eficiência. Rastreie todos os custos de serviço, monitore localização e mantenha seu negócio em movimento.",
+        user_3_title: "Gestores de Frotas Comerciais",
+        user_3_desc: "Rastreamento e gestão de serviços de nível empresarial. Monitoramento de compliance DOT, scorecards de motoristas e controle completo de custos para 10+ veículos.",
+        user_4_title: "Vans & Caminhões Leves",
+        user_4_desc: "Serviço especializado para vans de trabalho, veículos de entrega e caminhões comerciais leves. Tempo de resposta rápido para minimizar paradas.",
+  partner_title: "Seu Parceiro Confiável em Tecnologia Automotiva",
+  partner_contact_label: "Contato:",
+  partner_infrastructure: "Alimentado por infraestrutura AWS de nível empresarial com criptografia de nível bancário. Seus dados são seguros e protegidos nos Estados Unidos. Interface em inglês com suporte em português e espanhol disponível.",
+        software_title: "Recursos Avançados para Gestores de Frota",
+        software_sub: "Ferramentas de nível profissional para empresas gerenciando 10+ veículos.",
+        sw_1t: "Compliance DOT & Segurança", sw_1a: "Integração HOS & ELD", sw_1b: "Scorecards de Motoristas", sw_1c: "Rastreamento de Licenças",
+        sw_2t: "Análise de Custos", sw_2a: "Relatórios de Consumo", sw_2b: "Custo Total de Propriedade",
+        sw_3t: "Rastreamento de Manutenção", sw_3a: "Alertas Automáticos", sw_3b: "Histórico Completo do Veículo",
+        contact_title: "Comece Hoje", contact_sub: "Dúvidas? Quer saber mais? Entre em contato com nossa equipe.",
+        form_name: "Nome completo", form_email: "Email", form_company: "Empresa (opcional)", form_size: "Número de veículos", form_msg: "Mensagem", form_send: "Enviar",
+        final_cta_title: "Pronto para Transformar a Experiência de Cuidado com Seu Veículo?",
+        final_cta_desc: "Baixe o app hoje e obtenha sua primeira cotação competitiva ou comece a rastrear seu veículo em minutos. Disponível para iOS e Android.",
+        footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos os direitos reservados.",
+        hero_images_caption: "Imagens ilustrativas.",
+      },
+      es: {
+        nav_home: "Inicio", nav_about: "Nosotros", nav_services: "Cómo Funciona", nav_software: "Nuestras Apps", nav_industries: "Para Todos", nav_contact: "Contacto",
+        hero_badge: "Solución Completa para Su Vehículo",
+  hero_h1: "Su Vehículo Merece Cuidado Experto al Mejor Precio.",
+  hero_sub: "Dos apps potentes: Solicite servicios de talleres certificados con cotizaciones competitivas, o rastree su vehículo en tiempo real. Use una, ambas o todas las funciones — usted elige lo que necesita. De autos a flotas comerciales, atendemos a todos los propietarios en Estados Unidos.",
+        cta_demo: "COMENZAR HOY", cta_services: "SABER MÁS", cta_ios: "Descargar en App Store", cta_android: "Disponible en Google Play",
+        mission_title: "Haciendo Grande a América, Un Vehículo a la Vez",
+        mission_body: "TechTrust AutoSolutions conecta propietarios de vehículos con talleres certificados a través de nuestro marketplace de servicios, mientras nuestra app de rastreo ofrece visibilidad completa. Sea usted dueño de un auto, camión, van o gestor de flota — hacemos el cuidado vehicular simple, accesible y seguro.",
+        mission_slogan: "No solo lo conectamos con talleres; creamos un marketplace confiable donde calidad encuentra precios competitivos.",
+        language_notice: "Interfaz en inglés con soporte completo en portugués y español. Atención al cliente disponible en los tres idiomas.",
+  two_apps_title: "Dos Apps Potentes, Una Solución Completa",
+  two_apps_sub: "Elija la app que satisface sus necesidades — o use ambas para gestión vehicular completa.",
+  app_service_title: "📱 App de Solicitud de Servicios",
+  app_service_subtitle: "Cotizaciones Competitivas de Talleres Certificados",
+  app_service_desc: "Solicite cualquier servicio de reparación o mantenimiento. Talleres certificados responden con cotizaciones competitivas. Usted elige el mejor precio y aprueba el trabajo. Servicios disponibles: en su ubicación, en el taller o asistencia en carretera con tarifas variables por distancia. Una tarifa única de plataforma.",
+  app_tracking_title: "📍 App de Rastreo Vehicular",
+  app_tracking_subtitle: "Monitoreo en Tiempo Real & Gestión de Flota",
+  app_tracking_desc: "Monitoree la ubicación de su vehículo en tiempo real, rastree programaciones de mantenimiento, analice costos y optimice rutas. Perfecto para gestores de flotas o cualquier persona que quiere supervisión completa. Funciona independientemente o integrado con nuestra app de servicios.",
+  flexibility_callout: "Use solo la App de Servicios para reparaciones, solo la App de Rastreo para monitoreo, o ambas juntas para gestión vehicular completa. Usted decide qué necesita.",
+  app_callout: "Descargue TechTrust AutoSolutions desde App Store o Google Play. Disponible para todos los propietarios de vehículos en América — desde propietarios individuales hasta grandes flotas comerciales.",
+        pillars_title: "Ecosistema TechTrust AutoSolutions: Dos Pilares del Desempeño",
+        pillars_sub: "Con nuestra solución, los datos del Fleet Management Software guían el mantenimiento para evitar gastos excesivos y fallas inesperadas.",
+        p1_title: "Servicios Certificados de Mantenimiento de Flotas",
+        p1_li1: "Mantenimiento Predictivo: Utilizamos datos del Fleet Management Software para programar antes de que ocurra la falla.",
+        p1_li2: "Máximo Uptime con técnicos certificados.",
+        p1_li3: "Cumplimiento DOT/FMCSA.",
+        p2_title: "Fleet Management Software Avanzado",
+        p2_li1: "Control del Total Cost of Ownership: Visualice el TCO real, detecte desperdicios (ralentí, desvíos).",
+        p2_li2: "Gestión de Riesgo y alertas HOS/ELD.",
+        p2_li3: "Registros Digitales auditables.",
+        proof_title: "Por qué elegir TechTrust AutoSolutions",
+        proof_res: "Resultados: 5% menos en combustible, hasta 10% menos en mantenimiento y rastreo avanzado para clientes exigentes.",
+        proof_cta: "EMPEZAR: SOLICITAR COTIZACIÓN",
+  hq_headquarters_label: "Sede:", hq_headquarters: "Port St. Lucie, Florida",
+  hq_coverage_label: "Cobertura:", hq_coverage: "Nuestra sede en Port St. Lucie sirve como oficina principal y centro de servicios ligeros. A través de nuestra app, los gestores de flotas en toda Florida pueden solicitar servicios de nuestra red de socios certificados — desde mantenimiento rutinario hasta remolque de emergencia — todo gestionado digitalmente.",
+  hq_focus_label: "Servicios Locales:", hq_focus: "Mantenimiento ligero en nuestras instalaciones de Port St. Lucie: cambio de aceite, frenos, diagnóstico eléctrico básico, aire acondicionado e inspecciones. Para reparaciones mayores, nuestra app lo conecta con socios certificados en todo el estado.",
+  hq_cert_label: "Funciones de la App:", hq_cert: "Rastreo vehicular en tiempo real con integración de cámaras, alertas automáticas de servicio, control completo de costos, análisis de gestión de combustible y acceso instantáneo a nuestra red de servicios certificados en Florida.",
+  hq_commit_label: "Compromiso:", hq_commit: "Combinamos servicio local práctico con tecnología móvil avanzada para mantener su flota operando con eficiencia, seguridad y economía en toda Florida.",
+        about_title: "De la App Móvil al Taller: Su Solución Completa de Flotas.",
+        about_body: "Fundada en la creencia de que la gestión de flotas debe ser accesible desde cualquier lugar, TechTrust AutoSolutions une conveniencia móvil con servicio práctico. Nuestra app pone herramientas poderosas en su bolsillo mientras nuestro centro en Port St. Lucie se encarga de sus necesidades de mantenimiento ligero.",
+        about_mission: "Nuestra Misión: Dar a los gestores de flotas control total a través de tecnología móvil, respaldado por servicio confiable de nuestra sede y red de socios en Florida.",
+        about_diff: "Diferencia: No somos solo un taller o solo una app — somos ambos. Solicite servicios, rastree vehículos, monitoree costos y gestione combustible, sabiendo que tiene un equipo certificado listo para ayudar en Port St. Lucie.",
+        hero_images_caption: "Imágenes ilustrativas.",
+  app_features_title: "Todo lo Que Necesita en Una App", app_features_sub: "Solicite servicios, rastree vehículos, controle costos y gestione combustible — todo desde su móvil. Nuestro centro en Port St. Lucie se encarga del mantenimiento ligero mientras nuestra red cubre las necesidades de su flota en Florida.",
+  app_1t: "Solicite Cualquier Servicio Automotriz", app_1d: "¿Necesita cambio de aceite, frenos, electricidad, diagnóstico o remolque? Abra la app, seleccione el vehículo, describa el problema y lo conectaremos con técnicos certificados de nuestra red en Florida. De Port St. Lucie a cobertura estatal.",
+  app_2t: "Rastreo Vehicular en Tiempo Real", app_2d: "Monitoree la ubicación de toda su flota en tiempo real con cámaras integradas opcionales. Reciba alertas instantáneas sobre rutas, paradas, tiempo de ralentí y comportamiento del conductor — visibilidad y control total desde cualquier lugar.",
+  app_3t: "Alertas de Servicio y Programación", app_3d: "Nunca pierda cambios de aceite, inspecciones de freno o plazos de cumplimiento DOT. Nuestra app rastrea kilometraje e historial, enviando alertas automáticas y permitiendo programar mantenimiento con un toque en Port St. Lucie o cualquier socio.",
+  app_4t: "Control Total de Costos", app_4d: "Rastree cada gasto: reparaciones, piezas, mano de obra, combustible y remolque. Genere informes al instante, identifique patrones de gastos y tome decisiones basadas en datos para reducir el Costo Total de Propiedad de su flota.",
+  app_5t: "Gestión Inteligente de Combustible", app_5d: "Monitoree consumo de combustible en tiempo real, detecte anomalías, identifique rutas ineficientes y ralentí excesivo. Nuestra solución integrada de combustible ayuda a reducir desperdicio y ahorrar hasta 5% en combustible mediante insights basados en datos.",
+  app_6t: "Centro de Servicios Port St. Lucie", app_6d: "Nuestra sede ofrece servicios de mantenimiento ligero: cambio de aceite, frenos, electricidad básica y diagnóstico. Agende directamente desde la app y obtenga prioridad de atención en nuestras instalaciones certificadas.",
+  app_callout: "Descargue la app TechTrust AutoSolutions hoy y experimente el futuro de la gestión de flotas — combinando conveniencia móvil con nuestra experiencia en Port St. Lucie y red en toda Florida.",
+  how_it_works_title: "Cómo Funciona el Marketplace de Servicios", how_it_works_sub: "Obtenga cotizaciones competitivas y servicio de calidad en 4 pasos simples",
+  step_1_title: "Cree Cuenta & Registre Vehículo", step_1_desc: "Descargue TechTrust AutoSolutions desde App Store o Google Play. Cree su cuenta, agregue información de su vehículo y registre un medio de pago válido. Funciona para autos, camiones, vans y todos los tipos de vehículos.",
+  step_2_title: "Solicite Servicio", step_2_desc: "Describa lo que su vehículo necesita: cambio de aceite, reparación de frenos, diagnóstico, electricidad, remolque o cualquier otro servicio. Seleccione ubicación: en su casa, en el taller o asistencia en carretera.",
+  step_3_title: "Reciba & Compare Cotizaciones", step_3_desc: "Talleres certificados de nuestra red responden con cotizaciones competitivas. Revise precios, calificaciones y comentarios. Compare opciones y elija la mejor relación calidad-precio.",
+  step_4_title: "Apruebe & Rastree Servicio", step_4_desc: "Apruebe la cotización elegida con un toque. Rastree el progreso del servicio en tiempo real. Todos los pagos procesados de forma segura por la app. Una tarifa única de plataforma — sin cargos ocultos.",
+        security_title: "Confianza & Seguridad Primero",
+        security_sub: "Protección antifraude avanzada protege propietarios de vehículos y talleres.",
+        sec_1_title: "Solo Talleres Verificados",
+        sec_1_desc: "Todos los talleres en nuestra red son certificados y verificados. Revisamos credenciales, seguro y opiniones antes de la aprobación.",
+        sec_2_title: "Pagos Seguros",
+        sec_2_desc: "Todas las transacciones procesadas a través de sistemas de pago encriptados y PCI-compliant. Su información financiera nunca se comparte con talleres.",
+        select_language: "Seleccione su idioma:"
+        sec_3_title: "Protección Antifraude",
+        sec_3_desc: "Algoritmos avanzados antifraude monitorean cada transacción. Actividad sospechosa dispara revisión inmediata. Clientes y talleres están protegidos.",
+        benefits_title: "Por Qué Propietarios Eligen TechTrust",
+        benefits_sub: "Sea usted dueño de un auto o gestor de 100 camiones, hacemos el cuidado vehicular más fácil y accesible.",
+        ben_1_title: "Precios Competitivos",
+        ben_1_desc: "Múltiples talleres compiten por su negocio. Obtenga el mejor precio sin comprometer calidad.",
+        ben_2_title: "Flexibilidad de Servicio",
+        ben_2_desc: "Elija servicio a domicilio, vaya al taller o solicite asistencia en carretera. Usted decide qué funciona mejor.",
+        ben_3_title: "Transparencia Completa",
+        ben_3_desc: "Vea todos los costos anticipadamente. Lea opiniones de talleres. Rastree progreso del servicio. Sin sorpresas, sin tarifas ocultas.",
+        proof_cta: "DESCARGUE AHORA Y OBTENGA SU PRIMERA COTIZACIÓN",
+        for_everyone_title: "Para Todos los Propietarios", for_everyone_sub: "De conductores diarios a flotas comerciales, nuestra plataforma atiende todos los tipos de vehículos y propietarios.",
+        user_1_title: "Propietarios Individuales",
+        user_1_desc: "Obtenga cotizaciones justas para su auto, SUV o camioneta. Compare precios, elija talleres de calidad y pague con seguridad por la app.",
+        user_2_title: "Pequeñas Flotas",
+        user_2_desc: "Gestione múltiples vehículos eficientemente. Rastree todos los costos de servicio, monitoree ubicación y mantenga su negocio en movimiento.",
+        user_3_title: "Gestores de Flotas Comerciales",
+        user_3_desc: "Rastreo y gestión de servicios de nivel empresarial. Monitoreo de cumplimiento DOT, tarjetas de puntuación de conductores y control completo de costos para 10+ vehículos.",
+        user_4_title: "Vans & Camiones Ligeros",
+        user_4_desc: "Servicio especializado para vans de trabajo, vehículos de entrega y camiones comerciales ligeros. Tiempo de respuesta rápido para minimizar paradas.",
+  partner_title: "Su Socio Confiable en Tecnología Automotriz",
+  partner_contact_label: "Contacto:",
+  partner_infrastructure: "Impulsado por infraestructura AWS de nivel empresarial con encriptación de nivel bancario. Sus datos son seguros y protegidos en Estados Unidos. Interfaz en inglés con soporte en portugués y español disponible.",
+        software_title: "Funciones Avanzadas para Gestores de Flotas",
+        software_sub: "Herramientas de nivel profesional para empresas gestionando 10+ vehículos.",
+        sw_1t: "Cumplimiento DOT & Seguridad", sw_1a: "Integración HOS & ELD", sw_1b: "Tarjetas de Puntuación", sw_1c: "Rastreo de Licencias",
+        sw_2t: "Análisis de Costos", sw_2a: "Informes de Consumo", sw_2b: "Costo Total de Propiedad",
+        sw_3t: "Rastreo de Mantenimiento", sw_3a: "Alertas Automáticas", sw_3b: "Historial Completo del Vehículo",
+        final_cta_title: "¿Listo para Transformar la Experiencia de Cuidado de Su Vehículo?",
+        final_cta_desc: "Descargue la app hoy y obtenga su primera cotización competitiva o comience a rastrear su vehículo en minutos. Disponible para iOS y Android.",
+        contact_title: "Comience Hoy", contact_sub: "¿Preguntas? ¿Quiere saber más? Contacte a nuestro equipo.",
+        form_name: "Nombre completo", form_email: "Email", form_company: "Empresa (opcional)", form_size: "Número de vehículos", form_msg: "Mensaje", form_send: "Enviar",
+        footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos los derechos reservados.",
+        hero_images_caption: "Imágenes ilustrativas.",
+      }
+    };
+
+    function setLang(l){
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const k = el.getAttribute('data-i18n');
+        if(I18N[l] && I18N[l][k]) el.textContent = I18N[l][k];
+      });
+      document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===l));
+      document.documentElement.lang = l;
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      // Debug: verificar se I18N carregou
+      console.log('✅ TechTrust I18N loaded:', Object.keys(I18N));
+      
+      document.querySelectorAll('.lang button').forEach(btn=>{
+        btn.addEventListener('click', ()=> setLang(btn.dataset.lang));
+      });
+      
+      // Force initial language
+      const defaultLang = 'en';
+      console.log('🌍 Setting language to:', defaultLang);
+      setLang(defaultLang);
+
+      // Detect local static preview (no serverless) and warn
+      const serverlessWarning = document.createElement('div');
+      serverlessWarning.style.cssText = 'background:#1e293b;color:#fbbf24;padding:10px 14px;border:1px solid #fbbf24;border-radius:10px;font-size:13px;margin:12px 0';
+      serverlessWarning.textContent = 'Aviso: API indisponível em servidor estático local. Use "vercel dev" para testar envio de formulários.';
+      fetch('/api/contact', { method:'OPTIONS'}).catch(()=>{
+        // If OPTIONS fails quickly, assume no serverless runtime
+        document.querySelector('#contact .container')?.prepend(serverlessWarning);
+      });
+
+      const form = document.getElementById('contact-form');
+      const contactStatus = document.createElement('p');
+      contactStatus.style.cssText='font-size:13px;margin:6px 0 0';
+      form?.appendChild(contactStatus);
+      form?.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        contactStatus.textContent='Enviando...'; contactStatus.style.color='#60a5fa';
+        const data = Object.fromEntries(new FormData(form).entries());
+        try{
+          const res = await fetch('/api/contact',{
+            method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)
+          });
+          if(!res.ok) throw new Error('Network response was not ok');
+          contactStatus.textContent=`Obrigado! Entraremos em contato em ${data.email}.`; contactStatus.style.color='#38bdf8';
+          form.reset();
+        }catch(err){
+          console.error(err);
+          contactStatus.textContent='Falha ao enviar. Verifique sua conexão ou tente via vercel dev.'; contactStatus.style.color='#f87171';
+        }
+      })
+
+      // Slider controls
+      const slides = document.getElementById('service-slides');
+      const prev = document.getElementById('prevSlide');
+      const next = document.getElementById('nextSlide');
+      const slideWidth = ()=> slides?.querySelector('img')?.getBoundingClientRect().width || 0;
+      prev?.addEventListener('click', ()=> slides.scrollBy({left: -slideWidth(), behavior:'smooth'}));
+      next?.addEventListener('click', ()=> slides.scrollBy({left: slideWidth(), behavior:'smooth'}));
+      // Autoplay com loop
+      let autoPlayInt = null;
+      function startAutoplay(){
+        if(autoPlayInt) clearInterval(autoPlayInt);
+        autoPlayInt = setInterval(()=>{
+          if(!slides) return;
+          const maxScroll = slides.scrollWidth - slides.clientWidth;
+          // Se chegou ao final, volta para o início
+          if (Math.abs(slides.scrollLeft - maxScroll) < 2 || slides.scrollLeft >= maxScroll - 2) {
+            slides.scrollTo({left: 0, behavior: 'smooth'});
+          } else {
+            slides.scrollBy({left: slideWidth(), behavior:'smooth'});
+          }
+        }, 3500);
+      }
+      function stopAutoplay(){
+        if(autoPlayInt) clearInterval(autoPlayInt);
+      }
+      slides?.addEventListener('mouseenter', stopAutoplay);
+  <a class="cta" href="#contact" data-i18n="cta_demo"></a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Language Selector -->
+  <section style="background:linear-gradient(180deg,rgba(56,189,248,.08),rgba(96,165,250,.05));padding:16px 0;border-bottom:1px solid rgba(148,163,184,.15)">
+    <div class="container" style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap">
+      <strong style="color:var(--silver);font-size:.95rem" data-i18n="select_language"></strong>
+      <div class="lang" aria-label="Language switcher">
+        <button data-lang="en" aria-label="English"><span class="flag-emoji">🇺🇸</span><span class="flag-fallback">EN</span></button>
+        <button data-lang="pt" aria-label="Português"><span class="flag-emoji">🇧🇷</span><span class="flag-fallback">PT</span></button>
+        <button data-lang="es" aria-label="Español"><span class="flag-emoji">🇪🇸</span><span class="flag-fallback">ES</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TechTrust AutoSolutions",
+    "url": "https://techtrustautosolutions.com/",
+    "logo": "https://techtrustautosolutions.com/logo.png",
+    "email": "contact@techtrustautosolutions.com",
+    "sameAs": ["https://www.linkedin.com/company/techtrust-autosolutions"],
+    "address": {"@type": "PostalAddress","addressRegion": "FL","addressCountry": "US"}
+  }
+  </script>
+</head>
+<body>
+  <a href="#contact" class="visually-hidden" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to contact</a>
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="TechTrust AutoSolutions home">
+  <img src="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno.png"
+    srcset="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno.png 36w, https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno@2x.png 72w"
+    sizes="(min-width:1400px) 56px, (min-width:940px) 48px, 36px"
+    class="logo-img" alt="TechTrust AutoSolutions logo" width="36" height="36" />
+        <span>TechTrust AutoSolutions</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#home" data-i18n="nav_home"></a>
+        <a href="#about" data-i18n="nav_about"></a>
+        <a href="#services" data-i18n="nav_services"></a>
+        <a href="#software" data-i18n="nav_software"></a>
+        <a href="#industries" data-i18n="nav_industries"></a>
+        <a href="#contact" data-i18n="nav_contact"></a>
+        <div class="lang" aria-label="Language switcher">
+          <button data-lang="en" aria-label="English"><span class="flag-emoji">🇺🇸</span><span class="flag-fallback">EN</span></button>
+          <button data-lang="pt" aria-label="Português"><span class="flag-emoji">🇧🇷</span><span class="flag-fallback">PT</span></button>
+          <button data-lang="es" aria-label="Español"><span class="flag-emoji">🇪🇸</span><span class="flag-fallback">ES</span></button>
+        </div>
+  <a class="cta" href="#contact" data-i18n="cta_demo"></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="container hero-wrap">
+        <div>
+          <span class="badge" data-i18n="hero_badge"></span>
+          <h1><span data-i18n="hero_h1"></span></h1>
+          <p class="lead" data-i18n="hero_sub"></p>
+          <div class="hero-cta">
+            <a class="cta" href="https://apps.apple.com/app/techtrust" target="_blank" rel="noopener" style="min-width:200px;padding:12px 20px;font-size:.9rem;display:inline-flex;align-items:center;gap:8px">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span data-i18n="cta_ios"></span>
+            </a>
+            <a class="cta secondary" href="https://play.google.com/store/apps/details?id=com.techtrust" target="_blank" rel="noopener" style="min-width:200px;padding:12px 20px;font-size:.9rem;display:inline-flex;align-items:center;gap:8px">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+              <span data-i18n="cta_android"></span>
+            </a>
+            <a class="cta secondary" href="#services" data-i18n="cta_services"></a>
+          </div>
+          <div class="card" style="margin-top:16px">
+            <p style="margin:0;font-size:.9rem" data-i18n="language_notice"></p>
+          </div>
+        </div>
+        <div class="panel">
+          <!-- Fleet gallery replacing the old mock -->
+          <div class="grid" style="grid-template-columns:1fr; gap:10px">
+            <picture>
+              <source type="image/webp" srcset="/foto-site-1.webp 1x, /foto-site-1@2x.webp 2x">
+              <img class="hero-img" src="/foto-site.png" alt="Fleet image">
+            </picture>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:10px" data-i18n="hero_images_caption"></small>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Features -->
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title" data-i18n="app_features_title"></h2>
+        <p class="section-sub" data-i18n="app_features_sub"></p>
+        <div class="app-features-grid">
+          <div class="card">
+            <div class="icon">📱</div>
+            <h3 data-i18n="app_1t"></h3>
+            <p data-i18n="app_1d"></p>
+          </div>
+          <div class="card">
+            <div class="icon">📍</div>
+            <h3 data-i18n="app_2t"></h3>
+            <p data-i18n="app_2d"></p>
+          </div>
+          <div class="card">
+            <div class="icon">🔔</div>
+            <h3 data-i18n="app_3t"></h3>
+            <p data-i18n="app_3d"></p>
+          </div>
+          <div class="card">
+            <div class="icon">💰</div>
+            <h3 data-i18n="app_4t"></h3>
+            <p data-i18n="app_4d"></p>
+          </div>
+          <div class="card">
+            <div class="icon">⛽</div>
+            <h3 data-i18n="app_5t"></h3>
+            <p data-i18n="app_5d"></p>
+          </div>
+          <div class="card">
+            <div class="icon">🔧</div>
+            <h3 data-i18n="app_6t"></h3>
+            <p data-i18n="app_6d"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Gallery -->
+    <section style="background:#f8f9fa;padding:56px 0">
+      <div class="container">
+        <div class="slider" aria-label="Service photos slider">
+          <div class="slides" id="service-slides">
+            <picture>
+              <source media="(min-width: 941px)" srcset="/foto-02-site-desktop.png" onerror="this.srcset='/foto-02-site.png'">
+              <img src="/foto-02-site.png" alt="Service photo 1">
+            </picture>
+            <picture>
+              <source media="(min-width: 941px)" srcset="/foto-03-site-desktop.png" onerror="this.srcset='/foto-03-site.png'">
+              <img src="/foto-03-site.png" alt="Service photo 2">
+            </picture>
+            <picture>
+              <source media="(min-width: 941px)" srcset="/foto-04-site-desktop.png" onerror="this.srcset='/foto-04-site.jpg'">
+              <img src="/foto-04-site.jpg" alt="Service photo 3">
+            </picture>
+            <picture>
+              <source media="(min-width: 941px)" srcset="/foto-05-site-desktop.png" onerror="this.srcset='/foto-05-site.png'">
+              <img src="/foto-05-site.png" alt="Service photo 4">
+            </picture>
+            <picture>
+              <source media="(min-width: 941px)" srcset="/foto-06-site-desktop.png" onerror="this.srcset='/foto-06-site.png'">
+              <img src="/foto-06-site.png" alt="Service photo 5">
+            </picture>
+            <picture>
+              <source media="(min-width: 941px)" srcset="/foto-07-site-desktop.png" onerror="this.srcset='/foto-07-site.png'">
+              <img src="/foto-07-site.png" alt="Service photo 6">
+            </picture>
+          </div>
+          <div class="slider-nav">
+            <button class="slider-prev" onclick="document.getElementById('service-slides').scrollBy({left: -document.getElementById('service-slides').clientWidth * 0.9, behavior: 'smooth'})" aria-label="Previous">‹</button>
+            <button class="slider-next" onclick="document.getElementById('service-slides').scrollBy({left: document.getElementById('service-slides').clientWidth * 0.9, behavior: 'smooth'})" aria-label="Next">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section style="background:linear-gradient(180deg, rgba(56,189,248,.03), transparent); padding:56px 0">
+      <div class="container">
+        <h2 class="section-title" style="text-align:center" data-i18n="how_it_works_title"></h2>
+        <p class="section-sub" style="text-align:center; max-width:700px; margin:0 auto 0" data-i18n="how_it_works_sub"></p>
+        <div class="steps">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3 data-i18n="step_1_title"></h3>
+            <p data-i18n="step_1_desc"></p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3 data-i18n="step_2_title"></h3>
+            <p data-i18n="step_2_desc"></p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3 data-i18n="step_3_title"></h3>
+            <p data-i18n="step_3_desc"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section>
+      <div class="container about-split">
+        <div>
+          <h2 class="section-title" data-i18n="mission_title"></h2>
+          <p class="section-sub" data-i18n="mission_body"></p>
+          <div class="card" style="margin-top:16px"><strong data-i18n="mission_slogan"></strong></div>
+        </div>
+        <div class="panel">
+          <h3 style="margin:0 0 8px 0;font-size:1.1rem;font-weight:700" data-i18n="partner_title"></h3>
+          <p style="margin:0;color:var(--muted)"><span data-i18n="partner_contact_label"></span> <a href="mailto:contact@techtrustautosolutions.com" style="color:var(--accent)">contact@techtrustautosolutions.com</a></p>
+          <p style="margin:12px 0 0;color:var(--silver);font-size:.95rem" data-i18n="partner_infrastructure"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Two Apps -->
+    <section>
+      <div class="container">
+        <h2 class="section-title" data-i18n="two_apps_title"></h2>
+        <div class="pillars">
+          <div class="card">
+            <div class="icon" aria-hidden="true">🔧</div>
+            <h3 style="margin:12px 0 6px" data-i18n="app_service_title"></h3>
+            <p style="color:var(--muted)" data-i18n="app_service_desc"></p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">📍</div>
+            <h3 style="margin:12px 0 6px" data-i18n="app_tracking_title"></h3>
+            <p style="color:var(--muted)" data-i18n="app_tracking_desc"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security -->
+    <section style="background:var(--light)">
+      <div class="container">
+        <h2 class="section-title" data-i18n="security_title"></h2>
+        <div class="services" style="margin-top:18px">
+          <div class="card">
+            <div class="icon">🛡️</div>
+            <h3 data-i18n="sec_1_title"></h3>
+            <p style="color:var(--muted);font-size:.95rem" data-i18n="sec_1_desc"></p>
+         Final CTA -->
+    <section>
+      <div class="container">
+        <div class="card" style="text-align:center;padding:48px 24px">
+          <h2 class="section-title" style="margin-bottom:12px" data-i18n="final_cta_title"></h2>
+          <p class="section-sub" style="margin-bottom:24px" data-i18n="final_cta_desc"></p>
+          <div class="hero-cta centered">
+            <a class="cta" href="https://apps.apple.com" target="_blank" rel="noopener noreferrer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05,20.28C16.3,20.63 15.46,20.91 14.58,21.08C13.69,21.26 12.77,21.34 11.86,21.34C10.1,21.34 8.82,20.97 7.97,20.23C7.13,19.5 6.7,18.44 6.7,17.05C6.7,16.36 6.79,15.69 6.97,15.06C7.16,14.42 7.44,13.84 7.82,13.33C8.21,12.81 8.7,12.38 9.3,12.04C9.89,11.7 10.59,11.53 11.37,11.53C12.09,11.53 12.75,11.67 13.33,11.95C13.92,12.23 14.42,12.61 14.84,13.09C15.27,13.57 15.59,14.13 15.82,14.77C16.05,15.41 16.16,16.09 16.16,16.81C16.16,17.24 16.12,17.64 16.05,18.03C15.97,18.41 15.85,18.78 15.69,19.12C15.53,19.47 15.32,19.79 15.07,20.09C14.82,20.38 14.5,20.64 14.13,20.87L17.05,20.28M8.28,11.7L7.7,12.4C7.36,12.84 7.09,13.31 6.88,13.82C6.67,14.33 6.5,14.86 6.38,15.42C6.26,15.97 6.2,16.53 6.2,17.09C6.2,18.29 6.59,19.24 7.37,19.93C8.15,20.62 9.27,20.96 10.74,20.96C11.6,20.96 12.42,20.88 13.22,20.72C14.01,20.56 14.77,20.31 15.5,19.97L15.76,19.31C15.94,18.83 16.06,18.33 16.13,17.8C16.2,17.27 16.23,16.73 16.23,16.19C16.23,15.5 16.13,14.85 15.92,14.25C15.71,13.65 15.42,13.13 15.03,12.68C14.65,12.24 14.19,11.89 13.65,11.63C13.11,11.38 12.5,11.25 11.83,11.25C11.09,11.25 10.44,11.41 9.88,11.73C9.32,12.05 8.86,12.46 8.5,12.96L8.28,11.7M11.5,7C12.28,7 13,7.22 13.69,7.66C14.37,8.1 14.94,8.69 15.37,9.44C15.81,10.19 16.04,11.03 16.04,11.97C16.04,12.24 16.03,12.5 16,12.75L18.18,11.23C18.54,10.96 18.84,10.62 19.06,10.22C19.28,9.82 19.39,9.37 19.39,8.87C19.39,8.35 19.27,7.87 19.04,7.43C18.81,6.99 18.5,6.61 18.11,6.31C17.72,6.01 17.27,5.78 16.77,5.63C16.27,5.47 15.74,5.39 15.18,5.39C14.5,5.39 13.86,5.5 13.26,5.72C12.66,5.94 12.13,6.25 11.66,6.66C11.19,7.07 10.8,7.55 10.5,8.1L11.5,7Z"/></svg>
+              <span data-i18n="cta_ios"></span>
+            </a>
+            <a class="cta secondary" href="https://play.google.com" target="_blank" rel="noopener noreferrer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+              <span data-i18n="cta_android"></span>
+            </a
+
+    <!-- Software (SaaS) -->
+    <section id="software">
+      <div class="container">
+        <h2 class="section-title" data-i18n="software_title"></h2>
+        <p class="section-sub" data-i18n="software_sub"></p>
+        <div class="services" style="margin-top:18px">
+          <div class="card">
+            <div class="icon">✅</div>
+            <h3 data-i18n="sw_1t"></h3>
+            <ul class="list">
+              <li data-i18n="sw_1a"></li>
+              <li data-i18n="sw_1b"></li>
+              <li data-i18n="sw_1c"></li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="icon">⛽</div>
+            <h3 data-i18n="sw_2t"></h3>
+            <ul class="list">
+              <li data-i18n="sw_2a"></li>
+              <li data-i18n="sw_2b"></li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="icon">🧰</div>
+            <h3 data-i18n="sw_3t"></h3>
+            <ul class="list">
+              <li data-i18n="sw_3a"></li>
+              <li data-i18n="sw_3b"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries -->
+    <section id="industries">
+      <div class="container">
+        <h2 class="section-title" data-i18n="industries_title"></h2>
+        <p class="section-sub" data-i18n="industries_sub"></p>
+        <div class="industries" style="margin-top:18px">
+          <div class="card"><h3 data-i18n="ind1_t"></h3><p data-i18n="ind1_d"></p></div>
+          <div class="card"><h3 data-i18n="ind2_t"></h3><p data-i18n="ind2_d"></p></div>
+          <div class="card"><h3 data-i18n="ind3_t"></h3><p data-i18n="ind3_d"></p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title" data-i18n="contact_title"></h2>
+        <p class="section-sub" data-i18n="contact_sub"></p>
+        <div class="about-split" style="gap:26px; margin-top:16px">
+          <div class="card">
+            <form id="contact-form" aria-label="Contact form">
+              <label><span data-i18n="form_name"></span><br><input name="name" type="text" required placeholder="Jane Doe" aria-required="true"></label>
+              <label><span data-i18n="form_email"></span><br><input name="email" type="email" required placeholder="jane@company.com" aria-required="true"></label>
+              <label><span data-i18n="form_company"></span><br><input name="company" type="text" placeholder="ACME Logistics"></label>
+              <label><span data-i18n="form_size"></span><br>
+                <select name="fleet_size">
+                  <option value="1-25">1–25</option>
+                  <option value="26-100">26–100</option>
+                  <option value="101-500">101–500</option>
+                  <option value=">500">500+</option>
+                </select>
+              </label>
+              <label><span data-i18n="form_msg"></span><br><textarea name="message" placeholder="Tell us about your fleet and goals..."></textarea></label>
+              <button class="cta btn" type="submit" data-i18n="form_send"></button>
+            </form>
+          </div>
+          <div class="panel">
+            <h3>TechTrust AutoSolutions</h3>
+            <p style="color:var(--muted)">Port St. Lucie, FL • <a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a></p>
+            <div style="margin-top:10px">
+              <iframe title="PSL Map" style="width:100%;height:280px;border:1px solid rgba(148,163,184,.2); border-radius:12px" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Port%20St.%20Lucie,%20FL&output=embed"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container f-grid">
+      <div>techtrustautosolutions.com • <a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a></div>
+      <div data-i18n="footer_rights"></div>
+    </div>
+  </footer>
+
+  <!-- DEPLOYMENT FILES (copy into your repo) -->
+  <!-- vercel.json -->
+  <!--
+  {
+    "version": 2,
+    "builds": [{ "src": "index.html", "use": "@vercel/static" }],
+    "routes": [
+      { "src": "/api/contact", "dest": "/api/contact.js" }
+    ]
+  }
+  -->
+
+  <!-- api/contact.js (Node serverless function for Vercel) -->
+  <!--
+  export default async function handler(req, res){
+    if(req.method !== 'POST') return res.status(405).end();
+    const { name, email, company, fleet_size, message } = req.body || {};
+    // Example: send via Resend (recommended for Google Workspace domains)
+    // npm i resend
+    // import { Resend } from 'resend';
+    // const resend = new Resend(process.env.RESEND_API_KEY);
+    // await resend.emails.send({
+    //   from: 'TechTrust <no-reply@techtrustautosolutions.com>',
+    //   to: 'contact@techtrustautosolutions.com',
+    //   subject: 'New website inquiry',
+    //   html: `<p><b>Name:</b> ${name}</p><p><b>Email:</b> ${email}</p><p><b>Company:</b> ${company}</p><p><b>Fleet size:</b> ${fleet_size}</p><p>${message||''}</p>`
+    // });
+    console.log('Contact form:', { name, email, company, fleet_size, message });
+    return res.status(200).json({ ok: true });
+  }
+  -->
+
+  <!-- nginx.conf (if using a VM / Docker) -->
+  <!--
+  server {
+    listen 80;
+    server_name techtrustautosolutions.com www.techtrustautosolutions.com;
+    root /var/www/techtrustautosolutions;
+    index index.html;
+
+    location / {
+      try_files $uri $uri/ =404;
+    }
+  }
+  -->
+</body>
+</html>
