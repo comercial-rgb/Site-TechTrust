@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <title>TechTrust AutoSolutions — Fleet Management App & Service Center</title>
   <meta name="description" content="Manage your entire fleet from your phone. Request services, track vehicles with cameras, control costs, and monitor fuel — powered by our Port St. Lucie service center and Florida-wide network." />
   <meta name="keywords" content="Fleet Management App, Mobile Fleet Management, Vehicle Tracking, Fleet GPS, Service Requests, Cost Control, Fuel Management, Port St. Lucie, Florida, DOT Compliance, Auto Maintenance App" />
@@ -365,10 +368,17 @@
     }
 
     document.addEventListener('DOMContentLoaded', ()=>{
+      // Debug: verificar se I18N carregou
+      console.log('✅ TechTrust I18N loaded:', Object.keys(I18N));
+      
       document.querySelectorAll('.lang button').forEach(btn=>{
         btn.addEventListener('click', ()=> setLang(btn.dataset.lang));
       });
-      setLang('en');
+      
+      // Force initial language
+      const defaultLang = 'en';
+      console.log('🌍 Setting language to:', defaultLang);
+      setLang(defaultLang);
 
       // Detect local static preview (no serverless) and warn
       const serverlessWarning = document.createElement('div');
