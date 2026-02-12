@@ -181,6 +181,47 @@
       .flag-emoji { display: none; }
       .flag-fallback { display: inline; font-weight: bold; }
     }
+    /* Florida Process Timeline */
+    .fl-timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:32px}
+    .fl-step{background:linear-gradient(135deg,rgba(56,189,248,.06),rgba(96,165,250,.06));border:1px solid rgba(56,189,248,.2);border-radius:var(--radius);padding:24px 18px;text-align:center;transition:transform .3s ease,box-shadow .3s ease}
+    .fl-step:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(56,189,248,.15)}
+    .fl-step-icon{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#06121f;font-size:1.4rem;font-weight:900;display:grid;place-items:center;margin:0 auto 14px;box-shadow:0 4px 12px rgba(56,189,248,.35)}
+    .fl-step h4{margin:0 0 8px;font-size:1rem;font-weight:700}
+    .fl-step p{margin:0;color:var(--silver);font-size:.88rem;line-height:1.5}
+    /* Compliance Cards */
+    .compliance-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:24px}
+    .compliance-card{background:linear-gradient(180deg,#0B1324,#0B1428);border:1px solid rgba(148,163,184,.18);border-radius:var(--radius);padding:24px;position:relative;overflow:hidden;transition:transform .3s ease}
+    .compliance-card:hover{transform:translateY(-3px)}
+    .compliance-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+    .compliance-card h4{margin:12px 0 8px;font-size:1.05rem;font-weight:700}
+    .compliance-card p{margin:0;color:var(--silver);font-size:.9rem;line-height:1.6}
+    .badge-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .status-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:999px;font-size:.75rem;font-weight:700;border:1px solid}
+    .status-badge.verified{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.3);color:#4ade80}
+    .status-badge.pending{background:rgba(251,191,36,.12);border-color:rgba(251,191,36,.3);color:#fbbf24}
+    .status-badge.expired{background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.3);color:#f87171}
+    .status-badge.not-provided{background:rgba(148,163,184,.12);border-color:rgba(148,163,184,.3);color:#94a3b8}
+    .status-badge.restricted{background:rgba(168,85,247,.12);border-color:rgba(168,85,247,.3);color:#c084fc}
+    .highlight-box{background:linear-gradient(135deg,rgba(56,189,248,.08),rgba(96,165,250,.06));border:1px solid rgba(56,189,248,.25);border-radius:var(--radius);padding:20px 24px;margin-top:24px}
+    .highlight-box h4{margin:0 0 8px;color:var(--accent);font-weight:800}
+    .highlight-box p{margin:0;color:var(--silver);font-size:.95rem;line-height:1.6}
+    .ins-types{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;margin-top:12px}
+    .ins-type{display:flex;align-items:center;gap:8px;padding:7px 12px;background:rgba(15,23,42,.5);border:1px solid rgba(148,163,184,.12);border-radius:10px;font-size:.85rem;color:var(--silver)}
+    .ins-type .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+    /* Protection Cards */
+    .protection-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-top:24px}
+    .protection-card{background:linear-gradient(180deg,#0B1324,#0B1428);border:1px solid rgba(148,163,184,.18);border-radius:var(--radius);padding:24px;text-align:center;transition:transform .3s ease}
+    .protection-card:hover{transform:translateY(-3px)}
+    .protection-card .p-icon{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,rgba(34,197,94,.15),rgba(34,197,94,.05));border:1px solid rgba(34,197,94,.25);display:grid;place-items:center;margin:0 auto 14px;font-size:1.5rem}
+    .protection-card h4{margin:0 0 8px;font-size:1.05rem;font-weight:700}
+    .protection-card p{margin:0;color:var(--silver);font-size:.9rem;line-height:1.6}
+    @media(max-width:940px){
+      .fl-timeline{grid-template-columns:1fr 1fr;gap:16px}
+      .compliance-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:480px){
+      .fl-timeline{grid-template-columns:1fr;gap:14px}
+    }
   </style>
   <script>
     const I18N = {
@@ -198,7 +239,7 @@
         security_title: "Trust & Security Built Into Every Transaction",
         security_sub: "Your money, your data, and your vehicle are protected by enterprise-grade security at every step.",
         sec_1_title: "Verified Providers Only",
-        sec_1_desc: "Every mechanic and shop in our network passes a rigorous verification process. We check licenses, insurance, certifications, and real customer reviews before they can serve you.",
+        sec_1_desc: "Every mechanic and shop in our network passes a rigorous verification process aligned with Florida regulations. We check FDACS registration, local business tax receipts, EPA certifications, insurance policies, and real customer reviews before they can serve you.",
         sec_2_title: "Secure Payments",
         sec_2_desc: "Bank-level encryption protects every transaction. PCI-compliant payment processing ensures your financial data is never exposed or shared with service providers.",
         sec_3_title: "Anti-Fraud Protection",
@@ -285,7 +326,47 @@
         slide_5_caption: "Complete cost analytics and spending reports",
         slide_6_caption: "From daily cars to commercial fleets — we serve everyone",
         hq_banner_title: "We Also Do Light Services at Our PSL Headquarters!",
-        hq_banner_desc: "Visit our Port St. Lucie location for oil changes, brake service, A/C repair, lighting, diagnostics, and more. Walk in or schedule through the app."
+        hq_banner_desc: "Visit our Port St. Lucie location for oil changes, brake service, A/C repair, lighting, diagnostics, and more. Walk in or schedule through the app.",
+        nav_compliance: "Compliance",
+        fl_process_title: "Florida-Compliant Repair Process",
+        fl_process_sub: "Every repair on our platform follows Florida's legal requirements. From Written Estimate to Repair Invoice — your protection is built into every step.",
+        fl_step1_title: "Service Request",
+        fl_step1_desc: "Open the app, describe your vehicle's needs, and choose a provider or schedule a diagnostic visit. You define exactly what services you're requesting.",
+        fl_step2_title: "Written Estimate",
+        fl_step2_desc: "The provider inspects your vehicle and creates a detailed Written Estimate with a unique tracking ID — as required by Florida law (FDACS Ch. 559).",
+        fl_step3_title: "Compare & Share",
+        fl_step3_desc: "Send your Written Estimate to other providers for competing quotes, or publish it to get offers from any certified provider in your area.",
+        fl_step4_title: "Approve → Repair Invoice",
+        fl_step4_desc: "When you approve a Written Estimate, it automatically converts into a Repair Invoice with its own unique ID — no duplicate paperwork needed.",
+        fl_step5_title: "Supplements & Payment",
+        fl_step5_desc: "If additional work is discovered, the provider submits a supplement for your review. Approve or decline — everything is recorded on the final Repair Invoice.",
+        fl_estimate_title: "Built for Florida Law Compliance",
+        fl_estimate_desc: "Every Written Estimate and Repair Invoice follows FDACS Chapter 559 requirements. Unique identification numbers, itemized costs, customer authorization tracking, and complete audit trails. Diagnostic and travel fees are disclosed upfront before any work begins. TechTrust waives the estimate fee when service is completed through the platform.",
+        verify_title: "Provider Verification & Compliance",
+        verify_sub: "Every service provider on our platform is tracked against Florida state, county, and federal requirements. You see their full compliance status before choosing.",
+        verify_fdacs_title: "State Registration (FDACS)",
+        verify_fdacs_desc: "Florida Department of Agriculture & Consumer Services Motor Vehicle Repair registration. Required for all auto repair businesses operating in Florida.",
+        verify_btr_title: "Local Business Tax Receipts",
+        verify_btr_desc: "County and City Business Tax Receipt verification. We check which jurisdiction the provider operates in and verify the appropriate local licenses automatically.",
+        verify_epa_title: "EPA Section 609 Certification",
+        verify_epa_desc: "Federal certification required for any A/C refrigerant work. We verify individual technician certifications — A/C service is only available from providers with at least one verified EPA 609 technician.",
+        verify_ins_title: "Insurance Coverage Verification",
+        verify_ins_desc: "We track and verify multiple insurance types for every provider. Their coverage status is displayed clearly on their profile before you book any service.",
+        verify_gating_title: "Intelligent Service Gating",
+        verify_gating_desc: "Certain services require verified credentials before a provider can offer them. A/C service requires EPA 609 certification. Towing requires verified Commercial Auto and On-Hook insurance. General repairs can proceed with pending compliance — but with full transparency.",
+        verify_badge_title: "Transparent Status Badges",
+        verify_badge_desc: "Every provider profile displays clear compliance badges. You always know exactly what's verified, pending, expired, or not provided — using fair, objective language.",
+        ins_gl: "General Liability", ins_garage: "Garage Liability", ins_gk: "Garagekeepers", ins_auto: "Commercial Auto", ins_hook: "On-Hook (Towing)", ins_wc: "Workers' Compensation", ins_umbrella: "Umbrella / Excess",
+        protect_title: "Your Protection, Built Into Every Transaction",
+        protect_sub: "When a provider's insurance isn't verified, we tell you clearly. When documents expire, we flag them. Every decision is logged for your protection.",
+        protect_disclaimer_title: "Insurance Disclaimers",
+        protect_disclaimer_desc: "If a provider doesn't have verified insurance on file, you see a clear disclaimer before proceeding. Your acknowledgment is recorded with timestamp and device info — protecting you and the platform.",
+        protect_audit_title: "Complete Audit Trail",
+        protect_audit_desc: "Every verification change, every approval, every disclaimer acceptance is fully logged. Timestamps, user IDs, version tracking — your complete records are always available.",
+        protect_expiration_title: "Automatic Expiration Monitoring",
+        protect_expiration_desc: "Licenses and insurance policies are monitored daily. Providers receive alerts at 30, 15, and 7 days before expiration. Expired documents are flagged automatically across the platform.",
+        protect_transparency_title: "Fair & Clear Communication",
+        protect_transparency_desc: "We use objective status language: Verified, Pending, Not Provided, Expired, Restricted. Never accusatory or misleading. Providers can update their documentation at any time."
       },
       pt: {
         nav_home: "Início", nav_about: "Sobre Nós", nav_services: "Como Funciona", nav_software: "Ferramentas", nav_industries: "Para Todos", nav_contact: "Contato",
@@ -301,7 +382,7 @@
         security_title: "Confiança & Segurança em Cada Transação",
         security_sub: "Seu dinheiro, seus dados e seu veículo são protegidos por segurança de nível empresarial em cada etapa.",
         sec_1_title: "Apenas Prestadores Verificados",
-        sec_1_desc: "Cada mecânico e oficina da nossa rede passa por rigoroso processo de verificação. Checamos licenças, seguros, certificações e avaliações reais antes de poderem atendê-lo.",
+        sec_1_desc: "Cada mecânico e oficina da nossa rede passa por rigoroso processo de verificação alinhado às regulamentações da Flórida. Checamos registro FDACS, licenças comerciais locais, certificações EPA, apólices de seguro e avaliações reais antes de poderem atendê-lo.",
         sec_2_title: "Pagamentos Seguros",
         sec_2_desc: "Criptografia de nível bancário protege cada transação. Processamento PCI-compliant garante que seus dados financeiros nunca são expostos ou compartilhados com prestadores.",
         sec_3_title: "Proteção Antifraude",
@@ -388,7 +469,47 @@
         slide_5_caption: "Análise completa de custos e relatórios de gastos",
         slide_6_caption: "De carros do dia a dia a frotas comerciais — atendemos todos",
         hq_banner_title: "Também Fazemos Serviços Leves na Nossa Sede em PSL!",
-        hq_banner_desc: "Visite nossa unidade em Port St. Lucie para troca de óleo, freios, ar-condicionado, iluminação, diagnóstico e muito mais. Venha diretamente ou agende pelo app."
+        hq_banner_desc: "Visite nossa unidade em Port St. Lucie para troca de óleo, freios, ar-condicionado, iluminação, diagnóstico e muito mais. Venha diretamente ou agende pelo app.",
+        nav_compliance: "Conformidade",
+        fl_process_title: "Processo de Reparo em Conformidade com a Flórida",
+        fl_process_sub: "Todo reparo em nossa plataforma segue os requisitos legais da Flórida. Do Written Estimate ao Repair Invoice — sua proteção está em cada etapa.",
+        fl_step1_title: "Solicitação de Serviço",
+        fl_step1_desc: "Abra o app, descreva as necessidades do seu veículo e escolha um fornecedor ou agende uma visita de diagnóstico. Você define exatamente os serviços solicitados.",
+        fl_step2_title: "Written Estimate",
+        fl_step2_desc: "O fornecedor inspeciona seu veículo e cria um Written Estimate detalhado com número de rastreamento único — conforme exigido pela lei da Flórida (FDACS Cap. 559).",
+        fl_step3_title: "Compare e Compartilhe",
+        fl_step3_desc: "Envie seu Written Estimate para outros fornecedores obterem orçamentos concorrentes, ou publique para receber ofertas de qualquer fornecedor certificado da sua região.",
+        fl_step4_title: "Aprovar → Repair Invoice",
+        fl_step4_desc: "Ao aprovar um Written Estimate, ele se converte automaticamente em Repair Invoice com ID próprio — sem necessidade de refazer documentação.",
+        fl_step5_title: "Complementos e Pagamento",
+        fl_step5_desc: "Se trabalho adicional for necessário, o fornecedor envia um complemento para sua análise. Aprove ou recuse — tudo é registrado no Repair Invoice final.",
+        fl_estimate_title: "Construído para Conformidade Legal da Flórida",
+        fl_estimate_desc: "Cada Written Estimate e Repair Invoice segue os requisitos do FDACS Capítulo 559. Números de identificação únicos, custos detalhados, rastreamento de autorização do cliente e trilha de auditoria completa. Taxas de diagnóstico e deslocamento são informadas antes de qualquer trabalho. A TechTrust isenta a taxa de orçamento quando o serviço é finalizado na plataforma.",
+        verify_title: "Verificação e Conformidade de Fornecedores",
+        verify_sub: "Cada fornecedor em nossa plataforma é rastreado contra requisitos estaduais, municipais e federais da Flórida. Você vê o status completo de conformidade antes de escolher.",
+        verify_fdacs_title: "Registro Estadual (FDACS)",
+        verify_fdacs_desc: "Registro de Reparo de Veículos Motorizados do Departamento de Agricultura e Serviços ao Consumidor da Flórida. Obrigatório para todas as oficinas na Flórida.",
+        verify_btr_title: "Licenças Comerciais Locais",
+        verify_btr_desc: "Verificação de Business Tax Receipt do condado e cidade. Verificamos em qual jurisdição o fornecedor opera e validamos as licenças locais apropriadas automaticamente.",
+        verify_epa_title: "Certificação EPA Seção 609",
+        verify_epa_desc: "Certificação federal obrigatória para qualquer serviço de refrigeração A/C. Verificamos certificações individuais de técnicos — serviço de A/C só está disponível com técnicos EPA 609 verificados.",
+        verify_ins_title: "Verificação de Cobertura de Seguro",
+        verify_ins_desc: "Rastreamos e verificamos múltiplos tipos de seguro para cada fornecedor. O status de cobertura é exibido claramente no perfil antes de você reservar qualquer serviço.",
+        verify_gating_title: "Controle Inteligente de Serviços",
+        verify_gating_desc: "Certos serviços exigem credenciais verificadas. Serviço de A/C requer certificação EPA 609. Guincho requer seguro Commercial Auto e On-Hook verificados. Reparos gerais podem prosseguir com conformidade pendente — mas com total transparência.",
+        verify_badge_title: "Badges de Status Transparentes",
+        verify_badge_desc: "Cada perfil de fornecedor exibe badges claros de conformidade. Você sempre sabe exatamente o que está verificado, pendente, expirado ou não fornecido — com linguagem justa e objetiva.",
+        ins_gl: "Responsabilidade Civil Geral", ins_garage: "Responsabilidade de Garage", ins_gk: "Garagekeepers", ins_auto: "Auto Comercial", ins_hook: "On-Hook (Guincho)", ins_wc: "Workers' Compensation", ins_umbrella: "Umbrella / Excesso",
+        protect_title: "Sua Proteção em Cada Transação",
+        protect_sub: "Quando o seguro de um fornecedor não é verificado, informamos claramente. Quando documentos expiram, sinalizamos. Cada decisão é registrada para sua proteção.",
+        protect_disclaimer_title: "Avisos de Seguro",
+        protect_disclaimer_desc: "Se um fornecedor não tem seguro verificado em arquivo, você vê um aviso claro antes de prosseguir. Seu reconhecimento é registrado com data/hora e informações do dispositivo — protegendo você e a plataforma.",
+        protect_audit_title: "Trilha de Auditoria Completa",
+        protect_audit_desc: "Cada mudança de verificação, cada aprovação, cada aceite de aviso é totalmente registrado. Timestamps, IDs de usuário, controle de versão — seus registros completos estão sempre disponíveis.",
+        protect_expiration_title: "Monitoramento Automático de Vencimento",
+        protect_expiration_desc: "Licenças e apólices de seguro são monitoradas diariamente. Fornecedores recebem alertas com 30, 15 e 7 dias antes do vencimento. Documentos expirados são sinalizados automaticamente na plataforma.",
+        protect_transparency_title: "Comunicação Justa e Clara",
+        protect_transparency_desc: "Usamos linguagem de status objetiva: Verificado, Pendente, Não Fornecido, Expirado, Restrito. Nunca acusatória ou enganosa. Fornecedores podem atualizar sua documentação a qualquer momento."
       },
       es: {
         nav_home: "Inicio", nav_about: "Nosotros", nav_services: "Servicios", nav_software: "Flotas", nav_industries: "Para Todos", nav_contact: "Contacto",
@@ -404,7 +525,7 @@
         security_title: "Confianza & Seguridad en Cada Transacción",
         security_sub: "Su dinero, sus datos y su vehículo están protegidos por seguridad de nivel empresarial en cada paso.",
         sec_1_title: "Solo Proveedores Verificados",
-        sec_1_desc: "Cada mecánico y taller en nuestra red pasa por un riguroso proceso de verificación. Revisamos licencias, seguros, certificaciones y reseñas reales antes de que puedan atenderlo.",
+        sec_1_desc: "Cada mecánico y taller en nuestra red pasa por un riguroso proceso de verificación alineado con las regulaciones de Florida. Revisamos registro FDACS, licencias comerciales locales, certificaciones EPA, pólizas de seguro y reseñas reales antes de que puedan atenderlo.",
         sec_2_title: "Pagos Seguros",
         sec_2_desc: "Encriptación de nivel bancario protege cada transacción. Procesamiento PCI-compliant asegura que sus datos financieros nunca se exponen ni comparten con proveedores de servicio.",
         sec_3_title: "Protección Antifraude",
@@ -491,7 +612,47 @@
         slide_5_caption: "Análisis completo de costos e informes de gastos",
         slide_6_caption: "De autos del día a día a flotas comerciales — atendemos a todos",
         hq_banner_title: "¡También Hacemos Servicios Ligeros en Nuestra Sede en PSL!",
-        hq_banner_desc: "Visite nuestra sede en Port St. Lucie para cambio de aceite, frenos, aire acondicionado, iluminación, diagnóstico y más. Venga directamente o agende por la app."
+        hq_banner_desc: "Visite nuestra sede en Port St. Lucie para cambio de aceite, frenos, aire acondicionado, iluminación, diagnóstico y más. Venga directamente o agende por la app.",
+        nav_compliance: "Cumplimiento",
+        fl_process_title: "Proceso de Reparación Conforme a Florida",
+        fl_process_sub: "Cada reparación en nuestra plataforma cumple con los requisitos legales de Florida. Del Written Estimate al Repair Invoice — su protección está en cada paso.",
+        fl_step1_title: "Solicitud de Servicio",
+        fl_step1_desc: "Abra la app, describa las necesidades de su vehículo y elija un proveedor o programe una visita de diagnóstico. Usted define exactamente los servicios solicitados.",
+        fl_step2_title: "Written Estimate",
+        fl_step2_desc: "El proveedor inspecciona su vehículo y crea un Written Estimate detallado con número de seguimiento único — según lo exige la ley de Florida (FDACS Cap. 559).",
+        fl_step3_title: "Compare y Comparta",
+        fl_step3_desc: "Envíe su Written Estimate a otros proveedores para obtener cotizaciones competitivas, o publíquelo para recibir ofertas de cualquier proveedor certificado de su área.",
+        fl_step4_title: "Aprobar → Repair Invoice",
+        fl_step4_desc: "Al aprobar un Written Estimate, se convierte automáticamente en Repair Invoice con su propio ID único — sin necesidad de duplicar documentación.",
+        fl_step5_title: "Complementos y Pago",
+        fl_step5_desc: "Si se descubre trabajo adicional, el proveedor envía un complemento para su revisión. Apruebe o rechace — todo queda registrado en el Repair Invoice final.",
+        fl_estimate_title: "Construido para Cumplimiento Legal de Florida",
+        fl_estimate_desc: "Cada Written Estimate y Repair Invoice cumple con los requisitos del FDACS Capítulo 559. Números de identificación únicos, costos detallados, seguimiento de autorización del cliente y registro de auditoría completo. Tarifas de diagnóstico y desplazamiento se informan antes de cualquier trabajo. TechTrust exime la tarifa de estimación cuando el servicio se completa en la plataforma.",
+        verify_title: "Verificación y Cumplimiento de Proveedores",
+        verify_sub: "Cada proveedor en nuestra plataforma es verificado contra requisitos estatales, del condado y federales de Florida. Usted ve el estado completo de cumplimiento antes de elegir.",
+        verify_fdacs_title: "Registro Estatal (FDACS)",
+        verify_fdacs_desc: "Registro de Reparación de Vehículos Motorizados del Departamento de Agricultura y Servicios al Consumidor de Florida. Obligatorio para todos los talleres en Florida.",
+        verify_btr_title: "Licencias Comerciales Locales",
+        verify_btr_desc: "Verificación de Business Tax Receipt del condado y ciudad. Verificamos en qué jurisdicción opera el proveedor y validamos las licencias locales apropiadas automáticamente.",
+        verify_epa_title: "Certificación EPA Sección 609",
+        verify_epa_desc: "Certificación federal obligatoria para cualquier servicio de refrigerante A/C. Verificamos certificaciones individuales de técnicos — el servicio de A/C solo está disponible con técnicos EPA 609 verificados.",
+        verify_ins_title: "Verificación de Cobertura de Seguro",
+        verify_ins_desc: "Rastreamos y verificamos múltiples tipos de seguro para cada proveedor. El estado de cobertura se muestra claramente en su perfil antes de que reserve cualquier servicio.",
+        verify_gating_title: "Control Inteligente de Servicios",
+        verify_gating_desc: "Ciertos servicios requieren credenciales verificadas. Servicio de A/C requiere certificación EPA 609. Grúa requiere seguro Commercial Auto y On-Hook verificados. Reparaciones generales pueden proceder con cumplimiento pendiente — pero con total transparencia.",
+        verify_badge_title: "Insignias de Estado Transparentes",
+        verify_badge_desc: "Cada perfil de proveedor muestra insignias claras de cumplimiento. Usted siempre sabe exactamente qué está verificado, pendiente, expirado o no proporcionado — con lenguaje justo y objetivo.",
+        ins_gl: "Responsabilidad Civil General", ins_garage: "Responsabilidad de Garage", ins_gk: "Garagekeepers", ins_auto: "Auto Comercial", ins_hook: "On-Hook (Grúa)", ins_wc: "Workers' Compensation", ins_umbrella: "Umbrella / Exceso",
+        protect_title: "Su Protección en Cada Transacción",
+        protect_sub: "Cuando el seguro de un proveedor no está verificado, se lo informamos claramente. Cuando los documentos expiran, los señalamos. Cada decisión queda registrada para su protección.",
+        protect_disclaimer_title: "Avisos de Seguro",
+        protect_disclaimer_desc: "Si un proveedor no tiene seguro verificado en archivo, usted ve un aviso claro antes de proceder. Su reconocimiento se registra con fecha/hora e información del dispositivo — protegiéndolo a usted y a la plataforma.",
+        protect_audit_title: "Registro de Auditoría Completo",
+        protect_audit_desc: "Cada cambio de verificación, cada aprobación, cada aceptación de aviso queda completamente registrado. Marcas de tiempo, IDs de usuario, control de versiones — sus registros completos siempre están disponibles.",
+        protect_expiration_title: "Monitoreo Automático de Vencimiento",
+        protect_expiration_desc: "Licencias y pólizas de seguro se monitorean diariamente. Los proveedores reciben alertas con 30, 15 y 7 días antes del vencimiento. Documentos expirados se señalan automáticamente en la plataforma.",
+        protect_transparency_title: "Comunicación Justa y Clara",
+        protect_transparency_desc: "Usamos lenguaje de estado objetivo: Verificado, Pendiente, No Proporcionado, Expirado, Restringido. Nunca acusatorio o engañoso. Los proveedores pueden actualizar su documentación en cualquier momento."
       }
     };
 
@@ -598,6 +759,7 @@
         <a href="#home" data-i18n="nav_home"></a>
         <a href="#about" data-i18n="nav_about"></a>
         <a href="#services" data-i18n="nav_services"></a>
+        <a href="#compliance" data-i18n="nav_compliance"></a>
         <a href="#software" data-i18n="nav_software"></a>
         <a href="#industries" data-i18n="nav_industries"></a>
         <a href="#contact" data-i18n="nav_contact"></a>
@@ -783,6 +945,45 @@
       </div>
     </section>
 
+    <!-- Florida-Compliant Repair Process -->
+    <section id="compliance" style="background:linear-gradient(180deg, rgba(34,197,94,.04), transparent); padding:56px 0">
+      <div class="container">
+        <h2 class="section-title" style="text-align:center" data-i18n="fl_process_title"></h2>
+        <p class="section-sub" style="text-align:center; max-width:800px; margin:0 auto 0" data-i18n="fl_process_sub"></p>
+        <div class="fl-timeline">
+          <div class="fl-step">
+            <div class="fl-step-icon">1</div>
+            <h4 data-i18n="fl_step1_title"></h4>
+            <p data-i18n="fl_step1_desc"></p>
+          </div>
+          <div class="fl-step">
+            <div class="fl-step-icon">2</div>
+            <h4 data-i18n="fl_step2_title"></h4>
+            <p data-i18n="fl_step2_desc"></p>
+          </div>
+          <div class="fl-step">
+            <div class="fl-step-icon">3</div>
+            <h4 data-i18n="fl_step3_title"></h4>
+            <p data-i18n="fl_step3_desc"></p>
+          </div>
+          <div class="fl-step">
+            <div class="fl-step-icon">4</div>
+            <h4 data-i18n="fl_step4_title"></h4>
+            <p data-i18n="fl_step4_desc"></p>
+          </div>
+          <div class="fl-step">
+            <div class="fl-step-icon">5</div>
+            <h4 data-i18n="fl_step5_title"></h4>
+            <p data-i18n="fl_step5_desc"></p>
+          </div>
+        </div>
+        <div class="highlight-box">
+          <h4>⚖️ <span data-i18n="fl_estimate_title"></span></h4>
+          <p data-i18n="fl_estimate_desc"></p>
+        </div>
+      </div>
+    </section>
+
     <!-- Mission -->
     <section id="about">
       <div class="container about-split">
@@ -869,6 +1070,107 @@
             <div class="icon">🔍</div>
             <h3 data-i18n="sec_3_title"></h3>
             <p style="color:var(--muted);font-size:.95rem" data-i18n="sec_3_desc"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Provider Verification & Compliance -->
+    <section id="verification" style="padding:56px 0">
+      <div class="container">
+        <h2 class="section-title" style="text-align:center" data-i18n="verify_title"></h2>
+        <p class="section-sub" style="text-align:center; max-width:800px; margin:0 auto 0" data-i18n="verify_sub"></p>
+        <div class="compliance-grid">
+          <div class="compliance-card">
+            <div class="icon">🏛️</div>
+            <h4 data-i18n="verify_fdacs_title"></h4>
+            <p data-i18n="verify_fdacs_desc"></p>
+            <div class="badge-list">
+              <span class="status-badge verified">✓ Verified</span>
+              <span class="status-badge pending">⏳ Pending</span>
+              <span class="status-badge not-provided">— Not Provided</span>
+            </div>
+          </div>
+          <div class="compliance-card">
+            <div class="icon">📋</div>
+            <h4 data-i18n="verify_btr_title"></h4>
+            <p data-i18n="verify_btr_desc"></p>
+            <div class="badge-list">
+              <span class="status-badge verified">✓ County</span>
+              <span class="status-badge verified">✓ City</span>
+              <span class="status-badge pending">⏳ Pending</span>
+              <span class="status-badge not-provided">N/A</span>
+            </div>
+          </div>
+          <div class="compliance-card">
+            <div class="icon">❄️</div>
+            <h4 data-i18n="verify_epa_title"></h4>
+            <p data-i18n="verify_epa_desc"></p>
+            <div class="badge-list">
+              <span class="status-badge verified">✓ Certified</span>
+              <span class="status-badge restricted">🚫 Restricted</span>
+            </div>
+          </div>
+          <div class="compliance-card">
+            <div class="icon">🛡️</div>
+            <h4 data-i18n="verify_ins_title"></h4>
+            <p data-i18n="verify_ins_desc"></p>
+            <div class="ins-types">
+              <div class="ins-type"><span class="dot"></span><span data-i18n="ins_gl"></span></div>
+              <div class="ins-type"><span class="dot"></span><span data-i18n="ins_garage"></span></div>
+              <div class="ins-type"><span class="dot"></span><span data-i18n="ins_gk"></span></div>
+              <div class="ins-type"><span class="dot"></span><span data-i18n="ins_auto"></span></div>
+              <div class="ins-type"><span class="dot"></span><span data-i18n="ins_hook"></span></div>
+              <div class="ins-type"><span class="dot"></span><span data-i18n="ins_wc"></span></div>
+              <div class="ins-type"><span class="dot"></span><span data-i18n="ins_umbrella"></span></div>
+            </div>
+          </div>
+          <div class="compliance-card">
+            <div class="icon">🔒</div>
+            <h4 data-i18n="verify_gating_title"></h4>
+            <p data-i18n="verify_gating_desc"></p>
+          </div>
+          <div class="compliance-card">
+            <div class="icon">🏷️</div>
+            <h4 data-i18n="verify_badge_title"></h4>
+            <p data-i18n="verify_badge_desc"></p>
+            <div class="badge-list">
+              <span class="status-badge verified">✓ Verified</span>
+              <span class="status-badge pending">⏳ Pending</span>
+              <span class="status-badge expired">✕ Expired</span>
+              <span class="status-badge not-provided">— Not Provided</span>
+              <span class="status-badge restricted">🚫 Restricted</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consumer Protection -->
+    <section style="background:linear-gradient(180deg, rgba(34,197,94,.04), transparent); padding:56px 0">
+      <div class="container">
+        <h2 class="section-title" style="text-align:center" data-i18n="protect_title"></h2>
+        <p class="section-sub" style="text-align:center; max-width:800px; margin:0 auto 0" data-i18n="protect_sub"></p>
+        <div class="protection-grid">
+          <div class="protection-card">
+            <div class="p-icon">📜</div>
+            <h4 data-i18n="protect_disclaimer_title"></h4>
+            <p data-i18n="protect_disclaimer_desc"></p>
+          </div>
+          <div class="protection-card">
+            <div class="p-icon">📊</div>
+            <h4 data-i18n="protect_audit_title"></h4>
+            <p data-i18n="protect_audit_desc"></p>
+          </div>
+          <div class="protection-card">
+            <div class="p-icon">⏰</div>
+            <h4 data-i18n="protect_expiration_title"></h4>
+            <p data-i18n="protect_expiration_desc"></p>
+          </div>
+          <div class="protection-card">
+            <div class="p-icon">💬</div>
+            <h4 data-i18n="protect_transparency_title"></h4>
+            <p data-i18n="protect_transparency_desc"></p>
           </div>
         </div>
       </div>
