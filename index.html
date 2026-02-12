@@ -42,9 +42,8 @@
       .logo-img{width:56px; height:56px}
     }
     .brand span{font-weight:800; letter-spacing:.3px; color:#e2e8f0; white-space:nowrap}
-    .nav-links{display:flex; gap:10px; align-items:center; flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none}
-    .nav-links::-webkit-scrollbar{display:none}
-    .nav-links a{color:var(--silver); text-decoration:none; font-weight:600; font-size:.88rem; white-space:nowrap; padding:4px 8px; border-radius:8px; transition:all 0.2s ease}
+    .nav-links{display:flex; gap:8px; align-items:center; flex-wrap:nowrap; flex:1; min-width:0; justify-content:center; overflow:hidden}
+    .nav-links a{color:var(--silver); text-decoration:none; font-weight:600; font-size:.85rem; white-space:nowrap; padding:4px 7px; border-radius:8px; transition:all 0.2s ease}
     .nav-links a:hover{background:rgba(56,189,248,.1); color:var(--accent)}
     .cta{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#06121f; text-decoration:none; font-weight:800; box-shadow:var(--shadow)}
     .cta.secondary{background:transparent; border:1px solid rgba(148,163,184,.35); color:var(--text)}
@@ -140,8 +139,8 @@
       .nav{gap:8px}
       .brand{margin-right:0; font-size:.95rem}
       .brand span{font-size:.95rem}
-      .nav-links{flex-wrap:nowrap; gap:8px; width:auto; justify-content:flex-end; overflow-x:auto}
-      .nav-links a{font-size:.82rem; padding:3px 6px}
+      .nav-links{flex-wrap:nowrap; gap:6px; width:auto; justify-content:center; overflow:hidden}
+      .nav-links a{font-size:.78rem; padding:3px 5px}
       .login-btn{padding:5px 10px;font-size:.75rem}
       .nav-right .lang button{padding:3px 6px;min-width:28px;font-size:.85rem}
       .lead{font-size:clamp(15px, 1.6vw, 18px)}
@@ -151,8 +150,8 @@
     }
     @media (max-width: 768px){
       .brand span{display:none}
-      .nav-links{gap:6px; flex-wrap:nowrap}
-      .nav-links a{font-size:.75rem; padding:2px 5px}
+      .nav-links{gap:4px; flex-wrap:nowrap; overflow:hidden}
+      .nav-links a{font-size:.72rem; padding:2px 4px}
       .login-btn{padding:5px 8px;font-size:.72rem}
       .container{padding:0 16px}
       h1{font-size:clamp(28px, 7vw, 42px)}
@@ -763,7 +762,6 @@
         <span>TechTrust AutoSolutions</span>
       </a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="#home" data-i18n="nav_home"></a>
         <a href="#about" data-i18n="nav_about"></a>
         <a href="#services" data-i18n="nav_services"></a>
         <a href="#compliance" data-i18n="nav_compliance"></a>
