@@ -22,17 +22,17 @@
   <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/apple-touch-icon.png">
   <style>
     :root{
-      --bg:#0b1220; --bg-alt:#0f172a; --card:#111827; --muted:#94a3b8; --text:#e5e7eb; --accent:#38bdf8; --accent-2:#60a5fa; --silver:#cbd5e1; --maxw:1200px; --radius:18px; --shadow:0 10px 30px rgba(2,6,23,.25);
+      --bg:#0b1220; --bg-alt:#0f172a; --card:#111827; --muted:#94a3b8; --text:#e5e7eb; --accent:#3B7DD8; --accent-2:#1B4D8F; --brand-red:#CC2233; --brand-red-light:#E03545; --silver:#cbd5e1; --maxw:1200px; --radius:18px; --shadow:0 10px 30px rgba(2,6,23,.25);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{margin:0; font-family:Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial; background:linear-gradient(180deg, #0b1220 0%, #0c1324 60%, #0a1328 100%); color:var(--text); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
     a{color:var(--accent)} .container{max-width:var(--maxw); margin-inline:auto; padding:0 20px}
     html{scroll-behavior:smooth; scroll-padding-top:110px}
-    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(160%) blur(8px); background:linear-gradient(180deg, rgba(2,6,23,.85), rgba(2,6,23,.55)); border-bottom:1px solid rgba(148,163,184,.15)}
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(160%) blur(8px); background:linear-gradient(180deg, rgba(2,6,23,.9), rgba(2,6,23,.6)); border-bottom:2px solid; border-image:linear-gradient(90deg, var(--brand-red), var(--accent)) 1}
     .nav{display:flex; align-items:center; justify-content:center; padding:10px 0; gap:18px; flex-wrap:nowrap}
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0}
-    .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,#38bdf8, #60a5fa); box-shadow:0 4px 18px rgba(56,189,248,.45)}
+    .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,#3B7DD8, #1B4D8F); box-shadow:0 4px 18px rgba(59,125,216,.45)}
     .logo-img{width:36px; height:36px; border-radius:10px; object-fit:cover; display:inline-block; vertical-align:middle; box-shadow:0 4px 12px rgba(2,6,23,.25); border:1px solid rgba(255,255,255,.03)}
     @media (min-width: 940px){
       .logo-img{width:48px; height:48px}
@@ -42,11 +42,12 @@
       .logo-img{width:56px; height:56px}
     }
     .brand span{font-weight:800; letter-spacing:.3px; color:#e2e8f0; white-space:nowrap}
+    .brand .brand-red{color:var(--brand-red); font-weight:800}
     .nav-links{display:flex; gap:14px; align-items:center; flex-wrap:nowrap}
     .nav-links a{color:var(--silver); text-decoration:none; font-weight:600; font-size:.92rem; white-space:nowrap; padding:5px 8px; border-radius:8px; transition:all 0.2s ease}
-    .nav-links a:hover{background:rgba(56,189,248,.1); color:var(--accent)}
-    .cta{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#06121f; text-decoration:none; font-weight:800; box-shadow:var(--shadow)}
-    .cta.secondary{background:transparent; border:1px solid rgba(148,163,184,.35); color:var(--text)}
+    .nav-links a:hover{background:rgba(59,125,216,.12); color:var(--accent)}
+    .cta{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; background:linear-gradient(135deg,var(--brand-red),var(--brand-red-light)); color:#ffffff; text-decoration:none; font-weight:800; box-shadow:0 4px 18px rgba(204,34,51,.35)}
+    .cta.secondary{background:transparent; border:1px solid rgba(59,125,216,.4); color:var(--accent)}
     .hero-cta .cta, .hero-cta .cta.secondary {
       min-width:280px;
       justify-content:center;
@@ -58,43 +59,44 @@
     .sub-bar .container{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
     .sub-bar-label{color:var(--muted);font-size:.78rem;font-weight:600;white-space:nowrap}
     .login-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:999px;font-weight:700;font-size:.82rem;text-decoration:none;white-space:nowrap;border:1px solid rgba(148,163,184,.3);color:var(--silver);background:transparent;transition:all .2s ease}
-    .login-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(56,189,248,.08)}
-    .login-btn.provider{border-color:rgba(56,189,248,.35);color:var(--accent)}
-    .login-btn.provider:hover{background:rgba(56,189,248,.15)}
+    .login-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(59,125,216,.08)}
+    .login-btn.provider{border-color:rgba(204,34,51,.4);color:var(--brand-red)}
+    .login-btn.provider:hover{background:rgba(204,34,51,.12)}
     .login-sep{width:1px;height:20px;background:rgba(148,163,184,.2);flex-shrink:0}
     .lang{display:flex; gap:8px; align-items:center}
     .lang button{background:transparent; border:1px solid rgba(148,163,184,.3); color:var(--silver); padding:4px 10px; border-radius:999px; cursor:pointer; font-weight:700; font-size:.82rem; line-height:1; min-width:40px; display:inline-flex; align-items:center; gap:6px}
     .lang button img.flag-icon{width:20px;height:14px;border-radius:2px;object-fit:cover;vertical-align:middle}
     .lang button .flag-fallback{display:none; font-size:.75rem; font-weight:700}
-    .lang button.active{border-color:var(--accent); color:#0b1220; background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+    .lang button.active{border-color:var(--accent); color:#ffffff; background:linear-gradient(135deg,var(--accent),var(--accent-2))}
     .hero{position:relative; overflow:hidden}
     .hero-carousel{position:relative; width:100%}
     .hero-slides{display:flex; width:100%; overflow:hidden}
     .hero-slide{min-width:100%; width:100%; opacity:0; position:absolute; top:0; left:0; transition:opacity .7s ease, transform .5s ease; pointer-events:none; transform:translateY(12px)}
     .hero-slide.active{opacity:1; position:relative; pointer-events:auto; transform:translateY(0)}
     .hero-dots{display:flex; justify-content:center; gap:10px; margin-top:18px}
-    .hero-dot{width:12px; height:12px; border-radius:50%; border:2px solid rgba(56,189,248,.4); background:transparent; cursor:pointer; transition:all .3s ease; padding:0}
-    .hero-dot.active{background:var(--accent); border-color:var(--accent); box-shadow:0 0 10px rgba(56,189,248,.5)}
-    .hero-dot:hover{border-color:var(--accent); background:rgba(56,189,248,.3)}
+    .hero-dot{width:12px; height:12px; border-radius:50%; border:2px solid rgba(59,125,216,.4); background:transparent; cursor:pointer; transition:all .3s ease; padding:0}
+    .hero-dot.active{background:var(--accent); border-color:var(--accent); box-shadow:0 0 10px rgba(59,125,216,.5)}
+    .hero-dot:hover{border-color:var(--accent); background:rgba(59,125,216,.3)}
     .hero-arrows{position:absolute; top:50%; transform:translateY(-50%); width:100%; display:flex; justify-content:space-between; pointer-events:none; z-index:5; padding:0 8px; box-sizing:border-box}
     .hero-arrow{pointer-events:auto; background:rgba(2,6,23,.55); border:1px solid rgba(148,163,184,.25); color:#e2e8f0; width:44px; height:44px; border-radius:999px; display:grid; place-items:center; cursor:pointer; transition:all .25s ease; font-size:1.2rem}
-    .hero-arrow:hover{background:rgba(56,189,248,.2); border-color:var(--accent)}
+    .hero-arrow:hover{background:rgba(59,125,216,.2); border-color:var(--accent)}
     .hero-wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:36px; align-items:center; padding:36px 0}
     .hero-img{width:100%; height:450px; object-fit:cover; border-radius:10px; border:1px solid rgba(148,163,184,.2)}
-    .badge{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; background:rgba(56,189,248,.12); border:1px solid rgba(56,189,248,.25); color:#e0f2fe; border-radius:999px; font-weight:700; font-size:.85rem}
+    .badge{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; background:rgba(59,125,216,.12); border:1px solid rgba(59,125,216,.3); color:#dbeafe; border-radius:999px; font-weight:700; font-size:.85rem}
     h1{font-size:clamp(34px, 4.5vw, 58px); line-height:1.05; margin:14px 0 14px; font-weight:900}
     .lead{font-size:clamp(16px, 1.4vw, 20px); color:var(--silver)}
     .hero-cta{display:flex; gap:16px; flex-wrap:wrap; margin-top:20px; justify-content:center; align-items:center}
     .hero-cta.centered {
       justify-content: center;
     }
-    .panel{background:radial-gradient(1200px 600px at 80% -10%, rgba(96,165,250,.25), transparent 50%), linear-gradient(180deg, rgba(2,6,23,.6), rgba(2,6,23,.35)); border:1px solid rgba(148,163,184,.2); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+    .panel{background:radial-gradient(1200px 600px at 80% -10%, rgba(59,125,216,.2), transparent 50%), linear-gradient(180deg, rgba(2,6,23,.6), rgba(2,6,23,.35)); border:1px solid rgba(148,163,184,.2); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
     section{padding:28px 0}
     .section-title{font-size:clamp(26px,3.2vw,40px); margin:0 0 12px; font-weight:900}
+    .section-title::after{content:''; display:block; width:60px; height:3px; background:linear-gradient(90deg,var(--brand-red),transparent); margin-top:8px; border-radius:2px}
     .section-sub{color:var(--muted); max-width:850px}
-    .pillars{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px}
+    .pillars{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px}; border-top:2px solid rgba(204,34,51,.3)
     .card{background:linear-gradient(180deg,#0B1324,#0B1428); border:1px solid rgba(148,163,184,.18); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
-    .icon{width:38px; height:38px; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; color:#06121f; font-weight:900}
+    .icon{width:38px; height:38px; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; color:#ffffff; font-weight:900}
     .callout-text {
       font-size:clamp(13px,1vw,15px)!important;
       font-weight:400;
@@ -123,9 +125,9 @@
     .about-split{display:grid; grid-template-columns:1.1fr .9fr; gap:24px}
     /* How It Works Steps */
     .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:28px; margin-top:32px}
-    .step-card{background:linear-gradient(135deg,rgba(56,189,248,.08),rgba(96,165,250,.08)); border:1px solid rgba(56,189,248,.25); border-radius:var(--radius); padding:28px 24px; position:relative; transition:transform 0.3s ease, box-shadow 0.3s ease}
-    .step-card:hover{transform:translateY(-4px); box-shadow:0 16px 40px rgba(56,189,248,.2)}
-    .step-number{position:absolute; top:-16px; left:24px; width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#06121f; font-weight:900; font-size:1.5rem; display:grid; place-items:center; box-shadow:0 4px 12px rgba(56,189,248,.4)}
+    .step-card{background:linear-gradient(135deg,rgba(59,125,216,.08),rgba(27,77,143,.08)); border:1px solid rgba(59,125,216,.25); border-radius:var(--radius); padding:28px 24px; position:relative; transition:transform 0.3s ease, box-shadow 0.3s ease}
+    .step-card:hover{transform:translateY(-4px); box-shadow:0 16px 40px rgba(59,125,216,.2)}
+    .step-number{position:absolute; top:-16px; left:24px; width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--brand-red),var(--brand-red-light)); color:#ffffff; font-weight:900; font-size:1.5rem; display:grid; place-items:center; box-shadow:0 4px 12px rgba(204,34,51,.4)}
     .step-card h3{margin:24px 0 12px; font-size:1.3rem; font-weight:800}
     .step-card p{margin:0; color:var(--silver); line-height:1.6}
     form{display:grid; gap:14px}
@@ -135,7 +137,7 @@
     textarea{min-height:120px}
     .btn{cursor:pointer}
 
-    .hq-banner{background:linear-gradient(135deg,rgba(56,189,248,.1),rgba(96,165,250,.08)); border:1px solid rgba(56,189,248,.25); border-radius:var(--radius); padding:20px 28px; margin-top:24px; text-align:center}
+    .hq-banner{background:linear-gradient(135deg,rgba(59,125,216,.1),rgba(27,77,143,.08)); border:1px solid rgba(59,125,216,.25); border-radius:var(--radius); padding:20px 28px; margin-top:24px; text-align:center}
     .hq-banner h3{margin:0 0 6px; font-size:1.15rem; font-weight:800; color:var(--accent)}
     .hq-banner p{margin:0; color:var(--silver); font-size:.95rem; line-height:1.5}
     footer{padding:50px 0; border-top:1px solid rgba(148,163,184,.18); color:var(--muted)}
@@ -183,16 +185,16 @@
     }
     /* Florida Process Timeline */
     .fl-timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:32px}
-    .fl-step{background:linear-gradient(135deg,rgba(56,189,248,.06),rgba(96,165,250,.06));border:1px solid rgba(56,189,248,.2);border-radius:var(--radius);padding:24px 18px;text-align:center;transition:transform .3s ease,box-shadow .3s ease}
-    .fl-step:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(56,189,248,.15)}
-    .fl-step-icon{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#06121f;font-size:1.4rem;font-weight:900;display:grid;place-items:center;margin:0 auto 14px;box-shadow:0 4px 12px rgba(56,189,248,.35)}
+    .fl-step{background:linear-gradient(135deg,rgba(59,125,216,.06),rgba(27,77,143,.06));border:1px solid rgba(59,125,216,.2);border-radius:var(--radius);padding:24px 18px;text-align:center;transition:transform .3s ease,box-shadow .3s ease}
+    .fl-step:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(59,125,216,.15)}
+    .fl-step-icon{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--brand-red),var(--brand-red-light));color:#ffffff;font-size:1.4rem;font-weight:900;display:grid;place-items:center;margin:0 auto 14px;box-shadow:0 4px 12px rgba(204,34,51,.35)}
     .fl-step h4{margin:0 0 8px;font-size:1rem;font-weight:700}
     .fl-step p{margin:0;color:var(--silver);font-size:.88rem;line-height:1.5}
     /* Compliance Cards */
     .compliance-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:24px}
     .compliance-card{background:linear-gradient(180deg,#0B1324,#0B1428);border:1px solid rgba(148,163,184,.18);border-radius:var(--radius);padding:24px;position:relative;overflow:hidden;transition:transform .3s ease}
     .compliance-card:hover{transform:translateY(-3px)}
-    .compliance-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+    .compliance-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand-red),var(--accent))}
     .compliance-card h4{margin:12px 0 8px;font-size:1.05rem;font-weight:700}
     .compliance-card p{margin:0;color:var(--silver);font-size:.9rem;line-height:1.6}
     .badge-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
@@ -202,7 +204,7 @@
     .status-badge.expired{background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.3);color:#f87171}
     .status-badge.not-provided{background:rgba(148,163,184,.12);border-color:rgba(148,163,184,.3);color:#94a3b8}
     .status-badge.restricted{background:rgba(168,85,247,.12);border-color:rgba(168,85,247,.3);color:#c084fc}
-    .highlight-box{background:linear-gradient(135deg,rgba(56,189,248,.08),rgba(96,165,250,.06));border:1px solid rgba(56,189,248,.25);border-radius:var(--radius);padding:20px 24px;margin-top:24px}
+    .highlight-box{background:linear-gradient(135deg,rgba(59,125,216,.08),rgba(27,77,143,.06));border:1px solid rgba(59,125,216,.25);border-radius:var(--radius);padding:20px 24px;margin-top:24px}
     .highlight-box h4{margin:0 0 8px;color:var(--accent);font-weight:800}
     .highlight-box p{margin:0;color:var(--silver);font-size:.95rem;line-height:1.6}
     .ins-types{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;margin-top:12px}
@@ -783,14 +785,14 @@
       form?.appendChild(contactStatus);
       form?.addEventListener('submit', async (e)=>{
         e.preventDefault();
-        contactStatus.textContent='Enviando...'; contactStatus.style.color='#60a5fa';
+        contactStatus.textContent='Enviando...'; contactStatus.style.color='#3B7DD8';
         const data = Object.fromEntries(new FormData(form).entries());
         try{
           const res = await fetch('/api/contact',{
             method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)
           });
           if(!res.ok) throw new Error('Network response was not ok');
-          contactStatus.textContent=`Obrigado! Entraremos em contato em ${data.email}.`; contactStatus.style.color='#38bdf8';
+          contactStatus.textContent=`Obrigado! Entraremos em contato em ${data.email}.`; contactStatus.style.color='#3B7DD8';
           form.reset();
         }catch(err){
           console.error(err);
@@ -846,7 +848,7 @@
           srcset="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno.png 36w, https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno@2x.png 72w"
           sizes="(min-width:1400px) 56px, (min-width:940px) 48px, 36px"
           class="logo-img" alt="TechTrust AutoSolutions logo" width="36" height="36" />
-        <span>TechTrust AutoSolutions</span>
+        <span>TechTrust <span class="brand-red">AutoSolutions</span></span>
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#about" data-i18n="nav_about"></a>
@@ -949,14 +951,14 @@
             </div>
             <div class="panel">
               <div style="display:grid;grid-template-columns:1fr;gap:0">
-                <div style="background:linear-gradient(135deg,rgba(34,197,94,.08),rgba(56,189,248,.08));border-radius:10px;padding:28px 24px;text-align:center">
+                <div style="background:linear-gradient(135deg,rgba(59,125,216,.08),rgba(27,77,143,.08));border-radius:10px;padding:28px 24px;text-align:center">
                   <div style="font-size:3.5rem;margin-bottom:14px">🛰️</div>
                   <h3 style="margin:0 0 8px;font-size:1.15rem;font-weight:800;color:var(--accent)">Service Hub</h3>
                   <p style="margin:0;color:var(--silver);font-size:.9rem;line-height:1.6">GPS Tracking • Cameras • Door Sensors • Work Orders • API Integrations • IoT Fleet Monitoring</p>
                   <div style="display:flex;justify-content:center;gap:18px;margin-top:18px;flex-wrap:wrap">
                     <div style="display:flex;align-items:center;gap:6px;color:#22c55e;font-size:.85rem;font-weight:700"><span>●</span> Real-Time</div>
-                    <div style="display:flex;align-items:center;gap:6px;color:#38bdf8;font-size:.85rem;font-weight:700"><span>●</span> Connected</div>
-                    <div style="display:flex;align-items:center;gap:6px;color:#a78bfa;font-size:.85rem;font-weight:700"><span>●</span> Integrated</div>
+                    <div style="display:flex;align-items:center;gap:6px;color:#3B7DD8;font-size:.85rem;font-weight:700"><span>●</span> Connected</div>
+                    <div style="display:flex;align-items:center;gap:6px;color:var(--brand-red);font-size:.85rem;font-weight:700"><span>●</span> Integrated</div>
                   </div>
                 </div>
               </div>
@@ -1082,7 +1084,7 @@
     </section>
 
     <!-- How It Works -->
-    <section style="background:linear-gradient(180deg, rgba(56,189,248,.03), transparent); padding:56px 0">
+    <section style="background:linear-gradient(180deg, rgba(59,125,216,.03), transparent); padding:56px 0">
       <div class="container">
         <h2 class="section-title" style="text-align:center" data-i18n="how_it_works_title"></h2>
         <p class="section-sub" style="text-align:center; max-width:700px; margin:0 auto 0" data-i18n="how_it_works_sub"></p>
@@ -1167,7 +1169,7 @@
     </section>
 
     <!-- About & HQ -->
-    <section style="background:linear-gradient(180deg, rgba(56,189,248,.03), transparent)">
+    <section style="background:linear-gradient(180deg, rgba(59,125,216,.03), transparent)">
       <div class="container">
         <h2 class="section-title" data-i18n="about_title"></h2>
         <p class="section-sub" data-i18n="about_body"></p>
@@ -1217,7 +1219,7 @@
     </section>
 
     <!-- Security -->
-    <section style="background:linear-gradient(180deg, rgba(56,189,248,.05), transparent)">
+    <section style="background:linear-gradient(180deg, rgba(59,125,216,.05), transparent)">
       <div class="container">
         <h2 class="section-title" data-i18n="security_title"></h2>
         <p class="section-sub" data-i18n="security_sub"></p>
@@ -1480,7 +1482,13 @@
             </form>
           </div>
           <div class="panel">
-            <h3>TechTrust AutoSolutions</h3>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+              <img src="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno.png" alt="TechTrust" style="width:42px;height:42px;border-radius:10px" />
+              <div>
+                <h3 style="margin:0;font-size:1.1rem">TechTrust <span style="color:var(--brand-red)">AutoSolutions</span></h3>
+                <p style="margin:2px 0 0;font-size:.8rem;color:var(--muted);font-style:italic">Driven by Technology. Trusted by You.</p>
+              </div>
+            </div>
             <p style="color:var(--muted)">Port St. Lucie, FL • <a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a></p>
             <div style="margin-top:10px">
               <iframe title="PSL Map" style="width:100%;height:280px;border:1px solid rgba(148,163,184,.2); border-radius:12px" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Port%20St.%20Lucie,%20FL&output=embed"></iframe>
@@ -1499,7 +1507,14 @@
 
   <footer>
     <div class="container f-grid">
-      <div>techtrustautosolutions.com • <a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a></div>
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <img src="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno.png" alt="TechTrust" style="width:28px;height:28px;border-radius:8px" />
+          <span style="font-weight:800;color:#e2e8f0;font-size:.95rem">TechTrust <span style="color:var(--brand-red)">AutoSolutions</span></span>
+        </div>
+        <div style="font-size:.85rem;color:var(--muted);font-style:italic;margin-bottom:8px">Driven by Technology. Trusted by You.</div>
+        <div>techtrustautosolutions.com • <a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a></div>
+      </div>
       <div data-i18n="footer_rights"></div>
     </div>
   </footer>
