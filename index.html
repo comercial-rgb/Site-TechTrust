@@ -28,6 +28,7 @@
     html,body{height:100%}
     body{margin:0; font-family:Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial; background:linear-gradient(180deg, #0b1220 0%, #0c1324 60%, #0a1328 100%); color:var(--text); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
     a{color:var(--accent)} .container{max-width:var(--maxw); margin-inline:auto; padding:0 20px}
+    .logo-box{display:inline-block;background:#fff;border-radius:14px;padding:12px 18px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
     html{scroll-behavior:smooth; scroll-padding-top:110px}
     header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(160%) blur(8px); background:linear-gradient(180deg, rgba(2,6,23,.9), rgba(2,6,23,.6)); border-bottom:2px solid; border-image:linear-gradient(90deg, var(--brand-red), var(--accent)) 1}
     .nav{display:flex; align-items:center; justify-content:center; padding:10px 0; gap:18px; flex-wrap:nowrap}
@@ -952,7 +953,7 @@
             <div class="panel">
               <div style="display:grid;grid-template-columns:1fr;gap:0">
                 <div style="background:linear-gradient(135deg,rgba(59,125,216,.08),rgba(27,77,143,.08));border-radius:10px;padding:28px 24px;text-align:center">
-                  <img src="/logo-vertical-200h.png" alt="TechTrust" style="height:100px;width:auto;margin-bottom:14px" loading="lazy" />
+                  <div class="logo-box" style="margin-bottom:14px"><img src="/logo-vertical-200h.png" alt="TechTrust" style="height:90px;width:auto" loading="lazy" /></div>
                   <h3 style="margin:0 0 8px;font-size:1.15rem;font-weight:800;color:var(--accent)">Service Hub</h3>
                   <p style="margin:0;color:var(--silver);font-size:.9rem;line-height:1.6">GPS Tracking • Cameras • Door Sensors • Work Orders • API Integrations • IoT Fleet Monitoring</p>
                   <div style="display:flex;justify-content:center;gap:18px;margin-top:18px;flex-wrap:wrap">
@@ -1162,7 +1163,7 @@
         </div>
         <div class="panel">
           <div style="text-align:center;margin-bottom:16px">
-            <img src="/logo-vertical-150h.png" alt="TechTrust AutoSolutions" style="height:120px;width:auto" loading="lazy" />
+            <div class="logo-box"><img src="/logo-vertical-150h.png" alt="TechTrust AutoSolutions" style="height:110px;width:auto" loading="lazy" /></div>
           </div>
           <h3 style="margin:0 0 8px 0;font-size:1.1rem;font-weight:700" data-i18n="partner_title"></h3>
           <p style="margin:0;color:var(--muted)"><span data-i18n="partner_contact_label"></span> <a href="mailto:contact@techtrustautosolutions.com" style="color:var(--accent)">contact@techtrustautosolutions.com</a></p>
@@ -1412,7 +1413,7 @@
       <div class="container">
         <div class="card" style="text-align:center;padding:48px 24px">
           <div style="margin-bottom:20px">
-            <img src="/logo-vertical-200h.png" alt="TechTrust" style="height:100px;width:auto" loading="lazy" />
+            <div class="logo-box"><img src="/logo-vertical-200h.png" alt="TechTrust" style="height:90px;width:auto" loading="lazy" /></div>
           </div>
           <h2 class="section-title" style="margin-bottom:12px" data-i18n="final_cta_title"></h2>
           <p class="section-sub" style="margin-bottom:24px" data-i18n="final_cta_desc"></p>
@@ -1491,7 +1492,7 @@
           </div>
             <div class="panel">
               <div style="text-align:center;margin-bottom:16px">
-                <img src="/logo-vertical-200h.png" alt="TechTrust AutoSolutions" style="height:140px;width:auto" loading="lazy" />
+                <div class="logo-box"><img src="/logo-vertical-200h.png" alt="TechTrust AutoSolutions" style="height:120px;width:auto" loading="lazy" /></div>
               </div>
               <div style="color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:12px">
                 <div style="font-weight:700;color:#e2e8f0;font-size:1rem;margin-bottom:6px">📍 Headquarters</div>
@@ -1519,7 +1520,7 @@
     <div class="container f-grid">
       <div>
         <div style="margin-bottom:10px">
-          <img src="/logo-horizontal-300w.png" alt="TechTrust AutoSolutions" style="height:40px;width:auto" loading="lazy" />
+          <div class="logo-box" style="padding:8px 14px"><img src="/logo-horizontal-300w.png" alt="TechTrust AutoSolutions" style="height:34px;width:auto" loading="lazy" /></div>
         </div>
         <div style="font-size:.85rem;color:var(--muted);font-style:italic;margin-bottom:8px">Driven by Technology. Trusted by You.</div>
         <div style="font-size:.85rem;color:var(--muted);line-height:1.6">
