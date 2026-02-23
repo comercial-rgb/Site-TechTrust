@@ -17,9 +17,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <style>
     :root{
       --bg:#0b1220; --bg-alt:#0f172a; --card:#111827; --muted:#94a3b8; --text:#e5e7eb; --accent:#3B7DD8; --accent-2:#1B4D8F; --brand-red:#CC2233; --brand-red-light:#E03545; --silver:#cbd5e1; --maxw:1200px; --radius:18px; --shadow:0 10px 30px rgba(2,6,23,.25);
@@ -94,8 +94,8 @@
     .section-title{font-size:clamp(26px,3.2vw,40px); margin:0 0 12px; font-weight:900}
     .section-title::after{content:''; display:block; width:60px; height:3px; background:linear-gradient(90deg,var(--brand-red),transparent); margin-top:8px; border-radius:2px}
     .section-sub{color:var(--muted); max-width:850px}
-    .pillars{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px}; border-top:2px solid rgba(204,34,51,.3)
-    .card{background:linear-gradient(180deg,#0B1324,#0B1428); border:1px solid rgba(148,163,184,.18); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
+    .pillars{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px}
+    .card{background:linear-gradient(180deg,#0B1324,#0B1428); border:1px solid rgba(148,163,184,.18); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); border-top:2px solid rgba(204,34,51,.3)}
     .icon{width:38px; height:38px; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; color:#ffffff; font-weight:900}
     .callout-text {
       font-size:clamp(13px,1vw,15px)!important;
@@ -844,8 +844,8 @@
   <header>
     <div class="container nav">
       <a href="#" class="brand" aria-label="TechTrust AutoSolutions home">
-        <img src="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno.png"
-          srcset="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno.png 36w, https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno@2x.png 72w"
+        <img src="/botao-pequeno.png"
+          srcset="/botao-pequeno.png 170w, /botao-pequeno@2x.png 340w"
           sizes="(min-width:1400px) 56px, (min-width:940px) 48px, 36px"
           class="logo-img" alt="TechTrust AutoSolutions logo" width="36" height="36" />
         <span>TechTrust <span class="brand-red">AutoSolutions</span></span>
@@ -1161,6 +1161,9 @@
           <div class="card" style="margin-top:16px"><strong data-i18n="mission_slogan"></strong></div>
         </div>
         <div class="panel">
+          <div style="text-align:center;margin-bottom:16px">
+            <img src="/icon-white-sm.png" alt="TechTrust" style="width:64px;height:64px;border-radius:14px;box-shadow:0 4px 12px rgba(2,6,23,.3)" loading="lazy" />
+          </div>
           <h3 style="margin:0 0 8px 0;font-size:1.1rem;font-weight:700" data-i18n="partner_title"></h3>
           <p style="margin:0;color:var(--muted)"><span data-i18n="partner_contact_label"></span> <a href="mailto:contact@techtrustautosolutions.com" style="color:var(--accent)">contact@techtrustautosolutions.com</a></p>
           <p style="margin:12px 0 0;color:var(--silver);font-size:.95rem" data-i18n="partner_infrastructure"></p>
@@ -1200,13 +1203,13 @@
         <p class="section-sub" data-i18n="two_apps_sub"></p>
         <div class="pillars">
           <div class="card">
-            <div class="icon" aria-hidden="true">🔧</div>
+            <img src="/botao-pequeno.png" alt="" aria-hidden="true" style="width:42px;height:42px;border-radius:10px" loading="lazy" />
             <h3 style="margin:12px 0 6px" data-i18n="app_service_title"></h3>
             <p style="color:var(--accent);font-size:.9rem;font-weight:600;margin:0 0 8px" data-i18n="app_service_subtitle"></p>
             <p style="color:var(--muted)" data-i18n="app_service_desc"></p>
           </div>
           <div class="card">
-            <div class="icon" aria-hidden="true">📍</div>
+            <img src="/icon-red-sm.png" alt="" aria-hidden="true" style="width:42px;height:42px;border-radius:10px" loading="lazy" />
             <h3 style="margin:12px 0 6px" data-i18n="app_tracking_title"></h3>
             <p style="color:var(--accent);font-size:.9rem;font-weight:600;margin:0 0 8px" data-i18n="app_tracking_subtitle"></p>
             <p style="color:var(--muted)" data-i18n="app_tracking_desc"></p>
@@ -1406,6 +1409,9 @@
     <section>
       <div class="container">
         <div class="card" style="text-align:center;padding:48px 24px">
+          <div style="margin-bottom:20px">
+            <img src="/icon-white-sm.png" alt="TechTrust" style="width:72px;height:72px;border-radius:16px;box-shadow:0 6px 20px rgba(2,6,23,.4)" loading="lazy" />
+          </div>
           <h2 class="section-title" style="margin-bottom:12px" data-i18n="final_cta_title"></h2>
           <p class="section-sub" style="margin-bottom:24px" data-i18n="final_cta_desc"></p>
           <div class="hero-cta centered">
@@ -1483,7 +1489,7 @@
           </div>
           <div class="panel">
             <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-              <img src="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno.png" alt="TechTrust" style="width:42px;height:42px;border-radius:10px" />
+              <img src="/botao-pequeno.png" alt="TechTrust" style="width:42px;height:42px;border-radius:10px" />
               <div>
                 <h3 style="margin:0;font-size:1.1rem">TechTrust <span style="color:var(--brand-red)">AutoSolutions</span></h3>
                 <p style="margin:2px 0 0;font-size:.8rem;color:var(--muted);font-style:italic">Driven by Technology. Trusted by You.</p>
@@ -1509,7 +1515,7 @@
     <div class="container f-grid">
       <div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-          <img src="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno.png" alt="TechTrust" style="width:28px;height:28px;border-radius:8px" />
+          <img src="/botao-pequeno.png" alt="TechTrust" style="width:28px;height:28px;border-radius:8px" />
           <span style="font-weight:800;color:#e2e8f0;font-size:.95rem">TechTrust <span style="color:var(--brand-red)">AutoSolutions</span></span>
         </div>
         <div style="font-size:.85rem;color:var(--muted);font-style:italic;margin-bottom:8px">Driven by Technology. Trusted by You.</div>
