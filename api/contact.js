@@ -27,6 +27,7 @@ module.exports = async (req, res) => {
     // Basic normalization
     const payload = {
       type: body.type || 'contact',
+      status: body.status || 'confirmed',
       name: body.name || '',
       email: body.email || 'contact@techtrustautosolutions.com',
       phone: body.phone || '',
@@ -48,10 +49,14 @@ module.exports = async (req, res) => {
       try{
         const resend = new Resend(apiKey);
         const to = 'contact@techtrustautosolutions.com';
-        const subject = payload.type === 'schedule' ? 'New service scheduling' : (payload.type === 'mobile' ? 'New mobile mechanic request' : 'New website inquiry');
+        const subject = payload.type === 'schedule'
+          ? `[${payload.status === 'pending' ? 'PENDING' : 'CONFIRMED'}] New service booking — ${payload.service || 'General'}`
+          : (payload.type === 'mobile' ? 'New mobile mechanic request' : 'New website inquiry');
         const html = `
           <h2>${subject}</h2>
+          ${payload.status === 'pending' ? '<div style="background:#fef3c7;border:1px solid #f59e0b;padding:12px 16px;border-radius:8px;margin-bottom:16px"><strong>⚠️ PENDING APPROVAL</strong> — This booking requires your confirmation. Please review the details below and confirm or contact the customer.</div>' : ''}
           <p><b>Type:</b> ${payload.type}</p>
+          <p><b>Status:</b> ${payload.status === 'pending' ? '⏳ Pending Approval' : '✅ Confirmed'}</p>
           <p><b>Name:</b> ${payload.name}</p>
           ${payload.email ? `<p><b>Email:</b> ${payload.email}</p>` : ''}
           ${payload.phone ? `<p><b>Phone:</b> ${payload.phone}</p>` : ''}
@@ -101,14 +106,17 @@ module.exports = async (req, res) => {
           const start = new Date(payload.datetime);
           const end = new Date(start.getTime() + 60*60*1000); // 1 hour
 
+          const isPending = payload.status === 'pending';
+
           await calendar.events.insert({
             calendarId: CALENDAR_ID,
             requestBody: {
-              summary: `Service: ${payload.service || 'General'} — ${payload.vehicle}`,
-              description: `Customer: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone}\nVehicle: ${payload.vehicle}\nVIN: ${payload.vin}\nFuel: ${payload.fuel_type}\nService: ${payload.service}\nNotes: ${payload.summary}\n\nBooked via website`,
+              summary: `${isPending ? '[PENDING] ' : ''}Service: ${payload.service || 'General'} — ${payload.vehicle}`,
+              description: `Status: ${isPending ? 'PENDING APPROVAL' : 'CONFIRMED'}\nCustomer: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone}\nVehicle: ${payload.vehicle}\nVIN: ${payload.vin}\nFuel: ${payload.fuel_type}\nService: ${payload.service}\nNotes: ${payload.summary}\n\nBooked via website`,
               start: { dateTime: start.toISOString(), timeZone: 'America/New_York' },
               end: { dateTime: end.toISOString(), timeZone: 'America/New_York' },
-              colorId: '11', // Red for service appointments
+              colorId: isPending ? '5' : '11', // Yellow=pending, Red=confirmed
+              status: isPending ? 'tentative' : 'confirmed',
               reminders: {
                 useDefault: false,
                 overrides: [

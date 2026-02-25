@@ -387,11 +387,13 @@
         book_service_brakes: "Brake Service",
         book_notes: "Brief description of the issue (optional)",
         book_submit: "Confirm Booking",
-        book_success: "Booking confirmed! We'll contact you shortly to confirm your appointment.",
+        book_success: "Request submitted! Your booking is pending confirmation. We'll contact you shortly.",
         book_error: "Failed to submit. Please try again or call us directly.",
-        book_sending: "Submitting...",
-        book_closed: "We're closed on this day. Please select Monday–Friday.",
-        book_hours: "Available hours: 8:00 AM – 5:00 PM, Monday–Friday",
+        book_sending: "Checking availability...",
+        book_unavailable: "This time slot is already taken. Please choose a different date or time.",
+        book_closed: "We're closed on this day. Please select Monday–Saturday.",
+        book_closed_sun: "We're closed on Sundays. Please select Monday–Saturday.",
+        book_hours: "Mon–Fri: 8:00 AM – 6:00 PM | Sat: 9:00 AM – 4:00 PM",
         nav_compliance: "Compliance",
         login_client: "Client Login",
         login_provider: "Provider Login",
@@ -570,11 +572,13 @@
         book_service_brakes: "Freios",
         book_notes: "Breve relato do problema (opcional)",
         book_submit: "Confirmar Agendamento",
-        book_success: "Agendamento confirmado! Entraremos em contato para confirmar seu horário.",
+        book_success: "Solicitação enviada! Seu agendamento está pendente de confirmação. Entraremos em contato em breve.",
         book_error: "Falha ao enviar. Tente novamente ou ligue diretamente.",
-        book_sending: "Enviando...",
-        book_closed: "Estamos fechados neste dia. Selecione Segunda–Sexta.",
-        book_hours: "Horários disponíveis: 8:00 AM – 5:00 PM, Segunda–Sexta",
+        book_sending: "Verificando disponibilidade...",
+        book_unavailable: "Este horário já está ocupado. Escolha outra data ou horário.",
+        book_closed: "Estamos fechados neste dia. Selecione Segunda–Sábado.",
+        book_closed_sun: "Estamos fechados aos domingos. Selecione Segunda–Sábado.",
+        book_hours: "Seg–Sex: 8:00 AM – 6:00 PM | Sáb: 9:00 AM – 4:00 PM",
         nav_compliance: "Conformidade",
         login_client: "Acesso Cliente",
         login_provider: "Acesso Fornecedor",
@@ -753,11 +757,13 @@
         book_service_brakes: "Frenos",
         book_notes: "Breve descripción del problema (opcional)",
         book_submit: "Confirmar Reserva",
-        book_success: "¡Reserva confirmada! Nos pondremos en contacto para confirmar su cita.",
+        book_success: "¡Solicitud enviada! Su reserva está pendiente de confirmación. Nos pondremos en contacto pronto.",
         book_error: "Error al enviar. Intente nuevamente o llame directamente.",
-        book_sending: "Enviando...",
-        book_closed: "Estamos cerrados este día. Seleccione Lunes–Viernes.",
-        book_hours: "Horarios disponibles: 8:00 AM – 5:00 PM, Lunes–Viernes",
+        book_sending: "Verificando disponibilidad...",
+        book_unavailable: "Este horario ya está ocupado. Elija otra fecha u hora.",
+        book_closed: "Estamos cerrados este día. Seleccione Lunes–Sábado.",
+        book_closed_sun: "Estamos cerrados los domingos. Seleccione Lunes–Sábado.",
+        book_hours: "Lun–Vie: 8:00 AM – 6:00 PM | Sáb: 9:00 AM – 4:00 PM",
         nav_compliance: "Cumplimiento",
         login_client: "Acceso Cliente",
         login_provider: "Acceso Proveedor",
@@ -971,27 +977,53 @@
         if(e.key === 'Escape' && bookModal?.classList.contains('open')) closeBookModal();
       });
 
-      // Validate weekday (Mon-Fri)
+      // Business hours config
+      const HOURS = {
+        weekday: { start: 8, end: 18 }, // Mon-Fri 8AM-6PM (last slot 5PM)
+        saturday: { start: 9, end: 16 } // Sat 9AM-4PM (last slot 3PM)
+      };
+
+      const bookTimeSelect = document.getElementById('book-time-select');
+
+      function populateTimeSlots(dayOfWeek){
+        // dayOfWeek: 0=Sun..6=Sat
+        bookTimeSelect.innerHTML = '<option value="">--</option>';
+        if(dayOfWeek === 0) return; // Sunday closed
+        const h = dayOfWeek === 6 ? HOURS.saturday : HOURS.weekday;
+        for(let hr = h.start; hr < h.end; hr++){
+          const val = String(hr).padStart(2,'0') + ':00';
+          const ampm = hr < 12 ? 'AM' : 'PM';
+          const display = hr === 0 ? '12:00 AM' : hr <= 12 ? hr + ':00 ' + ampm : (hr-12) + ':00 ' + ampm;
+          const opt = document.createElement('option');
+          opt.value = val;
+          opt.textContent = display;
+          bookTimeSelect.appendChild(opt);
+        }
+      }
+
+      // Validate date (Mon-Sat, no Sunday)
       bookDateInput?.addEventListener('change', ()=>{
         const d = new Date(bookDateInput.value + 'T12:00:00');
         const day = d.getDay(); // 0=Sun, 6=Sat
-        if(day === 0 || day === 6){
-          const lang = document.documentElement.lang || 'en';
-          bookStatus.textContent = I18N[lang]?.book_closed || 'Closed on weekends.';
+        const lang = document.documentElement.lang || 'en';
+        if(day === 0){
+          bookStatus.textContent = I18N[lang]?.book_closed_sun || 'Closed on Sundays.';
           bookStatus.style.color = '#fbbf24';
           bookDateInput.value = '';
+          populateTimeSlots(-1);
         } else {
           bookStatus.textContent = '';
+          populateTimeSlots(day);
         }
       });
 
-      // Submit book form
+      // Submit book form — check availability first, then submit as pending
       bookForm?.addEventListener('submit', async (e)=>{
         e.preventDefault();
         const lang = document.documentElement.lang || 'en';
         const btn = bookForm.querySelector('.book-btn');
         btn.disabled = true;
-        bookStatus.textContent = I18N[lang]?.book_sending || 'Submitting...';
+        bookStatus.textContent = I18N[lang]?.book_sending || 'Checking availability...';
         bookStatus.style.color = '#3B7DD8';
 
         const fd = new FormData(bookForm);
@@ -1004,8 +1036,31 @@
         // Map service value to readable label
         const serviceLabels = {oil_change:'Oil Change',tire_change:'Tire Change',ac_service:'A/C Service',brake_service:'Brake Service'};
 
+        // Step 1: Check calendar availability
+        try {
+          const availRes = await fetch('/api/availability', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ datetime })
+          });
+          if(availRes.ok){
+            const availData = await availRes.json();
+            if(!availData.available){
+              bookStatus.textContent = I18N[lang]?.book_unavailable || 'This time slot is taken.';
+              bookStatus.style.color = '#fbbf24';
+              btn.disabled = false;
+              return;
+            }
+          }
+        } catch(err){
+          // If availability check fails, continue (graceful degradation)
+          console.warn('Availability check failed, proceeding anyway', err);
+        }
+
+        // Step 2: Submit booking as PENDING
         const payload = {
           type: 'schedule',
+          status: 'pending',
           name: data.book_name,
           email: data.book_email,
           phone: data.book_phone || '',
@@ -1024,10 +1079,11 @@
             body: JSON.stringify(payload)
           });
           if(!res.ok) throw new Error('Network error');
-          bookStatus.textContent = I18N[lang]?.book_success || 'Booking confirmed!';
+          bookStatus.textContent = I18N[lang]?.book_success || 'Request submitted! Pending confirmation.';
           bookStatus.style.color = '#4ade80';
           bookForm.reset();
-          setTimeout(closeBookModal, 3000);
+          populateTimeSlots(-1);
+          setTimeout(closeBookModal, 4000);
         } catch(err) {
           console.error(err);
           bookStatus.textContent = I18N[lang]?.book_error || 'Failed to submit.';
@@ -1760,15 +1816,6 @@
           <label><span data-i18n="book_time"></span> <span class="req">*</span><br>
             <select name="book_time" required id="book-time-select">
               <option value="">--</option>
-              <option value="08:00">8:00 AM</option>
-              <option value="09:00">9:00 AM</option>
-              <option value="10:00">10:00 AM</option>
-              <option value="11:00">11:00 AM</option>
-              <option value="12:00">12:00 PM</option>
-              <option value="13:00">1:00 PM</option>
-              <option value="14:00">2:00 PM</option>
-              <option value="15:00">3:00 PM</option>
-              <option value="16:00">4:00 PM</option>
             </select>
           </label>
         </div>
