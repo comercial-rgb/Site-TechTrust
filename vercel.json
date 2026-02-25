@@ -1,13 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    { "src": "index.html", "use": "@vercel/static" },
-    { "src": "*.{png,jpg,webp,ico}", "use": "@vercel/static" },
-    { "src": "api/**/*.js", "use": "@vercel/node" }
-  ],
-  "routes": [
-    { "src": "/api/contact", "dest": "/api/contact.js" },
-    { "src": "/api/availability", "dest": "/api/availability.js" },
-    { "src": "/(.*\\.(png|jpg|webp|ico))", "dest": "/$1" }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
