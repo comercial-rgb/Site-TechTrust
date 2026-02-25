@@ -393,7 +393,7 @@
         book_unavailable: "This time slot is already taken. Please choose a different date or time.",
         book_closed: "We're closed on this day. Please select Monday–Saturday.",
         book_closed_sun: "We're closed on Sundays. Please select Monday–Saturday.",
-        book_hours: "Mon–Fri: 8:00 AM – 6:00 PM | Sat: 9:00 AM – 4:00 PM",
+        book_hours: "Mon–Fri: 08:00 – 18:00 | Sat: 09:00 – 16:00",
         nav_compliance: "Compliance",
         login_client: "Client Login",
         login_provider: "Provider Login",
@@ -578,7 +578,7 @@
         book_unavailable: "Este horário já está ocupado. Escolha outra data ou horário.",
         book_closed: "Estamos fechados neste dia. Selecione Segunda–Sábado.",
         book_closed_sun: "Estamos fechados aos domingos. Selecione Segunda–Sábado.",
-        book_hours: "Seg–Sex: 8:00 AM – 6:00 PM | Sáb: 9:00 AM – 4:00 PM",
+        book_hours: "Seg–Sex: 08:00 – 18:00 | Sáb: 09:00 – 16:00",
         nav_compliance: "Conformidade",
         login_client: "Acesso Cliente",
         login_provider: "Acesso Fornecedor",
@@ -763,7 +763,7 @@
         book_unavailable: "Este horario ya está ocupado. Elija otra fecha u hora.",
         book_closed: "Estamos cerrados este día. Seleccione Lunes–Sábado.",
         book_closed_sun: "Estamos cerrados los domingos. Seleccione Lunes–Sábado.",
-        book_hours: "Lun–Vie: 8:00 AM – 6:00 PM | Sáb: 9:00 AM – 4:00 PM",
+        book_hours: "Lun–Vie: 08:00 – 18:00 | Sáb: 09:00 – 16:00",
         nav_compliance: "Cumplimiento",
         login_client: "Acceso Cliente",
         login_provider: "Acceso Proveedor",
@@ -992,8 +992,7 @@
         const h = dayOfWeek === 6 ? HOURS.saturday : HOURS.weekday;
         for(let hr = h.start; hr < h.end; hr++){
           const val = String(hr).padStart(2,'0') + ':00';
-          const ampm = hr < 12 ? 'AM' : 'PM';
-          const display = hr === 0 ? '12:00 AM' : hr <= 12 ? hr + ':00 ' + ampm : (hr-12) + ':00 ' + ampm;
+          const display = String(hr).padStart(2,'0') + ':00';
           const opt = document.createElement('option');
           opt.value = val;
           opt.textContent = display;
