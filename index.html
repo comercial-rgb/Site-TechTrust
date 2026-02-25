@@ -225,6 +225,31 @@
     @media(max-width:480px){
       .fl-timeline{grid-template-columns:1fr;gap:14px}
     }
+    /* Book Services Modal */
+    .modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(2,6,23,.85);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:20px}
+    .modal-overlay.open{display:flex}
+    .modal{background:linear-gradient(180deg,#0f172a,#0b1220);border:1px solid rgba(148,163,184,.2);border-radius:var(--radius);width:100%;max-width:620px;max-height:90vh;overflow-y:auto;padding:32px 28px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+    .modal-close{position:absolute;top:14px;right:14px;background:rgba(148,163,184,.15);border:1px solid rgba(148,163,184,.25);color:#e2e8f0;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;cursor:pointer;font-size:1.2rem;transition:all .2s}
+    .modal-close:hover{background:rgba(239,68,68,.2);border-color:rgba(239,68,68,.4);color:#f87171}
+    .modal h2{margin:0 0 6px;font-size:1.5rem;font-weight:800}
+    .modal .modal-sub{color:var(--muted);font-size:.9rem;margin:0 0 20px}
+    .modal form{display:grid;gap:14px}
+    .modal form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .modal form label{font-size:.88rem;font-weight:600;color:var(--silver)}
+    .modal form label span.req{color:var(--brand-red)}
+    .modal form input,.modal form select,.modal form textarea{width:100%;box-sizing:border-box;background:#0b1220;color:var(--text);border:1px solid rgba(148,163,184,.25);border-radius:12px;padding:11px 14px;font:inherit;font-size:.9rem;transition:border-color .2s}
+    .modal form input:focus,.modal form select:focus,.modal form textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,125,216,.15)}
+    .modal form textarea{min-height:80px;resize:vertical}
+    .modal .book-btn{cursor:pointer;width:100%;padding:14px;border:none;border-radius:999px;background:linear-gradient(135deg,var(--brand-red),var(--brand-red-light));color:#fff;font-weight:800;font-size:1rem;letter-spacing:.3px;transition:all .2s}
+    .modal .book-btn:hover{box-shadow:0 6px 20px rgba(204,34,51,.4);transform:translateY(-1px)}
+    .modal .book-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .book-status{font-size:.85rem;text-align:center;margin:8px 0 0}
+    .book-cta{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:999px;background:linear-gradient(135deg,var(--brand-red),var(--brand-red-light));color:#fff;text-decoration:none;font-weight:800;font-size:.95rem;cursor:pointer;border:none;box-shadow:0 4px 18px rgba(204,34,51,.35);transition:all .2s;margin-top:12px}
+    .book-cta:hover{box-shadow:0 6px 24px rgba(204,34,51,.5);transform:translateY(-2px)}
+    @media(max-width:480px){
+      .modal{padding:24px 18px}
+      .modal form .form-row{grid-template-columns:1fr}
+    }
   </style>
   <script>
     const I18N = {
@@ -336,7 +361,37 @@
         slide_5_caption: "Complete cost analytics and spending reports",
         slide_6_caption: "From daily cars to commercial fleets — we serve everyone",
         hq_banner_title: "We Also Do Light Services at Our PSL Headquarters!",
-        hq_banner_desc: "Visit our Port St. Lucie location for oil changes, brake service, A/C repair, lighting, diagnostics, and more. Walk in or schedule through the app.",
+        hq_banner_desc: "Visit our Port St. Lucie location for oil changes, brake service, A/C repair, lighting, diagnostics, and more. Walk in or schedule below.",
+        hq_banner_cta: "📅 Book a Service",
+        book_title: "Book a Service at Our PSL Headquarters",
+        book_sub: "Schedule your appointment at 1592 SE Village Green Dr, Unit E — Port Saint Lucie, FL 34952",
+        book_date: "Preferred Date",
+        book_time: "Preferred Time",
+        book_name: "Full Name",
+        book_email: "Email",
+        book_phone: "Phone",
+        book_vin: "VIN (Vehicle Identification Number)",
+        book_make: "Vehicle Make",
+        book_model: "Vehicle Model",
+        book_year: "Year",
+        book_fuel: "Fuel Type",
+        book_fuel_gas: "Gasoline",
+        book_fuel_diesel: "Diesel",
+        book_fuel_electric: "Electric",
+        book_fuel_hybrid: "Hybrid",
+        book_fuel_other: "Other",
+        book_service: "Service Needed",
+        book_service_oil: "Oil Change",
+        book_service_tire: "Tire Change",
+        book_service_ac: "A/C Service",
+        book_service_brakes: "Brake Service",
+        book_notes: "Brief description of the issue (optional)",
+        book_submit: "Confirm Booking",
+        book_success: "Booking confirmed! We'll contact you shortly to confirm your appointment.",
+        book_error: "Failed to submit. Please try again or call us directly.",
+        book_sending: "Submitting...",
+        book_closed: "We're closed on this day. Please select Monday–Friday.",
+        book_hours: "Available hours: 8:00 AM – 5:00 PM, Monday–Friday",
         nav_compliance: "Compliance",
         login_client: "Client Login",
         login_provider: "Provider Login",
@@ -489,7 +544,37 @@
         slide_5_caption: "Análise completa de custos e relatórios de gastos",
         slide_6_caption: "De carros do dia a dia a frotas comerciais — atendemos todos",
         hq_banner_title: "Também Fazemos Serviços Leves na Nossa Sede em PSL!",
-        hq_banner_desc: "Visite nossa unidade em Port St. Lucie para troca de óleo, freios, ar-condicionado, iluminação, diagnóstico e muito mais. Venha diretamente ou agende pelo app.",
+        hq_banner_desc: "Visite nossa unidade em Port St. Lucie para troca de óleo, freios, ar-condicionado, iluminação, diagnóstico e muito mais. Venha diretamente ou agende abaixo.",
+        hq_banner_cta: "📅 Agendar Serviço",
+        book_title: "Agendar Serviço na Nossa Sede em PSL",
+        book_sub: "Marque seu horário em 1592 SE Village Green Dr, Unit E — Port Saint Lucie, FL 34952",
+        book_date: "Data Preferida",
+        book_time: "Horário Preferido",
+        book_name: "Nome Completo",
+        book_email: "Email",
+        book_phone: "Telefone",
+        book_vin: "VIN (Número de Identificação do Veículo)",
+        book_make: "Marca do Veículo",
+        book_model: "Modelo do Veículo",
+        book_year: "Ano",
+        book_fuel: "Tipo de Combustível",
+        book_fuel_gas: "Gasolina",
+        book_fuel_diesel: "Diesel",
+        book_fuel_electric: "Elétrico",
+        book_fuel_hybrid: "Híbrido",
+        book_fuel_other: "Outro",
+        book_service: "Serviço Necessário",
+        book_service_oil: "Troca de Óleo",
+        book_service_tire: "Troca de Pneu",
+        book_service_ac: "Ar-Condicionado",
+        book_service_brakes: "Freios",
+        book_notes: "Breve relato do problema (opcional)",
+        book_submit: "Confirmar Agendamento",
+        book_success: "Agendamento confirmado! Entraremos em contato para confirmar seu horário.",
+        book_error: "Falha ao enviar. Tente novamente ou ligue diretamente.",
+        book_sending: "Enviando...",
+        book_closed: "Estamos fechados neste dia. Selecione Segunda–Sexta.",
+        book_hours: "Horários disponíveis: 8:00 AM – 5:00 PM, Segunda–Sexta",
         nav_compliance: "Conformidade",
         login_client: "Acesso Cliente",
         login_provider: "Acesso Fornecedor",
@@ -642,7 +727,37 @@
         slide_5_caption: "Análisis completo de costos e informes de gastos",
         slide_6_caption: "De autos del día a día a flotas comerciales — atendemos a todos",
         hq_banner_title: "¡También Hacemos Servicios Ligeros en Nuestra Sede en PSL!",
-        hq_banner_desc: "Visite nuestra sede en Port St. Lucie para cambio de aceite, frenos, aire acondicionado, iluminación, diagnóstico y más. Venga directamente o agende por la app.",
+        hq_banner_desc: "Visite nuestra sede en Port St. Lucie para cambio de aceite, frenos, aire acondicionado, iluminación, diagnóstico y más. Venga directamente o agende abajo.",
+        hq_banner_cta: "📅 Agendar Servicio",
+        book_title: "Agendar Servicio en Nuestra Sede en PSL",
+        book_sub: "Programe su cita en 1592 SE Village Green Dr, Unit E — Port Saint Lucie, FL 34952",
+        book_date: "Fecha Preferida",
+        book_time: "Hora Preferida",
+        book_name: "Nombre Completo",
+        book_email: "Correo Electrónico",
+        book_phone: "Teléfono",
+        book_vin: "VIN (Número de Identificación del Vehículo)",
+        book_make: "Marca del Vehículo",
+        book_model: "Modelo del Vehículo",
+        book_year: "Año",
+        book_fuel: "Tipo de Combustible",
+        book_fuel_gas: "Gasolina",
+        book_fuel_diesel: "Diésel",
+        book_fuel_electric: "Eléctrico",
+        book_fuel_hybrid: "Híbrido",
+        book_fuel_other: "Otro",
+        book_service: "Servicio Necesario",
+        book_service_oil: "Cambio de Aceite",
+        book_service_tire: "Cambio de Neumáticos",
+        book_service_ac: "Aire Acondicionado",
+        book_service_brakes: "Frenos",
+        book_notes: "Breve descripción del problema (opcional)",
+        book_submit: "Confirmar Reserva",
+        book_success: "¡Reserva confirmada! Nos pondremos en contacto para confirmar su cita.",
+        book_error: "Error al enviar. Intente nuevamente o llame directamente.",
+        book_sending: "Enviando...",
+        book_closed: "Estamos cerrados este día. Seleccione Lunes–Viernes.",
+        book_hours: "Horarios disponibles: 8:00 AM – 5:00 PM, Lunes–Viernes",
         nav_compliance: "Cumplimiento",
         login_client: "Acceso Cliente",
         login_provider: "Acceso Proveedor",
@@ -825,6 +940,119 @@
       slides?.addEventListener('mouseenter', stopAutoplay);
       slides?.addEventListener('mouseleave', startAutoplay);
       startAutoplay();
+
+      // ====== Book Services Modal ======
+      const bookModal = document.getElementById('book-modal');
+      const bookForm = document.getElementById('book-form');
+      const bookStatus = document.getElementById('book-status');
+      const bookDateInput = document.getElementById('book-date-input');
+
+      // Set min date to today
+      const today = new Date();
+      const todayStr = today.toISOString().split('T')[0];
+      if(bookDateInput) bookDateInput.min = todayStr;
+
+      // Open modal
+      document.getElementById('open-book-modal')?.addEventListener('click', ()=>{
+        bookModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+
+      // Close modal
+      function closeBookModal(){
+        bookModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      document.getElementById('close-book-modal')?.addEventListener('click', closeBookModal);
+      bookModal?.addEventListener('click', (e)=>{
+        if(e.target === bookModal) closeBookModal();
+      });
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape' && bookModal?.classList.contains('open')) closeBookModal();
+      });
+
+      // Validate weekday (Mon-Fri)
+      bookDateInput?.addEventListener('change', ()=>{
+        const d = new Date(bookDateInput.value + 'T12:00:00');
+        const day = d.getDay(); // 0=Sun, 6=Sat
+        if(day === 0 || day === 6){
+          const lang = document.documentElement.lang || 'en';
+          bookStatus.textContent = I18N[lang]?.book_closed || 'Closed on weekends.';
+          bookStatus.style.color = '#fbbf24';
+          bookDateInput.value = '';
+        } else {
+          bookStatus.textContent = '';
+        }
+      });
+
+      // Submit book form
+      bookForm?.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const lang = document.documentElement.lang || 'en';
+        const btn = bookForm.querySelector('.book-btn');
+        btn.disabled = true;
+        bookStatus.textContent = I18N[lang]?.book_sending || 'Submitting...';
+        bookStatus.style.color = '#3B7DD8';
+
+        const fd = new FormData(bookForm);
+        const data = Object.fromEntries(fd.entries());
+
+        // Build datetime
+        const datetime = data.book_date + 'T' + data.book_time + ':00';
+        const vehicle = [data.book_year, data.book_make, data.book_model].filter(Boolean).join(' ');
+
+        // Map service value to readable label
+        const serviceLabels = {oil_change:'Oil Change',tire_change:'Tire Change',ac_service:'A/C Service',brake_service:'Brake Service'};
+
+        const payload = {
+          type: 'schedule',
+          name: data.book_name,
+          email: data.book_email,
+          phone: data.book_phone || '',
+          vin: data.book_vin,
+          vehicle: vehicle,
+          fuel_type: data.book_fuel,
+          service: serviceLabels[data.book_service] || data.book_service,
+          summary: data.book_notes || '',
+          datetime: datetime
+        };
+
+        try {
+          const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(payload)
+          });
+          if(!res.ok) throw new Error('Network error');
+          bookStatus.textContent = I18N[lang]?.book_success || 'Booking confirmed!';
+          bookStatus.style.color = '#4ade80';
+          bookForm.reset();
+          setTimeout(closeBookModal, 3000);
+        } catch(err) {
+          console.error(err);
+          bookStatus.textContent = I18N[lang]?.book_error || 'Failed to submit.';
+          bookStatus.style.color = '#f87171';
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      // Update select option texts on language change
+      function updateBookSelectOptions(lang){
+        document.querySelectorAll('[data-i18n-opt]').forEach(opt=>{
+          const k = opt.getAttribute('data-i18n-opt');
+          if(I18N[lang] && I18N[lang][k]) opt.textContent = I18N[lang][k];
+        });
+      }
+
+      // Patch setLang to also update selects
+      const origSetLang = setLang;
+      setLang = function(l){
+        origSetLang(l);
+        updateBookSelectOptions(l);
+      };
+      // Apply to current language
+      updateBookSelectOptions(defaultLang);
     });
   </script>
   <script type="application/ld+json">
@@ -1022,6 +1250,8 @@
         <div class="hq-banner">
           <h3>🏢 <span data-i18n="hq_banner_title"></span></h3>
           <p data-i18n="hq_banner_desc"></p>
+          <button class="book-cta" id="open-book-modal" data-i18n="hq_banner_cta"></button>
+          <div style="margin-top:8px;font-size:.8rem;color:var(--muted)" data-i18n="book_hours"></div>
         </div>
       </div>
     </section>
@@ -1515,6 +1745,87 @@
       </div>
     </section>
   </main>
+
+  <!-- Book Services Modal -->
+  <div class="modal-overlay" id="book-modal">
+    <div class="modal">
+      <button class="modal-close" id="close-book-modal" aria-label="Close">✕</button>
+      <h2 data-i18n="book_title"></h2>
+      <p class="modal-sub" data-i18n="book_sub"></p>
+      <form id="book-form">
+        <div class="form-row">
+          <label><span data-i18n="book_date"></span> <span class="req">*</span><br>
+            <input type="date" name="book_date" required id="book-date-input">
+          </label>
+          <label><span data-i18n="book_time"></span> <span class="req">*</span><br>
+            <select name="book_time" required id="book-time-select">
+              <option value="">--</option>
+              <option value="08:00">8:00 AM</option>
+              <option value="09:00">9:00 AM</option>
+              <option value="10:00">10:00 AM</option>
+              <option value="11:00">11:00 AM</option>
+              <option value="12:00">12:00 PM</option>
+              <option value="13:00">1:00 PM</option>
+              <option value="14:00">2:00 PM</option>
+              <option value="15:00">3:00 PM</option>
+              <option value="16:00">4:00 PM</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-row">
+          <label><span data-i18n="book_name"></span> <span class="req">*</span><br>
+            <input type="text" name="book_name" required placeholder="John Doe">
+          </label>
+          <label><span data-i18n="book_email"></span> <span class="req">*</span><br>
+            <input type="email" name="book_email" required placeholder="john@email.com">
+          </label>
+        </div>
+        <label><span data-i18n="book_phone"></span><br>
+          <input type="tel" name="book_phone" placeholder="(772) 000-0000">
+        </label>
+        <label><span data-i18n="book_vin"></span> <span class="req">*</span><br>
+          <input type="text" name="book_vin" required placeholder="1HGBH41JXMN109186" maxlength="17" style="text-transform:uppercase">
+        </label>
+        <div class="form-row">
+          <label><span data-i18n="book_make"></span> <span class="req">*</span><br>
+            <input type="text" name="book_make" required placeholder="Toyota">
+          </label>
+          <label><span data-i18n="book_model"></span> <span class="req">*</span><br>
+            <input type="text" name="book_model" required placeholder="Camry">
+          </label>
+        </div>
+        <div class="form-row">
+          <label><span data-i18n="book_year"></span><br>
+            <input type="number" name="book_year" placeholder="2024" min="1900" max="2030">
+          </label>
+          <label><span data-i18n="book_fuel"></span> <span class="req">*</span><br>
+            <select name="book_fuel" required id="book-fuel-select">
+              <option value="">--</option>
+              <option value="gasoline" data-i18n-opt="book_fuel_gas">Gasoline</option>
+              <option value="diesel" data-i18n-opt="book_fuel_diesel">Diesel</option>
+              <option value="electric" data-i18n-opt="book_fuel_electric">Electric</option>
+              <option value="hybrid" data-i18n-opt="book_fuel_hybrid">Hybrid</option>
+              <option value="other" data-i18n-opt="book_fuel_other">Other</option>
+            </select>
+          </label>
+        </div>
+        <label><span data-i18n="book_service"></span> <span class="req">*</span><br>
+          <select name="book_service" required id="book-service-select">
+            <option value="">--</option>
+            <option value="oil_change" data-i18n-opt="book_service_oil">Oil Change</option>
+            <option value="tire_change" data-i18n-opt="book_service_tire">Tire Change</option>
+            <option value="ac_service" data-i18n-opt="book_service_ac">A/C Service</option>
+            <option value="brake_service" data-i18n-opt="book_service_brakes">Brake Service</option>
+          </select>
+        </label>
+        <label><span data-i18n="book_notes"></span><br>
+          <textarea name="book_notes" rows="3" placeholder="..."></textarea>
+        </label>
+        <button type="submit" class="book-btn" data-i18n="book_submit"></button>
+        <p class="book-status" id="book-status"></p>
+      </form>
+    </div>
+  </div>
 
   <footer>
     <div class="container f-grid">

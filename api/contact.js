@@ -29,7 +29,11 @@ module.exports = async (req, res) => {
       type: body.type || 'contact',
       name: body.name || '',
       email: body.email || 'contact@techtrustautosolutions.com',
+      phone: body.phone || '',
       vehicle: body.vehicle || '',
+      vin: body.vin || '',
+      fuel_type: body.fuel_type || '',
+      service: body.service || '',
       address: body.address || '',
       summary: body.summary || body.message || '',
       datetime: body.datetime || '',
@@ -50,12 +54,16 @@ module.exports = async (req, res) => {
           <p><b>Type:</b> ${payload.type}</p>
           <p><b>Name:</b> ${payload.name}</p>
           ${payload.email ? `<p><b>Email:</b> ${payload.email}</p>` : ''}
+          ${payload.phone ? `<p><b>Phone:</b> ${payload.phone}</p>` : ''}
           ${payload.vehicle ? `<p><b>Vehicle:</b> ${payload.vehicle}</p>` : ''}
+          ${payload.vin ? `<p><b>VIN:</b> ${payload.vin}</p>` : ''}
+          ${payload.fuel_type ? `<p><b>Fuel Type:</b> ${payload.fuel_type}</p>` : ''}
+          ${payload.service ? `<p><b>Service Requested:</b> ${payload.service}</p>` : ''}
           ${payload.address ? `<p><b>Address:</b> ${payload.address}</p>` : ''}
           ${payload.datetime ? `<p><b>Date/Time:</b> ${payload.datetime}</p>` : ''}
           ${payload.company ? `<p><b>Company:</b> ${payload.company}</p>` : ''}
           ${payload.fleet_size ? `<p><b>Fleet size:</b> ${payload.fleet_size}</p>` : ''}
-          ${payload.summary ? `<p><b>Summary:</b> ${payload.summary}</p>` : ''}
+          ${payload.summary ? `<p><b>Notes:</b> ${payload.summary}</p>` : ''}
           <hr/>
           <small>Submitted at ${payload.createdAt}</small>
         `;
@@ -96,8 +104,8 @@ module.exports = async (req, res) => {
           await calendar.events.insert({
             calendarId: CALENDAR_ID,
             requestBody: {
-              summary: `Service: ${payload.vehicle}`,
-              description: `Customer: ${payload.name}\nVehicle: ${payload.vehicle}\nType: Scheduled Service\n\nBooked via website`,
+              summary: `Service: ${payload.service || 'General'} — ${payload.vehicle}`,
+              description: `Customer: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone}\nVehicle: ${payload.vehicle}\nVIN: ${payload.vin}\nFuel: ${payload.fuel_type}\nService: ${payload.service}\nNotes: ${payload.summary}\n\nBooked via website`,
               start: { dateTime: start.toISOString(), timeZone: 'America/New_York' },
               end: { dateTime: end.toISOString(), timeZone: 'America/New_York' },
               colorId: '11', // Red for service appointments
