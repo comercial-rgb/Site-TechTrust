@@ -959,10 +959,16 @@
       if(bookDateInput) bookDateInput.min = todayStr;
 
       // Open modal
-      document.getElementById('open-book-modal')?.addEventListener('click', ()=>{
+      function openBookModal(){
         bookModal.classList.add('open');
         document.body.style.overflow = 'hidden';
-      });
+      }
+      document.getElementById('open-book-modal')?.addEventListener('click', openBookModal);
+
+      // Auto-open modal if URL is /book or /book-service
+      if(/^\/(book|book-service|agendar|reservar)\/?$/i.test(window.location.pathname)){
+        openBookModal();
+      }
 
       // Close modal
       function closeBookModal(){
