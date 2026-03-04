@@ -149,6 +149,9 @@
     .hq-photo-placeholder .ph-icon{font-size:2.4rem; opacity:.5}
     .hq-photo-placeholder strong{color:var(--silver); font-size:.9rem; font-weight:700}
     .hq-photo-placeholder small{font-size:.75rem; font-family:monospace; background:rgba(59,125,216,.15); padding:3px 10px; border-radius:5px; color:#93c5fd; letter-spacing:.03em}
+    .hero-mini-carousel{position:relative; overflow:hidden; border-radius:10px; border:1px solid rgba(148,163,184,.2)}
+    .hero-mini-cl{display:flex; transition:transform .7s ease}
+    .hero-mini-cl .hero-img{flex-shrink:0; border-radius:0; border:none; width:100%}
     footer{padding:50px 0; border-top:1px solid rgba(148,163,184,.18); color:var(--muted)}
     .f-grid{display:grid; grid-template-columns:1fr auto; gap:18px; align-items:center}
     @media (max-width: 940px){
@@ -907,6 +910,18 @@
 
       startHeroAutoplay();
 
+      // Hero image panel mini carousel
+      (function(){
+        const track = document.querySelector('#hero-img-carousel .hero-mini-cl');
+        if(!track) return;
+        const imgs = track.querySelectorAll('img');
+        let hmcIdx = 0;
+        setInterval(()=>{
+          hmcIdx = (hmcIdx + 1) % imgs.length;
+          track.style.transform = `translateX(-${hmcIdx * 100}%)`;
+        }, 3500);
+      })();
+
       // Detect local static preview (no serverless) and warn
       const serverlessWarning = document.createElement('div');
       serverlessWarning.style.cssText = 'background:#1e293b;color:#fbbf24;padding:10px 14px;border:1px solid #fbbf24;border-radius:10px;font-size:13px;margin:12px 0';
@@ -1206,11 +1221,13 @@
               </div>
             </div>
             <div class="panel">
-              <div class="grid" style="grid-template-columns:1fr; gap:10px">
-                <picture>
-                  <source type="image/webp" srcset="/foto-site-1.webp 1x, /foto-site-1@2x.webp 2x">
-                  <img class="hero-img" src="/foto-site.png" alt="Fleet image">
-                </picture>
+              <div class="hero-mini-carousel" id="hero-img-carousel">
+                <div class="hero-mini-cl">
+                  <img class="hero-img" src="/Home.png" alt="TechTrust App">
+                  <img class="hero-img" src="/Home1.png" alt="TechTrust App">
+                  <img class="hero-img" src="/Home2.png" alt="TechTrust App">
+                  <img class="hero-img" src="/Home3.png" alt="TechTrust App">
+                </div>
               </div>
               <small style="color:var(--muted);display:block;margin-top:10px" data-i18n="hero_images_caption"></small>
             </div>
@@ -1338,32 +1355,23 @@
         <h2 class="section-title" data-i18n="hq_photos_title"></h2>
         <p class="section-sub" data-i18n="hq_photos_sub"></p>
         <div class="hq-photo-grid">
-          <!-- Replace each .hq-photo-placeholder with an <img> tag when you have real photos -->
-          <!-- Recommended image size: 800 × 533 px — JPG or WebP, max 300 KB each -->
-          <!-- File names: /hq-photo-1.jpg, /hq-photo-2.jpg … /hq-photo-6.jpg -->
           <div class="hq-photo-card">
-            <img src="/hq-photo-1.jpg" alt="PSL Headquarters" style="display:none" onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-            <div class="hq-photo-placeholder"><span class="ph-icon">📷</span><strong>Photo 1</strong><small>800 × 533 px</small></div>
+            <img src="/Headquartes.png" alt="TechTrust PSL Headquarters" loading="lazy">
           </div>
           <div class="hq-photo-card">
-            <img src="/hq-photo-2.jpg" alt="PSL Headquarters" style="display:none" onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-            <div class="hq-photo-placeholder"><span class="ph-icon">📷</span><strong>Photo 2</strong><small>800 × 533 px</small></div>
+            <img src="/Headquartes1.png" alt="TechTrust PSL Headquarters" loading="lazy">
           </div>
           <div class="hq-photo-card">
-            <img src="/hq-photo-3.jpg" alt="PSL Headquarters" style="display:none" onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-            <div class="hq-photo-placeholder"><span class="ph-icon">📷</span><strong>Photo 3</strong><small>800 × 533 px</small></div>
+            <img src="/Headquartes2.png" alt="TechTrust PSL Headquarters" loading="lazy">
           </div>
           <div class="hq-photo-card">
-            <img src="/hq-photo-4.jpg" alt="PSL Headquarters" style="display:none" onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-            <div class="hq-photo-placeholder"><span class="ph-icon">📷</span><strong>Photo 4</strong><small>800 × 533 px</small></div>
+            <img src="/Headquartes3.png" alt="TechTrust PSL Headquarters" loading="lazy">
           </div>
           <div class="hq-photo-card">
-            <img src="/hq-photo-5.jpg" alt="PSL Headquarters" style="display:none" onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-            <div class="hq-photo-placeholder"><span class="ph-icon">📷</span><strong>Photo 5</strong><small>800 × 533 px</small></div>
+            <img src="/Headquartes4.png" alt="TechTrust PSL Headquarters" loading="lazy">
           </div>
           <div class="hq-photo-card">
-            <img src="/hq-photo-6.jpg" alt="PSL Headquarters" style="display:none" onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-            <div class="hq-photo-placeholder"><span class="ph-icon">📷</span><strong>Photo 6</strong><small>800 × 533 px</small></div>
+            <img src="/Headquartes5.png" alt="TechTrust PSL Headquarters" loading="lazy">
           </div>
         </div>
       </div>
@@ -1378,45 +1386,38 @@
           <div class="slides" id="service-slides">
             <div class="slide-item">
               <picture>
-                <source media="(min-width: 941px)" srcset="/foto-02-site-desktop.png">
-                <img src="/foto-02-site.png" alt="Fleet management dashboard">
+                <source media="(min-width: 941px)" srcset="/SeeSite.png">
+                <img src="/See%20mobile.png" alt="TechTrust in action">
               </picture>
               <div class="slide-caption" data-i18n="slide_1_caption"></div>
             </div>
             <div class="slide-item">
               <picture>
-                <source media="(min-width: 941px)" srcset="/foto-03-site-desktop.png">
-                <img src="/foto-03-site.png" alt="Certified mechanic at work">
+                <source media="(min-width: 941px)" srcset="/SeeSite1.png">
+                <img src="/See%20mobile1.png" alt="TechTrust in action">
               </picture>
               <div class="slide-caption" data-i18n="slide_2_caption"></div>
             </div>
             <div class="slide-item">
               <picture>
-                <source media="(min-width: 941px)" srcset="/foto-04-site-desktop.png">
-                <img src="/foto-04-site.jpg" alt="Vehicle tracking system">
+                <source media="(min-width: 941px)" srcset="/SeeSite2.png">
+                <img src="/See%20mobile2.png" alt="TechTrust in action">
               </picture>
               <div class="slide-caption" data-i18n="slide_3_caption"></div>
             </div>
             <div class="slide-item">
               <picture>
-                <source media="(min-width: 941px)" srcset="/foto-05-site-desktop.png">
-                <img src="/foto-05-site.png" alt="Service quote comparison">
+                <source media="(min-width: 941px)" srcset="/SeeSite3.png">
+                <img src="/See%20mobile3.png" alt="TechTrust in action">
               </picture>
               <div class="slide-caption" data-i18n="slide_4_caption"></div>
             </div>
             <div class="slide-item">
               <picture>
-                <source media="(min-width: 941px)" srcset="/foto-06-site-desktop.png">
-                <img src="/foto-06-site.png" alt="Cost analytics dashboard">
+                <source media="(min-width: 941px)" srcset="/SeeSite4.png">
+                <img src="/See%20mobile4.png" alt="TechTrust in action">
               </picture>
               <div class="slide-caption" data-i18n="slide_5_caption"></div>
-            </div>
-            <div class="slide-item">
-              <picture>
-                <source media="(min-width: 941px)" srcset="/foto-07-site-desktop.png">
-                <img src="/foto-07-site.png" alt="Fleet operations">
-              </picture>
-              <div class="slide-caption" data-i18n="slide_6_caption"></div>
             </div>
           </div>
           <div class="slider-nav">
