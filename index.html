@@ -155,6 +155,12 @@
     .hero-mini-cl .hero-img{flex-shrink:0; border-radius:0; border:none; width:100%}
     footer{padding:50px 0; border-top:1px solid rgba(148,163,184,.18); color:var(--muted)}
     .f-grid{display:grid; grid-template-columns:1fr auto; gap:18px; align-items:center}
+    .footer-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;align-items:center}
+    .footer-links a{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;border-radius:999px;font-size:.78rem;font-weight:600;text-decoration:none;border:1px solid rgba(148,163,184,.25);color:var(--silver);transition:all .2s ease}
+    .footer-links a:hover{border-color:var(--accent);color:var(--accent);background:rgba(59,125,216,.08)}
+    .footer-links a.f-accent{border-color:var(--accent);color:var(--accent)}
+    .footer-links a.f-red{border-color:rgba(204,34,51,.4);color:var(--brand-red)}
+    .footer-links a.f-red:hover{background:rgba(204,34,51,.12)}
     @media (max-width: 940px){
       .hero-wrap{grid-template-columns:1fr; padding:42px 0}
       .hero-arrows{display:none}
@@ -334,6 +340,10 @@
         contact_sub: "Questions about the app? Need help getting started? Our team speaks English, Portuguese, and Spanish.",
         form_name: "Full name", form_email: "Email", form_company: "Company (optional)", form_size: "Number of vehicles", form_msg: "Message", form_send: "Send Message",
         footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. All rights reserved.",
+        footer_privacy: "Privacy Policy",
+        footer_contact: "Contact",
+        footer_client_login: "Client Login",
+        footer_provider_login: "Provider Login",
         app_features_title: "Everything You Need — Right in Your Pocket",
         app_features_sub: "Two apps, one platform. Request services from certified providers OR track your vehicles in real-time — use one, or combine both for complete control.",
         app_1t: "Request Any Service", app_1d: "Oil change, brakes, engine, electrical, towing — describe what you need and get competitive quotes from certified providers in minutes.",
@@ -521,6 +531,10 @@
         contact_sub: "Dúvidas sobre o app? Precisa de ajuda? Nossa equipe fala inglês, português e espanhol.",
         form_name: "Nome completo", form_email: "Email", form_company: "Empresa (opcional)", form_size: "Número de veículos", form_msg: "Mensagem", form_send: "Enviar Mensagem",
         footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos os direitos reservados.",
+        footer_privacy: "Política de Privacidade",
+        footer_contact: "Contato",
+        footer_client_login: "Acesso Cliente",
+        footer_provider_login: "Acesso Fornecedor",
         app_features_title: "Tudo Que Você Precisa — No Seu Bolso",
         app_features_sub: "Dois apps, uma plataforma. Solicite serviços de prestadores certificados OU rastreie seus veículos em tempo real — use um, ou combine ambos para controle total.",
         app_1t: "Solicite Qualquer Serviço", app_1d: "Troca de óleo, freios, motor, elétrica, guincho — descreva o que precisa e receba orçamentos competitivos de prestadores certificados em minutos.",
@@ -708,6 +722,10 @@
         contact_sub: "¿Preguntas sobre la app? ¿Necesita ayuda? Nuestro equipo habla inglés, portugués y español.",
         form_name: "Nombre completo", form_email: "Email", form_company: "Empresa (opcional)", form_size: "Número de vehículos", form_msg: "Mensaje", form_send: "Enviar Mensaje",
         footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos los derechos reservados.",
+        footer_privacy: "Política de Privacidad",
+        footer_contact: "Contacto",
+        footer_client_login: "Acceso Cliente",
+        footer_provider_login: "Acceso Proveedor",
         app_features_title: "Todo Lo Que Necesita — En Su Bolsillo",
         app_features_sub: "Dos apps, una plataforma. Solicite servicios de proveedores certificados O rastree sus vehículos en tiempo real — use una, o combine ambas para control total.",
         app_1t: "Solicite Cualquier Servicio", app_1d: "Cambio de aceite, frenos, motor, electricidad, grúa — describa lo que necesita y reciba cotizaciones competitivas de proveedores certificados en minutos.",
@@ -835,6 +853,9 @@
       });
       document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===l));
       document.documentElement.lang = l;
+      // Update privacy link language param
+      var pl = document.querySelector('a[href^="/privacy.html"]');
+      if(pl) pl.href = '/privacy.html?lang=' + l;
     }
 
     document.addEventListener('DOMContentLoaded', ()=>{
@@ -1930,6 +1951,12 @@
         <div style="font-size:.85rem;color:var(--muted);line-height:1.6">
           <div>1592 SE Village Green Dr, Unit E • Port Saint Lucie, FL 34952</div>
           <div><a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a> • techtrustautosolutions.com</div>
+        </div>
+        <div class="footer-links">
+          <a href="/privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="#contact" class="f-accent" data-i18n="footer_contact">Contact</a>
+          <a href="https://techtrust-client.vercel.app/login" target="_blank" rel="noopener" data-i18n="footer_client_login">Client Login</a>
+          <a href="https://techtrust-provider.vercel.app/login" target="_blank" rel="noopener" class="f-red" data-i18n="footer_provider_login">Provider Login</a>
         </div>
       </div>
       <div data-i18n="footer_rights"></div>
