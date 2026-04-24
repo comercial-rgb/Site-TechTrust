@@ -14,9 +14,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <style>
     :root{
       --bg:#0b1220; --bg-alt:#0f172a; --card:#111827; --muted:#94a3b8; --text:#e5e7eb; --accent:#38bdf8; --accent-2:#60a5fa; --silver:#cbd5e1; --maxw:1200px; --radius:18px; --shadow:0 10px 30px rgba(2,6,23,.25);
@@ -120,6 +120,9 @@
         form_name: "Full name", form_email: "Work email", form_company: "Company", form_size: "Fleet size", form_msg: "Message", form_send: "Send",
         footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. All rights reserved.",
         florida_coverage: "Based in Port St. Lucie, our service center provides nationwide Florida service through an integrated network of repair shops and gas stations. Customers access the network of service providers and purchase the services they need.",
+        tagline: "Driven by Technology. Trusted by You.",
+        form_success: "Thanks! We'll get back to you at {email}.",
+        form_error: "Could not send right now. Please try again or email contact@techtrustautosolutions.com",
       },
       pt: {
         nav_home: "Início", nav_about: "Sobre Nós", nav_services: "Serviços", nav_software: "Software", nav_industries: "Indústrias", nav_contact: "Contato",
@@ -165,6 +168,9 @@
         form_name: "Nome completo", form_email: "E-mail corporativo", form_company: "Empresa", form_size: "Tamanho da frota", form_msg: "Mensagem", form_send: "Enviar",
         footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos os direitos reservados.",
         florida_coverage: "Base e serviços em Port St. Lucie com atendimento em toda a Flórida através de uma rede integrada de oficinas e postos de combustíveis. O cliente acessa a rede credenciada e adquire os serviços que necessita.",
+        tagline: "Movidos por tecnologia. De confiança.",
+        form_success: "Obrigado! Entraremos em contato em {email}.",
+        form_error: "Não foi possível enviar agora. Tente novamente ou envie para contact@techtrustautosolutions.com",
       },
       es: {
         nav_home: "Inicio", nav_about: "Nosotros", nav_services: "Servicios", nav_software: "Software", nav_industries: "Industrias", nav_contact: "Contacto",
@@ -210,6 +216,9 @@
         form_name: "Nombre completo", form_email: "Correo corporativo", form_company: "Empresa", form_size: "Tamaño de la flota", form_msg: "Mensaje", form_send: "Enviar",
         footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos los derechos reservados.",
         florida_coverage: "Con sede en Port St. Lucie, nuestro centro de servicio ofrece asistencia en todo Florida a través de una red integrada de talleres de reparación y gasolineras. Los clientes acceden a la red de proveedores de servicio y adquieren los servicios que necesitan.",
+        tagline: "Impulsados por la tecnología. De confianza.",
+        form_success: "¡Gracias! Le responderemos a {email}.",
+        form_error: "No se pudo enviar ahora. Inténtelo de nuevo o escriba a contact@techtrustautosolutions.com",
       }
     };
 
@@ -237,11 +246,13 @@
             method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)
           });
           if(!res.ok) throw new Error('Network response was not ok');
-          alert(`Obrigado! Entraremos em contato em ${data.email}.`);
+          const t = I18N[document.documentElement.lang] || I18N.en;
+          alert(t.form_success.replace('{email}', data.email));
           form.reset();
         }catch(err){
           console.error(err);
-          alert('Não foi possível enviar agora. Tente novamente em instantes ou envie para contact@techtrustautosolutions.com');
+          const t = I18N[document.documentElement.lang] || I18N.en;
+          alert(t.form_error);
         }
       })
     })
@@ -264,8 +275,8 @@
   <header>
     <div class="container nav">
       <a href="#" class="brand" aria-label="TechTrust AutoSolutions home">
-  <img src="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno.png"
-    srcset="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno.png 36w, https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno@2x.png 72w"
+  <img src="/botao-pequeno.png"
+    srcset="/botao-pequeno.png 36w, /botao-pequeno@2x.png 72w"
     sizes="(min-width:1400px) 56px, (min-width:940px) 48px, 36px"
     class="logo-img" alt="TechTrust AutoSolutions logo" width="36" height="36" />
         <span>TechTrust AutoSolutions</span>
@@ -294,6 +305,7 @@
         <div>
           <span class="badge" data-i18n="hero_badge"></span>
           <h1><span data-i18n="hero_h1"></span></h1>
+          <p class="tagline" data-i18n="tagline">Driven by Technology. Trusted by You.</p>
           <p class="lead" data-i18n="hero_sub"></p>
           <div class="hero-cta">
             <a class="cta" href="#contact" data-i18n="cta_demo"></a>
@@ -311,7 +323,6 @@
               <img src="/foto-site.png" alt="Fleet image" style="width:100%;height:450px;object-fit:cover;border-radius:10px;border:1px solid rgba(148,163,184,.2)">
             </picture>
           </div>
-          <small style="color:var(--muted);display:block;margin-top:10px">Imagens ilustrativas — trocaremos por fotos próprias e telas do Fleet Management Software.</small>
         </div>
       </div>
     </section>
@@ -326,7 +337,6 @@
         </div>
         <div class="panel">
           <p style="margin:0;color:var(--muted)">Email: <a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a> • Domain: techtrustautosolutions.com</p>
-          <p style="margin:6px 0 0;color:var(--muted)">Stack recomendado: Google Workspace (Gmail, Drive, Meet). Hosting: AWS / GCP / Hostinger US.</p>
         </div>
       </div>
     </section>
