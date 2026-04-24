@@ -1,13 +1,10 @@
 {
   "version": 2,
-  "name": "techtrust-site",
   "framework": null,
   "buildCommand": "",
   "outputDirectory": ".",
   "rewrites": [
     { "source": "/privacy.html", "destination": "/privacy.html" },
-    { "source": "/register-client.html", "destination": "/register-client.html" },
-    { "source": "/register-provider.html", "destination": "/register-provider.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
