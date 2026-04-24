@@ -118,7 +118,33 @@
     .card{transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease}
     .card:hover{transform:translateY(-2px); border-color:var(--border-strong); box-shadow:0 16px 40px rgba(2,6,23,.5)}
     a:focus-visible, button:focus-visible, .cta:focus-visible{outline:2px solid var(--brand-red-500); outline-offset:3px; border-radius:8px}
-    @media (max-width: 940px){.hero-wrap{grid-template-columns:1fr}.about-split{grid-template-columns:1fr}}
+    .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:28px; padding-top:24px; border-top:1px solid var(--border)}
+    .stat{display:flex; flex-direction:column; gap:4px}
+    .stat strong{font-family:'Oswald',sans-serif; font-size:2rem; color:var(--brand-red-500); line-height:1; font-weight:700}
+    .stat span{color:var(--text-muted); font-size:.82rem; text-transform:uppercase; letter-spacing:.5px}
+    .trust-section{padding:40px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:rgba(29,43,92,.08)}
+    .trust-label{text-align:center; color:var(--text-muted); font-size:.82rem; letter-spacing:3px; text-transform:uppercase; margin:0 0 22px; font-family:'Oswald',sans-serif}
+    .trust-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px}
+    .trust-item{text-align:center; padding:14px; border:1px solid var(--border); border-radius:var(--radius-sm)}
+    .trust-item strong{display:block; font-family:'Oswald',sans-serif; font-size:1.4rem; color:var(--text); letter-spacing:1px}
+    .trust-item span{display:block; font-size:.78rem; color:var(--text-muted); margin-top:4px}
+    footer{padding:56px 0 28px; border-top:1px solid var(--border); color:var(--text-muted); background:linear-gradient(180deg, transparent, rgba(2,6,23,.4))}
+    .footer-grid{display:grid; grid-template-columns:1.4fr repeat(3,1fr); gap:32px}
+    .footer-col h4{font-family:'Oswald',sans-serif; color:var(--text); font-size:.95rem; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 14px}
+    .footer-col a{display:block; color:var(--text-muted); text-decoration:none; font-size:.9rem; margin-bottom:8px; transition:color .2s}
+    .footer-col a:hover{color:var(--brand-red-500)}
+    .footer-col p{margin:4px 0; font-size:.88rem}
+    .footer-col p.muted{color:var(--text-muted)}
+    .footer-bottom{display:flex; justify-content:space-between; align-items:center; margin-top:36px; padding-top:20px; border-top:1px solid var(--border); font-size:.82rem}
+    .cta-strip{padding:44px 0; background:linear-gradient(135deg,var(--brand-blue),#0F1A3D); border-top:1px solid var(--border); border-bottom:1px solid var(--border)}
+    .cta-strip-inner{display:flex; align-items:center; justify-content:space-between; gap:24px}
+    .cta-strip h3{margin:0 0 4px; font-size:1.6rem}
+    .cta-strip p{margin:0; color:var(--silver)}
+    .sticky-cta{display:none}
+    @media (max-width: 940px){.hero-wrap{grid-template-columns:1fr}.about-split{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}}
+    @media (max-width: 760px){.stats{grid-template-columns:repeat(2,1fr)}.trust-grid{grid-template-columns:repeat(2,1fr)}.cta-strip-inner{flex-direction:column;text-align:center}.sticky-cta{display:flex; justify-content:center; align-items:center; position:fixed; bottom:16px; left:16px; right:16px; z-index:60; padding:14px 18px; border-radius:999px; background:linear-gradient(135deg,var(--brand-red),var(--brand-red-600)); color:#fff; text-decoration:none; font-weight:800; box-shadow:var(--shadow-red)}.footer-bottom{flex-direction:column;gap:10px;text-align:center}}
+    @media (max-width: 560px){.footer-grid{grid-template-columns:1fr}}
+    @media (max-width: 760px){body{padding-bottom:72px}}
   </style>
   <script>
     const I18N = {
@@ -170,6 +196,20 @@
         tagline: "Driven by Technology. Trusted by You.",
         form_success: "Thanks! We'll get back to you at {email}.",
         form_error: "Could not send right now. Please try again or email contact@techtrustautosolutions.com",
+        stat_1_val: "25+", stat_1_lbl: "Years combined experience",
+        stat_2_val: "10%", stat_2_lbl: "Maintenance cost reduction",
+        stat_3_val: "5%", stat_3_lbl: "Fuel spend reduction",
+        stat_4_val: "DOT", stat_4_lbl: "FMCSA compliant",
+        trust_label: "Certifications & Compliance",
+        nav_trust: "Trust",
+        footer_company: "Company", footer_resources: "Resources", footer_legal: "Legal",
+        footer_capability: "Capability Statement", footer_licitacoes: "Licita\u00e7\u00f5es (BR)",
+        footer_blog: "Fleet Insights Blog", footer_docs: "Documentation",
+        footer_privacy: "Privacy Policy", footer_terms: "Terms of Service",
+        footer_accessibility: "Accessibility",
+        strip_title: "Not sure which service fits your fleet?",
+        strip_sub: "Talk to a specialist and get a tailored plan in 24 hours.",
+        strip_cta: "Talk to a Specialist",
       },
       pt: {
         nav_home: "Início", nav_about: "Sobre Nós", nav_services: "Serviços", nav_software: "Software", nav_industries: "Indústrias", nav_contact: "Contato",
@@ -217,8 +257,20 @@
         florida_coverage: "Base e serviços em Port St. Lucie com atendimento em toda a Flórida através de uma rede integrada de oficinas e postos de combustíveis. O cliente acessa a rede credenciada e adquire os serviços que necessita.",
         tagline: "Movidos por tecnologia. De confiança.",
         form_success: "Obrigado! Entraremos em contato em {email}.",
-        form_error: "Não foi possível enviar agora. Tente novamente ou envie para contact@techtrustautosolutions.com",
-      },
+        form_error: "Não foi possível enviar agora. Tente novamente ou envie para contact@techtrustautosolutions.com",        stat_1_val: "25+", stat_1_lbl: "Anos de experi\u00eancia combinada",
+        stat_2_val: "10%", stat_2_lbl: "Redu\u00e7\u00e3o de custos de manuten\u00e7\u00e3o",
+        stat_3_val: "5%", stat_3_lbl: "Redu\u00e7\u00e3o de gastos com combust\u00edvel",
+        stat_4_val: "DOT", stat_4_lbl: "Conformidade FMCSA",
+        trust_label: "Certifica\u00e7\u00f5es e Conformidade",
+        nav_trust: "Confian\u00e7a",
+        footer_company: "Empresa", footer_resources: "Recursos", footer_legal: "Jur\u00eddico",
+        footer_capability: "Declara\u00e7\u00e3o de Capacidade", footer_licitacoes: "Licita\u00e7\u00f5es (BR)",
+        footer_blog: "Blog Fleet Insights", footer_docs: "Documenta\u00e7\u00e3o",
+        footer_privacy: "Pol\u00edtica de Privacidade", footer_terms: "Termos de Servi\u00e7o",
+        footer_accessibility: "Acessibilidade",
+        strip_title: "N\u00e3o sabe qual servi\u00e7o se encaixa na sua frota?",
+        strip_sub: "Fale com um especialista e receba um plano em 24 horas.",
+        strip_cta: "Falar com Especialista",      },
       es: {
         nav_home: "Inicio", nav_about: "Nosotros", nav_services: "Servicios", nav_software: "Software", nav_industries: "Industrias", nav_contact: "Contacto",
         hero_badge: "Más allá de la reparación",
@@ -265,8 +317,20 @@
         florida_coverage: "Con sede en Port St. Lucie, nuestro centro de servicio ofrece asistencia en todo Florida a través de una red integrada de talleres de reparación y gasolineras. Los clientes acceden a la red de proveedores de servicio y adquieren los servicios que necesitan.",
         tagline: "Impulsados por la tecnología. De confianza.",
         form_success: "¡Gracias! Le responderemos a {email}.",
-        form_error: "No se pudo enviar ahora. Inténtelo de nuevo o escriba a contact@techtrustautosolutions.com",
-      }
+        form_error: "No se pudo enviar ahora. Inténtelo de nuevo o escriba a contact@techtrustautosolutions.com",        stat_1_val: "25+", stat_1_lbl: "A\u00f1os de experiencia combinada",
+        stat_2_val: "10%", stat_2_lbl: "Reducci\u00f3n de costos de mantenimiento",
+        stat_3_val: "5%", stat_3_lbl: "Reducci\u00f3n de gasto en combustible",
+        stat_4_val: "DOT", stat_4_lbl: "Cumplimiento FMCSA",
+        trust_label: "Certificaciones y Cumplimiento",
+        nav_trust: "Confianza",
+        footer_company: "Empresa", footer_resources: "Recursos", footer_legal: "Legal",
+        footer_capability: "Declaraci\u00f3n de Capacidad", footer_licitacoes: "Licitaciones (BR)",
+        footer_blog: "Blog Fleet Insights", footer_docs: "Documentaci\u00f3n",
+        footer_privacy: "Pol\u00edtica de Privacidad", footer_terms: "T\u00e9rminos de Servicio",
+        footer_accessibility: "Accesibilidad",
+        strip_title: "\u00bfNo sabe qu\u00e9 servicio conviene a su flota?",
+        strip_sub: "Hable con un especialista y reciba un plan en 24 horas.",
+        strip_cta: "Hablar con Especialista",      }
     };
 
     function setLang(l){
@@ -355,6 +419,7 @@
         <a href="#services" data-i18n="nav_services"></a>
         <a href="#software" data-i18n="nav_software"></a>
         <a href="#industries" data-i18n="nav_industries"></a>
+        <a href="#trust" data-i18n="nav_trust"></a>
         <a href="#contact" data-i18n="nav_contact"></a>
         <div class="lang" aria-label="Language switcher">
           <button data-lang="en" aria-label="English">EN</button>
@@ -379,8 +444,23 @@
             <a class="cta" href="#contact" data-i18n="cta_demo"></a>
             <a class="cta secondary" href="#services" data-i18n="cta_services"></a>
           </div>
-          <div class="card" style="margin-top:16px">
-            <span data-i18n="florida_coverage"></span>
+          <div class="stats" role="list">
+            <div class="stat" role="listitem">
+              <strong data-i18n="stat_1_val">25+</strong>
+              <span data-i18n="stat_1_lbl">Years combined experience</span>
+            </div>
+            <div class="stat" role="listitem">
+              <strong data-i18n="stat_2_val">10%</strong>
+              <span data-i18n="stat_2_lbl">Maintenance cost reduction</span>
+            </div>
+            <div class="stat" role="listitem">
+              <strong data-i18n="stat_3_val">5%</strong>
+              <span data-i18n="stat_3_lbl">Fuel spend reduction</span>
+            </div>
+            <div class="stat" role="listitem">
+              <strong data-i18n="stat_4_val">DOT</strong>
+              <span data-i18n="stat_4_lbl">FMCSA compliant</span>
+            </div>
           </div>
         </div>
         <div class="panel">
@@ -448,6 +528,19 @@
       </div>
     </section>
 
+    <!-- Trust / Certifications -->
+    <section id="trust" class="trust-section">
+      <div class="container">
+        <p class="trust-label" data-i18n="trust_label">Certifications &amp; Compliance</p>
+        <div class="trust-grid">
+          <div class="trust-item"><strong>DOT</strong><span>Department of Transportation</span></div>
+          <div class="trust-item"><strong>FMCSA</strong><span>Federal Motor Carrier Safety</span></div>
+          <div class="trust-item"><strong>ASE</strong><span>Automotive Service Excellence</span></div>
+          <div class="trust-item"><strong>SAM.gov</strong><span>Registered Government Vendor</span></div>
+        </div>
+      </div>
+    </section>
+
     <!-- About -->
     <section id="about">
       <div class="container about-split">
@@ -482,6 +575,17 @@
           <div class="card"><h3 data-i18n="svc_4t"></h3><p data-i18n="svc_4d"></p></div>
           <div class="card"><h3 data-i18n="svc_5t"></h3><p data-i18n="svc_5d"></p></div>
         </div>
+      </div>
+    </section>
+
+    <!-- CTA Strip -->
+    <section class="cta-strip">
+      <div class="container cta-strip-inner">
+        <div>
+          <h3 data-i18n="strip_title">Not sure which service fits your fleet?</h3>
+          <p data-i18n="strip_sub">Talk to a specialist and get a tailored plan in 24 hours.</p>
+        </div>
+        <a href="#contact" class="cta" data-i18n="strip_cta">Talk to a Specialist</a>
       </div>
     </section>
 
@@ -560,7 +664,9 @@
             <h3>TechTrust AutoSolutions</h3>
             <p style="color:var(--muted)">Port St. Lucie, FL • <a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a></p>
             <div style="margin-top:10px">
-              <iframe title="PSL Map" style="width:100%;height:280px;border:1px solid rgba(148,163,184,.2); border-radius:12px" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Port%20St.%20Lucie,%20FL&output=embed"></iframe>
+              <a href="https://www.google.com/maps?q=Port+St.+Lucie,+FL" target="_blank" rel="noopener" class="map-link" aria-label="Open Port St. Lucie on Google Maps">
+                <img src="https://staticmap.openstreetmap.de/staticmap.php?center=27.2730,-80.3582&zoom=11&size=600x280&markers=27.2730,-80.3582,red-pushpin" alt="Map of Port St. Lucie, FL" loading="lazy" style="width:100%;height:280px;object-fit:cover;border-radius:12px;border:1px solid var(--border)" />
+              </a>
             </div>
           </div>
         </div>
@@ -569,9 +675,43 @@
   </main>
 
   <footer>
-    <div class="container f-grid">
-      <div>techtrustautosolutions.com • <a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a></div>
-      <div data-i18n="footer_rights"></div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="/logo-horizontal-300w.png" alt="TechTrust AutoSolutions" width="180" loading="lazy" style="margin-bottom:14px" />
+          <p data-i18n="tagline">Driven by Technology. Trusted by You.</p>
+          <p class="muted">Port St. Lucie, Florida, USA</p>
+          <p class="muted"><a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a></p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_company">Company</h4>
+          <a href="#about" data-i18n="nav_about"></a>
+          <a href="#services" data-i18n="nav_services"></a>
+          <a href="#software" data-i18n="nav_software"></a>
+          <a href="#industries" data-i18n="nav_industries"></a>
+          <a href="#contact" data-i18n="nav_contact"></a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_resources">Resources</h4>
+          <a href="#" data-i18n="footer_capability">Capability Statement</a>
+          <a href="#" data-i18n="footer_licitacoes">Licita&ccedil;&otilde;es (BR)</a>
+          <a href="#" data-i18n="footer_blog">Fleet Insights Blog</a>
+          <a href="#" data-i18n="footer_docs">Documentation</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_legal">Legal</h4>
+          <a href="/privacy" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="/terms" data-i18n="footer_terms">Terms of Service</a>
+          <a href="/accessibility" data-i18n="footer_accessibility">Accessibility</a>
+          <div style="margin-top:14px">
+            <a href="https://www.linkedin.com/company/techtrust-autosolutions" aria-label="LinkedIn" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer_rights"></span>
+        <span class="muted">techtrustautosolutions.com</span>
+      </div>
     </div>
   </footer>
 
@@ -620,5 +760,7 @@
     }
   }
   -->
+
+  <a href="#contact" class="sticky-cta" data-i18n="cta_demo">REQUEST A FREE DEMO</a>
 </body>
 </html>
