@@ -1,0 +1,226 @@
+    const I18N = {
+      en: {
+        nav_home: "Home", nav_about: "About", nav_services: "Services", nav_software: "Software", nav_industries: "Industries", nav_contact: "Contact",
+        hero_badge: "Beyond Repair",
+        hero_h1: "The Integrated Fleet Performance Solution.",
+        hero_sub: "Minimize Total Cost of Ownership and maximize Uptime with the perfect fusion of certified maintenance services and cutting-edge Fleet Management Software.",
+        cta_demo: "REQUEST A FREE DEMO", cta_services: "EXPLORE OUR SERVICES",
+        mission_title: "Transforming Fleet Management",
+        mission_body: "We founded TechTrust AutoSolutions because managing a fleet shouldn't mean constant trade-offs between vehicle health and budget control. Our mission is to eliminate that compromise by providing a single, unified ecosystem where real-time data informs every service decision.",
+        mission_slogan: "We don't just fix vehicles; we optimize your logistics operation.",
+        pillars_title: "The TechTrust AutoSolutions Ecosystem: Two Pillars of Performance",
+        pillars_sub: "With our solution, your Fleet Management Software data guides maintenance so you never overspend or suffer unexpected breakdowns.",
+        p1_title: "Certified Fleet Maintenance Services",
+        p1_li1: "Predictive Maintenance: We use telemetry data from your Fleet Management Software to schedule service before failures occur.",
+        p1_li2: "Maximum Uptime: Certified technicians focused on quality and speed to get assets back on the road fast.",
+        p1_li3: "Compliance: Inspections and repairs to ensure vehicles meet DOT/FMCSA standards.",
+        p2_title: "Advanced Fleet Management Software",
+        p2_li1: "Total Cost of Ownership Control: Visualize true TCO, spot fuel waste (idling, detours), and optimize budgets.",
+        p2_li2: "Risk Management: Driver safety monitoring and HOS/ELD alert tracking.",
+        p2_li3: "Digital Records: A single, auditable platform for all fleet service history and documentation.",
+        proof_title: "Why Fleets Choose TechTrust AutoSolutions",
+        proof_res: "Proven Results: 5% lower fuel spend, up to 10% lower maintenance costs, plus advanced tracking for demanding operations.",
+        proof_cta: "GET STARTED: REQUEST A CUSTOM QUOTE",
+        about_title: "From Shop Floor to Dashboard: Optimizing Your Fleet with Technology.",
+        about_body: "Founded on the belief that fleet management shouldn't be a headache, TechTrust AutoSolutions bridges the gap between the shop floor and management efficiency. We're more than an automotive service center; we're your productivity partners.",
+        about_mission: "Our Mission: Ensure every vehicle runs at peak performance and minimum cost, using data intelligence to anticipate problems before they stop your business.",
+        about_diff: "Our Difference: We don't just repair or maintain; we optimize. Our fleet software powers our services so every intervention is strategic and grounded in real data.",
+        services_title: "Smart Fleet Maintenance Services", services_sub: "Quality, compliance, and downtime reduction—critical across the U.S.",
+        svc_1t: "Certified Fleet Maintenance: Powered by Data", svc_1d: "Our service centers support commercial fleets to meet operational goals and FMCSA standards.",
+        svc_2t: "DOT Compliance Inspections", svc_2d: "We handle required inspections to meet federal and state safety regulations.",
+        svc_3t: "Predictive Diagnostics", svc_3d: "Leverage Fleet Management Software telemetry to diagnose issues early and plan scheduled service.",
+        svc_4t: "Warranty & Repair Management", svc_4d: "Efficient warranty handling and detailed repair tracking, logged in your portal.",
+        svc_5t: "Tire & Component Life Cycle", svc_5d: "Proactive management of high-wear parts to maximize life and prevent failures.",
+        software_title: "TechTrust AutoSolutions — Compliance, Control, and Cost Savings",
+        software_sub: "A cloud platform giving U.S. fleet managers total visibility and control.",
+        sw_1t: "Compliance & Driver Safety", sw_1a: "HOS & ELD Integration", sw_1b: "Driver Scorecard", sw_1c: "License & Certification Tracking",
+        sw_2t: "Cost Control & Fuel Efficiency", sw_2a: "Fuel Management Analytics", sw_2b: "Total Cost of Ownership Reporting",
+        sw_3t: "Maintenance Management", sw_3a: "Digital Work Orders", sw_3b: "Full Vehicle History",
+        industries_title: "Tailored Solutions for Every Commercial Fleet", industries_sub: "Your fleet is unique. So are our solutions.",
+        ind1_t: "Transportation & Logistics", ind1_d: "Road efficiency and DOT/FMCSA compliance to control fuel and avoid unexpected breakdowns.",
+        ind2_t: "Construction & Heavy Equipment", ind2_d: "Mixed-asset control with usage-based maintenance and operator safety.",
+        ind3_t: "Field Services & Last‑Mile Delivery", ind3_d: "Smart routing, proof of service, and express preventive maintenance for light-duty fleets.",
+        contact_title: "Contact & Support", contact_sub: "Request a demo, ask a question, or start a custom quote.",
+        form_name: "Full name", form_email: "Work email", form_company: "Company", form_size: "Fleet size", form_msg: "Message", form_send: "Send",
+        footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. All rights reserved.",
+        florida_coverage: "Based in Port St. Lucie, our service center provides nationwide Florida service through an integrated network of repair shops and gas stations. Customers access the network of service providers and purchase the services they need.",
+        tagline: "Driven by Technology. Trusted by You.",
+        form_success: "Thanks! We'll get back to you at {email}.",
+        form_error: "Could not send right now. Please try again or email contact@techtrustautosolutions.com",
+        page_title: "TechTrust AutoSolutions \u2014 Fleet Performance, Beyond Repair",
+        stat_1_val: "25+", stat_1_lbl: "Years combined experience",
+        stat_2_val: "10%", stat_2_lbl: "Maintenance cost reduction",
+        stat_3_val: "5%", stat_3_lbl: "Fuel spend reduction",
+        stat_4_val: "DOT", stat_4_lbl: "FMCSA compliant",
+        trust_label: "Certifications & Compliance",
+        nav_trust: "Trust",
+        footer_company: "Company", footer_resources: "Resources", footer_legal: "Legal",
+        footer_capability: "Capability Statement", footer_licitacoes: "Licita\u00e7\u00f5es (BR)",
+        footer_blog: "Fleet Insights Blog", footer_docs: "Documentation",
+        footer_privacy: "Privacy Policy", footer_terms: "Terms of Service",
+        footer_accessibility: "Accessibility",
+        strip_title: "Not sure which service fits your fleet?",
+        strip_sub: "Talk to a specialist and get a tailored plan in 24 hours.",
+        strip_cta: "Talk to a Specialist",
+      },
+      pt: {
+        nav_home: "Início", nav_about: "Sobre Nós", nav_services: "Serviços", nav_software: "Software", nav_industries: "Indústrias", nav_contact: "Contato",
+        hero_badge: "Além do Conserto",
+        hero_h1: "A Solução Integrada de Performance de Frotas.",
+        hero_sub: "Minimize o Total Cost of Ownership e maximize o Uptime com a fusão de manutenção certificada e um avançado Fleet Management Software.",
+        cta_demo: "SOLICITAR DEMO GRATUITA", cta_services: "CONHEÇA NOSSOS SERVIÇOS",
+        mission_title: "Transformando a Gestão de Frotas",
+        mission_body: "Fundamos a TechTrust AutoSolutions porque gerir uma frota não deve ser um equilíbrio constante entre saúde do veículo e orçamento. Nossa missão é eliminar esse compromisso com um ecossistema unificado, onde dados em tempo real orientam cada decisão de serviço.",
+        mission_slogan: "Não apenas consertamos veículos; otimizamos sua operação logística.",
+        pillars_title: "O Ecossistema TechTrust AutoSolutions: Dois Pilares de Performance",
+        pillars_sub: "Com nossa solução, os dados do seu Fleet Management Software guiam a manutenção para você nunca gastar demais ou sofrer quebras inesperadas.",
+        p1_title: "Serviços Certificados de Manutenção de Frotas",
+        p1_li1: "Manutenção Preditiva: Utilizamos dados do Fleet Management Software para agendar antes que a falha ocorra.",
+        p1_li2: "Uptime Máximo: Técnicos certificados com foco em qualidade e agilidade.",
+        p1_li3: "Compliance: Inspeções e reparos conforme DOT/FMCSA.",
+        p2_title: "Fleet Management Software Avançado",
+        p2_li1: "Controle de Total Cost of Ownership: Visualize o TCO real, identifique desperdícios (ociosidade, desvios).",
+        p2_li2: "Gestão de Risco: Monitoramento de segurança do motorista e alertas de HOS/ELD.",
+        p2_li3: "Registros Digitais: Histórico completo em uma plataforma única e auditável.",
+        proof_title: "Por que as Frotas Escolhem a TechTrust AutoSolutions",
+        proof_res: "Resultados Comprovados: 5% de redução em combustível, até 10% menos custos de manutenção e rastreamento avançado para clientes mais exigentes.",
+        proof_cta: "COMEÇAR: SOLICITAR COTAÇÃO PERSONALIZADA",
+        about_title: "Da Oficina ao Painel: Otimizando Sua Frota com Tecnologia.",
+        about_body: "Nascemos da crença de que a gestão de frotas não precisa ser uma dor de cabeça. Unimos o chão da oficina à eficiência da gestão. Somos mais do que um centro automotivo: somos parceiros de produtividade.",
+        about_mission: "Nossa Missão: Operação no máximo desempenho e menor custo, antecipando problemas com inteligência de dados.",
+        about_diff: "Diferencial: Não apenas consertamos; otimizamos. O software de gestão de frotas alimenta nossos serviços para intervenções estratégicas e baseadas em dados.",
+        services_title: "Serviços Inteligentes de Manutenção de Frotas", services_sub: "Qualidade, conformidade e redução de downtime — cruciais nos EUA.",
+        svc_1t: "Manutenção Certificada Guiada por Dados", svc_1d: "Centros equipados para frotas comerciais, alinhados às metas operacionais e à FMCSA.",
+        svc_2t: "Inspeções de Conformidade (DOT)", svc_2d: "Cuidamos das inspeções exigidas por normas federais e estaduais.",
+        svc_3t: "Diagnóstico Preditivo", svc_3d: "Telemetria do Fleet Management Software para identificar falhas cedo e planejar paradas.",
+        svc_4t: "Gestão de Garantia e Reparos", svc_4d: "Tratativa eficiente de garantias e rastreio de reparos no seu portal.",
+        svc_5t: "Ciclo de Vida de Pneus e Componentes", svc_5d: "Gestão proativa de itens críticos para evitar falhas.",
+        software_title: "TechTrust AutoSolutions — Compliance, Controle e Economia", software_sub: "Plataforma em nuvem para visibilidade e controle total da frota.",
+        sw_1t: "Compliance & Segurança do Motorista", sw_1a: "Integração HOS & ELD", sw_1b: "Scorecard do Motorista", sw_1c: "Gestão de Licenças e Certificações",
+        sw_2t: "Controle de Custos & Eficiência de Combustível", sw_2a: "Analytics de Combustível", sw_2b: "Relatórios de Total Cost of Ownership",
+        sw_3t: "Gestão de Manutenção", sw_3a: "Ordens de Serviço Digitais", sw_3b: "Histórico Completo do Veículo",
+        industries_title: "Soluções Sob Medida para Cada Frota", industries_sub: "Sua frota é única. Nossas soluções também.",
+        ind1_t: "Transporte & Logística", ind1_d: "Eficiência na estrada e conformidade DOT/FMCSA para controlar combustível e evitar quebras.",
+        ind2_t: "Construção & Equipamentos Pesados", ind2_d: "Controle de ativos mistos com manutenção por horas e segurança do operador.",
+        ind3_t: "Serviços de Campo & Última Milha", ind3_d: "Roteirização inteligente, prova de serviço e manutenção expressa para leves.",
+        contact_title: "Contato & Suporte", contact_sub: "Peça uma demo, tire dúvidas ou solicite uma cotação.",
+        form_name: "Nome completo", form_email: "E-mail corporativo", form_company: "Empresa", form_size: "Tamanho da frota", form_msg: "Mensagem", form_send: "Enviar",
+        footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos os direitos reservados.",
+        florida_coverage: "Base e serviços em Port St. Lucie com atendimento em toda a Flórida através de uma rede integrada de oficinas e postos de combustíveis. O cliente acessa a rede credenciada e adquire os serviços que necessita.",
+        tagline: "Movidos por tecnologia. De confiança.",
+        form_success: "Obrigado! Entraremos em contato em {email}.",
+        form_error: "Não foi possível enviar agora. Tente novamente ou envie para contact@techtrustautosolutions.com",
+        page_title: "TechTrust AutoSolutions — Performance de Frotas, Além do Conserto",        stat_1_val: "25+", stat_1_lbl: "Anos de experiência combinada",
+        stat_2_val: "10%", stat_2_lbl: "Redu\u00e7\u00e3o de custos de manuten\u00e7\u00e3o",
+        stat_3_val: "5%", stat_3_lbl: "Redu\u00e7\u00e3o de gastos com combust\u00edvel",
+        stat_4_val: "DOT", stat_4_lbl: "Conformidade FMCSA",
+        trust_label: "Certifica\u00e7\u00f5es e Conformidade",
+        nav_trust: "Confian\u00e7a",
+        footer_company: "Empresa", footer_resources: "Recursos", footer_legal: "Jur\u00eddico",
+        footer_capability: "Declara\u00e7\u00e3o de Capacidade", footer_licitacoes: "Licita\u00e7\u00f5es (BR)",
+        footer_blog: "Blog Fleet Insights", footer_docs: "Documenta\u00e7\u00e3o",
+        footer_privacy: "Pol\u00edtica de Privacidade", footer_terms: "Termos de Servi\u00e7o",
+        footer_accessibility: "Acessibilidade",
+        strip_title: "N\u00e3o sabe qual servi\u00e7o se encaixa na sua frota?",
+        strip_sub: "Fale com um especialista e receba um plano em 24 horas.",
+        strip_cta: "Falar com Especialista",      },
+      es: {
+        nav_home: "Inicio", nav_about: "Nosotros", nav_services: "Servicios", nav_software: "Software", nav_industries: "Industrias", nav_contact: "Contacto",
+        hero_badge: "Más allá de la reparación",
+        hero_h1: "La solución integrada de rendimiento de flotas.",
+        hero_sub: "Minimice el Total Cost of Ownership y maximice el uptime con la fusión de mantenimiento certificado y un avanzado Fleet Management Software.",
+        cta_demo: "SOLICITE UNA DEMO GRATUITA", cta_services: "EXPLORAR SERVICIOS",
+        mission_title: "Transformando la gestión de flotas",
+        mission_body: "Fundamos TechTrust AutoSolutions para eliminar los compromisos entre salud del vehículo y presupuesto, con un ecosistema unificado donde los datos en tiempo real guían cada decisión.",
+        mission_slogan: "No solo reparamos vehículos; optimizamos su operación logística.",
+        pillars_title: "Ecosistema TechTrust AutoSolutions: Dos Pilares del Desempeño",
+        pillars_sub: "Con nuestra solución, los datos del Fleet Management Software guían el mantenimiento para evitar gastos excesivos y fallas inesperadas.",
+        p1_title: "Servicios Certificados de Mantenimiento de Flotas",
+        p1_li1: "Mantenimiento Predictivo: Utilizamos datos del Fleet Management Software para programar antes de que ocurra la falla.",
+        p1_li2: "Máximo Uptime con técnicos certificados.",
+        p1_li3: "Cumplimiento DOT/FMCSA.",
+        p2_title: "Fleet Management Software Avanzado",
+        p2_li1: "Control del Total Cost of Ownership: Visualice el TCO real, detecte desperdicios (ralentí, desvíos).",
+        p2_li2: "Gestión de Riesgo y alertas HOS/ELD.",
+        p2_li3: "Registros Digitales auditables.",
+        proof_title: "Por qué elegir TechTrust AutoSolutions",
+        proof_res: "Resultados: 5% menos en combustible, hasta 10% menos en mantenimiento y rastreo avanzado para clientes exigentes.",
+        proof_cta: "EMPEZAR: SOLICITAR COTIZACIÓN",
+        about_title: "Del taller al panel: optimizando su flota con tecnología.",
+        about_body: "Unimos el taller con la eficiencia de gestión. Más que un centro automotriz: socios en productividad.",
+        about_mission: "Asegurar máximo rendimiento al menor costo, anticipando problemas con datos.",
+        about_diff: "Diferencial: No solo reparamos; optimizamos con software.",
+        services_title: "Servicios Inteligentes de Mantenimiento", services_sub: "Calidad, cumplimiento y menos tiempo fuera de servicio.",
+        svc_1t: "Mantenimiento Certificado impulsado por datos", svc_1d: "Centros para flotas comerciales alineados a FMCSA.",
+        svc_2t: "Inspecciones de Cumplimiento (DOT)", svc_2d: "Nos encargamos de inspecciones federales y estatales.",
+        svc_3t: "Diagnóstico Predictivo", svc_3d: "Telemetría del Fleet Management Software para planificar servicio programado.",
+        svc_4t: "Gestión de Garantías y Reparaciones", svc_4d: "Gestión eficiente y trazabilidad en su portal.",
+        svc_5t: "Ciclo de Vida de Neumáticos y Componentes", svc_5d: "Gestión proactiva de piezas críticas.",
+        software_title: "Cumplimiento, Control y Ahorros", software_sub: "Plataforma en la nube para visibilidad total.",
+        sw_1t: "Cumplimiento y Seguridad", sw_1a: "Integración HOS & ELD", sw_1b: "Scorecard del Conductor", sw_1c: "Gestión de Licencias",
+        sw_2t: "Control de Costos y Combustible", sw_2a: "Analítica de Combustible", sw_2b: "Reportes de Total Cost of Ownership",
+        sw_3t: "Gestión de Mantenimiento", sw_3a: "Órdenes de Trabajo Digitales", sw_3b: "Historial Completo del Vehículo",
+        industries_title: "Soluciones a Medida para Cada Flota", industries_sub: "Su flota es única. Nuestras soluciones también.",
+        ind1_t: "Transporte y Logística", ind1_d: "Eficiencia en ruta y cumplimiento DOT/FMCSA.",
+        ind2_t: "Construcción y Equipos Pesados", ind2_d: "Control de activos por horas y seguridad del operador.",
+        ind3_t: "Servicios de Campo y Última Milla", ind3_d: "Ruteo inteligente, prueba de servicio y mantenimiento express.",
+        contact_title: "Contacto y Soporte", contact_sub: "Solicite una demo o una cotización.",
+        form_name: "Nombre completo", form_email: "Correo corporativo", form_company: "Empresa", form_size: "Tamaño de la flota", form_msg: "Mensaje", form_send: "Enviar",
+        footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos los derechos reservados.",
+        florida_coverage: "Con sede en Port St. Lucie, nuestro centro de servicio ofrece asistencia en todo Florida a través de una red integrada de talleres de reparación y gasolineras. Los clientes acceden a la red de proveedores de servicio y adquieren los servicios que necesitan.",
+        tagline: "Impulsados por la tecnología. De confianza.",
+        form_success: "¡Gracias! Le responderemos a {email}.",
+        form_error: "No se pudo enviar ahora. Inténtelo de nuevo o escriba a contact@techtrustautosolutions.com",
+        page_title: "TechTrust AutoSolutions — Rendimiento de Flotas, Más Allá de la Reparación",        stat_1_val: "25+", stat_1_lbl: "Años de experiencia combinada",
+        stat_2_val: "10%", stat_2_lbl: "Reducci\u00f3n de costos de mantenimiento",
+        stat_3_val: "5%", stat_3_lbl: "Reducci\u00f3n de gasto en combustible",
+        stat_4_val: "DOT", stat_4_lbl: "Cumplimiento FMCSA",
+        trust_label: "Certificaciones y Cumplimiento",
+        nav_trust: "Confianza",
+        footer_company: "Empresa", footer_resources: "Recursos", footer_legal: "Legal",
+        footer_capability: "Declaraci\u00f3n de Capacidad", footer_licitacoes: "Licitaciones (BR)",
+        footer_blog: "Blog Fleet Insights", footer_docs: "Documentaci\u00f3n",
+        footer_privacy: "Pol\u00edtica de Privacidad", footer_terms: "T\u00e9rminos de Servicio",
+        footer_accessibility: "Accesibilidad",
+        strip_title: "\u00bfNo sabe qu\u00e9 servicio conviene a su flota?",
+        strip_sub: "Hable con un especialista y reciba un plan en 24 horas.",
+        strip_cta: "Hablar con Especialista",      }
+    };
+
+    function setLang(l){
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const k = el.getAttribute('data-i18n');
+        if(I18N[l] && I18N[l][k]) el.textContent = I18N[l][k];
+      });
+      document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===l));
+      document.documentElement.lang = l;
+      document.title = (I18N[l] && I18N[l].page_title) || document.title;
+      history.replaceState(null, '', '?lang=' + l);
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.querySelectorAll('.lang button').forEach(btn=>{
+        btn.addEventListener('click', ()=> setLang(btn.dataset.lang));
+      });
+      const initLang = new URLSearchParams(location.search).get('lang') || 'en';
+      setLang(initLang);
+
+      const form = document.getElementById('contact-form');
+      form?.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(form).entries());
+        try{
+          const res = await fetch('/api/contact',{
+            method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)
+          });
+          if(!res.ok) throw new Error('Network response was not ok');
+          const t = I18N[document.documentElement.lang] || I18N.en;
+          alert(t.form_success.replace('{email}', data.email));
+          form.reset();
+        }catch(err){
+          console.error(err);
+          const t = I18N[document.documentElement.lang] || I18N.en;
+          alert(t.form_error);
+        }
+      })
+    })

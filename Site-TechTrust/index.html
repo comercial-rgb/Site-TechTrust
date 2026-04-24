@@ -13,259 +13,110 @@
   <meta property="og:image" content="/assets/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/apple-touch-icon.png">
-  <style>
-    :root{
-      --bg:#0b1220; --bg-alt:#0f172a; --card:#111827; --muted:#94a3b8; --text:#e5e7eb; --accent:#38bdf8; --accent-2:#60a5fa; --silver:#cbd5e1; --maxw:1200px; --radius:18px; --shadow:0 10px 30px rgba(2,6,23,.25);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0; font-family:Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial; background:linear-gradient(180deg, #0b1220 0%, #0c1324 60%, #0a1328 100%); color:var(--text); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
-    a{color:var(--accent)} .container{max-width:var(--maxw); margin-inline:auto; padding:0 20px}
-    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(160%) blur(8px); background:linear-gradient(180deg, rgba(2,6,23,.85), rgba(2,6,23,.55)); border-bottom:1px solid rgba(148,163,184,.15)}
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
-  .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,#38bdf8, #60a5fa); box-shadow:0 4px 18px rgba(56,189,248,.45)}
-  /* If using an <img> for the logo, use .logo-img to size/crop */
-  .logo-img{width:36px; height:36px; border-radius:10px; object-fit:cover; display:inline-block; vertical-align:middle; box-shadow:0 4px 12px rgba(2,6,23,.25); border:1px solid rgba(255,255,255,.03)}
-  /* Responsive logo: slightly larger on wider screens */
-  @media (min-width: 940px){
-    .logo-img{width:48px; height:48px}
-    .brand{gap:14px}
-  }
-  @media (min-width: 1400px){
-    .logo-img{width:56px; height:56px}
-  }
-    .brand span{font-weight:800; letter-spacing:.3px; color:#e2e8f0}
-    .nav-links{display:flex; gap:18px; align-items:center}
-    .nav-links a{color:var(--silver); text-decoration:none; font-weight:600; font-size:.95rem}
-    .cta{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#06121f; text-decoration:none; font-weight:800; box-shadow:var(--shadow)}
-    .cta.secondary{background:transparent; border:1px solid rgba(148,163,184,.35); color:var(--text)}
-    .lang{display:flex; gap:10px; align-items:center}
-    .lang button{background:transparent; border:1px solid rgba(148,163,184,.3); color:var(--silver); padding:6px 10px; border-radius:999px; cursor:pointer; font-weight:700}
-    .lang button.active{border-color:var(--accent); color:#0b1220; background:linear-gradient(135deg,var(--accent),var(--accent-2))}
-    .hero{position:relative; overflow:hidden}
-    .hero-wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:36px; align-items:center; padding:64px 0}
-    .badge{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; background:rgba(56,189,248,.12); border:1px solid rgba(56,189,248,.25); color:#e0f2fe; border-radius:999px; font-weight:700; font-size:.85rem}
-    h1{font-size:clamp(34px, 4.5vw, 58px); line-height:1.05; margin:14px 0 14px; font-weight:900}
-    .lead{font-size:clamp(16px, 1.4vw, 20px); color:var(--silver)}
-    .hero-cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:20px}
-    .panel{background:radial-gradient(1200px 600px at 80% -10%, rgba(96,165,250,.25), transparent 50%), linear-gradient(180deg, rgba(2,6,23,.6), rgba(2,6,23,.35)); border:1px solid rgba(148,163,184,.2); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
-    section{padding:70px 0}
-    .section-title{font-size:clamp(26px,3.2vw,40px); margin:0 0 12px; font-weight:900}
-    .section-sub{color:var(--muted); max-width:850px}
-    .pillars{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px}
-    .card{background:linear-gradient(180deg,#0B1324,#0B1428); border:1px solid rgba(148,163,184,.18); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
-    .icon{width:38px; height:38px; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; color:#06121f; font-weight:900}
-    .list{margin:14px 0 0; padding-left:18px}
-    .list li{margin:8px 0}
-    .services{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px}
-    .industries{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px}
-    .about-split{display:grid; grid-template-columns:1.1fr .9fr; gap:24px}
-    form{display:grid; gap:14px}
-    input, select, textarea{background:#0b1220; color:var(--text); border:1px solid rgba(148,163,184,.25); border-radius:12px; padding:12px 14px; font:inherit}
-    textarea{min-height:120px}
-    .btn{cursor:pointer}
-    footer{padding:50px 0; border-top:1px solid rgba(148,163,184,.18); color:var(--muted)}
-    .f-grid{display:grid; grid-template-columns:1fr auto; gap:18px; align-items:center}
-    @media (max-width: 940px){.hero-wrap{grid-template-columns:1fr}.about-split{grid-template-columns:1fr}}
-  </style>
-  <script>
-    const I18N = {
-      en: {
-        nav_home: "Home", nav_about: "About", nav_services: "Services", nav_software: "Software", nav_industries: "Industries", nav_contact: "Contact",
-        hero_badge: "Beyond Repair",
-        hero_h1: "The Integrated Fleet Performance Solution.",
-        hero_sub: "Minimize Total Cost of Ownership and maximize Uptime with the perfect fusion of certified maintenance services and cutting-edge Fleet Management Software.",
-        cta_demo: "REQUEST A FREE DEMO", cta_services: "EXPLORE OUR SERVICES",
-        mission_title: "Transforming Fleet Management",
-        mission_body: "We founded TechTrust AutoSolutions because managing a fleet shouldn't mean constant trade-offs between vehicle health and budget control. Our mission is to eliminate that compromise by providing a single, unified ecosystem where real-time data informs every service decision.",
-        mission_slogan: "We don't just fix vehicles; we optimize your logistics operation.",
-        pillars_title: "The TechTrust AutoSolutions Ecosystem: Two Pillars of Performance",
-        pillars_sub: "With our solution, your Fleet Management Software data guides maintenance so you never overspend or suffer unexpected breakdowns.",
-        p1_title: "Certified Fleet Maintenance Services",
-        p1_li1: "Predictive Maintenance: We use telemetry data from your Fleet Management Software to schedule service before failures occur.",
-        p1_li2: "Maximum Uptime: Certified technicians focused on quality and speed to get assets back on the road fast.",
-        p1_li3: "Compliance: Inspections and repairs to ensure vehicles meet DOT/FMCSA standards.",
-        p2_title: "Advanced Fleet Management Software",
-        p2_li1: "Total Cost of Ownership Control: Visualize true TCO, spot fuel waste (idling, detours), and optimize budgets.",
-        p2_li2: "Risk Management: Driver safety monitoring and HOS/ELD alert tracking.",
-        p2_li3: "Digital Records: A single, auditable platform for all fleet service history and documentation.",
-        proof_title: "Why Fleets Choose TechTrust AutoSolutions",
-        proof_res: "Proven Results: 5% lower fuel spend, up to 10% lower maintenance costs, plus advanced tracking for demanding operations.",
-        proof_cta: "GET STARTED: REQUEST A CUSTOM QUOTE",
-        about_title: "From Shop Floor to Dashboard: Optimizing Your Fleet with Technology.",
-        about_body: "Founded on the belief that fleet management shouldn't be a headache, TechTrust AutoSolutions bridges the gap between the shop floor and management efficiency. We're more than an automotive service center; we're your productivity partners.",
-        about_mission: "Our Mission: Ensure every vehicle runs at peak performance and minimum cost, using data intelligence to anticipate problems before they stop your business.",
-        about_diff: "Our Difference: We don't just repair or maintain; we optimize. Our fleet software powers our services so every intervention is strategic and grounded in real data.",
-        services_title: "Smart Fleet Maintenance Services", services_sub: "Quality, compliance, and downtime reduction—critical across the U.S.",
-        svc_1t: "Certified Fleet Maintenance: Powered by Data", svc_1d: "Our service centers support commercial fleets to meet operational goals and FMCSA standards.",
-        svc_2t: "DOT Compliance Inspections", svc_2d: "We handle required inspections to meet federal and state safety regulations.",
-        svc_3t: "Predictive Diagnostics", svc_3d: "Leverage Fleet Management Software telemetry to diagnose issues early and plan scheduled service.",
-        svc_4t: "Warranty & Repair Management", svc_4d: "Efficient warranty handling and detailed repair tracking, logged in your portal.",
-        svc_5t: "Tire & Component Life Cycle", svc_5d: "Proactive management of high-wear parts to maximize life and prevent failures.",
-        software_title: "TechTrust AutoSolutions — Compliance, Control, and Cost Savings",
-        software_sub: "A cloud platform giving U.S. fleet managers total visibility and control.",
-        sw_1t: "Compliance & Driver Safety", sw_1a: "HOS & ELD Integration", sw_1b: "Driver Scorecard", sw_1c: "License & Certification Tracking",
-        sw_2t: "Cost Control & Fuel Efficiency", sw_2a: "Fuel Management Analytics", sw_2b: "Total Cost of Ownership Reporting",
-        sw_3t: "Maintenance Management", sw_3a: "Digital Work Orders", sw_3b: "Full Vehicle History",
-        industries_title: "Tailored Solutions for Every Commercial Fleet", industries_sub: "Your fleet is unique. So are our solutions.",
-        ind1_t: "Transportation & Logistics", ind1_d: "Road efficiency and DOT/FMCSA compliance to control fuel and avoid unexpected breakdowns.",
-        ind2_t: "Construction & Heavy Equipment", ind2_d: "Mixed-asset control with usage-based maintenance and operator safety.",
-        ind3_t: "Field Services & Last‑Mile Delivery", ind3_d: "Smart routing, proof of service, and express preventive maintenance for light-duty fleets.",
-        contact_title: "Contact & Support", contact_sub: "Request a demo, ask a question, or start a custom quote.",
-        form_name: "Full name", form_email: "Work email", form_company: "Company", form_size: "Fleet size", form_msg: "Message", form_send: "Send",
-        footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. All rights reserved.",
-        florida_coverage: "Based in Port St. Lucie, our service center provides nationwide Florida service through an integrated network of repair shops and gas stations. Customers access the network of service providers and purchase the services they need.",
-      },
-      pt: {
-        nav_home: "Início", nav_about: "Sobre Nós", nav_services: "Serviços", nav_software: "Software", nav_industries: "Indústrias", nav_contact: "Contato",
-        hero_badge: "Além do Conserto",
-        hero_h1: "A Solução Integrada de Performance de Frotas.",
-        hero_sub: "Minimize o Total Cost of Ownership e maximize o Uptime com a fusão de manutenção certificada e um avançado Fleet Management Software.",
-        cta_demo: "SOLICITAR DEMO GRATUITA", cta_services: "CONHEÇA NOSSOS SERVIÇOS",
-        mission_title: "Transformando a Gestão de Frotas",
-        mission_body: "Fundamos a TechTrust AutoSolutions porque gerir uma frota não deve ser um equilíbrio constante entre saúde do veículo e orçamento. Nossa missão é eliminar esse compromisso com um ecossistema unificado, onde dados em tempo real orientam cada decisão de serviço.",
-        mission_slogan: "Não apenas consertamos veículos; otimizamos sua operação logística.",
-        pillars_title: "O Ecossistema TechTrust AutoSolutions: Dois Pilares de Performance",
-        pillars_sub: "Com nossa solução, os dados do seu Fleet Management Software guiam a manutenção para você nunca gastar demais ou sofrer quebras inesperadas.",
-        p1_title: "Serviços Certificados de Manutenção de Frotas",
-        p1_li1: "Manutenção Preditiva: Utilizamos dados do Fleet Management Software para agendar antes que a falha ocorra.",
-        p1_li2: "Uptime Máximo: Técnicos certificados com foco em qualidade e agilidade.",
-        p1_li3: "Compliance: Inspeções e reparos conforme DOT/FMCSA.",
-        p2_title: "Fleet Management Software Avançado",
-        p2_li1: "Controle de Total Cost of Ownership: Visualize o TCO real, identifique desperdícios (ociosidade, desvios).",
-        p2_li2: "Gestão de Risco: Monitoramento de segurança do motorista e alertas de HOS/ELD.",
-        p2_li3: "Registros Digitais: Histórico completo em uma plataforma única e auditável.",
-        proof_title: "Por que as Frotas Escolhem a TechTrust AutoSolutions",
-        proof_res: "Resultados Comprovados: 5% de redução em combustível, até 10% menos custos de manutenção e rastreamento avançado para clientes mais exigentes.",
-        proof_cta: "COMEÇAR: SOLICITAR COTAÇÃO PERSONALIZADA",
-        about_title: "Da Oficina ao Painel: Otimizando Sua Frota com Tecnologia.",
-        about_body: "Nascemos da crença de que a gestão de frotas não precisa ser uma dor de cabeça. Unimos o chão da oficina à eficiência da gestão. Somos mais do que um centro automotivo: somos parceiros de produtividade.",
-        about_mission: "Nossa Missão: Operação no máximo desempenho e menor custo, antecipando problemas com inteligência de dados.",
-        about_diff: "Diferencial: Não apenas consertamos; otimizamos. O software de gestão de frotas alimenta nossos serviços para intervenções estratégicas e baseadas em dados.",
-        services_title: "Serviços Inteligentes de Manutenção de Frotas", services_sub: "Qualidade, conformidade e redução de downtime — cruciais nos EUA.",
-        svc_1t: "Manutenção Certificada Guiada por Dados", svc_1d: "Centros equipados para frotas comerciais, alinhados às metas operacionais e à FMCSA.",
-        svc_2t: "Inspeções de Conformidade (DOT)", svc_2d: "Cuidamos das inspeções exigidas por normas federais e estaduais.",
-        svc_3t: "Diagnóstico Preditivo", svc_3d: "Telemetria do Fleet Management Software para identificar falhas cedo e planejar paradas.",
-        svc_4t: "Gestão de Garantia e Reparos", svc_4d: "Tratativa eficiente de garantias e rastreio de reparos no seu portal.",
-        svc_5t: "Ciclo de Vida de Pneus e Componentes", svc_5d: "Gestão proativa de itens críticos para evitar falhas.",
-        software_title: "TechTrust AutoSolutions — Compliance, Controle e Economia", software_sub: "Plataforma em nuvem para visibilidade e controle total da frota.",
-        sw_1t: "Compliance & Segurança do Motorista", sw_1a: "Integração HOS & ELD", sw_1b: "Scorecard do Motorista", sw_1c: "Gestão de Licenças e Certificações",
-        sw_2t: "Controle de Custos & Eficiência de Combustível", sw_2a: "Analytics de Combustível", sw_2b: "Relatórios de Total Cost of Ownership",
-        sw_3t: "Gestão de Manutenção", sw_3a: "Ordens de Serviço Digitais", sw_3b: "Histórico Completo do Veículo",
-        industries_title: "Soluções Sob Medida para Cada Frota", industries_sub: "Sua frota é única. Nossas soluções também.",
-        ind1_t: "Transporte & Logística", ind1_d: "Eficiência na estrada e conformidade DOT/FMCSA para controlar combustível e evitar quebras.",
-        ind2_t: "Construção & Equipamentos Pesados", ind2_d: "Controle de ativos mistos com manutenção por horas e segurança do operador.",
-        ind3_t: "Serviços de Campo & Última Milha", ind3_d: "Roteirização inteligente, prova de serviço e manutenção expressa para leves.",
-        contact_title: "Contato & Suporte", contact_sub: "Peça uma demo, tire dúvidas ou solicite uma cotação.",
-        form_name: "Nome completo", form_email: "E-mail corporativo", form_company: "Empresa", form_size: "Tamanho da frota", form_msg: "Mensagem", form_send: "Enviar",
-        footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos os direitos reservados.",
-        florida_coverage: "Base e serviços em Port St. Lucie com atendimento em toda a Flórida através de uma rede integrada de oficinas e postos de combustíveis. O cliente acessa a rede credenciada e adquire os serviços que necessita.",
-      },
-      es: {
-        nav_home: "Inicio", nav_about: "Nosotros", nav_services: "Servicios", nav_software: "Software", nav_industries: "Industrias", nav_contact: "Contacto",
-        hero_badge: "Más allá de la reparación",
-        hero_h1: "La solución integrada de rendimiento de flotas.",
-        hero_sub: "Minimice el Total Cost of Ownership y maximice el uptime con la fusión de mantenimiento certificado y un avanzado Fleet Management Software.",
-        cta_demo: "SOLICITE UNA DEMO GRATUITA", cta_services: "EXPLORAR SERVICIOS",
-        mission_title: "Transformando la gestión de flotas",
-        mission_body: "Fundamos TechTrust AutoSolutions para eliminar los compromisos entre salud del vehículo y presupuesto, con un ecosistema unificado donde los datos en tiempo real guían cada decisión.",
-        mission_slogan: "No solo reparamos vehículos; optimizamos su operación logística.",
-        pillars_title: "Ecosistema TechTrust AutoSolutions: Dos Pilares del Desempeño",
-        pillars_sub: "Con nuestra solución, los datos del Fleet Management Software guían el mantenimiento para evitar gastos excesivos y fallas inesperadas.",
-        p1_title: "Servicios Certificados de Mantenimiento de Flotas",
-        p1_li1: "Mantenimiento Predictivo: Utilizamos datos del Fleet Management Software para programar antes de que ocurra la falla.",
-        p1_li2: "Máximo Uptime con técnicos certificados.",
-        p1_li3: "Cumplimiento DOT/FMCSA.",
-        p2_title: "Fleet Management Software Avanzado",
-        p2_li1: "Control del Total Cost of Ownership: Visualice el TCO real, detecte desperdicios (ralentí, desvíos).",
-        p2_li2: "Gestión de Riesgo y alertas HOS/ELD.",
-        p2_li3: "Registros Digitales auditables.",
-        proof_title: "Por qué elegir TechTrust AutoSolutions",
-        proof_res: "Resultados: 5% menos en combustible, hasta 10% menos en mantenimiento y rastreo avanzado para clientes exigentes.",
-        proof_cta: "EMPEZAR: SOLICITAR COTIZACIÓN",
-        about_title: "Del taller al panel: optimizando su flota con tecnología.",
-        about_body: "Unimos el taller con la eficiencia de gestión. Más que un centro automotriz: socios en productividad.",
-        about_mission: "Asegurar máximo rendimiento al menor costo, anticipando problemas con datos.",
-        about_diff: "Diferencial: No solo reparamos; optimizamos con software.",
-        services_title: "Servicios Inteligentes de Mantenimiento", services_sub: "Calidad, cumplimiento y menos tiempo fuera de servicio.",
-        svc_1t: "Mantenimiento Certificado impulsado por datos", svc_1d: "Centros para flotas comerciales alineados a FMCSA.",
-        svc_2t: "Inspecciones de Cumplimiento (DOT)", svc_2d: "Nos encargamos de inspecciones federales y estatales.",
-        svc_3t: "Diagnóstico Predictivo", svc_3d: "Telemetría del Fleet Management Software para planificar servicio programado.",
-        svc_4t: "Gestión de Garantías y Reparaciones", svc_4d: "Gestión eficiente y trazabilidad en su portal.",
-        svc_5t: "Ciclo de Vida de Neumáticos y Componentes", svc_5d: "Gestión proactiva de piezas críticas.",
-        software_title: "Cumplimiento, Control y Ahorros", software_sub: "Plataforma en la nube para visibilidad total.",
-        sw_1t: "Cumplimiento y Seguridad", sw_1a: "Integración HOS & ELD", sw_1b: "Scorecard del Conductor", sw_1c: "Gestión de Licencias",
-        sw_2t: "Control de Costos y Combustible", sw_2a: "Analítica de Combustible", sw_2b: "Reportes de Total Cost of Ownership",
-        sw_3t: "Gestión de Mantenimiento", sw_3a: "Órdenes de Trabajo Digitales", sw_3b: "Historial Completo del Vehículo",
-        industries_title: "Soluciones a Medida para Cada Flota", industries_sub: "Su flota es única. Nuestras soluciones también.",
-        ind1_t: "Transporte y Logística", ind1_d: "Eficiencia en ruta y cumplimiento DOT/FMCSA.",
-        ind2_t: "Construcción y Equipos Pesados", ind2_d: "Control de activos por horas y seguridad del operador.",
-        ind3_t: "Servicios de Campo y Última Milla", ind3_d: "Ruteo inteligente, prueba de servicio y mantenimiento express.",
-        contact_title: "Contacto y Soporte", contact_sub: "Solicite una demo o una cotización.",
-        form_name: "Nombre completo", form_email: "Correo corporativo", form_company: "Empresa", form_size: "Tamaño de la flota", form_msg: "Mensaje", form_send: "Enviar",
-        footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos los derechos reservados.",
-        florida_coverage: "Con sede en Port St. Lucie, nuestro centro de servicio ofrece asistencia en todo Florida a través de una red integrada de talleres de reparación y gasolineras. Los clientes acceden a la red de proveedores de servicio y adquieren los servicios que necesitan.",
-      }
-    };
-
-    function setLang(l){
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const k = el.getAttribute('data-i18n');
-        if(I18N[l] && I18N[l][k]) el.textContent = I18N[l][k];
-      });
-      document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===l));
-      document.documentElement.lang = l;
-    }
-
-    document.addEventListener('DOMContentLoaded', ()=>{
-      document.querySelectorAll('.lang button').forEach(btn=>{
-        btn.addEventListener('click', ()=> setLang(btn.dataset.lang));
-      });
-      setLang('en');
-
-      const form = document.getElementById('contact-form');
-      form?.addEventListener('submit', async (e)=>{
-        e.preventDefault();
-        const data = Object.fromEntries(new FormData(form).entries());
-        try{
-          const res = await fetch('/api/contact',{
-            method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)
-          });
-          if(!res.ok) throw new Error('Network response was not ok');
-          alert(`Obrigado! Entraremos em contato em ${data.email}.`);
-          form.reset();
-        }catch(err){
-          console.error(err);
-          alert('Não foi possível enviar agora. Tente novamente em instantes ou envie para contact@techtrustautosolutions.com');
-        }
-      })
-    })
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="alternate" hreflang="en" href="https://techtrustautosolutions.com/?lang=en" />
+  <link rel="alternate" hreflang="pt" href="https://techtrustautosolutions.com/?lang=pt" />
+  <link rel="alternate" hreflang="es" href="https://techtrustautosolutions.com/?lang=es" />
+  <link rel="alternate" hreflang="x-default" href="https://techtrustautosolutions.com/" />
+  <link rel="preload" as="style" href="/assets/css/main.css">
+  <link rel="preload" as="script" href="/assets/js/i18n.js">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script defer src="/assets/js/i18n.js"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "TechTrust AutoSolutions",
+    "@type": "AutomotiveBusiness",
+    "name": "TechTrust AutoSolutions LLC",
     "url": "https://techtrustautosolutions.com/",
-    "logo": "https://techtrustautosolutions.com/logo.png",
+    "logo": "https://techtrustautosolutions.com/logo-horizontal-400w.png",
+    "image": "https://techtrustautosolutions.com/assets/og-image.jpg",
     "email": "contact@techtrustautosolutions.com",
+    "priceRange": "$$",
+    "slogan": "Driven by Technology. Trusted by You.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Port St. Lucie",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "areaServed": { "@type": "State", "name": "Florida" },
     "sameAs": ["https://www.linkedin.com/company/techtrust-autosolutions"],
-    "address": {"@type": "PostalAddress","addressRegion": "FL","addressCountry": "US"}
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    }]
   }
+  </script>
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Certified Fleet Maintenance",
+      "provider": { "@type": "AutomotiveBusiness", "name": "TechTrust AutoSolutions LLC" },
+      "description": "Certified commercial fleet maintenance services powered by Fleet Management Software telemetry, aligned to DOT/FMCSA standards.",
+      "areaServed": { "@type": "State", "name": "Florida" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Predictive Diagnostics",
+      "provider": { "@type": "AutomotiveBusiness", "name": "TechTrust AutoSolutions LLC" },
+      "description": "Early issue detection using Fleet Management Software telemetry to plan scheduled maintenance and minimize unplanned downtime.",
+      "areaServed": { "@type": "State", "name": "Florida" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "DOT Compliance Inspections",
+      "provider": { "@type": "AutomotiveBusiness", "name": "TechTrust AutoSolutions LLC" },
+      "description": "Required federal and state DOT/FMCSA safety inspections to keep commercial fleets legally compliant.",
+      "areaServed": { "@type": "State", "name": "Florida" }
+    }
+  ]
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-21ED5V985L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-21ED5V985L', { anonymize_ip: true });
   </script>
 </head>
 <body>
+  <!-- SVG Sprite -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+    </symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/>
+    </symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+      <path d="m9 12 2 2 4-4"/>
+    </symbol>
+    <symbol id="i-fuel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="22" x2="15" y2="22"/><line x1="4" y1="9" x2="14" y2="9"/>
+      <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18"/>
+      <path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"/>
+    </symbol>
+    <symbol id="i-tool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+    </symbol>
+  </svg>
   <a href="#contact" class="visually-hidden" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to contact</a>
   <header>
     <div class="container nav">
       <a href="#" class="brand" aria-label="TechTrust AutoSolutions home">
-  <img src="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno.png"
-    srcset="https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno.png 36w, https://raw.githubusercontent.com/comercial-rgb/Site-TechTrust/main/botao-pequeno@2x.png 72w"
+  <img src="/botao-pequeno.png"
+    srcset="/botao-pequeno.png 36w, /botao-pequeno@2x.png 72w"
     sizes="(min-width:1400px) 56px, (min-width:940px) 48px, 36px"
     class="logo-img" alt="TechTrust AutoSolutions logo" width="36" height="36" />
         <span>TechTrust AutoSolutions</span>
@@ -276,6 +127,7 @@
         <a href="#services" data-i18n="nav_services"></a>
         <a href="#software" data-i18n="nav_software"></a>
         <a href="#industries" data-i18n="nav_industries"></a>
+        <a href="#trust" data-i18n="nav_trust"></a>
         <a href="#contact" data-i18n="nav_contact"></a>
         <div class="lang" aria-label="Language switcher">
           <button data-lang="en" aria-label="English">EN</button>
@@ -294,13 +146,29 @@
         <div>
           <span class="badge" data-i18n="hero_badge"></span>
           <h1><span data-i18n="hero_h1"></span></h1>
+          <p class="tagline" data-i18n="tagline">Driven by Technology. Trusted by You.</p>
           <p class="lead" data-i18n="hero_sub"></p>
           <div class="hero-cta">
             <a class="cta" href="#contact" data-i18n="cta_demo"></a>
             <a class="cta secondary" href="#services" data-i18n="cta_services"></a>
           </div>
-          <div class="card" style="margin-top:16px">
-            <span data-i18n="florida_coverage"></span>
+          <div class="stats" role="list">
+            <div class="stat" role="listitem">
+              <strong data-i18n="stat_1_val">25+</strong>
+              <span data-i18n="stat_1_lbl">Years combined experience</span>
+            </div>
+            <div class="stat" role="listitem">
+              <strong data-i18n="stat_2_val">10%</strong>
+              <span data-i18n="stat_2_lbl">Maintenance cost reduction</span>
+            </div>
+            <div class="stat" role="listitem">
+              <strong data-i18n="stat_3_val">5%</strong>
+              <span data-i18n="stat_3_lbl">Fuel spend reduction</span>
+            </div>
+            <div class="stat" role="listitem">
+              <strong data-i18n="stat_4_val">DOT</strong>
+              <span data-i18n="stat_4_lbl">FMCSA compliant</span>
+            </div>
           </div>
         </div>
         <div class="panel">
@@ -308,10 +176,9 @@
           <div class="grid" style="grid-template-columns:1fr; gap:10px">
             <picture>
               <source type="image/webp" srcset="/foto-site-1.webp 1x, /foto-site-1@2x.webp 2x">
-              <img src="/foto-site.png" alt="Fleet image" style="width:100%;height:450px;object-fit:cover;border-radius:10px;border:1px solid rgba(148,163,184,.2)">
+              <img src="/foto-site.png" alt="Fleet image" fetchpriority="high" loading="eager" style="width:100%;height:450px;object-fit:cover;border-radius:10px;border:1px solid rgba(148,163,184,.2)">
             </picture>
           </div>
-          <small style="color:var(--muted);display:block;margin-top:10px">Imagens ilustrativas — trocaremos por fotos próprias e telas do Fleet Management Software.</small>
         </div>
       </div>
     </section>
@@ -326,7 +193,6 @@
         </div>
         <div class="panel">
           <p style="margin:0;color:var(--muted)">Email: <a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a> • Domain: techtrustautosolutions.com</p>
-          <p style="margin:6px 0 0;color:var(--muted)">Stack recomendado: Google Workspace (Gmail, Drive, Meet). Hosting: AWS / GCP / Hostinger US.</p>
         </div>
       </div>
     </section>
@@ -338,7 +204,7 @@
         <p class="section-sub" data-i18n="pillars_sub"></p>
         <div class="pillars">
           <div class="card">
-            <div class="icon" aria-hidden="true">🔧</div>
+            <div class="icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-wrench"/></svg></div>
             <h3 style="margin:12px 0 6px" data-i18n="p1_title"></h3>
             <ul class="list">
               <li data-i18n="p1_li1"></li>
@@ -347,7 +213,7 @@
             </ul>
           </div>
           <div class="card">
-            <div class="icon" aria-hidden="true">📊</div>
+            <div class="icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-chart"/></svg></div>
             <h3 style="margin:12px 0 6px" data-i18n="p2_title"></h3>
             <ul class="list">
               <li data-i18n="p2_li1"></li>
@@ -366,6 +232,19 @@
           <h3 class="section-title" style="font-size:28px" data-i18n="proof_title"></h3>
           <p class="section-sub" data-i18n="proof_res"></p>
           <a class="cta" href="#contact" data-i18n="proof_cta"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust / Certifications -->
+    <section id="trust" class="trust-section">
+      <div class="container">
+        <p class="trust-label" data-i18n="trust_label">Certifications &amp; Compliance</p>
+        <div class="trust-grid">
+          <div class="trust-item"><strong>DOT</strong><span>Department of Transportation</span></div>
+          <div class="trust-item"><strong>FMCSA</strong><span>Federal Motor Carrier Safety</span></div>
+          <div class="trust-item"><strong>ASE</strong><span>Automotive Service Excellence</span></div>
+          <div class="trust-item"><strong>SAM.gov</strong><span>Registered Government Vendor</span></div>
         </div>
       </div>
     </section>
@@ -407,6 +286,17 @@
       </div>
     </section>
 
+    <!-- CTA Strip -->
+    <section class="cta-strip">
+      <div class="container cta-strip-inner">
+        <div>
+          <h3 data-i18n="strip_title">Not sure which service fits your fleet?</h3>
+          <p data-i18n="strip_sub">Talk to a specialist and get a tailored plan in 24 hours.</p>
+        </div>
+        <a href="#contact" class="cta" data-i18n="strip_cta">Talk to a Specialist</a>
+      </div>
+    </section>
+
     <!-- Software (SaaS) -->
     <section id="software">
       <div class="container">
@@ -414,7 +304,7 @@
         <p class="section-sub" data-i18n="software_sub"></p>
         <div class="services" style="margin-top:18px">
           <div class="card">
-            <div class="icon">✅</div>
+          <div class="icon"><svg width="22" height="22"><use href="#i-shield"/></svg></div>
             <h3 data-i18n="sw_1t"></h3>
             <ul class="list">
               <li data-i18n="sw_1a"></li>
@@ -423,7 +313,7 @@
             </ul>
           </div>
           <div class="card">
-            <div class="icon">⛽</div>
+          <div class="icon"><svg width="22" height="22"><use href="#i-fuel"/></svg></div>
             <h3 data-i18n="sw_2t"></h3>
             <ul class="list">
               <li data-i18n="sw_2a"></li>
@@ -431,7 +321,7 @@
             </ul>
           </div>
           <div class="card">
-            <div class="icon">🧰</div>
+          <div class="icon"><svg width="22" height="22"><use href="#i-tool"/></svg></div>
             <h3 data-i18n="sw_3t"></h3>
             <ul class="list">
               <li data-i18n="sw_3a"></li>
@@ -482,7 +372,9 @@
             <h3>TechTrust AutoSolutions</h3>
             <p style="color:var(--muted)">Port St. Lucie, FL • <a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a></p>
             <div style="margin-top:10px">
-              <iframe title="PSL Map" style="width:100%;height:280px;border:1px solid rgba(148,163,184,.2); border-radius:12px" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Port%20St.%20Lucie,%20FL&output=embed"></iframe>
+              <a href="https://www.google.com/maps?q=Port+St.+Lucie,+FL" target="_blank" rel="noopener" class="map-link" aria-label="Open Port St. Lucie on Google Maps">
+                <img src="https://staticmap.openstreetmap.de/staticmap.php?center=27.2730,-80.3582&zoom=11&size=600x280&markers=27.2730,-80.3582,red-pushpin" alt="Map of Port St. Lucie, FL" loading="lazy" style="width:100%;height:280px;object-fit:cover;border-radius:12px;border:1px solid var(--border)" />
+              </a>
             </div>
           </div>
         </div>
@@ -491,9 +383,43 @@
   </main>
 
   <footer>
-    <div class="container f-grid">
-      <div>techtrustautosolutions.com • <a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a></div>
-      <div data-i18n="footer_rights"></div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="/logo-horizontal-300w.png" alt="TechTrust AutoSolutions" width="180" loading="lazy" style="margin-bottom:14px" />
+          <p data-i18n="tagline">Driven by Technology. Trusted by You.</p>
+          <p class="muted">Port St. Lucie, Florida, USA</p>
+          <p class="muted"><a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a></p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_company">Company</h4>
+          <a href="#about" data-i18n="nav_about"></a>
+          <a href="#services" data-i18n="nav_services"></a>
+          <a href="#software" data-i18n="nav_software"></a>
+          <a href="#industries" data-i18n="nav_industries"></a>
+          <a href="#contact" data-i18n="nav_contact"></a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_resources">Resources</h4>
+          <a href="#" data-i18n="footer_capability">Capability Statement</a>
+          <a href="#" data-i18n="footer_licitacoes">Licita&ccedil;&otilde;es (BR)</a>
+          <a href="#" data-i18n="footer_blog">Fleet Insights Blog</a>
+          <a href="#" data-i18n="footer_docs">Documentation</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_legal">Legal</h4>
+          <a href="/privacy" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="/terms" data-i18n="footer_terms">Terms of Service</a>
+          <a href="/accessibility" data-i18n="footer_accessibility">Accessibility</a>
+          <div style="margin-top:14px">
+            <a href="https://www.linkedin.com/company/techtrust-autosolutions" aria-label="LinkedIn" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer_rights"></span>
+        <span class="muted">techtrustautosolutions.com</span>
+      </div>
     </div>
   </footer>
 
@@ -542,5 +468,7 @@
     }
   }
   -->
+
+  <a href="#contact" class="sticky-cta" data-i18n="cta_demo">REQUEST A FREE DEMO</a>
 </body>
 </html>
