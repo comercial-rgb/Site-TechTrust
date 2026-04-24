@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>TechTrust AutoSolutions — Vehicle & Fleet Management Software</title>
+  <meta name="description" content="Complete vehicle and fleet management software. GPS tracking, fuel analytics, maintenance intelligence, DOT compliance, and cost control — for individuals and businesses. Based in Miami, Florida." />
+  <meta name="keywords" content="Vehicle Management Software, Fleet Management, Vehicle Tracking, GPS Tracking, Car Maintenance, Fuel Management, DOT Compliance, Maintenance Software, Miami, Florida, SaaS" />
+  <meta property="og:title" content="TechTrust AutoSolutions — Vehicle & Fleet Management Software" />
+  <meta property="og:description" content="The all-in-one vehicle management platform. Track vehicles, control costs, manage maintenance, and ensure DOT compliance — for car owners and fleet operators." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://techtrustautosolutions.com/" />
+  <meta property="og:image" content="/assets/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <style>
+    :root{
+      --bg:#0b1220; --bg-alt:#0f172a; --card:#111827; --muted:#94a3b8; --text:#e5e7eb; --accent:#3B7DD8; --accent-2:#1B4D8F; --brand-red:#CC2233; --brand-red-light:#E03545; --silver:#cbd5e1; --maxw:1200px; --radius:18px; --shadow:0 10px 30px rgba(2,6,23,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial; background:linear-gradient(180deg, #0b1220 0%, #0c1324 60%, #0a1328 100%); color:var(--text); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
+    a{color:var(--accent)} .container{max-width:var(--maxw); margin-inline:auto; padding:0 20px}
+    .logo-box{display:inline-block;background:#fff;border-radius:14px;padding:12px 18px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+    html{scroll-behavior:smooth; scroll-padding-top:110px}
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(160%) blur(8px); background:linear-gradient(180deg, rgba(2,6,23,.92), rgba(2,6,23,.7)); border-bottom:2px solid; border-image:linear-gradient(90deg, var(--brand-red), var(--accent)) 1}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:8px 0; gap:12px; flex-wrap:nowrap}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0}
+    .logo-img{width:36px; height:36px; border-radius:10px; object-fit:cover; display:inline-block; vertical-align:middle; box-shadow:0 4px 12px rgba(2,6,23,.25); border:1px solid rgba(255,255,255,.03)}
+    @media (min-width: 940px){
+      .logo-img{width:48px; height:48px}
+      .brand{gap:14px}
+    }
+    @media (min-width: 1400px){
+      .logo-img{width:56px; height:56px}
+    }
+    .brand span{font-weight:800; letter-spacing:.3px; color:#e2e8f0; white-space:nowrap}
+    .brand .brand-red{color:var(--brand-red); font-weight:800}
+    .nav-links{display:flex; gap:14px; align-items:center; flex-wrap:nowrap}
+    .nav-links a{color:var(--silver); text-decoration:none; font-weight:600; font-size:.92rem; white-space:nowrap; padding:5px 8px; border-radius:8px; transition:all 0.2s ease}
+    .nav-links a:hover{background:rgba(59,125,216,.12); color:var(--accent)}
+    .cta{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; background:linear-gradient(135deg,var(--brand-red),var(--brand-red-light)); color:#ffffff; text-decoration:none; font-weight:800; box-shadow:0 4px 18px rgba(204,34,51,.35)}
+    .cta.secondary{background:transparent; border:1px solid rgba(59,125,216,.4); color:var(--accent)}
+    .cta.accent-bg{background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+    .hero-cta .cta, .hero-cta .cta.secondary {
+      min-width:240px;
+      justify-content:center;
+      text-align:center;
+      font-size:clamp(14px,1.1vw,16px);
+      padding:14px 22px;
+    }
+    .sub-bar{position:sticky;top:52px;z-index:49;background:rgba(2,6,23,.94);backdrop-filter:blur(6px);border-bottom:1px solid rgba(148,163,184,.1);padding:4px 0}
+    .sub-bar .container{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+    .sub-bar-label{color:var(--muted);font-size:.78rem;font-weight:600;white-space:nowrap}
+    .login-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:999px;font-weight:700;font-size:.82rem;text-decoration:none;white-space:nowrap;border:1px solid rgba(148,163,184,.3);color:var(--silver);background:transparent;transition:all .2s ease}
+    .login-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(59,125,216,.08)}
+    .login-btn.provider{border-color:rgba(204,34,51,.4);color:var(--brand-red)}
+    .login-btn.provider:hover{background:rgba(204,34,51,.12)}
+    .login-btn.register{border-color:rgba(34,197,94,.4);color:#4ade80}
+    .login-btn.register:hover{background:rgba(34,197,94,.12)}
+    .login-sep{width:1px;height:20px;background:rgba(148,163,184,.2);flex-shrink:0}
+    .sub-bar-row{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;width:100%}
+    .sub-bar-row:not(:first-child){margin-top:0;padding-top:0;border-top:none}
+    .register-info{display:none}
+    .register-group{display:flex;flex-direction:row;align-items:center;gap:3px}
+    .app-store-btns{display:inline-flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .app-store-btns a{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;background:#111827;border:1px solid rgba(148,163,184,.25);color:#e2e8f0;text-decoration:none;font-size:.82rem;font-weight:600;transition:all .2s ease}
+    .app-store-btns a:hover{border-color:var(--accent);background:rgba(59,125,216,.08)}
+    .app-store-btns a svg{width:20px;height:20px;flex-shrink:0}
+    .lang{display:flex; gap:8px; align-items:center}
+    .lang button{background:transparent; border:1px solid rgba(148,163,184,.3); color:var(--silver); padding:4px 10px; border-radius:999px; cursor:pointer; font-weight:700; font-size:.82rem; line-height:1; min-width:40px; display:inline-flex; align-items:center; gap:6px}
+    .lang button img.flag-icon{width:20px;height:14px;border-radius:2px;object-fit:cover;vertical-align:middle}
+    .lang button.active{border-color:var(--accent); color:#ffffff; background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+    .hero{position:relative; overflow:hidden}
+    .hero-carousel{position:relative; width:100%}
+    .hero-slides{display:flex; width:100%; overflow:hidden}
+    .hero-text-box{display:grid}
+    .hero-slide{grid-area:1/1; opacity:0; visibility:hidden; transition:opacity .7s ease, transform .5s ease; pointer-events:none; transform:translateY(12px)}
+    .hero-slide.active{opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0)}
+    .hero-dots{display:flex; justify-content:center; gap:10px; margin-top:18px}
+    .hero-dot{width:12px; height:12px; border-radius:50%; border:2px solid rgba(59,125,216,.4); background:transparent; cursor:pointer; transition:all .3s ease; padding:0}
+    .hero-dot.active{background:var(--accent); border-color:var(--accent); box-shadow:0 0 10px rgba(59,125,216,.5)}
+    .hero-dot:hover{border-color:var(--accent); background:rgba(59,125,216,.3)}
+    .hero-arrows{position:absolute; top:50%; transform:translateY(-50%); width:100%; display:flex; justify-content:space-between; pointer-events:none; z-index:5; padding:0 8px; box-sizing:border-box}
+    .hero-arrow{pointer-events:auto; background:rgba(2,6,23,.55); border:1px solid rgba(148,163,184,.25); color:#e2e8f0; width:44px; height:44px; border-radius:999px; display:grid; place-items:center; cursor:pointer; transition:all .25s ease; font-size:1.2rem}
+    .hero-arrow:hover{background:rgba(59,125,216,.2); border-color:var(--accent)}
+    .hero-wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:36px; align-items:flex-start; padding:36px 0}
+    .hero-img{width:100%; height:450px; object-fit:cover; border-radius:10px; border:1px solid rgba(148,163,184,.2)}
+    .badge{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; background:rgba(59,125,216,.12); border:1px solid rgba(59,125,216,.3); color:#dbeafe; border-radius:999px; font-weight:700; font-size:.85rem}
+    h1{font-size:clamp(34px, 4.5vw, 58px); line-height:1.05; margin:14px 0 14px; font-weight:900}
+    .lead{font-size:clamp(16px, 1.4vw, 20px); color:var(--silver)}
+    .hero-cta{display:flex; gap:16px; flex-wrap:wrap; margin-top:20px; justify-content:center; align-items:center}
+    .hero-cta.centered{justify-content:center}
+    .panel{background:radial-gradient(1200px 600px at 80% -10%, rgba(59,125,216,.2), transparent 50%), linear-gradient(180deg, rgba(2,6,23,.6), rgba(2,6,23,.35)); border:1px solid rgba(148,163,184,.2); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+    section{padding:28px 0}
+    .section-title{font-size:clamp(26px,3.2vw,40px); margin:0 0 12px; font-weight:900}
+    .section-title::after{content:''; display:block; width:60px; height:3px; background:linear-gradient(90deg,var(--brand-red),transparent); margin-top:8px; border-radius:2px}
+    .section-sub{color:var(--muted); max-width:850px}
+    .pillars{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px}
+    .card{background:linear-gradient(180deg,#0B1324,#0B1428); border:1px solid rgba(148,163,184,.18); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); border-top:2px solid rgba(204,34,51,.3)}
+    .icon{width:38px; height:38px; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; color:#ffffff; font-weight:900}
+    .list{margin:14px 0 0; padding-left:18px}
+    .list li{margin:8px 0}
+    .services{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px}
+    .app-features-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:24px; margin-top:24px}
+    /* Slider */
+    .slider{position:relative; margin:18px 0 6px; overflow:hidden; border-radius:12px; border:1px solid rgba(148,163,184,.18)}
+    .slides{display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:0; scrollbar-width:none}
+    .slides::-webkit-scrollbar{display:none}
+    .slide-item{flex:0 0 100%; width:100%; scroll-snap-align:center; position:relative}
+    .slide-item picture{display:block; width:100%}
+    .slides img{width:100%; height:480px; object-fit:cover; display:block}
+    .slide-caption{position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent, rgba(2,6,23,.85)); color:#e5e7eb; padding:32px 24px 18px; font-size:.95rem; font-weight:600; text-align:center}
+    .slider-nav{position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; pointer-events:none}
+    .slider-btn{pointer-events:auto; background:rgba(2,6,23,.5); border:1px solid rgba(148,163,184,.25); color:#e2e8f0; width:42px; height:42px; border-radius:999px; display:grid; place-items:center; margin:0 8px}
+    .forms-row{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin-top:14px}
+    .hidden{display:none}
+    .industries{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px}
+    .about-split{display:grid; grid-template-columns:1.1fr .9fr; gap:24px}
+    /* Steps */
+    .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:28px; margin-top:32px}
+    .step-card{background:linear-gradient(135deg,rgba(59,125,216,.08),rgba(27,77,143,.08)); border:1px solid rgba(59,125,216,.25); border-radius:var(--radius); padding:28px 24px; position:relative; transition:transform 0.3s ease, box-shadow 0.3s ease}
+    .step-card:hover{transform:translateY(-4px); box-shadow:0 16px 40px rgba(59,125,216,.2)}
+    .step-number{position:absolute; top:-16px; left:24px; width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--brand-red),var(--brand-red-light)); color:#ffffff; font-weight:900; font-size:1.5rem; display:grid; place-items:center; box-shadow:0 4px 12px rgba(204,34,51,.4)}
+    .step-card h3{margin:24px 0 12px; font-size:1.3rem; font-weight:800}
+    .step-card p{margin:0; color:var(--silver); line-height:1.6}
+    form{display:grid; gap:14px}
+    form label{width:100%}
+    form input, form select, form textarea{width:100%; box-sizing:border-box}
+    input, select, textarea{background:#0b1220; color:var(--text); border:1px solid rgba(148,163,184,.25); border-radius:12px; padding:12px 14px; font:inherit}
+    textarea{min-height:120px}
+    .btn{cursor:pointer}
+    .hero-mini-carousel{position:relative; overflow:hidden; border-radius:10px; border:1px solid rgba(148,163,184,.2)}
+    .hero-mini-cl{display:flex; transition:transform .7s ease}
+    .hero-mini-cl .hero-img{flex-shrink:0; border-radius:0; border:none; width:100%}
+    footer{padding:50px 0; border-top:1px solid rgba(148,163,184,.18); color:var(--muted)}
+    .f-grid{display:grid; grid-template-columns:1fr auto; gap:18px; align-items:center}
+    .footer-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;align-items:center}
+    .footer-links a{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;border-radius:999px;font-size:.78rem;font-weight:600;text-decoration:none;border:1px solid rgba(148,163,184,.25);color:var(--silver);transition:all .2s ease}
+    .footer-links a:hover{border-color:var(--accent);color:var(--accent);background:rgba(59,125,216,.08)}
+    .footer-links a.f-accent{border-color:var(--accent);color:var(--accent)}
+    .footer-links a.f-red{border-color:rgba(204,34,51,.4);color:var(--brand-red)}
+    .footer-links a.f-red:hover{background:rgba(204,34,51,.12)}
+    .footer-links a.f-green{border-color:rgba(34,197,94,.4);color:#4ade80}
+    .footer-links a.f-green:hover{background:rgba(34,197,94,.12)}
+    /* Pricing */
+    .pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:32px}
+    .price-card{background:linear-gradient(180deg,#0B1324,#0B1428);border:1px solid rgba(148,163,184,.18);border-radius:var(--radius);padding:28px 20px;text-align:center;position:relative;transition:transform .3s ease,box-shadow .3s ease}
+    .price-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(59,125,216,.2)}
+    .price-card.featured{border-color:var(--accent);box-shadow:0 0 30px rgba(59,125,216,.15)}
+    .price-card.featured::before{content:'MOST POPULAR';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-size:.7rem;font-weight:800;padding:4px 16px;border-radius:999px;letter-spacing:.5px}
+    .price-card h3{font-size:1.3rem;font-weight:800;margin:0 0 8px}
+    .price-amount{font-size:2.8rem;font-weight:900;color:#fff;margin:12px 0 4px}
+    .price-amount span{font-size:.9rem;font-weight:600;color:var(--muted)}
+    .price-desc{color:var(--muted);font-size:.9rem;margin:0 0 20px}
+    .price-features{list-style:none;padding:0;margin:0 0 24px;text-align:left}
+    .price-features li{padding:8px 0;border-bottom:1px solid rgba(148,163,184,.1);color:var(--silver);font-size:.9rem;display:flex;align-items:center;gap:8px}
+    .price-features li::before{content:'✓';color:#4ade80;font-weight:700;flex-shrink:0}
+    .price-cta{display:inline-flex;align-items:center;justify-content:center;width:100%;padding:14px;border-radius:999px;font-weight:800;font-size:.95rem;text-decoration:none;transition:all .2s;border:none;cursor:pointer}
+    /* Addons */
+    .addons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:24px}
+    .addon-card{background:linear-gradient(135deg,rgba(59,125,216,.06),rgba(27,77,143,.06));border:1px solid rgba(59,125,216,.2);border-radius:var(--radius);padding:20px;text-align:center;transition:transform .3s}
+    .addon-card:hover{transform:translateY(-3px)}
+    .addon-card h4{margin:8px 0 4px;font-size:1rem;font-weight:700}
+    .addon-card .addon-price{color:var(--accent);font-weight:800;font-size:1.1rem;margin:4px 0}
+    .addon-card p{color:var(--muted);font-size:.85rem;margin:0}
+    @media (max-width: 940px){
+      .hero-wrap{grid-template-columns:1fr; padding:42px 0}
+      .hero-arrows{display:none}
+      .about-split{grid-template-columns:1fr}
+      .nav{gap:10px}
+      .brand{font-size:.95rem}
+      .brand span{font-size:.95rem}
+      .nav-links{gap:8px}
+      .nav-links a{font-size:.82rem; padding:3px 6px}
+      .login-btn{padding:5px 10px;font-size:.75rem}
+      .sub-bar .lang button{padding:3px 6px;min-width:28px;font-size:.85rem}
+      .lead{font-size:clamp(15px, 1.6vw, 18px)}
+      .hero-img{height:360px}
+      .slides img{height:340px}
+      .app-features-grid{grid-template-columns:1fr; gap:18px}
+      .pricing-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 768px){
+      .pricing-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 768px){
+      .brand span{display:none}
+      .nav-links{gap:6px}
+      .nav-links a{font-size:.75rem; padding:2px 5px}
+      .login-btn{padding:5px 10px;font-size:.72rem}
+      .container{padding:0 16px}
+      h1{font-size:clamp(28px, 7vw, 42px)}
+      .hero-cta{gap:10px}
+      .hero-img{height:300px}
+      .slides img{height:280px}
+      .app-features-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 480px){
+      .nav{gap:6px; padding:8px 0; flex-wrap:wrap}
+      .nav-links{display:none}
+      .sub-bar .container{justify-content:center;flex-wrap:wrap;gap:8px}
+      .login-btn{padding:8px 14px;font-size:.82rem;flex:1;justify-content:center;max-width:160px}
+      .login-sep{display:none}
+      .register-info{font-size:.65rem;max-width:140px}
+      .sub-bar-row{gap:10px}
+      .hero-cta{flex-direction:column; align-items:stretch; width:100%}
+      .hero-cta .cta{width:100%; max-width:100%; min-width:100%}
+      .hero-img{height:240px}
+      .hero-slide [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
+      .slides img{height:240px}
+      .app-features-grid{grid-template-columns:1fr}
+    }
+  </style>
+  <script>
+    const I18N = {
+      en: {
+        nav_home: "Home", nav_about: "About Us", nav_services: "Modules", nav_software: "Vehicle Tools", nav_pricing: "Plans", nav_industries: "For Everyone", nav_contact: "Contact",
+        hero_badge: "Vehicle & Fleet Management Software — 100% Technology",
+        hero_h1: "Complete Vehicle Management. One Powerful Platform.",
+        hero_sub: "TechTrust AutoSolutions is a vehicle management software built for individuals and businesses of all sizes. Track your car or your entire fleet in real time, control fuel costs, schedule maintenance, ensure compliance, and manage everything from a single dashboard. From 1 vehicle to 5,000 — we scale with you.",
+        hero2_badge: "Integrated Technology Platform",
+        hero2_h1: "Tracking. Analytics. Compliance. All in One.",
+        hero2_sub: "TechTrust goes beyond basic tracking. Our platform integrates GPS, cameras, door sensors, fuel analytics, and maintenance intelligence into one seamless experience. Real-time visibility, smart alerts, and actionable insights — everything you need to keep your vehicles running at peak efficiency.",
+        hero2_feat_1: "Real-Time GPS & Camera Tracking",
+        hero2_feat_2: "Intelligent Maintenance Management",
+        hero2_feat_3: "Door Sensors & IoT Vehicle Monitoring",
+        hero2_feat_4: "Open API for Third-Party Integrations",
+        cta_start: "START FREE TRIAL", cta_demo: "REQUEST A DEMO", cta_plans: "SEE PLANS & PRICING",
+        select_language: "Select your language:",
+        hero_images_caption: "Illustrative images.",
+        mission_title: "Technology Born in Florida. Built for the World.",
+        mission_body: "TechTrust AutoSolutions is a 100% technology company headquartered in Miami, Florida. We develop vehicle management software that gives individuals and companies complete visibility and control over their vehicles. Our platform combines real-time tracking, predictive maintenance, fuel analytics, and compliance tools — all accessible from web and mobile.",
+        mission_slogan: "We believe technology should simplify vehicle management — giving you more control, lower costs, and total peace of mind.",
+        security_title: "Enterprise-Grade Security & Trust",
+        security_sub: "Your data, your vehicles, and your operations are protected by industry-leading security at every level.",
+        sec_1_title: "SOC 2 Compliant Infrastructure",
+        sec_1_desc: "Built on AWS with enterprise-grade encryption, role-based access control, and continuous security monitoring. Your vehicle data is protected by the same standards used by the world's largest enterprises.",
+        sec_2_title: "Secure Data Encryption",
+        sec_2_desc: "All data is encrypted in transit (TLS 1.3) and at rest (AES-256). PCI-compliant payment processing ensures your financial information is never exposed.",
+        sec_3_title: "Real-Time Threat Monitoring",
+        sec_3_desc: "24/7 automated monitoring detects and blocks suspicious activity. Multi-factor authentication, audit logs, and session management protect every account.",
+        benefits_title: "Why Companies Choose TechTrust",
+        benefits_sub: "Whether you manage 10 vehicles or 10,000 — our platform delivers measurable results from day one.",
+        ben_1_title: "Reduce Costs by 30%+",
+        ben_1_desc: "Real-time fuel monitoring, optimized routes, and predictive maintenance reduce costs significantly. Our customers save an average of 30% on vehicle expenses.",
+        ben_2_title: "Complete Vehicle Visibility",
+        ben_2_desc: "Know where every vehicle is, what condition it's in, and when it needs service — all in real time. No blind spots, no surprises.",
+        ben_3_title: "100% Compliance Guaranteed",
+        ben_3_desc: "DOT compliance, HOS tracking, driver scorecards, and automated reporting. Stay compliant effortlessly with built-in regulatory tools.",
+        proof_cta: "START YOUR FREE TRIAL — SEE RESULTS IN 24 HOURS",
+        office_title: "Our Office",
+        office_location: "Miami, Florida",
+        about_title: "Built by Vehicle Experts. Powered by Innovation.",
+        about_body: "TechTrust AutoSolutions was founded with one mission: bring world-class technology to vehicle management. We're a 100% technology company based in Miami, Florida — building software that transforms how individuals and companies manage their vehicles. Our platform serves car owners and fleet operators across the United States with tools for tracking, maintenance, compliance, and cost control.",
+        about_mission: "Our Mission: Empower every vehicle owner and fleet operator with intelligent software that reduces costs, increases efficiency, and ensures compliance — whether you have 1 car or 1,000.",
+        about_diff: "What Makes Us Different: We're not just a tracking app. TechTrust is a complete vehicle management ecosystem — GPS tracking, fuel analytics, maintenance intelligence, DOT compliance, driver management, and IoT integrations. All in one platform, accessible from anywhere.",
+        language_notice: "Available in English, Portuguese, and Spanish. Customer support in all three languages.",
+        two_apps_title: "One Platform. Web & Mobile.",
+        two_apps_sub: "Access your vehicle data from anywhere — desktop dashboard for deep analytics, mobile app for on-the-go management.",
+        app_web_title: "💻 Web Dashboard",
+        app_web_subtitle: "Complete Vehicle Analytics & Management Console",
+        app_web_desc: "The full-featured web dashboard gives you complete control: real-time vehicle maps, fuel analytics, maintenance scheduling, compliance reports, driver scorecards, and cost analysis. Customizable dashboards, exportable reports, and role-based access for your entire team.",
+        app_mobile_title: "📱 Mobile App",
+        app_mobile_subtitle: "Vehicle Management in Your Pocket",
+        app_mobile_desc: "Stay connected to your vehicles 24/7. The TechTrust mobile app gives you real-time alerts, vehicle locations, maintenance notifications, and quick actions — all from your phone. Perfect for car owners, fleet managers, and drivers who need instant access.",
+        flexibility_callout: "Web dashboard for in-depth management + mobile app for instant access = complete vehicle control from anywhere, anytime.",
+        app_callout: "Join thousands of vehicle owners and fleet operators already using TechTrust AutoSolutions. Start your free trial today.",
+        partner_title: "Your Technology Partner",
+        partner_contact_label: "Contact:",
+        partner_infrastructure: "Built on enterprise-grade AWS infrastructure with bank-level encryption. Serving the entire United States with support in English, Portuguese, and Spanish.",
+        software_title: "Powerful Vehicle Management Modules",
+        software_sub: "Professional-grade tools for anyone managing vehicles — from a single car to an entire fleet.",
+        sw_1t: "DOT Compliance & Safety", sw_1a: "HOS & ELD Integration", sw_1b: "Driver Safety Scorecards", sw_1c: "License & Certification Tracking",
+        sw_2t: "Fuel & Cost Analytics", sw_2a: "Fuel Consumption Monitoring", sw_2b: "Total Cost of Ownership Reports",
+        sw_3t: "Maintenance Intelligence", sw_3a: "Predictive Service Alerts", sw_3b: "Complete Vehicle Service History",
+        contact_title: "Ready to Transform How You Manage Vehicles?",
+        contact_sub: "Questions about our software? Need a demo? Our team speaks English, Portuguese, and Spanish.",
+        form_name: "Full name", form_email: "Email", form_company: "Company", form_size: "Number of vehicles", form_msg: "Message", form_send: "Send Message",
+        footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. All rights reserved.",
+        footer_privacy: "Privacy Policy",
+        footer_contact: "Contact",
+        footer_client_login: "Client Login",
+        footer_provider_login: "Provider Login",
+        footer_client_register: "Client Register",
+        footer_provider_register: "Provider Register",
+        app_features_title: "Everything You Need — One Platform",
+        app_features_sub: "Six powerful modules that work together to give you complete vehicle visibility, control, and intelligence.",
+        app_1t: "Real-Time GPS Tracking", app_1d: "Track every vehicle 24/7 with real-time GPS. See live locations, route history, speed, and driving behavior on an interactive map. Geofencing alerts for unauthorized zones.",
+        app_2t: "Fuel Management", app_2d: "Monitor fuel consumption across your entire fleet. Detect waste, identify inefficient routes, and set consumption alerts. Average 20% fuel cost reduction in the first 90 days.",
+        app_3t: "Smart Maintenance Alerts", app_3d: "Predictive maintenance powered by real data. Get alerts before breakdowns happen. Schedule services, track repair history, and reduce downtime by up to 40%.",
+        app_4t: "Cost Control Dashboard", app_4d: "Track every dollar spent on fuel, maintenance, tolls, and operations. Generate detailed reports, spot trends, and make data-driven decisions to reduce vehicle costs.",
+        app_5t: "DOT Compliance Tools", app_5d: "Automated HOS tracking, ELD integration, driver scorecards, and inspection management. Stay compliant with federal and state regulations effortlessly.",
+        app_6t: "Camera & IoT Integration", app_6d: "Connect dash cameras, door sensors, temperature monitors, and other IoT devices. Get real-time video feeds, security alerts, and comprehensive vehicle monitoring.",
+        how_it_works_title: "Get Started in 4 Simple Steps",
+        how_it_works_sub: "From sign-up to full vehicle visibility — it takes minutes, not weeks.",
+        step_1_title: "Create Your Account",
+        step_1_desc: "Sign up at techtrustautosolutions.com. Choose your plan — Free plan available forever, paid plans include a 7-day free trial.",
+        step_2_title: "Add Your Vehicles",
+        step_2_desc: "Add your vehicles manually or import via CSV. Connect GPS trackers, cameras, and sensors. Our setup wizard guides you through every step.",
+        step_3_title: "Configure Your Dashboard",
+        step_3_desc: "Customize alerts, set geofences, configure maintenance schedules, and assign drivers. Our team helps you optimize settings for your specific operation.",
+        step_4_title: "Monitor & Optimize",
+        step_4_desc: "Start tracking in real time. Receive smart alerts, review analytics, and generate reports. Watch your vehicle efficiency improve from day one.",
+        for_everyone_title: "Built for Everyone",
+        for_everyone_sub: "Whether you own one car or manage a fleet of thousands — our platform adapts to your needs.",
+        user_1_title: "Individual Car Owners",
+        user_1_desc: "Keep your personal vehicle organized. Track maintenance history, get service reminders, decode your VIN, check for recalls, and control costs — all from your phone.",
+        user_2_title: "Small Fleets (2-25 vehicles)",
+        user_2_desc: "Affordable vehicle management for growing businesses. GPS tracking, maintenance alerts, and fuel monitoring — everything you need to stay organized and reduce costs.",
+        user_3_title: "Mid-Size & Large Fleets (25-500 vehicles)",
+        user_3_desc: "Advanced analytics, driver management, DOT compliance, camera integration, and dedicated account management. Complete visibility for complex operations.",
+        user_4_title: "Enterprise (500+ vehicles)",
+        user_4_desc: "Custom solutions for the largest operations. API access, white-label options, multi-location management, and 24/7 priority support. Scale without limits.",
+        final_cta_title: "Ready to Take Control of Your Vehicles?",
+        final_cta_desc: "Start your free trial today. See real results in 24 hours. Available on web and mobile in English, Portuguese, and Spanish.",
+        gallery_title: "See TechTrust in Action",
+        gallery_sub: "Real screenshots showing how our platform helps vehicle owners and fleet managers every day.",
+        slide_1_caption: "Manage all your vehicles from one intuitive dashboard",
+        slide_2_caption: "Real-time GPS tracking with route history",
+        slide_3_caption: "Fuel analytics and cost optimization reports",
+        slide_4_caption: "Maintenance scheduling and predictive alerts",
+        slide_5_caption: "Complete vehicle analytics and performance reports",
+        pricing_title: "Simple, Transparent Pricing",
+        pricing_sub: "Choose the plan that fits your needs. Free plan forever. Paid plans include a 7-day free trial.",
+        plan_free: "Free",
+        plan_free_price: "$0",
+        plan_free_desc: "Get started with basic vehicle management",
+        plan_free_f1: "Up to 2 vehicles",
+        plan_free_f2: "VIN decoder & NHTSA recalls",
+        plan_free_f3: "PDF service receipts",
+        plan_free_f4: "4 service requests/month",
+        plan_free_f5: "Mobile app access",
+        plan_starter: "Starter",
+        plan_starter_price: "$9.99",
+        plan_starter_desc: "For individuals & small fleets",
+        plan_starter_f1: "Up to 3 vehicles",
+        plan_starter_f2: "All Free features included",
+        plan_starter_f3: "Multi-language support",
+        plan_starter_f4: "Mileage tracker",
+        plan_starter_f5: "Scheduled maintenance",
+        plan_starter_f6: "10 service requests/month",
+        plan_starter_f7: "+$5.99/extra vehicle",
+        plan_pro: "Pro",
+        plan_pro_price: "$19.99",
+        plan_pro_desc: "Advanced tools for growing needs",
+        plan_pro_f1: "Up to 5 vehicles",
+        plan_pro_f2: "All Starter features",
+        plan_pro_f3: "Unlimited service requests",
+        plan_pro_f4: "OBD2 diagnostics",
+        plan_pro_f5: "Expense reports & wallet",
+        plan_pro_f6: "OEM parts lookup",
+        plan_pro_f7: "Priority support",
+        plan_pro_f8: "+$3.99/extra vehicle",
+        plan_enterprise: "Enterprise",
+        plan_enterprise_price: "$49.99",
+        plan_enterprise_desc: "Complete management for large operations",
+        plan_enterprise_f1: "Up to 14 vehicles included",
+        plan_enterprise_f2: "All Pro features",
+        plan_enterprise_f3: "Vehicle dashboard & analytics",
+        plan_enterprise_f4: "Advanced OBD2 diagnostics",
+        plan_enterprise_f5: "Dedicated account manager",
+        plan_enterprise_f6: "24/7 priority support",
+        plan_enterprise_f7: "Unlimited simultaneous requests",
+        plan_enterprise_f8: "Custom vehicle add-on pricing",
+        plan_cta_start: "Start Free Trial",
+        plan_cta_contact: "Contact Sales",
+        plan_per_month: "/month",
+        addons_title: "Need More Vehicles?",
+        addons_sub: "Each plan includes vehicles. Add extras anytime from your dashboard.",
+        addon_free_label: "Free Plan",
+        addon_free_price: "+$6.99/vehicle/mo",
+        addon_free_desc: "2 vehicles included. Add more at $6.99 each.",
+        addon_starter_label: "Starter Plan",
+        addon_starter_price: "+$5.99/vehicle/mo",
+        addon_starter_desc: "3 vehicles included. Add more at $5.99 each.",
+        addon_pro_label: "Pro Plan",
+        addon_pro_price: "+$3.99/vehicle/mo",
+        addon_pro_desc: "5 vehicles included. Add more at $3.99 each.",
+        addon_enterprise_label: "Enterprise Plan",
+        addon_enterprise_price: "Custom pricing",
+        addon_enterprise_desc: "14 vehicles included. Contact us for additional.",
+        login_client: "Client Login",
+        login_provider: "Provider Login",
+        register_client: "Client Register",
+        register_client_info: "Vehicle owners & fleet managers — track vehicles, control costs",
+        register_provider: "Provider Register",
+        register_provider_info: "Mechanics & service shops — receive service requests",
+        lang_label: "Language:"
+      },
+      pt: {
+        nav_home: "Início", nav_about: "Sobre Nós", nav_services: "Módulos", nav_software: "Ferramentas", nav_pricing: "Planos", nav_industries: "Para Todos", nav_contact: "Contato",
+        hero_badge: "Software de Gestão de Veículos & Frotas — 100% Tecnologia",
+        hero_h1: "Gestão Completa de Veículos. Uma Plataforma Poderosa.",
+        hero_sub: "O TechTrust AutoSolutions é um software de gestão de veículos desenvolvido para pessoas e empresas de todos os tamanhos. Rastreie seu carro ou toda sua frota em tempo real, controle custos de combustível, agende manutenções, garanta conformidade e gerencie tudo em um único painel. De 1 veículo a 5.000 — escalamos com você.",
+        hero2_badge: "Plataforma Tecnológica Integrada",
+        hero2_h1: "Rastreamento. Análises. Conformidade. Tudo em Um.",
+        hero2_sub: "O TechTrust vai além do rastreamento básico. Nossa plataforma integra GPS, câmeras, sensores de porta, análise de combustível e inteligência de manutenção em uma experiência única. Visibilidade em tempo real, alertas inteligentes e insights acionáveis — tudo que você precisa para manter seus veículos operando com eficiência máxima.",
+        hero2_feat_1: "Rastreamento GPS & Câmeras em Tempo Real",
+        hero2_feat_2: "Gestão Inteligente de Manutenção",
+        hero2_feat_3: "Sensores de Porta & Monitoramento IoT de Veículos",
+        hero2_feat_4: "API Aberta para Integrações",
+        cta_start: "TESTE GRÁTIS", cta_demo: "SOLICITAR DEMO", cta_plans: "VER PLANOS & PREÇOS",
+        select_language: "Selecione seu idioma:",
+        hero_images_caption: "Imagens ilustrativas.",
+        mission_title: "Tecnologia Nascida na Flórida. Construída para o Mundo.",
+        mission_body: "A TechTrust AutoSolutions é uma empresa 100% de tecnologia sediada em Miami, Flórida. Desenvolvemos software de gestão de veículos que oferece a pessoas e empresas visibilidade e controle total sobre seus veículos. Nossa plataforma combina rastreamento em tempo real, manutenção preditiva, análise de combustível e ferramentas de conformidade — tudo acessível via web e mobile.",
+        mission_slogan: "Acreditamos que a tecnologia deve simplificar a gestão de veículos — dando a você mais controle, custos menores e total tranquilidade.",
+        security_title: "Segurança & Confiança de Nível Empresarial",
+        security_sub: "Seus dados, seus veículos e suas operações são protegidos por segurança líder do setor em todos os níveis.",
+        sec_1_title: "Infraestrutura SOC 2 Compliant",
+        sec_1_desc: "Construído na AWS com criptografia de nível empresarial, controle de acesso baseado em funções e monitoramento contínuo de segurança. Os dados dos seus veículos são protegidos pelos mesmos padrões usados pelas maiores empresas do mundo.",
+        sec_2_title: "Criptografia de Dados Segura",
+        sec_2_desc: "Todos os dados são criptografados em trânsito (TLS 1.3) e em repouso (AES-256). Processamento de pagamento PCI-compliant garante que suas informações financeiras nunca sejam expostas.",
+        sec_3_title: "Monitoramento de Ameaças em Tempo Real",
+        sec_3_desc: "Monitoramento automatizado 24/7 detecta e bloqueia atividades suspeitas. Autenticação multifator, logs de auditoria e gerenciamento de sessão protegem cada conta.",
+        benefits_title: "Por Que Empresas Escolhem a TechTrust",
+        benefits_sub: "Gerencie 10 veículos ou 10.000 — nossa plataforma entrega resultados mensuráveis desde o primeiro dia.",
+        ben_1_title: "Reduza Custos em 30%+",
+        ben_1_desc: "Monitoramento de combustível em tempo real, rotas otimizadas e manutenção preditiva reduzem custos significativamente. Nossos clientes economizam em média 30% em despesas com veículos.",
+        ben_2_title: "Visibilidade Total dos Veículos",
+        ben_2_desc: "Saiba onde cada veículo está, em que condição se encontra e quando precisa de serviço — tudo em tempo real. Sem pontos cegos, sem surpresas.",
+        ben_3_title: "100% de Conformidade Garantida",
+        ben_3_desc: "Conformidade DOT, rastreamento HOS, scorecards de motoristas e relatórios automáticos. Mantenha-se em conformidade sem esforço com ferramentas regulatórias integradas.",
+        proof_cta: "COMECE SEU TESTE GRÁTIS — VEJA RESULTADOS EM 24 HORAS",
+        office_title: "Nosso Escritório",
+        office_location: "Miami, Flórida",
+        about_title: "Construído por Especialistas em Veículos. Impulsionado por Inovação.",
+        about_body: "A TechTrust AutoSolutions foi fundada com uma missão: levar tecnologia de classe mundial para a gestão de veículos. Somos uma empresa 100% de tecnologia sediada em Miami, Flórida — desenvolvendo software que transforma como pessoas e empresas gerenciam seus veículos. Nossa plataforma atende donos de carros e operadores de frota nos Estados Unidos com ferramentas de rastreamento, manutenção, conformidade e controle de custos.",
+        about_mission: "Nossa Missão: Capacitar cada dono de veículo e operador de frota com software inteligente que reduz custos, aumenta eficiência e garante conformidade — seja 1 carro ou 1.000.",
+        about_diff: "O Que Nos Diferencia: Não somos apenas um app de rastreamento. A TechTrust é um ecossistema completo de gestão de veículos — rastreamento GPS, análise de combustível, inteligência de manutenção, conformidade DOT, gestão de motoristas e integrações IoT. Tudo em uma plataforma, acessível de qualquer lugar.",
+        language_notice: "Disponível em inglês, português e espanhol. Suporte em todos os três idiomas.",
+        two_apps_title: "Uma Plataforma. Web & Mobile.",
+        two_apps_sub: "Acesse os dados dos seus veículos de qualquer lugar — painel web para análises profundas, app mobile para gestão em movimento.",
+        app_web_title: "💻 Painel Web",
+        app_web_subtitle: "Console Completo de Análise & Gestão de Veículos",
+        app_web_desc: "O painel web completo dá a você controle total: mapas de veículos em tempo real, análise de combustível, agendamento de manutenção, relatórios de conformidade, scorecards de motoristas e análise de custos. Painéis personalizáveis, relatórios exportáveis e acesso baseado em funções para toda a equipe.",
+        app_mobile_title: "📱 App Mobile",
+        app_mobile_subtitle: "Gestão de Veículos No Seu Bolso",
+        app_mobile_desc: "Fique conectado aos seus veículos 24/7. O app mobile TechTrust oferece alertas em tempo real, localização de veículos, notificações de manutenção e ações rápidas — tudo pelo celular. Perfeito para donos de carros, gestores de frota e motoristas que precisam de acesso instantâneo.",
+        flexibility_callout: "Painel web para gestão aprofundada + app mobile para acesso instantâneo = controle total dos seus veículos de qualquer lugar, a qualquer momento.",
+        app_callout: "Junte-se a milhares de donos de veículos e operadores de frota que já usam o TechTrust AutoSolutions. Comece seu teste grátis hoje.",
+        partner_title: "Seu Parceiro Tecnológico",
+        partner_contact_label: "Contato:",
+        partner_infrastructure: "Construído em infraestrutura AWS de nível empresarial com criptografia bancária. Atendendo todos os Estados Unidos com suporte em inglês, português e espanhol.",
+        software_title: "Módulos Poderosos de Gestão de Veículos",
+        software_sub: "Ferramentas profissionais para quem gerencia veículos — de um carro pessoal a uma frota inteira.",
+        sw_1t: "Conformidade DOT & Segurança", sw_1a: "Integração HOS & ELD", sw_1b: "Scorecards de Segurança do Motorista", sw_1c: "Rastreamento de Licenças & Certificações",
+        sw_2t: "Análise de Combustível & Custos", sw_2a: "Monitoramento de Consumo", sw_2b: "Relatórios de Custo Total de Propriedade",
+        sw_3t: "Inteligência de Manutenção", sw_3a: "Alertas Preditivos de Serviço", sw_3b: "Histórico Completo de Serviços",
+        contact_title: "Pronto Para Transformar Como Você Gerencia Seus Veículos?",
+        contact_sub: "Dúvidas sobre nosso software? Precisa de uma demo? Nossa equipe fala inglês, português e espanhol.",
+        form_name: "Nome completo", form_email: "Email", form_company: "Empresa", form_size: "Número de veículos", form_msg: "Mensagem", form_send: "Enviar Mensagem",
+        footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos os direitos reservados.",
+        footer_privacy: "Política de Privacidade",
+        footer_contact: "Contato",
+        footer_client_login: "Acesso Cliente",
+        footer_provider_login: "Acesso Fornecedor",
+        footer_client_register: "Registro Cliente",
+        footer_provider_register: "Registro Fornecedor",
+        app_features_title: "Tudo Que Você Precisa — Uma Plataforma",
+        app_features_sub: "Seis módulos poderosos que trabalham juntos para dar visibilidade, controle e inteligência completos aos seus veículos.",
+        app_1t: "Rastreamento GPS em Tempo Real", app_1d: "Rastreie cada veículo 24/7 com GPS em tempo real. Veja localizações ao vivo, histórico de rotas, velocidade e comportamento de direção em um mapa interativo. Alertas de geofencing para zonas não autorizadas.",
+        app_2t: "Gestão de Combustível", app_2d: "Monitore o consumo de combustível de toda sua frota. Detecte desperdícios, identifique rotas ineficientes e configure alertas de consumo. Redução média de 20% no custo de combustível nos primeiros 90 dias.",
+        app_3t: "Alertas Inteligentes de Manutenção", app_3d: "Manutenção preditiva baseada em dados reais. Receba alertas antes de falhas acontecerem. Agende serviços, rastreie histórico de reparos e reduza tempo parado em até 40%.",
+        app_4t: "Painel de Controle de Custos", app_4d: "Rastreie cada real gasto em combustível, manutenção, pedágios e operações. Gere relatórios detalhados, identifique tendências e tome decisões baseadas em dados para reduzir custos.",
+        app_5t: "Ferramentas de Conformidade DOT", app_5d: "Rastreamento automático de HOS, integração ELD, scorecards de motoristas e gestão de inspeções. Mantenha-se em conformidade com regulamentações federais e estaduais sem esforço.",
+        app_6t: "Integração de Câmeras & IoT", app_6d: "Conecte dash cameras, sensores de porta, monitores de temperatura e outros dispositivos IoT. Receba feeds de vídeo em tempo real, alertas de segurança e monitoramento abrangente da frota.",
+        how_it_works_title: "Comece em 4 Passos Simples",
+        how_it_works_sub: "Do cadastro à visibilidade total dos seus veículos — leva minutos, não semanas.",
+        step_1_title: "Crie Sua Conta",
+        step_1_desc: "Cadastre-se em techtrustautosolutions.com. Escolha seu plano — plano Free disponível para sempre, planos pagos incluem 7 dias de teste grátis.",
+        step_2_title: "Adicione Seus Veículos",
+        step_2_desc: "Adicione seus veículos manualmente ou importe via CSV. Conecte rastreadores GPS, câmeras e sensores. Nosso assistente de configuração guia você em cada passo.",
+        step_3_title: "Configure Seu Painel",
+        step_3_desc: "Personalize alertas, defina geofences, configure agendamentos de manutenção e atribua motoristas. Nossa equipe ajuda a otimizar configurações para sua operação específica.",
+        step_4_title: "Monitore & Otimize",
+        step_4_desc: "Comece a rastrear em tempo real. Receba alertas inteligentes, analise métricas e gere relatórios. Veja a eficiência dos seus veículos melhorar desde o primeiro dia.",
+        for_everyone_title: "Construído para Todos",
+        for_everyone_sub: "Seja você dono de um carro ou gestor de uma frota de milhares — nossa plataforma se adapta às suas necessidades.",
+        user_1_title: "Donos de Carros Individuais",
+        user_1_desc: "Mantenha seu veículo pessoal organizado. Acompanhe histórico de manutenção, receba lembretes de serviço, decodifique o VIN, verifique recalls e controle custos — tudo pelo celular.",
+        user_2_title: "Frotas Pequenas (2-25 veículos)",
+        user_2_desc: "Gestão de veículos acessível para negócios em crescimento. Rastreamento GPS, alertas de manutenção e monitoramento de combustível — tudo que você precisa para se organizar e reduzir custos.",
+        user_3_title: "Frotas Médias & Grandes (25-500 veículos)",
+        user_3_desc: "Análises avançadas, gestão de motoristas, conformidade DOT, integração de câmeras e gestão de conta dedicada. Visibilidade completa para operações complexas.",
+        user_4_title: "Empresarial (500+ veículos)",
+        user_4_desc: "Soluções personalizadas para as maiores operações. Acesso API, opções white-label, gestão multi-localidade e suporte prioritário 24/7. Escale sem limites.",
+        final_cta_title: "Pronto Para Assumir o Controle dos Seus Veículos?",
+        final_cta_desc: "Comece seu teste grátis hoje. Veja resultados reais em 24 horas. Disponível em web e mobile em inglês, português e espanhol.",
+        gallery_title: "Veja o TechTrust em Ação",
+        gallery_sub: "Capturas de tela reais mostrando como nossa plataforma ajuda donos de veículos e gestores de frota todos os dias.",
+        slide_1_caption: "Gerencie todos seus veículos em um painel intuitivo",
+        slide_2_caption: "Rastreamento GPS em tempo real com histórico de rotas",
+        slide_3_caption: "Análise de combustível e relatórios de otimização de custos",
+        slide_4_caption: "Agendamento de manutenção e alertas preditivos",
+        slide_5_caption: "Análise completa de veículos e relatórios de desempenho",
+        pricing_title: "Preços Simples e Transparentes",
+        pricing_sub: "Escolha o plano ideal para você. Plano Free disponível para sempre. Planos pagos incluem 7 dias de teste grátis.",
+        plan_free: "Grátis",
+        plan_free_price: "$0",
+        plan_free_desc: "Comece com gestão básica de veículos",
+        plan_free_f1: "Até 2 veículos",
+        plan_free_f2: "Decodificador VIN & recalls NHTSA",
+        plan_free_f3: "Recibos de serviço em PDF",
+        plan_free_f4: "4 solicitações/mês",
+        plan_free_f5: "Acesso ao app mobile",
+        plan_starter: "Starter",
+        plan_starter_price: "$9,99",
+        plan_starter_desc: "Para pessoas e frotas pequenas",
+        plan_starter_f1: "Até 3 veículos",
+        plan_starter_f2: "Todos os recursos do Grátis",
+        plan_starter_f3: "Suporte multilíngue",
+        plan_starter_f4: "Rastreador de quilometragem",
+        plan_starter_f5: "Manutenção agendada",
+        plan_starter_f6: "10 solicitações/mês",
+        plan_starter_f7: "+$5,99/veículo extra",
+        plan_pro: "Pro",
+        plan_pro_price: "$19,99",
+        plan_pro_desc: "Ferramentas avançadas para necessidades crescentes",
+        plan_pro_f1: "Até 5 veículos",
+        plan_pro_f2: "Todos os recursos do Starter",
+        plan_pro_f3: "Solicitações ilimitadas",
+        plan_pro_f4: "Diagnóstico OBD2",
+        plan_pro_f5: "Relatórios de despesas & carteira",
+        plan_pro_f6: "Consulta de peças OEM",
+        plan_pro_f7: "Suporte prioritário",
+        plan_pro_f8: "+$3,99/veículo extra",
+        plan_enterprise: "Enterprise",
+        plan_enterprise_price: "$49,99",
+        plan_enterprise_desc: "Gestão completa para grandes operações",
+        plan_enterprise_f1: "Até 14 veículos inclusos",
+        plan_enterprise_f2: "Todos os recursos do Pro",
+        plan_enterprise_f3: "Painel de veículos & analytics",
+        plan_enterprise_f4: "Diagnóstico OBD2 avançado",
+        plan_enterprise_f5: "Gerente de conta dedicado",
+        plan_enterprise_f6: "Suporte 24/7 prioritário",
+        plan_enterprise_f7: "Solicitações simultâneas ilimitadas",
+        plan_enterprise_f8: "Preço de veículo extra personalizado",
+        plan_cta_start: "Começar Teste Grátis",
+        plan_cta_contact: "Falar com Vendas",
+        plan_per_month: "/mês",
+        addons_title: "Precisa de Mais Veículos?",
+        addons_sub: "Cada plano inclui veículos. Adicione extras a qualquer momento pelo painel.",
+        addon_free_label: "Plano Free",
+        addon_free_price: "+$6,99/veículo/mês",
+        addon_free_desc: "2 veículos inclusos. Adicione mais por $6,99 cada.",
+        addon_starter_label: "Plano Starter",
+        addon_starter_price: "+$5,99/veículo/mês",
+        addon_starter_desc: "3 veículos inclusos. Adicione mais por $5,99 cada.",
+        addon_pro_label: "Plano Pro",
+        addon_pro_price: "+$3,99/veículo/mês",
+        addon_pro_desc: "5 veículos inclusos. Adicione mais por $3,99 cada.",
+        addon_enterprise_label: "Plano Enterprise",
+        addon_enterprise_price: "Preço personalizado",
+        addon_enterprise_desc: "14 veículos inclusos. Contate-nos para adicionais.",
+        login_client: "Acesso Cliente",
+        login_provider: "Acesso Fornecedor",
+        register_client: "Registro Cliente",
+        register_client_info: "Donos de veículos & gestores de frota — rastreie veículos, controle custos",
+        register_provider: "Registro Fornecedor",
+        register_provider_info: "Mecânicos & oficinas — receba solicitações de serviço",
+        lang_label: "Idioma:"
+      },
+      es: {
+        nav_home: "Inicio", nav_about: "Nosotros", nav_services: "Módulos", nav_software: "Herramientas", nav_pricing: "Planes", nav_industries: "Para Todos", nav_contact: "Contacto",
+        hero_badge: "Software de Gestión de Vehículos & Flotas — 100% Tecnología",
+        hero_h1: "Gestión Completa de Vehículos. Una Plataforma Poderosa.",
+        hero_sub: "TechTrust AutoSolutions es un software de gestión de vehículos desarrollado para personas y empresas de todos los tamaños. Rastree su auto o toda su flota en tiempo real, controle costos de combustible, programe mantenimientos, asegure cumplimiento y gestione todo desde un solo panel. De 1 vehículo a 5,000 — escalamos con usted.",
+        hero2_badge: "Plataforma Tecnológica Integrada",
+        hero2_h1: "Rastreo. Análisis. Cumplimiento. Todo en Uno.",
+        hero2_sub: "TechTrust va más allá del rastreo básico. Nuestra plataforma integra GPS, cámaras, sensores de puerta, análisis de combustible e inteligencia de mantenimiento en una experiencia fluida. Visibilidad en tiempo real, alertas inteligentes e insights accionables — todo lo que necesita para mantener sus vehículos operando con máxima eficiencia.",
+        hero2_feat_1: "Rastreo GPS & Cámaras en Tiempo Real",
+        hero2_feat_2: "Gestión Inteligente de Mantenimiento",
+        hero2_feat_3: "Sensores de Puerta & Monitoreo IoT de Vehículos",
+        hero2_feat_4: "API Abierta para Integraciones",
+        cta_start: "PRUEBA GRATIS", cta_demo: "SOLICITAR DEMO", cta_plans: "VER PLANES & PRECIOS",
+        select_language: "Seleccione su idioma:",
+        hero_images_caption: "Imágenes ilustrativas.",
+        mission_title: "Tecnología Nacida en Florida. Construida para el Mundo.",
+        mission_body: "TechTrust AutoSolutions es una empresa 100% de tecnología con sede en Miami, Florida. Desarrollamos software de gestión de vehículos que brinda a personas y empresas visibilidad y control total sobre sus vehículos. Nuestra plataforma combina rastreo en tiempo real, mantenimiento predictivo, análisis de combustible y herramientas de cumplimiento — todo accesible desde web y móvil.",
+        mission_slogan: "Creemos que la tecnología debe simplificar la gestión de vehículos — dándole más control, menores costos y total tranquilidad.",
+        security_title: "Seguridad & Confianza de Nivel Empresarial",
+        security_sub: "Sus datos, sus vehículos y sus operaciones están protegidos por seguridad líder de la industria en todos los niveles.",
+        sec_1_title: "Infraestructura SOC 2 Compliant",
+        sec_1_desc: "Construido en AWS con encriptación de nivel empresarial, control de acceso basado en roles y monitoreo continuo de seguridad. Los datos de sus vehículos están protegidos por los mismos estándares de las empresas más grandes del mundo.",
+        sec_2_title: "Encriptación Segura de Datos",
+        sec_2_desc: "Todos los datos están encriptados en tránsito (TLS 1.3) y en reposo (AES-256). Procesamiento de pagos PCI-compliant asegura que su información financiera nunca se exponga.",
+        sec_3_title: "Monitoreo de Amenazas en Tiempo Real",
+        sec_3_desc: "Monitoreo automatizado 24/7 detecta y bloquea actividad sospechosa. Autenticación multifactor, registros de auditoría y gestión de sesiones protegen cada cuenta.",
+        benefits_title: "Por Qué las Empresas Eligen TechTrust",
+        benefits_sub: "Gestione 10 vehículos o 10,000 — nuestra plataforma entrega resultados medibles desde el primer día.",
+        ben_1_title: "Reduzca Costos en 30%+",
+        ben_1_desc: "Monitoreo de combustible en tiempo real, rutas optimizadas y mantenimiento predictivo reducen costos significativamente. Nuestros clientes ahorran un promedio de 30% en gastos de vehículos.",
+        ben_2_title: "Visibilidad Total de los Vehículos",
+        ben_2_desc: "Sepa dónde está cada vehículo, en qué condición se encuentra y cuándo necesita servicio — todo en tiempo real. Sin puntos ciegos, sin sorpresas.",
+        ben_3_title: "100% de Cumplimiento Garantizado",
+        ben_3_desc: "Cumplimiento DOT, rastreo HOS, scorecards de conductores y reportes automáticos. Manténgase en cumplimiento sin esfuerzo con herramientas regulatorias integradas.",
+        proof_cta: "COMIENCE SU PRUEBA GRATIS — VEA RESULTADOS EN 24 HORAS",
+        office_title: "Nuestra Oficina",
+        office_location: "Miami, Florida",
+        about_title: "Construido por Expertos en Vehículos. Impulsado por Innovación.",
+        about_body: "TechTrust AutoSolutions fue fundada con una misión: llevar tecnología de clase mundial a la gestión de vehículos. Somos una empresa 100% de tecnología con sede en Miami, Florida — desarrollando software que transforma cómo personas y empresas gestionan sus vehículos. Nuestra plataforma sirve a dueños de autos y operadores de flotas en Estados Unidos con herramientas de rastreo, mantenimiento, cumplimiento y control de costos.",
+        about_mission: "Nuestra Misión: Empoderar a cada dueño de vehículo y operador de flota con software inteligente que reduce costos, aumenta eficiencia y asegura cumplimiento — ya sea 1 auto o 1,000.",
+        about_diff: "Lo Que Nos Diferencia: No somos solo una app de rastreo. TechTrust es un ecosistema completo de gestión de vehículos — rastreo GPS, análisis de combustible, inteligencia de mantenimiento, cumplimiento DOT, gestión de conductores e integraciones IoT. Todo en una plataforma, accesible desde cualquier lugar.",
+        language_notice: "Disponible en inglés, portugués y español. Soporte en los tres idiomas.",
+        two_apps_title: "Una Plataforma. Web & Móvil.",
+        two_apps_sub: "Acceda a los datos de sus vehículos desde cualquier lugar — panel web para análisis profundos, app móvil para gestión en movimiento.",
+        app_web_title: "💻 Panel Web",
+        app_web_subtitle: "Consola Completa de Análisis & Gestión de Vehículos",
+        app_web_desc: "El panel web completo le da control total: mapas de vehículos en tiempo real, análisis de combustible, programación de mantenimiento, reportes de cumplimiento, scorecards de conductores y análisis de costos. Paneles personalizables, reportes exportables y acceso basado en roles para todo el equipo.",
+        app_mobile_title: "📱 App Móvil",
+        app_mobile_subtitle: "Gestión de Vehículos en Su Bolsillo",
+        app_mobile_desc: "Manténgase conectado a sus vehículos 24/7. La app móvil TechTrust ofrece alertas en tiempo real, ubicación de vehículos, notificaciones de mantenimiento y acciones rápidas — todo desde su teléfono. Perfecto para dueños de autos, gestores de flota y conductores que necesitan acceso instantáneo.",
+        flexibility_callout: "Panel web para gestión profunda + app móvil para acceso instantáneo = control total de sus vehículos desde cualquier lugar, en cualquier momento.",
+        app_callout: "Únase a miles de dueños de vehículos y operadores de flotas que ya usan TechTrust AutoSolutions. Comience su prueba gratis hoy.",
+        partner_title: "Su Socio Tecnológico",
+        partner_contact_label: "Contacto:",
+        partner_infrastructure: "Construido sobre infraestructura AWS de nivel empresarial con encriptación bancaria. Sirviendo a todos los Estados Unidos con soporte en inglés, portugués y español.",
+        software_title: "Módulos Poderosos de Gestión de Vehículos",
+        software_sub: "Herramientas profesionales para cualquiera que gestione vehículos — desde un auto personal hasta una flota entera.",
+        sw_1t: "Cumplimiento DOT & Seguridad", sw_1a: "Integración HOS & ELD", sw_1b: "Scorecards de Seguridad del Conductor", sw_1c: "Rastreo de Licencias & Certificaciones",
+        sw_2t: "Análisis de Combustible & Costos", sw_2a: "Monitoreo de Consumo", sw_2b: "Informes de Costo Total de Propiedad",
+        sw_3t: "Inteligencia de Mantenimiento", sw_3a: "Alertas Predictivas de Servicio", sw_3b: "Historial Completo de Servicios",
+        contact_title: "¿Listo Para Transformar Cómo Gestiona Sus Vehículos?",
+        contact_sub: "¿Preguntas sobre nuestro software? ¿Necesita una demo? Nuestro equipo habla inglés, portugués y español.",
+        form_name: "Nombre completo", form_email: "Email", form_company: "Empresa", form_size: "Número de vehículos", form_msg: "Mensaje", form_send: "Enviar Mensaje",
+        footer_rights: "© " + new Date().getFullYear() + " TechTrust AutoSolutions. Todos los derechos reservados.",
+        footer_privacy: "Política de Privacidad",
+        footer_contact: "Contacto",
+        footer_client_login: "Acceso Cliente",
+        footer_provider_login: "Acceso Proveedor",
+        footer_client_register: "Registro Cliente",
+        footer_provider_register: "Registro Proveedor",
+        app_features_title: "Todo Lo Que Necesita — Una Plataforma",
+        app_features_sub: "Seis módulos poderosos que trabajan juntos para dar visibilidad, control e inteligencia completos a sus vehículos.",
+        app_1t: "Rastreo GPS en Tiempo Real", app_1d: "Rastree cada vehículo 24/7 con GPS en tiempo real. Vea ubicaciones en vivo, historial de rutas, velocidad y comportamiento de conducción en un mapa interactivo. Alertas de geofencing para zonas no autorizadas.",
+        app_2t: "Gestión de Combustible", app_2d: "Monitoree el consumo de combustible de toda su flota. Detecte desperdicios, identifique rutas ineficientes y configure alertas de consumo. Reducción promedio de 20% en costos de combustible en los primeros 90 días.",
+        app_3t: "Alertas Inteligentes de Mantenimiento", app_3d: "Mantenimiento predictivo basado en datos reales. Reciba alertas antes de que ocurran fallas. Programe servicios, rastree historial de reparaciones y reduzca tiempo inactivo hasta un 40%.",
+        app_4t: "Panel de Control de Costos", app_4d: "Rastree cada dólar gastado en combustible, mantenimiento, peajes y operaciones. Genere reportes detallados, detecte tendencias y tome decisiones basadas en datos para reducir costos.",
+        app_5t: "Herramientas de Cumplimiento DOT", app_5d: "Rastreo automático de HOS, integración ELD, scorecards de conductores y gestión de inspecciones. Manténgase en cumplimiento con regulaciones federales y estatales sin esfuerzo.",
+        app_6t: "Integración de Cámaras & IoT", app_6d: "Conecte dash cameras, sensores de puerta, monitores de temperatura y otros dispositivos IoT. Reciba feeds de video en tiempo real, alertas de seguridad y monitoreo integral de sus vehículos.",
+        how_it_works_title: "Comience en 4 Pasos Simples",
+        how_it_works_sub: "Del registro a la visibilidad total de sus vehículos — toma minutos, no semanas.",
+        step_1_title: "Cree Su Cuenta",
+        step_1_desc: "Regístrese en techtrustautosolutions.com. Elija su plan — plan Free disponible para siempre, planes pagos incluyen 7 días de prueba gratis.",
+        step_2_title: "Agregue Sus Vehículos",
+        step_2_desc: "Agregue sus vehículos manualmente o importe vía CSV. Conecte rastreadores GPS, cámaras y sensores. Nuestro asistente de configuración lo guía en cada paso.",
+        step_3_title: "Configure Su Panel",
+        step_3_desc: "Personalice alertas, defina geofences, configure programas de mantenimiento y asigne conductores. Nuestro equipo ayuda a optimizar configuraciones para su operación específica.",
+        step_4_title: "Monitoree & Optimice",
+        step_4_desc: "Comience a rastrear en tiempo real. Reciba alertas inteligentes, analice métricas y genere reportes. Vea la eficiencia de sus vehículos mejorar desde el primer día.",
+        for_everyone_title: "Construido para Todos",
+        for_everyone_sub: "Ya sea dueño de un auto o gestor de una flota de miles — nuestra plataforma se adapta a sus necesidades.",
+        user_1_title: "Dueños de Autos Individuales",
+        user_1_desc: "Mantenga su vehículo personal organizado. Seguimiento de historial de mantenimiento, recordatorios de servicio, decodificación VIN, verificación de recalls y control de costos — todo desde su teléfono.",
+        user_2_title: "Flotas Pequeñas (2-25 vehículos)",
+        user_2_desc: "Gestión de vehículos accesible para negocios en crecimiento. Rastreo GPS, alertas de mantenimiento y monitoreo de combustible — todo lo que necesita para organizarse y reducir costos.",
+        user_3_title: "Flotas Medianas & Grandes (25-500 vehículos)",
+        user_3_desc: "Análisis avanzados, gestión de conductores, cumplimiento DOT, integración de cámaras y gestión de cuenta dedicada. Visibilidad completa para operaciones complejas.",
+        user_4_title: "Empresarial (500+ vehículos)",
+        user_4_desc: "Soluciones personalizadas para las mayores operaciones. Acceso API, opciones white-label, gestión multi-ubicación y soporte prioritario 24/7. Escale sin límites.",
+        final_cta_title: "¿Listo Para Tomar el Control de Sus Vehículos?",
+        final_cta_desc: "Comience su prueba gratis hoy. Vea resultados reales en 24 horas. Disponible en web y móvil en inglés, portugués y español.",
+        gallery_title: "Vea TechTrust en Acción",
+        gallery_sub: "Capturas de pantalla reales que muestran cómo nuestra plataforma ayuda a dueños de vehículos y gestores de flotas todos los días.",
+        slide_1_caption: "Gestione todos sus vehículos desde un panel intuitivo",
+        slide_2_caption: "Rastreo GPS en tiempo real con historial de rutas",
+        slide_3_caption: "Análisis de combustible e informes de optimización de costos",
+        slide_4_caption: "Programación de mantenimiento y alertas predictivas",
+        slide_5_caption: "Análisis completo de vehículos e informes de rendimiento",
+        pricing_title: "Precios Simples y Transparentes",
+        pricing_sub: "Elija el plan ideal para usted. Plan Free disponible para siempre. Planes pagos incluyen 7 días de prueba gratis.",
+        plan_free: "Gratis",
+        plan_free_price: "$0",
+        plan_free_desc: "Comienza con gestión básica de vehículos",
+        plan_free_f1: "Hasta 2 vehículos",
+        plan_free_f2: "Decodificador VIN & recalls NHTSA",
+        plan_free_f3: "Recibos de servicio en PDF",
+        plan_free_f4: "4 solicitudes/mes",
+        plan_free_f5: "Acceso a la app móvil",
+        plan_starter: "Starter",
+        plan_starter_price: "$9.99",
+        plan_starter_desc: "Para personas y flotas pequeñas",
+        plan_starter_f1: "Hasta 3 vehículos",
+        plan_starter_f2: "Todas las funciones del Gratis",
+        plan_starter_f3: "Soporte multilingüe",
+        plan_starter_f4: "Rastreador de kilometraje",
+        plan_starter_f5: "Mantenimiento programado",
+        plan_starter_f6: "10 solicitudes/mes",
+        plan_starter_f7: "+$5.99/vehículo extra",
+        plan_pro: "Pro",
+        plan_pro_price: "$19.99",
+        plan_pro_desc: "Herramientas avanzadas para necesidades crecientes",
+        plan_pro_f1: "Hasta 5 vehículos",
+        plan_pro_f2: "Todas las funciones del Starter",
+        plan_pro_f3: "Solicitudes ilimitadas",
+        plan_pro_f4: "Diagnóstico OBD2",
+        plan_pro_f5: "Reportes de gastos & billetera",
+        plan_pro_f6: "Consulta de piezas OEM",
+        plan_pro_f7: "Soporte prioritario",
+        plan_pro_f8: "+$3.99/vehículo extra",
+        plan_enterprise: "Enterprise",
+        plan_enterprise_price: "$49.99",
+        plan_enterprise_desc: "Gestión completa para grandes operaciones",
+        plan_enterprise_f1: "Hasta 14 vehículos incluidos",
+        plan_enterprise_f2: "Todas las funciones del Pro",
+        plan_enterprise_f3: "Panel de vehículos & analytics",
+        plan_enterprise_f4: "Diagnóstico OBD2 avanzado",
+        plan_enterprise_f5: "Gerente de cuenta dedicado",
+        plan_enterprise_f6: "Soporte 24/7 prioritario",
+        plan_enterprise_f7: "Solicitudes simultáneas ilimitadas",
+        plan_enterprise_f8: "Precio personalizado por vehículo extra",
+        plan_cta_start: "Comenzar Prueba Gratis",
+        plan_cta_contact: "Contactar Ventas",
+        plan_per_month: "/mes",
+        addons_title: "¿Necesita Más Vehículos?",
+        addons_sub: "Cada plan incluye vehículos. Agregue extras en cualquier momento desde su panel.",
+        addon_free_label: "Plan Free",
+        addon_free_price: "+$6.99/vehículo/mes",
+        addon_free_desc: "2 vehículos incluidos. Agregue más por $6.99 cada uno.",
+        addon_starter_label: "Plan Starter",
+        addon_starter_price: "+$5.99/vehículo/mes",
+        addon_starter_desc: "3 vehículos incluidos. Agregue más por $5.99 cada uno.",
+        addon_pro_label: "Plan Pro",
+        addon_pro_price: "+$3.99/vehículo/mes",
+        addon_pro_desc: "5 vehículos incluidos. Agregue más por $3.99 cada uno.",
+        addon_enterprise_label: "Plan Enterprise",
+        addon_enterprise_price: "Precio personalizado",
+        addon_enterprise_desc: "14 vehículos incluidos. Contáctenos para adicionales.",
+        login_client: "Acceso Cliente",
+        login_provider: "Acceso Proveedor",
+        register_client: "Registro Cliente",
+        register_client_info: "Dueños de vehículos & gerentes de flota — rastree vehículos, controle costos",
+        register_provider: "Registro Proveedor",
+        register_provider_info: "Mecánicos & talleres — reciba solicitudes de servicio",
+        lang_label: "Idioma:"
+      }
+    };
+
+    function setLang(l){
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const k = el.getAttribute('data-i18n');
+        if(I18N[l] && I18N[l][k]) el.textContent = I18N[l][k];
+      });
+      document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===l));
+      document.documentElement.lang = l;
+      var pl = document.querySelector('a[href^="/privacy.html"]');
+      if(pl) pl.href = '/privacy.html?lang=' + l;
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.querySelectorAll('.lang button').forEach(btn=>{
+        btn.addEventListener('click', ()=> setLang(btn.dataset.lang));
+      });
+      const defaultLang = 'en';
+      setLang(defaultLang);
+
+      // Hero Carousel
+      const heroSlides = document.querySelectorAll('.hero-slide');
+      const heroDots = document.querySelectorAll('.hero-dot');
+      let heroCurrentSlide = 0;
+      let heroAutoplayInt = null;
+
+      function goToHeroSlide(idx) {
+        heroSlides.forEach(s => s.classList.remove('active'));
+        heroDots.forEach(d => d.classList.remove('active'));
+        heroSlides[idx]?.classList.add('active');
+        heroDots[idx]?.classList.add('active');
+        heroCurrentSlide = idx;
+      }
+      function nextHeroSlide() { goToHeroSlide((heroCurrentSlide + 1) % heroSlides.length); }
+      function prevHeroSlide() { goToHeroSlide((heroCurrentSlide - 1 + heroSlides.length) % heroSlides.length); }
+      function startHeroAutoplay() { if (heroAutoplayInt) clearInterval(heroAutoplayInt); heroAutoplayInt = setInterval(nextHeroSlide, 6000); }
+      function stopHeroAutoplay() { if (heroAutoplayInt) clearInterval(heroAutoplayInt); }
+
+      heroDots.forEach(dot => {
+        dot.addEventListener('click', () => { goToHeroSlide(parseInt(dot.dataset.heroSlide)); stopHeroAutoplay(); startHeroAutoplay(); });
+      });
+      document.getElementById('hero-prev')?.addEventListener('click', () => { prevHeroSlide(); stopHeroAutoplay(); startHeroAutoplay(); });
+      document.getElementById('hero-next')?.addEventListener('click', () => { nextHeroSlide(); stopHeroAutoplay(); startHeroAutoplay(); });
+
+      const heroCarousel = document.querySelector('.hero-carousel');
+      let heroTouchStartX = 0;
+      heroCarousel?.addEventListener('touchstart', e => { heroTouchStartX = e.changedTouches[0].screenX; }, {passive:true});
+      heroCarousel?.addEventListener('touchend', e => {
+        const diff = heroTouchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) { if (diff > 0) nextHeroSlide(); else prevHeroSlide(); stopHeroAutoplay(); startHeroAutoplay(); }
+      }, {passive:true});
+      startHeroAutoplay();
+
+      // Hero image mini carousel
+      (function(){
+        const track = document.querySelector('#hero-img-carousel .hero-mini-cl');
+        if(!track) return;
+        const imgs = track.querySelectorAll('img');
+        let hmcIdx = 0;
+        setInterval(()=>{ hmcIdx = (hmcIdx + 1) % imgs.length; track.style.transform = `translateX(-${hmcIdx * 100}%)`; }, 3500);
+      })();
+
+      // Contact form
+      const form = document.getElementById('contact-form');
+      const contactStatus = document.createElement('p');
+      contactStatus.style.cssText='font-size:13px;margin:6px 0 0';
+      form?.appendChild(contactStatus);
+      form?.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        contactStatus.textContent='Sending...'; contactStatus.style.color='#3B7DD8';
+        const data = Object.fromEntries(new FormData(form).entries());
+        try{
+          const res = await fetch('/api/contact',{ method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
+          if(!res.ok) throw new Error('Network error');
+          contactStatus.textContent='Thank you! We will contact you shortly.'; contactStatus.style.color='#4ade80';
+          form.reset();
+        }catch(err){
+          console.error(err);
+          contactStatus.textContent='Failed to send. Please try again.'; contactStatus.style.color='#f87171';
+        }
+      });
+
+      // Slider controls
+      const slides = document.getElementById('service-slides');
+      const slideWidth = ()=> slides?.querySelector('.slide-item')?.getBoundingClientRect().width || 0;
+      let autoPlayInt = null;
+      function startAutoplay(){
+        if(autoPlayInt) clearInterval(autoPlayInt);
+        autoPlayInt = setInterval(()=>{
+          if(!slides) return;
+          const maxScroll = slides.scrollWidth - slides.clientWidth;
+          if (Math.abs(slides.scrollLeft - maxScroll) < 2 || slides.scrollLeft >= maxScroll - 2) {
+            slides.scrollTo({left: 0, behavior: 'smooth'});
+          } else {
+            slides.scrollBy({left: slideWidth(), behavior:'smooth'});
+          }
+        }, 3500);
+      }
+      function stopAutoplay(){ if(autoPlayInt) clearInterval(autoPlayInt); }
+      slides?.addEventListener('mouseenter', stopAutoplay);
+      slides?.addEventListener('mouseleave', startAutoplay);
+      startAutoplay();
+    });
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TechTrust AutoSolutions",
+    "url": "https://techtrustautosolutions.com/",
+    "logo": "https://techtrustautosolutions.com/logo.png",
+    "email": "contact@techtrustautosolutions.com",
+    "sameAs": ["https://www.linkedin.com/company/techtrust-autosolutions"],
+    "address": {"@type": "PostalAddress","addressLocality": "Miami","addressRegion": "FL","addressCountry": "US"}
+  }
+  </script>
+</head>
+<body>
+  <a href="#contact" class="visually-hidden" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to contact</a>
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="TechTrust AutoSolutions home">
+        <img src="/botao-pequeno.png"
+          srcset="/botao-pequeno.png 170w, /botao-pequeno@2x.png 340w"
+          sizes="(min-width:1400px) 56px, (min-width:940px) 48px, 36px"
+          class="logo-img" alt="TechTrust AutoSolutions logo" width="36" height="36" />
+        <span>TechTrust <span class="brand-red">AutoSolutions</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#home" data-i18n="nav_home"></a>
+        <a href="#about" data-i18n="nav_about"></a>
+        <a href="#services" data-i18n="nav_services"></a>
+        <a href="#software" data-i18n="nav_software"></a>
+        <a href="#pricing" data-i18n="nav_pricing"></a>
+        <a href="#industries" data-i18n="nav_industries"></a>
+        <a href="#contact" data-i18n="nav_contact"></a>
+      </nav>
+    </div>
+  </header>
+  <div class="sub-bar">
+    <div class="container" style="flex-direction:row;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap">
+        <div class="lang" aria-label="Language switcher">
+          <button data-lang="en" aria-label="English"><img class="flag-icon" src="https://flagcdn.com/w40/us.png" srcset="https://flagcdn.com/w80/us.png 2x" alt="US" width="20" height="14"> EN</button>
+          <button data-lang="pt" aria-label="Português"><img class="flag-icon" src="https://flagcdn.com/w40/br.png" srcset="https://flagcdn.com/w80/br.png 2x" alt="BR" width="20" height="14"> PT</button>
+          <button data-lang="es" aria-label="Español"><img class="flag-icon" src="https://flagcdn.com/w40/es.png" srcset="https://flagcdn.com/w80/es.png 2x" alt="ES" width="20" height="14"> ES</button>
+        </div>
+        <div class="login-sep"></div>
+        <a class="login-btn" href="https://app.techtrustautosolutions.com/login" target="_blank" rel="noopener" data-i18n="login_client"></a>
+        <a class="login-btn provider" href="https://provider.techtrustautosolutions.com/login" target="_blank" rel="noopener" data-i18n="login_provider"></a>
+        <div class="login-sep"></div>
+        <a class="login-btn register" href="/register-client.html" data-i18n="register_client"></a>
+        <a class="login-btn register" href="/register-provider.html" data-i18n="register_provider"></a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero Carousel -->
+    <section id="home" class="hero">
+      <div class="hero-carousel">
+        <div class="container hero-wrap">
+          <div class="hero-text-box">
+            <!-- Slide 1 -->
+            <div class="hero-slide active" data-slide="0">
+              <span class="badge" data-i18n="hero_badge"></span>
+              <h1><span data-i18n="hero_h1"></span></h1>
+              <p class="lead" data-i18n="hero_sub"></p>
+              <div class="hero-cta">
+                <a class="cta" href="/register-client.html" data-i18n="cta_start"></a>
+                <a class="cta secondary" href="#pricing" data-i18n="cta_plans"></a>
+                <a class="cta accent-bg" href="#contact" data-i18n="cta_demo"></a>
+              </div>
+              <div class="card" style="margin-top:16px">
+                <p style="margin:0;font-size:.9rem" data-i18n="language_notice"></p>
+              </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="hero-slide" data-slide="1">
+              <span class="badge" style="background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.25);color:#bbf7d0" data-i18n="hero2_badge"></span>
+              <h1><span data-i18n="hero2_h1"></span></h1>
+              <p class="lead" data-i18n="hero2_sub"></p>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px">
+                <div class="card" style="padding:14px 16px;display:flex;align-items:center;gap:10px">
+                  <span style="font-size:1.3rem">📡</span>
+                  <span style="font-size:.88rem;font-weight:600" data-i18n="hero2_feat_1"></span>
+                </div>
+                <div class="card" style="padding:14px 16px;display:flex;align-items:center;gap:10px">
+                  <span style="font-size:1.3rem">🔧</span>
+                  <span style="font-size:.88rem;font-weight:600" data-i18n="hero2_feat_2"></span>
+                </div>
+                <div class="card" style="padding:14px 16px;display:flex;align-items:center;gap:10px">
+                  <span style="font-size:1.3rem">🚪</span>
+                  <span style="font-size:.88rem;font-weight:600" data-i18n="hero2_feat_3"></span>
+                </div>
+                <div class="card" style="padding:14px 16px;display:flex;align-items:center;gap:10px">
+                  <span style="font-size:1.3rem">🔗</span>
+                  <span style="font-size:.88rem;font-weight:600" data-i18n="hero2_feat_4"></span>
+                </div>
+              </div>
+              <div class="hero-cta" style="margin-top:20px">
+                <a class="cta" href="/register-client.html" data-i18n="cta_start"></a>
+                <a class="cta secondary" href="#services" data-i18n="cta_plans"></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: app screenshots -->
+          <div class="panel">
+            <div class="hero-mini-carousel" id="hero-img-carousel">
+              <div class="hero-mini-cl">
+                <img class="hero-img" src="/public/Home.png" alt="TechTrust Fleet Dashboard">
+                <img class="hero-img" src="/public/Home1.png" alt="TechTrust Fleet Dashboard">
+                <img class="hero-img" src="/public/Home2.png" alt="TechTrust Fleet Dashboard">
+                <img class="hero-img" src="/public/Home3.png" alt="TechTrust Fleet Dashboard">
+              </div>
+            </div>
+            <small style="color:var(--muted);display:block;margin-top:10px" data-i18n="hero_images_caption"></small>
+          </div>
+        </div>
+
+        <div class="hero-arrows">
+          <button class="hero-arrow" id="hero-prev" aria-label="Previous slide">&#8249;</button>
+          <button class="hero-arrow" id="hero-next" aria-label="Next slide">&#8250;</button>
+        </div>
+        <div class="hero-dots">
+          <button class="hero-dot active" data-hero-slide="0" aria-label="Slide 1"></button>
+          <button class="hero-dot" data-hero-slide="1" aria-label="Slide 2"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Software Modules -->
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title" data-i18n="app_features_title"></h2>
+        <p class="section-sub" data-i18n="app_features_sub"></p>
+        <div class="app-features-grid">
+          <div class="card">
+            <div class="icon">📍</div>
+            <h3 data-i18n="app_1t"></h3>
+            <p data-i18n="app_1d"></p>
+          </div>
+          <div class="card">
+            <div class="icon">⛽</div>
+            <h3 data-i18n="app_2t"></h3>
+            <p data-i18n="app_2d"></p>
+          </div>
+          <div class="card">
+            <div class="icon">🔔</div>
+            <h3 data-i18n="app_3t"></h3>
+            <p data-i18n="app_3d"></p>
+          </div>
+          <div class="card">
+            <div class="icon">💰</div>
+            <h3 data-i18n="app_4t"></h3>
+            <p data-i18n="app_4d"></p>
+          </div>
+          <div class="card">
+            <div class="icon">✅</div>
+            <h3 data-i18n="app_5t"></h3>
+            <p data-i18n="app_5d"></p>
+          </div>
+          <div class="card">
+            <div class="icon">📷</div>
+            <h3 data-i18n="app_6t"></h3>
+            <p data-i18n="app_6d"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Platform Gallery -->
+    <section style="padding:36px 0">
+      <div class="container">
+        <h2 class="section-title" style="text-align:center" data-i18n="gallery_title"></h2>
+        <p class="section-sub" style="text-align:center;max-width:700px;margin:0 auto 24px" data-i18n="gallery_sub"></p>
+        <div class="slider" aria-label="Platform screenshots slider">
+          <div class="slides" id="service-slides">
+            <div class="slide-item">
+              <picture>
+                <source media="(min-width: 941px)" srcset="/public/SeeSite.png">
+                <img src="/public/See%20mobile.png" alt="TechTrust Dashboard">
+              </picture>
+              <div class="slide-caption" data-i18n="slide_1_caption"></div>
+            </div>
+            <div class="slide-item">
+              <picture>
+                <source media="(min-width: 941px)" srcset="/public/SeeSite1.png">
+                <img src="/public/See%20mobile1.png" alt="TechTrust GPS Tracking">
+              </picture>
+              <div class="slide-caption" data-i18n="slide_2_caption"></div>
+            </div>
+            <div class="slide-item">
+              <picture>
+                <source media="(min-width: 941px)" srcset="/public/SeeSite2.png">
+                <img src="/public/See%20mobile2.png" alt="TechTrust Fuel Analytics">
+              </picture>
+              <div class="slide-caption" data-i18n="slide_3_caption"></div>
+            </div>
+            <div class="slide-item">
+              <picture>
+                <source media="(min-width: 941px)" srcset="/public/SeeSite3.png">
+                <img src="/public/See%20mobile3.png" alt="TechTrust Maintenance">
+              </picture>
+              <div class="slide-caption" data-i18n="slide_4_caption"></div>
+            </div>
+            <div class="slide-item">
+              <picture>
+                <source media="(min-width: 941px)" srcset="/public/SeeSite4.png">
+                <img src="/public/See%20mobile4.png" alt="TechTrust Reports">
+              </picture>
+              <div class="slide-caption" data-i18n="slide_5_caption"></div>
+            </div>
+          </div>
+          <div class="slider-nav">
+            <button class="slider-prev" onclick="document.getElementById('service-slides').scrollBy({left: -document.getElementById('service-slides').clientWidth * 0.9, behavior: 'smooth'})" aria-label="Previous">‹</button>
+            <button class="slider-next" onclick="document.getElementById('service-slides').scrollBy({left: document.getElementById('service-slides').clientWidth * 0.9, behavior: 'smooth'})" aria-label="Next">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section style="background:linear-gradient(180deg, rgba(59,125,216,.03), transparent); padding:56px 0">
+      <div class="container">
+        <h2 class="section-title" style="text-align:center" data-i18n="how_it_works_title"></h2>
+        <p class="section-sub" style="text-align:center; max-width:700px; margin:0 auto 0" data-i18n="how_it_works_sub"></p>
+        <div class="steps">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3 data-i18n="step_1_title"></h3>
+            <p data-i18n="step_1_desc"></p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3 data-i18n="step_2_title"></h3>
+            <p data-i18n="step_2_desc"></p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3 data-i18n="step_3_title"></h3>
+            <p data-i18n="step_3_desc"></p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3 data-i18n="step_4_title"></h3>
+            <p data-i18n="step_4_desc"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section id="about">
+      <div class="container about-split">
+        <div>
+          <h2 class="section-title" data-i18n="mission_title"></h2>
+          <p class="section-sub" data-i18n="mission_body"></p>
+          <div class="card" style="margin-top:16px"><strong data-i18n="mission_slogan"></strong></div>
+        </div>
+        <div class="panel">
+          <div style="text-align:center;margin-bottom:16px">
+            <div class="logo-box"><img src="/logo-vertical-150h.png" alt="TechTrust AutoSolutions" style="height:110px;width:auto" loading="lazy" /></div>
+          </div>
+          <h3 style="margin:0 0 8px 0;font-size:1.1rem;font-weight:700" data-i18n="partner_title"></h3>
+          <p style="margin:0;color:var(--muted)"><span data-i18n="partner_contact_label"></span> <a href="mailto:contact@techtrustautosolutions.com" style="color:var(--accent)">contact@techtrustautosolutions.com</a></p>
+          <p style="margin:6px 0 0;color:var(--silver);font-size:.85rem">📍 Miami, Florida</p>
+          <p style="margin:12px 0 0;color:var(--silver);font-size:.95rem" data-i18n="partner_infrastructure"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section style="background:linear-gradient(180deg, rgba(59,125,216,.03), transparent)">
+      <div class="container">
+        <h2 class="section-title" data-i18n="about_title"></h2>
+        <p class="section-sub" data-i18n="about_body"></p>
+        <div class="about-split" style="margin-top:24px">
+          <div class="card">
+            <p><strong data-i18n="about_mission"></strong></p>
+            <p style="margin-top:12px;color:var(--muted)" data-i18n="about_diff"></p>
+            <div style="margin-top:16px;text-align:center">
+              <img src="https://flagcdn.com/w320/us.png" alt="United States Flag" style="width:100%;max-width:360px;border-radius:8px;border:1px solid rgba(148,163,184,.2);box-shadow:0 4px 12px rgba(2,6,23,.25)" loading="lazy" />
+            </div>
+          </div>
+          <div class="card">
+            <h3 style="margin:0 0 8px" data-i18n="office_title"></h3>
+            <p style="margin:0 0 16px;color:var(--accent);font-size:1.1rem;font-weight:700" data-i18n="office_location"></p>
+            <p style="margin:8px 0;color:var(--muted)">📧 <a href="mailto:contact@techtrustautosolutions.com" style="color:var(--accent)">contact@techtrustautosolutions.com</a></p>
+            <p style="margin:8px 0;color:var(--muted)">🌐 techtrustautosolutions.com</p>
+            <p style="margin:16px 0 0;color:var(--silver);font-size:.95rem" data-i18n="language_notice"></p>
+            <div style="margin-top:16px">
+              <p style="margin:0 0 8px;color:var(--muted);font-size:.8rem;font-weight:600">📱 Download our app:</p>
+              <div class="app-store-btns">
+                <a href="#" target="_blank" rel="noopener" aria-label="Download on the App Store"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> App Store</a>
+                <a href="#" target="_blank" rel="noopener" aria-label="Get it on Google Play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.67c-.37-.2-.68-.58-.68-1.16V1.49c0-.58.31-.96.68-1.16l11.28 11.67L3.18 23.67zm1.52-22.3L15.86 12 4.7 22.63l.01-21.26zm13.14 11.97L6.02 1.48 16.79 11.5l1.05-1.16zM17.84 12l1.05 1.16L6.02 22.52l11.82-10.52z"/></svg> Google Play</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Two Platforms -->
+    <section>
+      <div class="container">
+        <h2 class="section-title" data-i18n="two_apps_title"></h2>
+        <p class="section-sub" data-i18n="two_apps_sub"></p>
+        <div class="pillars">
+          <div class="card">
+            <img src="/botao-pequeno.png" alt="" aria-hidden="true" style="width:42px;height:42px;border-radius:10px" loading="lazy" />
+            <h3 style="margin:12px 0 6px" data-i18n="app_web_title"></h3>
+            <p style="color:var(--accent);font-size:.9rem;font-weight:600;margin:0 0 8px" data-i18n="app_web_subtitle"></p>
+            <p style="color:var(--muted)" data-i18n="app_web_desc"></p>
+          </div>
+          <div class="card">
+            <img src="/icon-red.png" alt="" aria-hidden="true" style="width:42px;height:42px;border-radius:10px" loading="lazy" />
+            <h3 style="margin:12px 0 6px" data-i18n="app_mobile_title"></h3>
+            <p style="color:var(--accent);font-size:.9rem;font-weight:600;margin:0 0 8px" data-i18n="app_mobile_subtitle"></p>
+            <p style="color:var(--muted)" data-i18n="app_mobile_desc"></p>
+          </div>
+        </div>
+        <div class="card" style="margin-top:18px;text-align:center;padding:20px">
+          <p style="margin:0;font-size:1rem;font-weight:600" data-i18n="flexibility_callout"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security -->
+    <section style="background:linear-gradient(180deg, rgba(59,125,216,.05), transparent)">
+      <div class="container">
+        <h2 class="section-title" data-i18n="security_title"></h2>
+        <p class="section-sub" data-i18n="security_sub"></p>
+        <div class="services" style="margin-top:18px">
+          <div class="card">
+            <div class="icon">🛡️</div>
+            <h3 data-i18n="sec_1_title"></h3>
+            <p style="color:var(--muted);font-size:.95rem" data-i18n="sec_1_desc"></p>
+          </div>
+          <div class="card">
+            <div class="icon">🔒</div>
+            <h3 data-i18n="sec_2_title"></h3>
+            <p style="color:var(--muted);font-size:.95rem" data-i18n="sec_2_desc"></p>
+          </div>
+          <div class="card">
+            <div class="icon">🔍</div>
+            <h3 data-i18n="sec_3_title"></h3>
+            <p style="color:var(--muted);font-size:.95rem" data-i18n="sec_3_desc"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section>
+      <div class="container">
+        <h2 class="section-title" data-i18n="benefits_title"></h2>
+        <p class="section-sub" data-i18n="benefits_sub"></p>
+        <div class="services" style="margin-top:18px">
+          <div class="card">
+            <div class="icon">📉</div>
+            <h3 data-i18n="ben_1_title"></h3>
+            <p style="color:var(--muted);font-size:.95rem" data-i18n="ben_1_desc"></p>
+          </div>
+          <div class="card">
+            <div class="icon">👁️</div>
+            <h3 data-i18n="ben_2_title"></h3>
+            <p style="color:var(--muted);font-size:.95rem" data-i18n="ben_2_desc"></p>
+          </div>
+          <div class="card">
+            <div class="icon">✅</div>
+            <h3 data-i18n="ben_3_title"></h3>
+            <p style="color:var(--muted);font-size:.95rem" data-i18n="ben_3_desc"></p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:24px">
+          <a class="cta" href="/register-client.html" data-i18n="proof_cta"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- For Everyone -->
+    <section id="industries">
+      <div class="container">
+        <h2 class="section-title" data-i18n="for_everyone_title"></h2>
+        <p class="section-sub" data-i18n="for_everyone_sub"></p>
+        <div class="industries" style="margin-top:18px">
+          <div class="card">
+            <div class="icon">🚐</div>
+            <h3 data-i18n="user_1_title"></h3>
+            <p style="color:var(--muted)" data-i18n="user_1_desc"></p>
+          </div>
+          <div class="card">
+            <div class="icon">🚛</div>
+            <h3 data-i18n="user_2_title"></h3>
+            <p style="color:var(--muted)" data-i18n="user_2_desc"></p>
+          </div>
+          <div class="card">
+            <div class="icon">🏗️</div>
+            <h3 data-i18n="user_3_title"></h3>
+            <p style="color:var(--muted)" data-i18n="user_3_desc"></p>
+          </div>
+          <div class="card">
+            <div class="icon">🏢</div>
+            <h3 data-i18n="user_4_title"></h3>
+            <p style="color:var(--muted)" data-i18n="user_4_desc"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" style="background:linear-gradient(180deg, rgba(59,125,216,.04), transparent); padding:56px 0">
+      <div class="container">
+        <h2 class="section-title" style="text-align:center" data-i18n="pricing_title"></h2>
+        <p class="section-sub" style="text-align:center;max-width:700px;margin:0 auto 0" data-i18n="pricing_sub"></p>
+        <div class="pricing-grid">
+          <!-- Free -->
+          <div class="price-card">
+            <h3 data-i18n="plan_free"></h3>
+            <div class="price-amount" data-i18n="plan_free_price"></div>
+            <p style="color:var(--accent);font-weight:700;font-size:1rem;margin:-4px 0 8px" data-i18n="plan_per_month"></p>
+            <p class="price-desc" data-i18n="plan_free_desc"></p>
+            <ul class="price-features">
+              <li data-i18n="plan_free_f1"></li>
+              <li data-i18n="plan_free_f2"></li>
+              <li data-i18n="plan_free_f3"></li>
+              <li data-i18n="plan_free_f4"></li>
+              <li data-i18n="plan_free_f5"></li>
+            </ul>
+            <a href="/register-client.html?plan=free" class="price-cta cta secondary" data-i18n="plan_cta_start"></a>
+          </div>
+          <!-- Starter -->
+          <div class="price-card">
+            <h3 data-i18n="plan_starter"></h3>
+            <div class="price-amount" data-i18n="plan_starter_price"></div>
+            <p style="color:var(--accent);font-weight:700;font-size:1rem;margin:-4px 0 8px" data-i18n="plan_per_month"></p>
+            <p class="price-desc" data-i18n="plan_starter_desc"></p>
+            <ul class="price-features">
+              <li data-i18n="plan_starter_f1"></li>
+              <li data-i18n="plan_starter_f2"></li>
+              <li data-i18n="plan_starter_f3"></li>
+              <li data-i18n="plan_starter_f4"></li>
+              <li data-i18n="plan_starter_f5"></li>
+              <li data-i18n="plan_starter_f6"></li>
+              <li data-i18n="plan_starter_f7"></li>
+            </ul>
+            <a href="/register-client.html?plan=starter" class="price-cta cta secondary" data-i18n="plan_cta_start"></a>
+          </div>
+          <!-- Pro -->
+          <div class="price-card featured">
+            <h3 data-i18n="plan_pro"></h3>
+            <div class="price-amount" data-i18n="plan_pro_price"></div>
+            <p style="color:var(--accent);font-weight:700;font-size:1rem;margin:-4px 0 8px" data-i18n="plan_per_month"></p>
+            <p class="price-desc" data-i18n="plan_pro_desc"></p>
+            <ul class="price-features">
+              <li data-i18n="plan_pro_f1"></li>
+              <li data-i18n="plan_pro_f2"></li>
+              <li data-i18n="plan_pro_f3"></li>
+              <li data-i18n="plan_pro_f4"></li>
+              <li data-i18n="plan_pro_f5"></li>
+              <li data-i18n="plan_pro_f6"></li>
+              <li data-i18n="plan_pro_f7"></li>
+              <li data-i18n="plan_pro_f8"></li>
+            </ul>
+            <a href="/register-client.html?plan=professional" class="price-cta cta" data-i18n="plan_cta_start"></a>
+          </div>
+          <!-- Enterprise -->
+          <div class="price-card">
+            <h3 data-i18n="plan_enterprise"></h3>
+            <div class="price-amount" data-i18n="plan_enterprise_price"></div>
+            <p style="color:var(--accent);font-weight:700;font-size:1rem;margin:-4px 0 8px" data-i18n="plan_per_month"></p>
+            <p class="price-desc" data-i18n="plan_enterprise_desc"></p>
+            <ul class="price-features">
+              <li data-i18n="plan_enterprise_f1"></li>
+              <li data-i18n="plan_enterprise_f2"></li>
+              <li data-i18n="plan_enterprise_f3"></li>
+              <li data-i18n="plan_enterprise_f4"></li>
+              <li data-i18n="plan_enterprise_f5"></li>
+              <li data-i18n="plan_enterprise_f6"></li>
+              <li data-i18n="plan_enterprise_f7"></li>
+              <li data-i18n="plan_enterprise_f8"></li>
+            </ul>
+            <a href="#contact" class="price-cta cta secondary" data-i18n="plan_cta_contact"></a>
+          </div>
+        </div>
+
+        <!-- Extra Vehicle Add-On -->
+        <h3 style="text-align:center;margin-top:48px;font-size:1.3rem;font-weight:800" data-i18n="addons_title"></h3>
+        <p style="text-align:center;color:var(--muted);font-size:.9rem;margin:4px 0 20px" data-i18n="addons_sub"></p>
+        <div class="addons-grid">
+          <div class="addon-card">
+            <div style="font-size:1.8rem">🆓</div>
+            <h4 data-i18n="addon_free_label"></h4>
+            <div class="addon-price" data-i18n="addon_free_price"></div>
+            <p data-i18n="addon_free_desc"></p>
+          </div>
+          <div class="addon-card">
+            <div style="font-size:1.8rem">⭐</div>
+            <h4 data-i18n="addon_starter_label"></h4>
+            <div class="addon-price" data-i18n="addon_starter_price"></div>
+            <p data-i18n="addon_starter_desc"></p>
+          </div>
+          <div class="addon-card">
+            <div style="font-size:1.8rem">🚀</div>
+            <h4 data-i18n="addon_pro_label"></h4>
+            <div class="addon-price" data-i18n="addon_pro_price"></div>
+            <p data-i18n="addon_pro_desc"></p>
+          </div>
+          <div class="addon-card">
+            <div style="font-size:1.8rem">🏢</div>
+            <h4 data-i18n="addon_enterprise_label"></h4>
+            <div class="addon-price" data-i18n="addon_enterprise_price"></div>
+            <p data-i18n="addon_enterprise_desc"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section>
+      <div class="container">
+        <div class="card" style="text-align:center;padding:48px 24px">
+          <div style="margin-bottom:20px">
+            <div class="logo-box"><img src="/logo-vertical-200h.png" alt="TechTrust" style="height:90px;width:auto" loading="lazy" /></div>
+          </div>
+          <h2 class="section-title" style="margin-bottom:12px" data-i18n="final_cta_title"></h2>
+          <p class="section-sub" style="margin-bottom:24px" data-i18n="final_cta_desc"></p>
+          <div class="hero-cta centered">
+            <a class="cta" href="/register-client.html" data-i18n="cta_start"></a>
+            <a class="cta secondary" href="#contact" data-i18n="cta_demo"></a>
+          </div>
+          <p style="margin-top:16px;font-size:.9rem;color:var(--muted)" data-i18n="app_callout"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fleet Tools Detail -->
+    <section id="software">
+      <div class="container">
+        <h2 class="section-title" data-i18n="software_title"></h2>
+        <p class="section-sub" data-i18n="software_sub"></p>
+        <div class="services" style="margin-top:18px">
+          <div class="card">
+            <div class="icon">✅</div>
+            <h3 data-i18n="sw_1t"></h3>
+            <ul class="list">
+              <li data-i18n="sw_1a"></li>
+              <li data-i18n="sw_1b"></li>
+              <li data-i18n="sw_1c"></li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="icon">⛽</div>
+            <h3 data-i18n="sw_2t"></h3>
+            <ul class="list">
+              <li data-i18n="sw_2a"></li>
+              <li data-i18n="sw_2b"></li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="icon">🧰</div>
+            <h3 data-i18n="sw_3t"></h3>
+            <ul class="list">
+              <li data-i18n="sw_3a"></li>
+              <li data-i18n="sw_3b"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title" data-i18n="contact_title"></h2>
+        <p class="section-sub" data-i18n="contact_sub"></p>
+        <div class="about-split" style="gap:26px; margin-top:16px">
+          <div class="card">
+            <form id="contact-form" aria-label="Contact form">
+              <label><span data-i18n="form_name"></span><br><input name="name" type="text" required placeholder="Jane Doe" aria-required="true"></label>
+              <label><span data-i18n="form_email"></span><br><input name="email" type="email" required placeholder="jane@company.com" aria-required="true"></label>
+              <label><span data-i18n="form_company"></span><br><input name="company" type="text" required placeholder="ACME Logistics"></label>
+              <label><span data-i18n="form_size"></span><br>
+                <select name="fleet_size">
+                  <option value="1-10">1–10</option>
+                  <option value="11-50">11–50</option>
+                  <option value="51-100">51–100</option>
+                  <option value="101-500">101–500</option>
+                  <option value=">500">500+</option>
+                </select>
+              </label>
+              <label><span data-i18n="form_msg"></span><br><textarea name="message" placeholder="Tell us about your fleet and what you need..."></textarea></label>
+              <button class="cta btn" type="submit" data-i18n="form_send"></button>
+            </form>
+          </div>
+          <div class="panel">
+            <div style="text-align:center;margin-bottom:16px">
+              <div class="logo-box"><img src="/logo-vertical-200h.png" alt="TechTrust AutoSolutions" style="height:120px;width:auto" loading="lazy" /></div>
+            </div>
+            <div style="color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:12px">
+              <div style="font-weight:700;color:#e2e8f0;font-size:1rem;margin-bottom:6px">📍 <span data-i18n="office_title">Our Office</span></div>
+              <div>Miami, Florida</div>
+              <div style="margin-top:8px">📧 <a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a></div>
+              <div>🌐 techtrustautosolutions.com</div>
+            </div>
+            <div style="margin-top:14px">
+              <div style="color:var(--muted);font-size:.8rem;font-weight:600;margin-bottom:6px">📱 Download our app:</div>
+              <div class="app-store-btns">
+                <a href="#" target="_blank" rel="noopener" aria-label="App Store"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> App Store</a>
+                <a href="#" target="_blank" rel="noopener" aria-label="Google Play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.67c-.37-.2-.68-.58-.68-1.16V1.49c0-.58.31-.96.68-1.16l11.28 11.67L3.18 23.67zm1.52-22.3L15.86 12 4.7 22.63l.01-21.26zm13.14 11.97L6.02 1.48 16.79 11.5l1.05-1.16zM17.84 12l1.05 1.16L6.02 22.52l11.82-10.52z"/></svg> Google Play</a>
+              </div>
+            </div>
+            <div style="margin-top:16px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap">
+              <img src="https://flagcdn.com/w80/us.png" alt="United States" style="height:40px;border-radius:4px;border:1px solid rgba(148,163,184,.2)" />
+              <span style="color:rgba(148,163,184,.4);font-size:1.2rem">|</span>
+              <img src="https://flagcdn.com/w80/es.png" alt="España" style="height:32px;border-radius:4px;border:1px solid rgba(148,163,184,.2)" />
+              <img src="https://flagcdn.com/w80/br.png" alt="Brasil" style="height:32px;border-radius:4px;border:1px solid rgba(148,163,184,.2)" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container f-grid">
+      <div>
+        <div style="margin-bottom:10px">
+          <div class="logo-box" style="padding:8px 14px"><img src="/logo-horizontal-300w.png" alt="TechTrust AutoSolutions" style="height:34px;width:auto" loading="lazy" /></div>
+        </div>
+        <div style="font-size:.85rem;color:var(--muted);font-style:italic;margin-bottom:8px">Driven by Technology. Trusted by You.</div>
+        <div style="font-size:.85rem;color:var(--muted);line-height:1.6">
+          <div>Miami, Florida</div>
+          <div><a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a> • techtrustautosolutions.com</div>
+        </div>
+        <div class="footer-links">
+          <a href="/privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="#contact" class="f-accent" data-i18n="footer_contact">Contact</a>
+          <a href="https://app.techtrustautosolutions.com/login" target="_blank" rel="noopener" data-i18n="footer_client_login">Client Login</a>
+          <a href="https://provider.techtrustautosolutions.com/login" target="_blank" rel="noopener" class="f-red" data-i18n="footer_provider_login">Provider Login</a>
+          <a href="/register-client.html" class="f-green" data-i18n="footer_client_register">Client Register</a>
+          <a href="/register-provider.html" class="f-green" data-i18n="footer_provider_register">Provider Register</a>
+        </div>
+        <div class="app-store-btns" style="margin-top:14px">
+          <a href="#" target="_blank" rel="noopener" aria-label="Download on the App Store"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> App Store</a>
+          <a href="#" target="_blank" rel="noopener" aria-label="Get it on Google Play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.67c-.37-.2-.68-.58-.68-1.16V1.49c0-.58.31-.96.68-1.16l11.28 11.67L3.18 23.67zm1.52-22.3L15.86 12 4.7 22.63l.01-21.26zm13.14 11.97L6.02 1.48 16.79 11.5l1.05-1.16zM17.84 12l1.05 1.16L6.02 22.52l11.82-10.52z"/></svg> Google Play</a>
+        </div>
+      </div>
+      <div data-i18n="footer_rights"></div>
+    </div>
+  </footer>
+</body>
+</html>

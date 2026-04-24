@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TechTrust AutoSolutions — Client Registration</title>
+  <meta name="description" content="Register as a TechTrust client. Choose your vehicle management plan. Track vehicles, control maintenance costs, and manage everything from one platform." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    :root{--bg:#0b1220;--bg-alt:#0f172a;--card:#111827;--muted:#94a3b8;--text:#e5e7eb;--accent:#3B7DD8;--accent-2:#1B4D8F;--brand-red:#CC2233;--brand-red-light:#E03545;--silver:#cbd5e1;--maxw:1100px;--radius:18px;--shadow:0 10px 30px rgba(2,6,23,.25)}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Montserrat,system-ui,-apple-system,sans-serif;background:linear-gradient(180deg,#0b1220 0%,#0c1324 60%,#0a1328 100%);color:var(--text);-webkit-font-smoothing:antialiased}
+    a{color:var(--accent)}
+    .container{max-width:var(--maxw);margin-inline:auto;padding:0 20px}
+    .logo-box{display:inline-block;background:#fff;border-radius:14px;padding:10px 16px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+    header{background:rgba(2,6,23,.95);border-bottom:2px solid;border-image:linear-gradient(90deg,var(--brand-red),var(--accent)) 1;padding:12px 0}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand img{width:36px;height:36px;border-radius:10px}
+    .brand span{font-weight:800;color:#e2e8f0;font-size:1rem}
+    .brand .red{color:var(--brand-red)}
+    .back-link{color:var(--silver);font-size:.85rem;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border:1px solid rgba(148,163,184,.25);border-radius:999px;transition:all .2s}
+    .back-link:hover{border-color:var(--accent);color:var(--accent)}
+    .page-hero{text-align:center;padding:48px 0 32px}
+    .page-hero h1{font-size:clamp(28px,4vw,44px);font-weight:900;margin:0 0 12px}
+    .page-hero p{color:var(--muted);font-size:clamp(15px,1.2vw,18px);max-width:700px;margin:0 auto 8px}
+    .page-hero .highlight{color:var(--accent);font-weight:700}
+    /* Steps indicator */
+    .steps-indicator{display:flex;align-items:center;justify-content:center;gap:0;margin:32px auto 40px;max-width:600px}
+    .step-dot{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.9rem;border:2px solid rgba(148,163,184,.3);color:var(--muted);background:transparent;flex-shrink:0;transition:all .3s}
+    .step-dot.active{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-color:var(--accent);box-shadow:0 0 16px rgba(59,125,216,.3)}
+    .step-dot.done{background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;border-color:#22c55e}
+    .step-line{flex:1;height:2px;background:rgba(148,163,184,.2)}
+    .step-line.done{background:linear-gradient(90deg,#22c55e,var(--accent))}
+    /* Plan selection */
+    .plans-section{margin-bottom:48px}
+    .plans-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:24px}
+    .plan-card{background:linear-gradient(180deg,#0B1324,#0B1428);border:2px solid rgba(148,163,184,.18);border-radius:var(--radius);padding:28px 22px;text-align:center;cursor:pointer;transition:all .3s;position:relative}
+    .plan-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(59,125,216,.15)}
+    .plan-card.selected{border-color:var(--accent);box-shadow:0 0 30px rgba(59,125,216,.2)}
+    .plan-card.popular::before{content:'MOST POPULAR';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-size:.65rem;font-weight:800;padding:3px 14px;border-radius:999px;letter-spacing:.5px}
+    .plan-card h3{font-size:1.2rem;font-weight:800;margin:0 0 6px}
+    .plan-price{font-size:2.4rem;font-weight:900;color:#fff;margin:10px 0 2px}
+    .plan-price span{font-size:.85rem;font-weight:600;color:var(--muted)}
+    .plan-desc{color:var(--muted);font-size:.85rem;margin:0 0 16px}
+    .plan-features{list-style:none;padding:0;margin:0;text-align:left}
+    .plan-features li{padding:6px 0;border-bottom:1px solid rgba(148,163,184,.08);color:var(--silver);font-size:.85rem;display:flex;align-items:center;gap:8px}
+    .plan-features li::before{content:'✓';color:#4ade80;font-weight:700;flex-shrink:0}
+    .plan-check{position:absolute;top:12px;right:12px;width:24px;height:24px;border-radius:50%;border:2px solid rgba(148,163,184,.3);display:grid;place-items:center;font-size:.8rem;color:transparent;transition:all .3s}
+    .plan-card.selected .plan-check{background:var(--accent);border-color:var(--accent);color:#fff}
+    /* Add-ons */
+    .addons-section{margin-bottom:40px}
+    .addons-section h2{font-size:1.4rem;font-weight:800;margin:0 0 6px}
+    .addons-section p{color:var(--muted);margin:0 0 20px;font-size:.9rem}
+    .addons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .addon-card{background:linear-gradient(135deg,rgba(59,125,216,.06),rgba(27,77,143,.06));border:2px solid rgba(59,125,216,.15);border-radius:var(--radius);padding:18px;cursor:pointer;transition:all .3s;position:relative}
+    .addon-card:hover{border-color:rgba(59,125,216,.3)}
+    .addon-card.selected{border-color:var(--accent);background:rgba(59,125,216,.1)}
+    .addon-card h4{margin:6px 0 2px;font-size:.95rem;font-weight:700}
+    .addon-card .addon-price{color:var(--accent);font-weight:800;font-size:.95rem}
+    .addon-card p{color:var(--muted);font-size:.8rem;margin:4px 0 0}
+    .addon-check{position:absolute;top:10px;right:10px;width:20px;height:20px;border-radius:4px;border:2px solid rgba(148,163,184,.3);display:grid;place-items:center;font-size:.7rem;color:transparent;transition:all .3s}
+    .addon-card.selected .addon-check{background:var(--accent);border-color:var(--accent);color:#fff}
+    /* Registration form */
+    .reg-section{margin-bottom:48px}
+    .reg-section h2{font-size:1.4rem;font-weight:800;margin:0 0 16px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .form-grid.single{grid-template-columns:1fr}
+    .form-group{display:flex;flex-direction:column;gap:4px}
+    .form-group label{font-size:.85rem;font-weight:600;color:var(--silver)}
+    .form-group label .req{color:var(--brand-red)}
+    .form-group input,.form-group select{background:#0b1220;color:var(--text);border:1px solid rgba(148,163,184,.25);border-radius:12px;padding:12px 14px;font:inherit;font-size:.9rem;transition:border-color .2s}
+    .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,125,216,.15)}
+    .form-divider{height:1px;background:rgba(148,163,184,.15);margin:28px 0}
+    .form-subtitle{font-size:1.1rem;font-weight:700;margin:0 0 16px;color:var(--silver)}
+    /* Payment section */
+    .payment-info{background:linear-gradient(135deg,rgba(34,197,94,.06),rgba(34,197,94,.02));border:1px solid rgba(34,197,94,.2);border-radius:var(--radius);padding:20px;margin-bottom:20px}
+    .payment-info h4{margin:0 0 6px;color:#4ade80;font-weight:700}
+    .payment-info p{margin:0;color:var(--muted);font-size:.85rem;line-height:1.6}
+    /* CTA */
+    .submit-section{text-align:center;padding:20px 0 60px}
+    .submit-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 48px;border-radius:999px;background:linear-gradient(135deg,var(--brand-red),var(--brand-red-light));color:#fff;font-weight:800;font-size:1.1rem;border:none;cursor:pointer;box-shadow:0 4px 18px rgba(204,34,51,.35);transition:all .2s;min-width:320px}
+    .submit-btn:hover{box-shadow:0 6px 24px rgba(204,34,51,.5);transform:translateY(-2px)}
+    .submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+    .submit-status{margin-top:12px;font-size:.9rem}
+    .terms{color:var(--muted);font-size:.8rem;margin-top:12px;max-width:500px;margin-inline:auto}
+    .terms a{color:var(--accent)}
+    /* Summary panel */
+    .summary-bar{position:sticky;bottom:0;background:rgba(2,6,23,.95);backdrop-filter:blur(8px);border-top:1px solid rgba(59,125,216,.2);padding:12px 0;z-index:40}
+    .summary-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .summary-text{font-size:.9rem;color:var(--silver)}
+    .summary-text strong{color:#fff;font-size:1.2rem}
+    .summary-mini-btn{padding:10px 28px;border-radius:999px;background:linear-gradient(135deg,var(--brand-red),var(--brand-red-light));color:#fff;font-weight:800;font-size:.9rem;text-decoration:none;border:none;cursor:pointer;transition:all .2s}
+    @media(max-width:768px){
+      .form-grid{grid-template-columns:1fr}
+      .plans-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:600px){
+      .plans-grid{grid-template-columns:1fr}
+      .header-inner{justify-content:center}
+    }
+    footer{padding:30px 0;border-top:1px solid rgba(148,163,184,.18);color:var(--muted);text-align:center;font-size:.8rem}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <a href="/" class="brand">
+        <img src="/botao-pequeno.png" alt="TechTrust" />
+        <span>TechTrust <span class="red">AutoSolutions</span></span>
+      </a>
+      <a href="/" class="back-link">← Back to Home</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Page Hero -->
+      <div class="page-hero">
+        <h1>Start Managing Your Vehicles <span style="color:var(--accent)">Smarter</span></h1>
+        <p>Choose your plan, create your account, and get full access to TechTrust in minutes. <span class="highlight">7-day free trial on paid plans. Free plan available forever.</span></p>
+      </div>
+
+      <!-- Steps Indicator -->
+      <div class="steps-indicator">
+        <div class="step-dot active" id="step-1-dot">1</div>
+        <div class="step-line" id="line-1-2"></div>
+        <div class="step-dot" id="step-2-dot">2</div>
+        <div class="step-line" id="line-2-3"></div>
+        <div class="step-dot" id="step-3-dot">3</div>
+      </div>
+
+      <!-- Step 1: Choose Plan -->
+      <div id="step-1">
+        <div class="plans-section">
+          <h2 style="font-size:1.4rem;font-weight:800;margin:0 0 4px">Step 1: Choose Your Plan</h2>
+          <p style="color:var(--muted);margin:0 0 8px;font-size:.9rem">Free plan forever. Paid plans include a 7-day free trial. Upgrade or downgrade anytime.</p>
+
+          <div class="plans-grid">
+            <!-- Free -->
+            <div class="plan-card" data-plan="free" data-price="0" onclick="selectPlan(this)">
+              <div class="plan-check">✓</div>
+              <h3>Free</h3>
+              <div class="plan-price">$0 <span>/month</span></div>
+              <p class="plan-desc">Get started with basic vehicle management</p>
+              <ul class="plan-features">
+                <li>Up to 2 vehicles</li>
+                <li>VIN decoder & NHTSA recalls</li>
+                <li>PDF service receipts</li>
+                <li>4 service requests/month</li>
+                <li>Mobile app access (iOS & Android)</li>
+              </ul>
+            </div>
+
+            <!-- Starter -->
+            <div class="plan-card" data-plan="starter" data-price="9.99" onclick="selectPlan(this)">
+              <div class="plan-check">✓</div>
+              <h3>Starter</h3>
+              <div class="plan-price">$9.99 <span>/month</span></div>
+              <p class="plan-desc">For individuals & small fleets</p>
+              <ul class="plan-features">
+                <li>Up to 3 vehicles</li>
+                <li>All Free features included</li>
+                <li>Multi-language support</li>
+                <li>Mileage tracker</li>
+                <li>Scheduled maintenance</li>
+                <li>10 service requests/month</li>
+                <li>+$5.99/extra vehicle</li>
+              </ul>
+            </div>
+
+            <!-- Pro -->
+            <div class="plan-card popular" data-plan="professional" data-price="19.99" onclick="selectPlan(this)">
+              <div class="plan-check">✓</div>
+              <h3>Pro</h3>
+              <div class="plan-price">$19.99 <span>/month</span></div>
+              <p class="plan-desc">Advanced tools for growing needs</p>
+              <ul class="plan-features">
+                <li>Up to 5 vehicles</li>
+                <li>All Starter features included</li>
+                <li>Unlimited service requests</li>
+                <li>OBD2 diagnostics</li>
+                <li>Expense reports & wallet</li>
+                <li>OEM parts lookup</li>
+                <li>Priority support</li>
+                <li>+$3.99/extra vehicle</li>
+              </ul>
+            </div>
+
+            <!-- Enterprise -->
+            <div class="plan-card" data-plan="enterprise" data-price="49.99" onclick="selectPlan(this)">
+              <div class="plan-check">✓</div>
+              <h3>Enterprise</h3>
+              <div class="plan-price">$49.99 <span>/month</span></div>
+              <p class="plan-desc">Complete management for large operations</p>
+              <ul class="plan-features">
+                <li>Up to 14 vehicles included</li>
+                <li>All Pro features included</li>
+                <li>Fleet dashboard & analytics</li>
+                <li>Advanced OBD2 diagnostics</li>
+                <li>Dedicated account manager</li>
+                <li>24/7 priority support</li>
+                <li>Unlimited simultaneous requests</li>
+                <li>Custom vehicle add-on pricing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extra Vehicle Info -->
+        <div class="addons-section">
+          <h2>Need More Vehicles?</h2>
+          <p>Each plan includes a set number of vehicles. You can add extra vehicles anytime from your dashboard.</p>
+          <div class="addons-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+            <div class="addon-card" style="cursor:default">
+              <div style="font-size:1.5rem">🆓</div>
+              <h4>Free Plan</h4>
+              <div class="addon-price">+$6.99/vehicle/mo</div>
+              <p>2 vehicles included. Add more at $6.99 each.</p>
+            </div>
+            <div class="addon-card" style="cursor:default">
+              <div style="font-size:1.5rem">⭐</div>
+              <h4>Starter Plan</h4>
+              <div class="addon-price">+$5.99/vehicle/mo</div>
+              <p>3 vehicles included. Add more at $5.99 each.</p>
+            </div>
+            <div class="addon-card" style="cursor:default">
+              <div style="font-size:1.5rem">🚀</div>
+              <h4>Pro Plan</h4>
+              <div class="addon-price">+$3.99/vehicle/mo</div>
+              <p>5 vehicles included. Add more at $3.99 each.</p>
+            </div>
+            <div class="addon-card" style="cursor:default">
+              <div style="font-size:1.5rem">🏢</div>
+              <h4>Enterprise Plan</h4>
+              <div class="addon-price">Custom pricing</div>
+              <p>14 vehicles included. Contact us for additional.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin:24px 0">
+          <button class="submit-btn" onclick="goToStep(2)" id="next-step-1" disabled>Continue to Registration →</button>
+          <p style="color:var(--muted);font-size:.8rem;margin-top:8px">Select a plan to continue</p>
+        </div>
+      </div>
+
+      <!-- Step 2: Account Details -->
+      <div id="step-2" style="display:none">
+        <div class="reg-section">
+          <h2>Step 2: Create Your Account</h2>
+          <form id="reg-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Account Type <span class="req">*</span></label>
+                <select name="account_type" required id="account-type-select">
+                  <option value="">Select account type</option>
+                  <option value="person">Person (Individual)</option>
+                  <option value="business">Business / Company</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-divider"></div>
+            <div class="form-subtitle" id="details-subtitle">Your Details</div>
+            <div class="form-grid">
+              <div class="form-group" id="company-name-group" style="display:none">
+                <label>Company Name <span class="req">*</span></label>
+                <input type="text" name="company_name" placeholder="ACME Logistics Inc.">
+              </div>
+              <div class="form-group">
+                <label id="name-label">Full Name <span class="req">*</span></label>
+                <input type="text" name="name" required placeholder="Jane Doe" id="name-input">
+              </div>
+              <div class="form-group">
+                <label id="email-label">Email <span class="req">*</span></label>
+                <input type="email" name="email" required placeholder="jane@company.com" id="email-input">
+              </div>
+              <div class="form-group">
+                <label id="phone-label">Phone <span class="req">*</span></label>
+                <input type="tel" name="phone" required placeholder="(305) 000-0000">
+              </div>
+              <div class="form-group">
+                <label>Password <span class="req">*</span></label>
+                <input type="password" name="password" required placeholder="Minimum 8 characters" minlength="8">
+              </div>
+              <div class="form-group">
+                <label>Confirm Password <span class="req">*</span></label>
+                <input type="password" name="password_confirm" required placeholder="Repeat password" minlength="8">
+              </div>
+            </div>
+
+            <div style="text-align:center;margin-top:28px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+              <button type="button" class="submit-btn" style="background:transparent;border:1px solid rgba(148,163,184,.3);color:var(--silver);min-width:160px;font-size:.95rem;padding:14px 28px" onclick="goToStep(1)">← Back</button>
+              <button type="button" class="submit-btn" onclick="goToStep(3)" id="next-step-2">Continue to Payment →</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Step 3: Confirm & Create Account -->
+      <div id="step-3" style="display:none">
+        <div class="reg-section">
+          <h2>Step 3: Confirm & Create Account</h2>
+          
+          <div class="payment-info" id="trial-info">
+            <h4>🎉 7-Day Free Trial</h4>
+            <p id="trial-text">Your paid plan includes a 7-day free trial. After creating your account, you'll verify your phone number via SMS, then set up payment via Stripe. Your card will only be charged after the 7-day trial ends.</p>
+          </div>
+
+          <!-- Flow Steps Preview -->
+          <div id="flow-steps" style="background:rgba(59,125,216,.06);border:1px solid rgba(59,125,216,.15);border-radius:var(--radius);padding:18px;margin-bottom:20px">
+            <p style="font-size:.85rem;font-weight:700;color:var(--silver);margin:0 0 10px">What happens next:</p>
+            <div style="display:flex;flex-direction:column;gap:8px;font-size:.85rem;color:var(--muted)">
+              <div style="display:flex;align-items:center;gap:10px"><span style="background:var(--accent);color:#fff;border-radius:50%;width:24px;height:24px;display:grid;place-items:center;font-weight:800;font-size:.75rem;flex-shrink:0">1</span> Create your account</div>
+              <div style=\"display:flex;align-items:center;gap:10px\"><span style=\"background:var(--accent);color:#fff;border-radius:50%;width:24px;height:24px;display:grid;place-items:center;font-weight:800;font-size:.75rem;flex-shrink:0\">2</span> Verify your account (SMS or Email — you choose)</div>
+              <div id="flow-step-3" style="display:flex;align-items:center;gap:10px"><span style="background:var(--accent);color:#fff;border-radius:50%;width:24px;height:24px;display:grid;place-items:center;font-weight:800;font-size:.75rem;flex-shrink:0">3</span> <span id="flow-step-3-text">Set up payment via Stripe (card charged after 7-day trial)</span></div>
+              <div style="display:flex;align-items:center;gap:10px"><span style="background:#22c55e;color:#fff;border-radius:50%;width:24px;height:24px;display:grid;place-items:center;font-weight:800;font-size:.75rem;flex-shrink:0">✓</span> Access your dashboard</div>
+            </div>
+          </div>
+
+          <!-- Order Summary -->
+          <div class="form-subtitle">Selected Plan</div>
+          <div style="background:rgba(59,125,216,.08);border:1px solid rgba(59,125,216,.2);border-radius:var(--radius);padding:20px;margin-bottom:20px">
+            <div id="order-summary" style="font-size:.9rem;color:var(--silver);line-height:2">
+              <!-- Filled by JS -->
+            </div>
+            <div style="border-top:1px solid rgba(148,163,184,.2);margin-top:8px;padding-top:8px;display:flex;justify-content:space-between;font-weight:800;font-size:1.1rem">
+              <span>After trial:</span>
+              <span id="order-total" style="color:#fff">$0/month</span>
+            </div>
+          </div>
+
+          <div style="text-align:center;margin-top:28px">
+            <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+              <button type="button" class="submit-btn" style="background:transparent;border:1px solid rgba(148,163,184,.3);color:var(--silver);min-width:160px;font-size:.95rem;padding:14px 28px" onclick="goToStep(2)">← Back</button>
+              <button type="button" class="submit-btn" onclick="submitRegistration()" id="submit-reg">🚀 Create Account</button>
+            </div>
+            <p class="terms">By registering, you agree to our <a href="/privacy.html">Privacy Policy</a> and Terms of Service. Cancel anytime.</p>
+            <p class="submit-status" id="reg-status"></p>
+
+            <!-- OTP Method Chooser (hidden until Create Account is clicked) -->
+            <div id="otp-method-chooser" style="display:none;margin-top:24px">
+              <div style="background:rgba(59,125,216,.06);border:1px solid rgba(59,125,216,.2);border-radius:var(--radius);padding:24px;max-width:500px;margin:0 auto;text-align:center">
+                <div style="font-size:2rem;margin-bottom:8px">🔐</div>
+                <h3 style="margin:0 0 6px;font-size:1.1rem;font-weight:800">Choose Verification Method</h3>
+                <p style="color:var(--muted);font-size:.85rem;margin:0 0 20px">How would you like to receive your verification code?</p>
+                <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+                  <button type="button" onclick="selectOtpMethod('sms')" id="otp-btn-sms" style="flex:1;min-width:180px;max-width:220px;padding:16px;border-radius:14px;border:2px solid rgba(59,125,216,.3);background:rgba(59,125,216,.08);color:var(--silver);cursor:pointer;font-family:inherit;transition:all .2s">
+                    <div style="font-size:1.5rem;margin-bottom:6px">📱</div>
+                    <div style="font-weight:700;font-size:.95rem">SMS</div>
+                    <div style="font-size:.78rem;color:var(--muted);margin-top:2px">Code via text message</div>
+                  </button>
+                  <button type="button" onclick="selectOtpMethod('email')" id="otp-btn-email" style="flex:1;min-width:180px;max-width:220px;padding:16px;border-radius:14px;border:2px solid rgba(148,163,184,.2);background:transparent;color:var(--silver);cursor:pointer;font-family:inherit;transition:all .2s">
+                    <div style="font-size:1.5rem;margin-bottom:6px">✉️</div>
+                    <div style="font-weight:700;font-size:.95rem">Email</div>
+                    <div style="font-size:.78rem;color:var(--muted);margin-top:2px">Code via email</div>
+                  </button>
+                </div>
+                <button type="button" class="submit-btn" onclick="confirmOtpMethodAndSubmit()" id="confirm-otp-method-btn" style="margin-top:20px;min-width:260px">🚀 Confirm & Create Account</button>
+                <p id="otp-method-status" style="font-size:.9rem;margin-top:10px"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 TechTrust AutoSolutions. All rights reserved. Miami, Florida.</p>
+      <p><a href="/">Home</a> • <a href="/privacy.html">Privacy Policy</a> • <a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const API_BASE = 'https://techtrust-api.onrender.com/api/v1';
+    let selectedPlan = null;
+    let registeredUserId = null;
+    let authToken = null;
+    let chosenOtpMethod = 'sms';
+
+    // Auto-select plan from URL param
+    const urlParams = new URLSearchParams(window.location.search);
+    const planParam = urlParams.get('plan');
+    if (planParam) {
+      const card = document.querySelector(`.plan-card[data-plan="${planParam}"]`);
+      if (card) selectPlan(card);
+    }
+
+    function selectPlan(el) {
+      document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+      selectedPlan = { name: el.dataset.plan, price: parseFloat(el.dataset.price), key: el.dataset.plan };
+      document.getElementById('next-step-1').disabled = false;
+      updateSummary();
+    }
+
+    function updateSummary() {
+      const summary = document.getElementById('order-summary');
+      const total = document.getElementById('order-total');
+      if (!selectedPlan) { summary.innerHTML = '<em>Select a plan</em>'; total.textContent = '$0/month'; return; }
+      
+      const displayPrice = selectedPlan.price % 1 === 0 ? selectedPlan.price : selectedPlan.price.toFixed(2);
+      let html = `<div style="display:flex;justify-content:space-between"><span>${capitalize(selectedPlan.name)} Plan</span><span>$${displayPrice}/mo</span></div>`;
+      
+      summary.innerHTML = html;
+      total.textContent = `$${displayPrice}/month`;
+
+      // Update Step 3 trial info based on plan
+      const trialInfo = document.getElementById('trial-info');
+      const trialText = document.getElementById('trial-text');
+      if (trialInfo && trialText) {
+        if (selectedPlan.price === 0) {
+          trialInfo.querySelector('h4').textContent = '✅ Free Plan — No Payment Required';
+          trialText.textContent = 'Your Free plan is completely free forever. No credit card needed. You can upgrade anytime from your dashboard.';
+          const flowStep3 = document.getElementById('flow-step-3');
+          if (flowStep3) flowStep3.style.display = 'none';
+        } else {
+          const trialPrice = selectedPlan.price % 1 === 0 ? selectedPlan.price : selectedPlan.price.toFixed(2);
+          trialInfo.querySelector('h4').textContent = '🎉 7-Day Free Trial';
+          trialText.textContent = `Your ${capitalize(selectedPlan.name)} plan ($${trialPrice}/mo) includes a 7-day free trial. After creating your account, you'll verify your phone number via SMS, then set up payment via Stripe. Your card will only be charged after the 7-day trial ends.`;
+          const flowStep3 = document.getElementById('flow-step-3');
+          if (flowStep3) flowStep3.style.display = '';
+        }
+      }
+    }
+
+    function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+    // Phone formatting
+    const phoneInput = document.querySelector('[name="phone"]');
+    if (phoneInput) {
+      phoneInput.addEventListener('input', function(e) {
+        let val = e.target.value.replace(/\D/g, '');
+        if (val.length > 10) val = val.slice(0, 10);
+        if (val.length >= 7) val = `(${val.slice(0,3)}) ${val.slice(3,6)}-${val.slice(6)}`;
+        else if (val.length >= 4) val = `(${val.slice(0,3)}) ${val.slice(3)}`;
+        else if (val.length >= 1) val = `(${val}`;
+        e.target.value = val;
+      });
+    }
+
+    // Account Type toggle — change labels & fields based on Person/Business
+    const accountTypeSelect = document.getElementById('account-type-select');
+    if (accountTypeSelect) {
+      accountTypeSelect.addEventListener('change', function() {
+        const val = this.value;
+        const subtitle = document.getElementById('details-subtitle');
+        const nameLabel = document.getElementById('name-label');
+        const nameInput = document.getElementById('name-input');
+        const emailLabel = document.getElementById('email-label');
+        const emailInput = document.getElementById('email-input');
+        const phoneLabel = document.getElementById('phone-label');
+        const companyGroup = document.getElementById('company-name-group');
+        const companyInput = companyGroup.querySelector('input');
+
+        if (val === 'person') {
+          subtitle.textContent = 'Personal Information';
+          nameLabel.innerHTML = 'Full Name <span class="req">*</span>';
+          nameInput.placeholder = 'Jane Doe';
+          emailLabel.innerHTML = 'Personal Email <span class="req">*</span>';
+          emailInput.placeholder = 'jane@gmail.com';
+          phoneLabel.innerHTML = 'Phone <span class="req">*</span>';
+          companyGroup.style.display = 'none';
+          companyInput.removeAttribute('required');
+        } else if (val === 'business') {
+          subtitle.textContent = 'Business Information';
+          nameLabel.innerHTML = 'Contact Person Name <span class="req">*</span>';
+          nameInput.placeholder = 'Jane Doe (admin contact)';
+          emailLabel.innerHTML = 'Business Email <span class="req">*</span>';
+          emailInput.placeholder = 'contact@company.com';
+          phoneLabel.innerHTML = 'Business Phone <span class="req">*</span>';
+          companyGroup.style.display = '';
+          companyInput.setAttribute('required', '');
+        } else {
+          subtitle.textContent = 'Your Details';
+          nameLabel.innerHTML = 'Full Name <span class="req">*</span>';
+          nameInput.placeholder = 'Jane Doe';
+          emailLabel.innerHTML = 'Email <span class="req">*</span>';
+          emailInput.placeholder = 'jane@company.com';
+          phoneLabel.innerHTML = 'Phone <span class="req">*</span>';
+          companyGroup.style.display = 'none';
+          companyInput.removeAttribute('required');
+        }
+      });
+    }
+
+    function formatPhoneE164(phone) {
+      const digits = phone.replace(/\D/g, '');
+      return '+1' + digits;
+    }
+
+    function goToStep(step) {
+      if (step === 2 && !selectedPlan) { alert('Please select a plan'); return; }
+      if (step === 3) {
+        const form = document.getElementById('reg-form');
+        const accountType = form.querySelector('[name="account_type"]');
+        if (!accountType.value) { accountType.style.borderColor = 'var(--brand-red)'; alert('Please select an account type'); return; }
+        accountType.style.borderColor = '';
+        const required = form.querySelectorAll('[required]');
+        let valid = true;
+        required.forEach(f => { if (!f.value.trim()) { f.style.borderColor = 'var(--brand-red)'; valid = false; } else { f.style.borderColor = ''; } });
+        if (!valid) { return; }
+        const pw = form.querySelector('[name="password"]').value;
+        const pw2 = form.querySelector('[name="password_confirm"]').value;
+        if (pw !== pw2) { alert('Passwords do not match'); return; }
+        updateSummary();
+      }
+
+      [1,2,3].forEach(i => {
+        document.getElementById(`step-${i}`).style.display = i === step ? '' : 'none';
+        const dot = document.getElementById(`step-${i}-dot`);
+        dot.className = 'step-dot' + (i === step ? ' active' : (i < step ? ' done' : ''));
+      });
+      [1,2].forEach(i => {
+        const line = document.getElementById(`line-${i}-${i+1}`);
+        line.className = 'step-line' + (i < step ? ' done' : '');
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function selectOtpMethod(method) {
+      chosenOtpMethod = method;
+      const smsBtn = document.getElementById('otp-btn-sms');
+      const emailBtn = document.getElementById('otp-btn-email');
+      if (method === 'sms') {
+        smsBtn.style.borderColor = 'var(--accent)';
+        smsBtn.style.background = 'rgba(59,125,216,.15)';
+        emailBtn.style.borderColor = 'rgba(148,163,184,.2)';
+        emailBtn.style.background = 'transparent';
+      } else {
+        emailBtn.style.borderColor = 'var(--accent)';
+        emailBtn.style.background = 'rgba(59,125,216,.15)';
+        smsBtn.style.borderColor = 'rgba(148,163,184,.2)';
+        smsBtn.style.background = 'transparent';
+      }
+    }
+
+    async function submitRegistration() {
+      const btn = document.getElementById('submit-reg');
+      const status = document.getElementById('reg-status');
+
+      // Validate form before showing method chooser
+      const form = document.getElementById('reg-form');
+      const name = form.querySelector('[name="name"]').value.trim();
+      const email = form.querySelector('[name="email"]').value.trim();
+      const phone = form.querySelector('[name="phone"]').value.trim();
+      const password = form.querySelector('[name="password"]').value;
+
+      if (name.split(/\s+/).length < 2) {
+        status.textContent = '❌ Please enter your full name (first and last).';
+        status.style.color = 'var(--brand-red)';
+        return;
+      }
+      const phoneDigits = phone.replace(/\D/g, '');
+      if (phoneDigits.length < 10) {
+        status.textContent = '❌ Please enter a valid 10-digit phone number.';
+        status.style.color = 'var(--brand-red)';
+        return;
+      }
+
+      // Show OTP method chooser
+      btn.style.display = 'none';
+      status.textContent = '';
+      document.getElementById('otp-method-chooser').style.display = '';
+      selectOtpMethod('sms'); // default
+    }
+
+    async function confirmOtpMethodAndSubmit() {
+      const btn = document.getElementById('confirm-otp-method-btn');
+      const status = document.getElementById('otp-method-status');
+      btn.disabled = true;
+      status.textContent = 'Creating your account...';
+      status.style.color = '#3B7DD8';
+
+      const form = document.getElementById('reg-form');
+      const name = form.querySelector('[name="name"]').value.trim();
+      const email = form.querySelector('[name="email"]').value.trim();
+      const phone = form.querySelector('[name="phone"]').value.trim();
+      const password = form.querySelector('[name="password"]').value;
+
+      // Validate name has at least 2 words
+      if (name.split(/\s+/).length < 2) {
+        status.textContent = '❌ Please enter your full name (first and last).';
+        status.style.color = 'var(--brand-red)';
+        btn.disabled = false;
+        return;
+      }
+
+      // Validate phone
+      const phoneDigits = phone.replace(/\D/g, '');
+      if (phoneDigits.length < 10) {
+        status.textContent = '❌ Please enter a valid 10-digit phone number.';
+        status.style.color = 'var(--brand-red)';
+        btn.disabled = false;
+        return;
+      }
+
+      const payload = {
+        fullName: name,
+        email: email,
+        phone: formatPhoneE164(phone),
+        password: password,
+        role: 'CLIENT',
+        language: 'EN',
+        preferredOtpMethod: chosenOtpMethod
+      };
+
+      try {
+        const res = await fetch(`${API_BASE}/auth/signup`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          if (data.code === 'EMAIL_ALREADY_EXISTS') {
+            status.textContent = '❌ This email is already registered. Please login instead.';
+          } else if (data.code === 'PHONE_ALREADY_EXISTS') {
+            status.textContent = '❌ This phone number is already registered. Please login instead.';
+          } else {
+            status.textContent = `❌ ${data.message || 'Registration failed. Please try again.'}`;
+          }
+          status.style.color = 'var(--brand-red)';
+          btn.disabled = false;
+          return;
+        }
+
+        registeredUserId = data.data?.userId;
+        status.textContent = '';
+        const sentTo = chosenOtpMethod === 'sms' ? (data.data?.otpSentTo || phone) : email;
+        showOtpStep(sentTo);
+
+      } catch (err) {
+        console.error(err);
+        status.textContent = '❌ Connection error. Please check your internet and try again.';
+        status.style.color = 'var(--brand-red)';
+        btn.disabled = false;
+      }
+    }
+
+    function showOtpStep(sentTo) {
+      const isSms = chosenOtpMethod === 'sms';
+      const icon = isSms ? '📱' : '✉️';
+      const title = isSms ? 'Verify Your Phone' : 'Verify Your Email';
+      const desc = isSms
+        ? `We sent a 6-digit verification code via SMS to <strong style="color:#fff">${sentTo}</strong>`
+        : `We sent a 6-digit verification code to <strong style="color:#fff">${sentTo}</strong>`;
+      const switchMethod = isSms ? 'email' : 'sms';
+      const switchLabel = isSms ? 'Verify via email instead' : 'Verify via SMS instead';
+
+      const step3 = document.getElementById('step-3');
+      step3.innerHTML = `
+        <div class="reg-section" style="text-align:center;max-width:500px;margin:0 auto">
+          <div style="font-size:3rem;margin-bottom:16px">${icon}</div>
+          <h2 style="font-size:1.4rem;font-weight:800;margin:0 0 8px">${title}</h2>
+          <p style="color:var(--muted);font-size:.9rem;margin:0 0 24px">${desc}</p>
+          <div style="display:flex;gap:8px;justify-content:center;margin-bottom:20px">
+            <input type="text" id="otp-input" maxlength="6" placeholder="000000" style="background:#0b1220;color:#fff;border:2px solid rgba(59,125,216,.4);border-radius:12px;padding:16px;font-size:1.8rem;font-weight:800;text-align:center;width:200px;letter-spacing:8px">
+          </div>
+          <button type="button" class="submit-btn" onclick="verifyOtp()" id="verify-otp-btn">Verify & Continue</button>
+          <p id="otp-status" style="font-size:.9rem;margin-top:12px"></p>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:20px">
+            <p style="color:var(--muted);font-size:.8rem;margin:0">
+              Didn't receive the code? <a href="#" onclick="resendOtp();return false;" id="resend-link">Resend Code</a>
+            </p>
+            <p style="color:var(--muted);font-size:.8rem;margin:0">
+              <a href="#" onclick="switchOtpMethod('${switchMethod}');return false;" style="color:var(--accent)">${switchLabel}</a>
+            </p>
+          </div>
+        </div>
+      `;
+      document.getElementById('step-3-dot').className = 'step-dot active';
+      document.getElementById('otp-input').focus();
+    }
+
+    async function verifyOtp() {
+      const otpInput = document.getElementById('otp-input');
+      const btn = document.getElementById('verify-otp-btn');
+      const status = document.getElementById('otp-status');
+      const code = otpInput.value.trim();
+
+      if (code.length !== 6 || !/^\d{6}$/.test(code)) {
+        status.textContent = '❌ Please enter a valid 6-digit code.';
+        status.style.color = 'var(--brand-red)';
+        return;
+      }
+
+      btn.disabled = true;
+      status.textContent = 'Verifying...';
+      status.style.color = '#3B7DD8';
+
+      try {
+        const res = await fetch(`${API_BASE}/auth/verify-otp`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            userId: registeredUserId,
+            otpCode: code,
+            method: chosenOtpMethod
+          })
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          status.textContent = `❌ ${data.message || 'Invalid code. Please try again.'}`;
+          status.style.color = 'var(--brand-red)';
+          btn.disabled = false;
+          return;
+        }
+
+        // Save auth token for subscription call
+        authToken = data.data?.token;
+
+        // Check if user selected a paid plan
+        const isPaidPlan = selectedPlan && selectedPlan.price > 0;
+
+        if (isPaidPlan && authToken) {
+          // Create Stripe Checkout Session for the paid plan
+          status.textContent = 'Setting up your plan payment...';
+          status.style.color = '#3B7DD8';
+
+          const planKeyMap = { 'starter': 'starter', 'professional': 'pro', 'enterprise': 'enterprise' };
+          const planKey = planKeyMap[selectedPlan.name] || selectedPlan.name;
+
+          try {
+            const checkoutRes = await fetch(`${API_BASE}/subscriptions/checkout-session`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authToken}`
+              },
+              body: JSON.stringify({
+                planKey: planKey,
+                successUrl: 'https://app.techtrustautosolutions.com/dashboard?checkout=success&plan=' + planKey,
+                cancelUrl: 'https://app.techtrustautosolutions.com/dashboard?checkout=cancelled'
+              })
+            });
+            const checkoutData = await checkoutRes.json();
+
+            if (checkoutRes.ok && checkoutData.data?.checkoutUrl) {
+              // Redirect to Stripe Checkout (supports Card, Apple Pay, Google Pay)
+              showPaymentRedirectStep(checkoutData.data.checkoutUrl, planKey);
+              return;
+            }
+          } catch (checkoutErr) {
+            console.error('Checkout session error:', checkoutErr);
+            // Fall through to success without payment - they can upgrade in dashboard
+          }
+        }
+
+        // Free plan or checkout failed → show success directly
+        showSuccessStep(false);
+
+      } catch (err) {
+        console.error(err);
+        status.textContent = '❌ Connection error. Please try again.';
+        status.style.color = 'var(--brand-red)';
+        btn.disabled = false;
+      }
+    }
+
+    function showPaymentRedirectStep(checkoutUrl, planKey) {
+      const step3 = document.getElementById('step-3');
+      step3.innerHTML = `
+        <div class="reg-section" style="text-align:center;max-width:600px;margin:0 auto;padding:20px">
+          <div style="font-size:3rem;margin-bottom:16px">💳</div>
+          <h2 style="font-size:1.4rem;font-weight:800;margin:0 0 8px;color:#4ade80">Account Verified!</h2>
+          <p style="color:var(--silver);font-size:1rem;margin:0 0 24px">Now let's set up your <strong style="color:#fff">${capitalize(planKey)}</strong> plan payment.</p>
+          
+          <div style="background:rgba(59,125,216,.08);border:1px solid rgba(59,125,216,.2);border-radius:var(--radius);padding:20px;margin-bottom:24px;text-align:left">
+            <p style="color:var(--silver);font-size:.9rem;margin:0 0 8px"><strong style="color:#fff">Secure Payment via Stripe</strong></p>
+            <p style="color:var(--muted);font-size:.85rem;margin:0 0 4px">✅ Credit / Debit Card</p>
+            <p style="color:var(--muted);font-size:.85rem;margin:0 0 4px">✅ Apple Pay (on supported devices)</p>
+            <p style="color:var(--muted);font-size:.85rem;margin:0 0 4px">✅ Google Pay (on supported devices)</p>
+            <p style="color:var(--muted);font-size:.85rem;margin:0">🔒 PCI-DSS compliant. We never store your card details.</p>
+          </div>
+
+          <a href="${checkoutUrl}" class="submit-btn" style="text-decoration:none;display:inline-flex;margin-bottom:12px">Continue to Payment →</a>
+          
+          <p style="color:var(--muted);font-size:.8rem;margin-top:16px">
+            Want to start free instead? 
+            <a href="#" onclick="skipPayment();return false;" style="color:var(--accent)">Skip — use Free plan for now</a>
+          </p>
+        </div>
+      `;
+      document.getElementById('step-3-dot').className = 'step-dot done';
+    }
+
+    function skipPayment() {
+      showSuccessStep(false);
+    }
+
+    async function switchOtpMethod(newMethod) {
+      chosenOtpMethod = newMethod;
+      const status = document.getElementById('otp-status');
+      status.textContent = `Sending code via ${newMethod === 'sms' ? 'SMS' : 'email'}...`;
+      status.style.color = '#3B7DD8';
+
+      try {
+        await fetch(`${API_BASE}/auth/resend-otp`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userId: registeredUserId, method: chosenOtpMethod })
+        });
+        const form = document.getElementById('reg-form');
+        const email = form ? form.querySelector('[name="email"]')?.value?.trim() : '';
+        const phone = form ? form.querySelector('[name="phone"]')?.value?.trim() : '';
+        const sentTo = chosenOtpMethod === 'sms' ? phone : email;
+        showOtpStep(sentTo);
+      } catch (err) {
+        status.textContent = '❌ Could not switch method. Try again.';
+        status.style.color = 'var(--brand-red)';
+      }
+    }
+
+    async function resendOtp() {
+      const link = document.getElementById('resend-link');
+      const status = document.getElementById('otp-status');
+      link.style.pointerEvents = 'none';
+      link.style.opacity = '0.5';
+      status.textContent = 'Sending new code...';
+      status.style.color = '#3B7DD8';
+
+      try {
+        await fetch(`${API_BASE}/auth/resend-otp`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userId: registeredUserId, method: chosenOtpMethod })
+        });
+        const dest = chosenOtpMethod === 'sms' ? 'phone' : 'email';
+        status.textContent = `✅ New code sent! Check your ${dest}.`;
+        status.style.color = '#4ade80';
+      } catch (err) {
+        status.textContent = '❌ Could not resend. Try again in a moment.';
+        status.style.color = 'var(--brand-red)';
+      }
+
+      setTimeout(() => { link.style.pointerEvents = ''; link.style.opacity = '1'; }, 30000);
+    }
+
+    function showSuccessStep(isPaid) {
+      const step3 = document.getElementById('step-3');
+      const planMsg = isPaid 
+        ? 'Your plan is now active.'
+        : (selectedPlan && selectedPlan.price > 0 
+            ? 'You can upgrade your plan anytime from your dashboard.'
+            : 'You\'re on the Free plan. Upgrade anytime from your dashboard.');
+      
+      step3.innerHTML = `
+        <div class="reg-section" style="text-align:center;max-width:600px;margin:0 auto;padding:40px 20px">
+          <div style="font-size:4rem;margin-bottom:16px">🎉</div>
+          <h2 style="font-size:1.6rem;font-weight:900;margin:0 0 12px;color:#4ade80">Welcome to TechTrust!</h2>
+          <p style="color:var(--silver);font-size:1rem;margin:0 0 8px">Your account has been created and verified successfully.</p>
+          <p style="color:var(--muted);font-size:.9rem;margin:0 0 32px">${planMsg}</p>
+          <a href="https://app.techtrustautosolutions.com/login" class="submit-btn" style="text-decoration:none;display:inline-flex">Go to Dashboard →</a>
+          <p style="color:var(--muted);font-size:.8rem;margin-top:16px">You will be redirected in 5 seconds...</p>
+        </div>
+      `;
+      document.getElementById('step-3-dot').className = 'step-dot done';
+      setTimeout(() => { window.location.href = 'https://app.techtrustautosolutions.com/login'; }, 5000);
+    }
+  </script>
+</body>
+</html>
