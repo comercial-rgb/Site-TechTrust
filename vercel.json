@@ -5,6 +5,9 @@
   "outputDirectory": ".",
   "rewrites": [
     { "source": "/privacy.html", "destination": "/privacy.html" },
+    { "source": "/register-client.html", "destination": "/register-client.html" },
+    { "source": "/register-provider.html", "destination": "/register-provider.html" },
+    { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [

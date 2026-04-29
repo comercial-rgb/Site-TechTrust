@@ -109,7 +109,12 @@
     .section-sub{color:var(--muted); max-width:850px}
     .pillars{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px}
     .card{background:linear-gradient(180deg,#0B1324,#0B1428); border:1px solid rgba(148,163,184,.18); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); border-top:2px solid rgba(204,34,51,.3)}
-    .icon{width:38px; height:38px; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; color:#ffffff; font-weight:900}
+    .icon{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#ffffff;flex-shrink:0}
+    .icon svg{width:20px;height:20px;stroke-width:2;stroke:currentColor;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .feat-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#fff;flex-shrink:0}
+    .feat-icon svg{width:16px;height:16px;stroke-width:2;stroke:currentColor;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .addon-icon{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#fff;margin:0 auto 14px}
+    .addon-icon svg{width:28px;height:28px;stroke-width:2;stroke:currentColor;fill:none;stroke-linecap:round;stroke-linejoin:round}
     .list{margin:14px 0 0; padding-left:18px}
     .list li{margin:8px 0}
     .services{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px}
@@ -269,10 +274,10 @@
         language_notice: "Available in English, Portuguese, and Spanish. Customer support in all three languages.",
         two_apps_title: "One Platform. Web & Mobile.",
         two_apps_sub: "Access your vehicle data from anywhere — desktop dashboard for deep analytics, mobile app for on-the-go management.",
-        app_web_title: "💻 Web Dashboard",
+        app_web_title: "Web Dashboard",
         app_web_subtitle: "Complete Vehicle Analytics & Management Console",
         app_web_desc: "The full-featured web dashboard gives you complete control: real-time vehicle maps, fuel analytics, maintenance scheduling, compliance reports, driver scorecards, and cost analysis. Customizable dashboards, exportable reports, and role-based access for your entire team.",
-        app_mobile_title: "📱 Mobile App",
+        app_mobile_title: "Mobile App",
         app_mobile_subtitle: "Vehicle Management in Your Pocket",
         app_mobile_desc: "Stay connected to your vehicles 24/7. The TechTrust mobile app gives you real-time alerts, vehicle locations, maintenance notifications, and quick actions — all from your phone. Perfect for car owners, fleet managers, and drivers who need instant access.",
         flexibility_callout: "Web dashboard for in-depth management + mobile app for instant access = complete vehicle control from anywhere, anytime.",
@@ -443,10 +448,10 @@
         language_notice: "Disponível em inglês, português e espanhol. Suporte em todos os três idiomas.",
         two_apps_title: "Uma Plataforma. Web & Mobile.",
         two_apps_sub: "Acesse os dados dos seus veículos de qualquer lugar — painel web para análises profundas, app mobile para gestão em movimento.",
-        app_web_title: "💻 Painel Web",
+        app_web_title: "Painel Web",
         app_web_subtitle: "Console Completo de Análise & Gestão de Veículos",
         app_web_desc: "O painel web completo dá a você controle total: mapas de veículos em tempo real, análise de combustível, agendamento de manutenção, relatórios de conformidade, scorecards de motoristas e análise de custos. Painéis personalizáveis, relatórios exportáveis e acesso baseado em funções para toda a equipe.",
-        app_mobile_title: "📱 App Mobile",
+        app_mobile_title: "App Mobile",
         app_mobile_subtitle: "Gestão de Veículos No Seu Bolso",
         app_mobile_desc: "Fique conectado aos seus veículos 24/7. O app mobile TechTrust oferece alertas em tempo real, localização de veículos, notificações de manutenção e ações rápidas — tudo pelo celular. Perfeito para donos de carros, gestores de frota e motoristas que precisam de acesso instantâneo.",
         flexibility_callout: "Painel web para gestão aprofundada + app mobile para acesso instantâneo = controle total dos seus veículos de qualquer lugar, a qualquer momento.",
@@ -617,10 +622,10 @@
         language_notice: "Disponible en inglés, portugués y español. Soporte en los tres idiomas.",
         two_apps_title: "Una Plataforma. Web & Móvil.",
         two_apps_sub: "Acceda a los datos de sus vehículos desde cualquier lugar — panel web para análisis profundos, app móvil para gestión en movimiento.",
-        app_web_title: "💻 Panel Web",
+        app_web_title: "Panel Web",
         app_web_subtitle: "Consola Completa de Análisis & Gestión de Vehículos",
         app_web_desc: "El panel web completo le da control total: mapas de vehículos en tiempo real, análisis de combustible, programación de mantenimiento, reportes de cumplimiento, scorecards de conductores y análisis de costos. Paneles personalizables, reportes exportables y acceso basado en roles para todo el equipo.",
-        app_mobile_title: "📱 App Móvil",
+        app_mobile_title: "App Móvil",
         app_mobile_subtitle: "Gestión de Vehículos en Su Bolsillo",
         app_mobile_desc: "Manténgase conectado a sus vehículos 24/7. La app móvil TechTrust ofrece alertas en tiempo real, ubicación de vehículos, notificaciones de mantenimiento y acciones rápidas — todo desde su teléfono. Perfecto para dueños de autos, gestores de flota y conductores que necesitan acceso instantáneo.",
         flexibility_callout: "Panel web para gestión profunda + app móvil para acceso instantáneo = control total de sus vehículos desde cualquier lugar, en cualquier momento.",
@@ -916,8 +921,8 @@
         <a class="login-btn" href="https://app.techtrustautosolutions.com/login" target="_blank" rel="noopener" data-i18n="login_client"></a>
         <a class="login-btn provider" href="https://provider.techtrustautosolutions.com/login" target="_blank" rel="noopener" data-i18n="login_provider"></a>
         <div class="login-sep"></div>
-        <a class="login-btn register" href="/register-client.html" data-i18n="register_client"></a>
-        <a class="login-btn register" href="/register-provider.html" data-i18n="register_provider"></a>
+        <a class="login-btn register" href="https://app.techtrustautosolutions.com/cadastro" target="_blank" rel="noopener" data-i18n="register_client"></a>
+        <a class="login-btn register" href="https://provider.techtrustautosolutions.com/register" target="_blank" rel="noopener" data-i18n="register_provider"></a>
     </div>
   </div>
 
@@ -933,7 +938,7 @@
               <h1><span data-i18n="hero_h1"></span></h1>
               <p class="lead" data-i18n="hero_sub"></p>
               <div class="hero-cta">
-                <a class="cta" href="/register-client.html" data-i18n="cta_start"></a>
+                <a class="cta" href="https://app.techtrustautosolutions.com/cadastro" target="_blank" rel="noopener" data-i18n="cta_start"></a>
                 <a class="cta secondary" href="#pricing" data-i18n="cta_plans"></a>
                 <a class="cta accent-bg" href="#contact" data-i18n="cta_demo"></a>
               </div>
@@ -948,24 +953,24 @@
               <p class="lead" data-i18n="hero2_sub"></p>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px">
                 <div class="card" style="padding:14px 16px;display:flex;align-items:center;gap:10px">
-                  <span style="font-size:1.3rem">📡</span>
+                  <span class="feat-icon"><i data-lucide="radio"></i></span>
                   <span style="font-size:.88rem;font-weight:600" data-i18n="hero2_feat_1"></span>
                 </div>
                 <div class="card" style="padding:14px 16px;display:flex;align-items:center;gap:10px">
-                  <span style="font-size:1.3rem">🔧</span>
+                  <span class="feat-icon"><i data-lucide="wrench"></i></span>
                   <span style="font-size:.88rem;font-weight:600" data-i18n="hero2_feat_2"></span>
                 </div>
                 <div class="card" style="padding:14px 16px;display:flex;align-items:center;gap:10px">
-                  <span style="font-size:1.3rem">🚪</span>
+                  <span class="feat-icon"><i data-lucide="scan"></i></span>
                   <span style="font-size:.88rem;font-weight:600" data-i18n="hero2_feat_3"></span>
                 </div>
                 <div class="card" style="padding:14px 16px;display:flex;align-items:center;gap:10px">
-                  <span style="font-size:1.3rem">🔗</span>
+                  <span class="feat-icon"><i data-lucide="link"></i></span>
                   <span style="font-size:.88rem;font-weight:600" data-i18n="hero2_feat_4"></span>
                 </div>
               </div>
               <div class="hero-cta" style="margin-top:20px">
-                <a class="cta" href="/register-client.html" data-i18n="cta_start"></a>
+                <a class="cta" href="https://app.techtrustautosolutions.com/cadastro" target="_blank" rel="noopener" data-i18n="cta_start"></a>
                 <a class="cta secondary" href="#services" data-i18n="cta_plans"></a>
               </div>
             </div>
@@ -1003,32 +1008,32 @@
         <p class="section-sub" data-i18n="app_features_sub"></p>
         <div class="app-features-grid">
           <div class="card">
-            <div class="icon">📍</div>
+            <div class="icon"><i data-lucide="map-pin"></i></div>
             <h3 data-i18n="app_1t"></h3>
             <p data-i18n="app_1d"></p>
           </div>
           <div class="card">
-            <div class="icon">⛽</div>
+            <div class="icon"><i data-lucide="fuel"></i></div>
             <h3 data-i18n="app_2t"></h3>
             <p data-i18n="app_2d"></p>
           </div>
           <div class="card">
-            <div class="icon">🔔</div>
+            <div class="icon"><i data-lucide="bell"></i></div>
             <h3 data-i18n="app_3t"></h3>
             <p data-i18n="app_3d"></p>
           </div>
           <div class="card">
-            <div class="icon">💰</div>
+            <div class="icon"><i data-lucide="dollar-sign"></i></div>
             <h3 data-i18n="app_4t"></h3>
             <p data-i18n="app_4d"></p>
           </div>
           <div class="card">
-            <div class="icon">✅</div>
+            <div class="icon"><i data-lucide="shield-check"></i></div>
             <h3 data-i18n="app_5t"></h3>
             <p data-i18n="app_5d"></p>
           </div>
           <div class="card">
-            <div class="icon">📷</div>
+            <div class="icon"><i data-lucide="camera"></i></div>
             <h3 data-i18n="app_6t"></h3>
             <p data-i18n="app_6d"></p>
           </div>
@@ -1131,7 +1136,7 @@
           </div>
           <h3 style="margin:0 0 8px 0;font-size:1.1rem;font-weight:700" data-i18n="partner_title"></h3>
           <p style="margin:0;color:var(--muted)"><span data-i18n="partner_contact_label"></span> <a href="mailto:contact@techtrustautosolutions.com" style="color:var(--accent)">contact@techtrustautosolutions.com</a></p>
-          <p style="margin:6px 0 0;color:var(--silver);font-size:.85rem">📍 Miami, Florida</p>
+          <p style="margin:6px 0 0;color:var(--silver);font-size:.85rem;display:flex;align-items:center"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Miami, Florida</p>
           <p style="margin:12px 0 0;color:var(--silver);font-size:.95rem" data-i18n="partner_infrastructure"></p>
         </div>
       </div>
@@ -1153,11 +1158,11 @@
           <div class="card">
             <h3 style="margin:0 0 8px" data-i18n="office_title"></h3>
             <p style="margin:0 0 16px;color:var(--accent);font-size:1.1rem;font-weight:700" data-i18n="office_location"></p>
-            <p style="margin:8px 0;color:var(--muted)">📧 <a href="mailto:contact@techtrustautosolutions.com" style="color:var(--accent)">contact@techtrustautosolutions.com</a></p>
-            <p style="margin:8px 0;color:var(--muted)">🌐 techtrustautosolutions.com</p>
+            <p style="margin:8px 0;color:var(--muted)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="mailto:contact@techtrustautosolutions.com" style="color:var(--accent)">contact@techtrustautosolutions.com</a></p>
+            <p style="margin:8px 0;color:var(--muted)"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>techtrustautosolutions.com</p>
             <p style="margin:16px 0 0;color:var(--silver);font-size:.95rem" data-i18n="language_notice"></p>
             <div style="margin-top:16px">
-              <p style="margin:0 0 8px;color:var(--muted);font-size:.8rem;font-weight:600">📱 Download our app:</p>
+              <p style="margin:0 0 8px;color:var(--muted);font-size:.8rem;font-weight:600;display:flex;align-items:center"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Download our app:</p>
               <div class="app-store-btns">
                 <a href="#" target="_blank" rel="noopener" aria-label="Download on the App Store"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> App Store</a>
                 <a href="#" target="_blank" rel="noopener" aria-label="Get it on Google Play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.67c-.37-.2-.68-.58-.68-1.16V1.49c0-.58.31-.96.68-1.16l11.28 11.67L3.18 23.67zm1.52-22.3L15.86 12 4.7 22.63l.01-21.26zm13.14 11.97L6.02 1.48 16.79 11.5l1.05-1.16zM17.84 12l1.05 1.16L6.02 22.52l11.82-10.52z"/></svg> Google Play</a>
@@ -1200,17 +1205,17 @@
         <p class="section-sub" data-i18n="security_sub"></p>
         <div class="services" style="margin-top:18px">
           <div class="card">
-            <div class="icon">🛡️</div>
+            <div class="icon"><i data-lucide="shield"></i></div>
             <h3 data-i18n="sec_1_title"></h3>
             <p style="color:var(--muted);font-size:.95rem" data-i18n="sec_1_desc"></p>
           </div>
           <div class="card">
-            <div class="icon">🔒</div>
+            <div class="icon"><i data-lucide="lock"></i></div>
             <h3 data-i18n="sec_2_title"></h3>
             <p style="color:var(--muted);font-size:.95rem" data-i18n="sec_2_desc"></p>
           </div>
           <div class="card">
-            <div class="icon">🔍</div>
+            <div class="icon"><i data-lucide="activity"></i></div>
             <h3 data-i18n="sec_3_title"></h3>
             <p style="color:var(--muted);font-size:.95rem" data-i18n="sec_3_desc"></p>
           </div>
@@ -1225,23 +1230,23 @@
         <p class="section-sub" data-i18n="benefits_sub"></p>
         <div class="services" style="margin-top:18px">
           <div class="card">
-            <div class="icon">📉</div>
+            <div class="icon"><i data-lucide="trending-down"></i></div>
             <h3 data-i18n="ben_1_title"></h3>
             <p style="color:var(--muted);font-size:.95rem" data-i18n="ben_1_desc"></p>
           </div>
           <div class="card">
-            <div class="icon">👁️</div>
+            <div class="icon"><i data-lucide="eye"></i></div>
             <h3 data-i18n="ben_2_title"></h3>
             <p style="color:var(--muted);font-size:.95rem" data-i18n="ben_2_desc"></p>
           </div>
           <div class="card">
-            <div class="icon">✅</div>
+            <div class="icon"><i data-lucide="check-circle"></i></div>
             <h3 data-i18n="ben_3_title"></h3>
             <p style="color:var(--muted);font-size:.95rem" data-i18n="ben_3_desc"></p>
           </div>
         </div>
         <div style="text-align:center;margin-top:24px">
-          <a class="cta" href="/register-client.html" data-i18n="proof_cta"></a>
+          <a class="cta" href="https://app.techtrustautosolutions.com/cadastro" target="_blank" rel="noopener" data-i18n="proof_cta"></a>
         </div>
       </div>
     </section>
@@ -1253,22 +1258,22 @@
         <p class="section-sub" data-i18n="for_everyone_sub"></p>
         <div class="industries" style="margin-top:18px">
           <div class="card">
-            <div class="icon">🚐</div>
+            <div class="icon"><i data-lucide="car"></i></div>
             <h3 data-i18n="user_1_title"></h3>
             <p style="color:var(--muted)" data-i18n="user_1_desc"></p>
           </div>
           <div class="card">
-            <div class="icon">🚛</div>
+            <div class="icon"><i data-lucide="truck"></i></div>
             <h3 data-i18n="user_2_title"></h3>
             <p style="color:var(--muted)" data-i18n="user_2_desc"></p>
           </div>
           <div class="card">
-            <div class="icon">🏗️</div>
+            <div class="icon"><i data-lucide="layers"></i></div>
             <h3 data-i18n="user_3_title"></h3>
             <p style="color:var(--muted)" data-i18n="user_3_desc"></p>
           </div>
           <div class="card">
-            <div class="icon">🏢</div>
+            <div class="icon"><i data-lucide="building-2"></i></div>
             <h3 data-i18n="user_4_title"></h3>
             <p style="color:var(--muted)" data-i18n="user_4_desc"></p>
           </div>
@@ -1295,7 +1300,7 @@
               <li data-i18n="plan_free_f4"></li>
               <li data-i18n="plan_free_f5"></li>
             </ul>
-            <a href="/register-client.html?plan=free" class="price-cta cta secondary" data-i18n="plan_cta_start"></a>
+            <a href="https://app.techtrustautosolutions.com/cadastro?plan=free" target="_blank" rel="noopener" class="price-cta cta secondary" data-i18n="plan_cta_start"></a>
           </div>
           <!-- Starter -->
           <div class="price-card">
@@ -1312,7 +1317,7 @@
               <li data-i18n="plan_starter_f6"></li>
               <li data-i18n="plan_starter_f7"></li>
             </ul>
-            <a href="/register-client.html?plan=starter" class="price-cta cta secondary" data-i18n="plan_cta_start"></a>
+            <a href="https://app.techtrustautosolutions.com/cadastro?plan=starter" target="_blank" rel="noopener" class="price-cta cta secondary" data-i18n="plan_cta_start"></a>
           </div>
           <!-- Pro -->
           <div class="price-card featured">
@@ -1330,7 +1335,7 @@
               <li data-i18n="plan_pro_f7"></li>
               <li data-i18n="plan_pro_f8"></li>
             </ul>
-            <a href="/register-client.html?plan=professional" class="price-cta cta" data-i18n="plan_cta_start"></a>
+            <a href="https://app.techtrustautosolutions.com/cadastro?plan=pro" target="_blank" rel="noopener" class="price-cta cta" data-i18n="plan_cta_start"></a>
           </div>
           <!-- Enterprise -->
           <div class="price-card">
@@ -1348,7 +1353,7 @@
               <li data-i18n="plan_enterprise_f7"></li>
               <li data-i18n="plan_enterprise_f8"></li>
             </ul>
-            <a href="#contact" class="price-cta cta secondary" data-i18n="plan_cta_contact"></a>
+            <a href="https://app.techtrustautosolutions.com/cadastro?plan=enterprise" target="_blank" rel="noopener" class="price-cta cta secondary" data-i18n="plan_cta_start"></a>
           </div>
         </div>
 
@@ -1357,25 +1362,25 @@
         <p style="text-align:center;color:var(--muted);font-size:.9rem;margin:4px 0 20px" data-i18n="addons_sub"></p>
         <div class="addons-grid">
           <div class="addon-card">
-            <div style="font-size:1.8rem">🆓</div>
+            <div class="addon-icon"><i data-lucide="gift"></i></div>
             <h4 data-i18n="addon_free_label"></h4>
             <div class="addon-price" data-i18n="addon_free_price"></div>
             <p data-i18n="addon_free_desc"></p>
           </div>
           <div class="addon-card">
-            <div style="font-size:1.8rem">⭐</div>
+            <div class="addon-icon"><i data-lucide="star"></i></div>
             <h4 data-i18n="addon_starter_label"></h4>
             <div class="addon-price" data-i18n="addon_starter_price"></div>
             <p data-i18n="addon_starter_desc"></p>
           </div>
           <div class="addon-card">
-            <div style="font-size:1.8rem">🚀</div>
+            <div class="addon-icon"><i data-lucide="zap"></i></div>
             <h4 data-i18n="addon_pro_label"></h4>
             <div class="addon-price" data-i18n="addon_pro_price"></div>
             <p data-i18n="addon_pro_desc"></p>
           </div>
           <div class="addon-card">
-            <div style="font-size:1.8rem">🏢</div>
+            <div class="addon-icon"><i data-lucide="building-2"></i></div>
             <h4 data-i18n="addon_enterprise_label"></h4>
             <div class="addon-price" data-i18n="addon_enterprise_price"></div>
             <p data-i18n="addon_enterprise_desc"></p>
@@ -1394,7 +1399,7 @@
           <h2 class="section-title" style="margin-bottom:12px" data-i18n="final_cta_title"></h2>
           <p class="section-sub" style="margin-bottom:24px" data-i18n="final_cta_desc"></p>
           <div class="hero-cta centered">
-            <a class="cta" href="/register-client.html" data-i18n="cta_start"></a>
+            <a class="cta" href="https://app.techtrustautosolutions.com/cadastro" target="_blank" rel="noopener" data-i18n="cta_start"></a>
             <a class="cta secondary" href="#contact" data-i18n="cta_demo"></a>
           </div>
           <p style="margin-top:16px;font-size:.9rem;color:var(--muted)" data-i18n="app_callout"></p>
@@ -1409,7 +1414,7 @@
         <p class="section-sub" data-i18n="software_sub"></p>
         <div class="services" style="margin-top:18px">
           <div class="card">
-            <div class="icon">✅</div>
+            <div class="icon"><i data-lucide="clipboard-check"></i></div>
             <h3 data-i18n="sw_1t"></h3>
             <ul class="list">
               <li data-i18n="sw_1a"></li>
@@ -1418,7 +1423,7 @@
             </ul>
           </div>
           <div class="card">
-            <div class="icon">⛽</div>
+            <div class="icon"><i data-lucide="fuel"></i></div>
             <h3 data-i18n="sw_2t"></h3>
             <ul class="list">
               <li data-i18n="sw_2a"></li>
@@ -1426,7 +1431,7 @@
             </ul>
           </div>
           <div class="card">
-            <div class="icon">🧰</div>
+            <div class="icon"><i data-lucide="wrench"></i></div>
             <h3 data-i18n="sw_3t"></h3>
             <ul class="list">
               <li data-i18n="sw_3a"></li>
@@ -1466,13 +1471,13 @@
               <div class="logo-box"><img src="/logo-vertical-200h.png" alt="TechTrust AutoSolutions" style="height:120px;width:auto" loading="lazy" /></div>
             </div>
             <div style="color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:12px">
-              <div style="font-weight:700;color:#e2e8f0;font-size:1rem;margin-bottom:6px">📍 <span data-i18n="office_title">Our Office</span></div>
+              <div style="font-weight:700;color:#e2e8f0;font-size:1rem;margin-bottom:6px;display:flex;align-items:center"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="office_title">Our Office</span></div>
               <div>Miami, Florida</div>
-              <div style="margin-top:8px">📧 <a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a></div>
-              <div>🌐 techtrustautosolutions.com</div>
+              <div style="margin-top:8px"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="mailto:contact@techtrustautosolutions.com">contact@techtrustautosolutions.com</a></div>
+              <div><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>techtrustautosolutions.com</div>
             </div>
             <div style="margin-top:14px">
-              <div style="color:var(--muted);font-size:.8rem;font-weight:600;margin-bottom:6px">📱 Download our app:</div>
+              <div style="color:var(--muted);font-size:.8rem;font-weight:600;margin-bottom:6px;display:flex;align-items:center"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>Download our app:</div>
               <div class="app-store-btns">
                 <a href="#" target="_blank" rel="noopener" aria-label="App Store"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> App Store</a>
                 <a href="#" target="_blank" rel="noopener" aria-label="Google Play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.67c-.37-.2-.68-.58-.68-1.16V1.49c0-.58.31-.96.68-1.16l11.28 11.67L3.18 23.67zm1.52-22.3L15.86 12 4.7 22.63l.01-21.26zm13.14 11.97L6.02 1.48 16.79 11.5l1.05-1.16zM17.84 12l1.05 1.16L6.02 22.52l11.82-10.52z"/></svg> Google Play</a>
@@ -1506,8 +1511,8 @@
           <a href="#contact" class="f-accent" data-i18n="footer_contact">Contact</a>
           <a href="https://app.techtrustautosolutions.com/login" target="_blank" rel="noopener" data-i18n="footer_client_login">Client Login</a>
           <a href="https://provider.techtrustautosolutions.com/login" target="_blank" rel="noopener" class="f-red" data-i18n="footer_provider_login">Provider Login</a>
-          <a href="/register-client.html" class="f-green" data-i18n="footer_client_register">Client Register</a>
-          <a href="/register-provider.html" class="f-green" data-i18n="footer_provider_register">Provider Register</a>
+          <a href="https://app.techtrustautosolutions.com/cadastro" target="_blank" rel="noopener" class="f-green" data-i18n="footer_client_register">Client Register</a>
+          <a href="https://provider.techtrustautosolutions.com/register" target="_blank" rel="noopener" class="f-green" data-i18n="footer_provider_register">Provider Register</a>
         </div>
         <div class="app-store-btns" style="margin-top:14px">
           <a href="#" target="_blank" rel="noopener" aria-label="Download on the App Store"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> App Store</a>
@@ -1517,5 +1522,8 @@
       <div data-i18n="footer_rights"></div>
     </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>if(window.lucide)lucide.createIcons();</script>
 </body>
 </html>

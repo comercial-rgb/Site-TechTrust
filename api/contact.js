@@ -17,10 +17,24 @@ async function readJson(req){
   try { return JSON.parse(raw); } catch { return {}; }
 }
 
+function escapeHtml(value){
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function json(res, code, obj){
+  res.statusCode = code;
+  res.setHeader('Content-Type', 'application/json');
+  return res.end(JSON.stringify(obj));
+}
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
-    res.statusCode = 405;
-    return res.end('Method Not Allowed');
+    return json(res, 405, { ok: false, error: 'Method Not Allowed' });
   }
   try {
     const body = await readJson(req);
@@ -29,7 +43,7 @@ module.exports = async (req, res) => {
       type: body.type || 'contact',
       status: body.status || 'confirmed',
       name: body.name || '',
-      email: body.email || 'contact@techtrustautosolutions.com',
+      email: body.email || '',
       phone: body.phone || '',
       vehicle: body.vehicle || '',
       vin: body.vin || '',
@@ -43,6 +57,13 @@ module.exports = async (req, res) => {
       createdAt: new Date().toISOString()
     };
 
+    if(!payload.name.trim() || !payload.email.trim()){
+      return json(res, 400, { ok:false, error:'Missing required contact fields' });
+    }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)){
+      return json(res, 400, { ok:false, error:'Invalid email' });
+    }
+
     let sent = false;
     const apiKey = process.env.RESEND_API_KEY || '';
     if(apiKey){
@@ -53,24 +74,24 @@ module.exports = async (req, res) => {
           ? `[${payload.status === 'pending' ? 'PENDING' : 'CONFIRMED'}] New service booking — ${payload.service || 'General'}`
           : (payload.type === 'mobile' ? 'New mobile mechanic request' : 'New website inquiry');
         const html = `
-          <h2>${subject}</h2>
+          <h2>${escapeHtml(subject)}</h2>
           ${payload.status === 'pending' ? '<div style="background:#fef3c7;border:1px solid #f59e0b;padding:12px 16px;border-radius:8px;margin-bottom:16px"><strong>⚠️ PENDING APPROVAL</strong> — This booking requires your confirmation. Please review the details below and confirm or contact the customer.</div>' : ''}
-          <p><b>Type:</b> ${payload.type}</p>
+          <p><b>Type:</b> ${escapeHtml(payload.type)}</p>
           <p><b>Status:</b> ${payload.status === 'pending' ? '⏳ Pending Approval' : '✅ Confirmed'}</p>
-          <p><b>Name:</b> ${payload.name}</p>
-          ${payload.email ? `<p><b>Email:</b> ${payload.email}</p>` : ''}
-          ${payload.phone ? `<p><b>Phone:</b> ${payload.phone}</p>` : ''}
-          ${payload.vehicle ? `<p><b>Vehicle:</b> ${payload.vehicle}</p>` : ''}
-          ${payload.vin ? `<p><b>VIN:</b> ${payload.vin}</p>` : ''}
-          ${payload.fuel_type ? `<p><b>Fuel Type:</b> ${payload.fuel_type}</p>` : ''}
-          ${payload.service ? `<p><b>Service Requested:</b> ${payload.service}</p>` : ''}
-          ${payload.address ? `<p><b>Address:</b> ${payload.address}</p>` : ''}
-          ${payload.datetime ? `<p><b>Date/Time:</b> ${payload.datetime}</p>` : ''}
-          ${payload.company ? `<p><b>Company:</b> ${payload.company}</p>` : ''}
-          ${payload.fleet_size ? `<p><b>Fleet size:</b> ${payload.fleet_size}</p>` : ''}
-          ${payload.summary ? `<p><b>Notes:</b> ${payload.summary}</p>` : ''}
+          <p><b>Name:</b> ${escapeHtml(payload.name)}</p>
+          ${payload.email ? `<p><b>Email:</b> ${escapeHtml(payload.email)}</p>` : ''}
+          ${payload.phone ? `<p><b>Phone:</b> ${escapeHtml(payload.phone)}</p>` : ''}
+          ${payload.vehicle ? `<p><b>Vehicle:</b> ${escapeHtml(payload.vehicle)}</p>` : ''}
+          ${payload.vin ? `<p><b>VIN:</b> ${escapeHtml(payload.vin)}</p>` : ''}
+          ${payload.fuel_type ? `<p><b>Fuel Type:</b> ${escapeHtml(payload.fuel_type)}</p>` : ''}
+          ${payload.service ? `<p><b>Service Requested:</b> ${escapeHtml(payload.service)}</p>` : ''}
+          ${payload.address ? `<p><b>Address:</b> ${escapeHtml(payload.address)}</p>` : ''}
+          ${payload.datetime ? `<p><b>Date/Time:</b> ${escapeHtml(payload.datetime)}</p>` : ''}
+          ${payload.company ? `<p><b>Company:</b> ${escapeHtml(payload.company)}</p>` : ''}
+          ${payload.fleet_size ? `<p><b>Fleet size:</b> ${escapeHtml(payload.fleet_size)}</p>` : ''}
+          ${payload.summary ? `<p><b>Notes:</b> ${escapeHtml(payload.summary)}</p>` : ''}
           <hr/>
-          <small>Submitted at ${payload.createdAt}</small>
+          <small>Submitted at ${escapeHtml(payload.createdAt)}</small>
         `;
         await resend.emails.send({
           from: 'TechTrust <no-reply@techtrustautosolutions.com>',
@@ -133,10 +154,9 @@ module.exports = async (req, res) => {
       }
     }
 
-    res.setHeader('Content-Type', 'application/json');
-    return res.status(200).end(JSON.stringify({ ok: true }));
+    return json(res, 200, { ok: true, sent });
   } catch (err) {
     console.error('[api/contact] error', err);
-    return res.status(500).end(JSON.stringify({ ok: false }));
+    return json(res, 500, { ok: false });
   }
 };

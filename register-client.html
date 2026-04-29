@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TechTrust AutoSolutions — Client Registration</title>
   <meta name="description" content="Register as a TechTrust client. Choose your vehicle management plan. Track vehicles, control maintenance costs, and manage everything from one platform." />
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var plan = params.get('plan');
+      var planMap = { professional: 'pro' };
+      var target = 'https://app.techtrustautosolutions.com/cadastro';
+      if (plan) target += '?plan=' + encodeURIComponent(planMap[plan] || plan);
+      window.location.replace(target);
+    })();
+  </script>
+  <noscript><meta http-equiv="refresh" content="0; url=https://app.techtrustautosolutions.com/cadastro"></noscript>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -75,6 +86,8 @@
     .form-group label .req{color:var(--brand-red)}
     .form-group input,.form-group select{background:#0b1220;color:var(--text);border:1px solid rgba(148,163,184,.25);border-radius:12px;padding:12px 14px;font:inherit;font-size:.9rem;transition:border-color .2s}
     .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,125,216,.15)}
+    .phone-field{display:grid;grid-template-columns:minmax(132px,.45fr) 1fr;gap:8px}
+    .phone-field select{padding-inline:10px}
     .form-divider{height:1px;background:rgba(148,163,184,.15);margin:28px 0}
     .form-subtitle{font-size:1.1rem;font-weight:700;margin:0 0 16px;color:var(--silver)}
     /* Payment section */
@@ -102,8 +115,20 @@
     @media(max-width:600px){
       .plans-grid{grid-template-columns:1fr}
       .header-inner{justify-content:center}
+      .phone-field{grid-template-columns:1fr}
     }
     footer{padding:30px 0;border-top:1px solid rgba(148,163,184,.18);color:var(--muted);text-align:center;font-size:.8rem}
+
+    /* Lucide icon containers */
+    .reg-plan-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#fff;margin-bottom:10px}
+    .reg-plan-icon svg{width:22px;height:22px;stroke-width:2;stroke:currentColor;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .reg-modal-icon{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#fff;margin:0 auto 16px}
+    .reg-modal-icon.success{background:linear-gradient(135deg,#22c55e,#16a34a)}
+    .reg-modal-icon.warning{background:linear-gradient(135deg,#f59e0b,#d97706)}
+    .reg-modal-icon.payment{background:linear-gradient(135deg,var(--brand-red),var(--brand-red-light))}
+    .reg-modal-icon svg{width:32px;height:32px;stroke-width:2;stroke:currentColor;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .reg-otp-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#fff;margin:0 auto 8px}
+    .reg-otp-icon svg{width:20px;height:20px;stroke-width:2;stroke:currentColor;fill:none;stroke-linecap:round;stroke-linejoin:round}
   </style>
 </head>
 <body>
@@ -217,25 +242,25 @@
           <p>Each plan includes a set number of vehicles. You can add extra vehicles anytime from your dashboard.</p>
           <div class="addons-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
             <div class="addon-card" style="cursor:default">
-              <div style="font-size:1.5rem">🆓</div>
+              <div class="reg-plan-icon"><i data-lucide="gift"></i></div>
               <h4>Free Plan</h4>
               <div class="addon-price">+$6.99/vehicle/mo</div>
               <p>2 vehicles included. Add more at $6.99 each.</p>
             </div>
             <div class="addon-card" style="cursor:default">
-              <div style="font-size:1.5rem">⭐</div>
+              <div class="reg-plan-icon"><i data-lucide="star"></i></div>
               <h4>Starter Plan</h4>
               <div class="addon-price">+$5.99/vehicle/mo</div>
               <p>3 vehicles included. Add more at $5.99 each.</p>
             </div>
             <div class="addon-card" style="cursor:default">
-              <div style="font-size:1.5rem">🚀</div>
+              <div class="reg-plan-icon"><i data-lucide="zap"></i></div>
               <h4>Pro Plan</h4>
               <div class="addon-price">+$3.99/vehicle/mo</div>
               <p>5 vehicles included. Add more at $3.99 each.</p>
             </div>
             <div class="addon-card" style="cursor:default">
-              <div style="font-size:1.5rem">🏢</div>
+              <div class="reg-plan-icon"><i data-lucide="building-2"></i></div>
               <h4>Enterprise Plan</h4>
               <div class="addon-price">Custom pricing</div>
               <p>14 vehicles included. Contact us for additional.</p>
@@ -282,7 +307,17 @@
               </div>
               <div class="form-group">
                 <label id="phone-label">Phone <span class="req">*</span></label>
-                <input type="tel" name="phone" required placeholder="(305) 000-0000">
+                <div class="phone-field">
+                  <select name="phone_country" id="phone-country" aria-label="Phone country code">
+                    <option value="US" data-dial="+1" data-min="10" data-max="10" data-placeholder="(305) 000-0000">🇺🇸 +1 US</option>
+                    <option value="BR" data-dial="+55" data-min="10" data-max="11" data-placeholder="(11) 99999-9999">🇧🇷 +55 BR</option>
+                    <option value="PT" data-dial="+351" data-min="9" data-max="9" data-placeholder="912 345 678">🇵🇹 +351 PT</option>
+                    <option value="ES" data-dial="+34" data-min="9" data-max="9" data-placeholder="612 345 678">🇪🇸 +34 ES</option>
+                    <option value="MX" data-dial="+52" data-min="10" data-max="10" data-placeholder="55 1234 5678">🇲🇽 +52 MX</option>
+                    <option value="CA" data-dial="+1" data-min="10" data-max="10" data-placeholder="(416) 000-0000">🇨🇦 +1 CA</option>
+                  </select>
+                  <input type="tel" name="phone" required placeholder="(305) 000-0000" autocomplete="tel-national">
+                </div>
               </div>
               <div class="form-group">
                 <label>Password <span class="req">*</span></label>
@@ -308,7 +343,7 @@
           <h2>Step 3: Confirm & Create Account</h2>
           
           <div class="payment-info" id="trial-info">
-            <h4>🎉 7-Day Free Trial</h4>
+            <h4>7-Day Free Trial</h4>
             <p id="trial-text">Your paid plan includes a 7-day free trial. After creating your account, you'll verify your phone number via SMS, then set up payment via Stripe. Your card will only be charged after the 7-day trial ends.</p>
           </div>
 
@@ -317,7 +352,7 @@
             <p style="font-size:.85rem;font-weight:700;color:var(--silver);margin:0 0 10px">What happens next:</p>
             <div style="display:flex;flex-direction:column;gap:8px;font-size:.85rem;color:var(--muted)">
               <div style="display:flex;align-items:center;gap:10px"><span style="background:var(--accent);color:#fff;border-radius:50%;width:24px;height:24px;display:grid;place-items:center;font-weight:800;font-size:.75rem;flex-shrink:0">1</span> Create your account</div>
-              <div style=\"display:flex;align-items:center;gap:10px\"><span style=\"background:var(--accent);color:#fff;border-radius:50%;width:24px;height:24px;display:grid;place-items:center;font-weight:800;font-size:.75rem;flex-shrink:0\">2</span> Verify your account (SMS or Email — you choose)</div>
+              <div style="display:flex;align-items:center;gap:10px"><span style="background:var(--accent);color:#fff;border-radius:50%;width:24px;height:24px;display:grid;place-items:center;font-weight:800;font-size:.75rem;flex-shrink:0">2</span> Verify your account (SMS or Email — you choose)</div>
               <div id="flow-step-3" style="display:flex;align-items:center;gap:10px"><span style="background:var(--accent);color:#fff;border-radius:50%;width:24px;height:24px;display:grid;place-items:center;font-weight:800;font-size:.75rem;flex-shrink:0">3</span> <span id="flow-step-3-text">Set up payment via Stripe (card charged after 7-day trial)</span></div>
               <div style="display:flex;align-items:center;gap:10px"><span style="background:#22c55e;color:#fff;border-radius:50%;width:24px;height:24px;display:grid;place-items:center;font-weight:800;font-size:.75rem;flex-shrink:0">✓</span> Access your dashboard</div>
             </div>
@@ -338,7 +373,7 @@
           <div style="text-align:center;margin-top:28px">
             <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
               <button type="button" class="submit-btn" style="background:transparent;border:1px solid rgba(148,163,184,.3);color:var(--silver);min-width:160px;font-size:.95rem;padding:14px 28px" onclick="goToStep(2)">← Back</button>
-              <button type="button" class="submit-btn" onclick="submitRegistration()" id="submit-reg">🚀 Create Account</button>
+              <button type="button" class="submit-btn" onclick="submitRegistration()" id="submit-reg">Create Account</button>
             </div>
             <p class="terms">By registering, you agree to our <a href="/privacy.html">Privacy Policy</a> and Terms of Service. Cancel anytime.</p>
             <p class="submit-status" id="reg-status"></p>
@@ -346,22 +381,22 @@
             <!-- OTP Method Chooser (hidden until Create Account is clicked) -->
             <div id="otp-method-chooser" style="display:none;margin-top:24px">
               <div style="background:rgba(59,125,216,.06);border:1px solid rgba(59,125,216,.2);border-radius:var(--radius);padding:24px;max-width:500px;margin:0 auto;text-align:center">
-                <div style="font-size:2rem;margin-bottom:8px">🔐</div>
+                <div class="reg-modal-icon" style="margin-bottom:12px"><i data-lucide="lock"></i></div>
                 <h3 style="margin:0 0 6px;font-size:1.1rem;font-weight:800">Choose Verification Method</h3>
                 <p style="color:var(--muted);font-size:.85rem;margin:0 0 20px">How would you like to receive your verification code?</p>
                 <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
                   <button type="button" onclick="selectOtpMethod('sms')" id="otp-btn-sms" style="flex:1;min-width:180px;max-width:220px;padding:16px;border-radius:14px;border:2px solid rgba(59,125,216,.3);background:rgba(59,125,216,.08);color:var(--silver);cursor:pointer;font-family:inherit;transition:all .2s">
-                    <div style="font-size:1.5rem;margin-bottom:6px">📱</div>
+                    <div class="reg-otp-icon"><i data-lucide="smartphone"></i></div>
                     <div style="font-weight:700;font-size:.95rem">SMS</div>
                     <div style="font-size:.78rem;color:var(--muted);margin-top:2px">Code via text message</div>
                   </button>
                   <button type="button" onclick="selectOtpMethod('email')" id="otp-btn-email" style="flex:1;min-width:180px;max-width:220px;padding:16px;border-radius:14px;border:2px solid rgba(148,163,184,.2);background:transparent;color:var(--silver);cursor:pointer;font-family:inherit;transition:all .2s">
-                    <div style="font-size:1.5rem;margin-bottom:6px">✉️</div>
+                    <div class="reg-otp-icon"><i data-lucide="mail"></i></div>
                     <div style="font-weight:700;font-size:.95rem">Email</div>
                     <div style="font-size:.78rem;color:var(--muted);margin-top:2px">Code via email</div>
                   </button>
                 </div>
-                <button type="button" class="submit-btn" onclick="confirmOtpMethodAndSubmit()" id="confirm-otp-method-btn" style="margin-top:20px;min-width:260px">🚀 Confirm & Create Account</button>
+                <button type="button" class="submit-btn" onclick="confirmOtpMethodAndSubmit()" id="confirm-otp-method-btn" style="margin-top:20px;min-width:260px">Confirm & Create Account</button>
                 <p id="otp-method-status" style="font-size:.9rem;margin-top:10px"></p>
               </div>
             </div>
@@ -379,7 +414,10 @@
   </footer>
 
   <script>
-    const API_BASE = 'https://techtrust-api.onrender.com/api/v1';
+    const TECHTRUST_CONFIG = window.TECHTRUST_CONFIG || {};
+    const API_BASE = TECHTRUST_CONFIG.apiBase || 'https://techtrust-api.onrender.com/api/v1';
+    const DASHBOARD_URL = TECHTRUST_CONFIG.dashboardUrl || 'https://app.techtrustautosolutions.com';
+    const PLAN_KEY_MAP = { free: 'free', starter: 'starter', professional: 'pro', enterprise: 'enterprise' };
     let selectedPlan = null;
     let registeredUserId = null;
     let authToken = null;
@@ -423,7 +461,7 @@
           if (flowStep3) flowStep3.style.display = 'none';
         } else {
           const trialPrice = selectedPlan.price % 1 === 0 ? selectedPlan.price : selectedPlan.price.toFixed(2);
-          trialInfo.querySelector('h4').textContent = '🎉 7-Day Free Trial';
+          trialInfo.querySelector('h4').textContent = '7-Day Free Trial';
           trialText.textContent = `Your ${capitalize(selectedPlan.name)} plan ($${trialPrice}/mo) includes a 7-day free trial. After creating your account, you'll verify your phone number via SMS, then set up payment via Stripe. Your card will only be charged after the 7-day trial ends.`;
           const flowStep3 = document.getElementById('flow-step-3');
           if (flowStep3) flowStep3.style.display = '';
@@ -433,16 +471,47 @@
 
     function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 
-    // Phone formatting
+    const phoneCountryInput = document.getElementById('phone-country');
     const phoneInput = document.querySelector('[name="phone"]');
-    if (phoneInput) {
-      phoneInput.addEventListener('input', function(e) {
-        let val = e.target.value.replace(/\D/g, '');
-        if (val.length > 10) val = val.slice(0, 10);
+    function getPhoneCountryMeta() {
+      const option = phoneCountryInput?.selectedOptions?.[0];
+      return {
+        country: phoneCountryInput?.value || 'US',
+        dial: option?.dataset.dial || '+1',
+        min: parseInt(option?.dataset.min || '10', 10),
+        max: parseInt(option?.dataset.max || '10', 10),
+        placeholder: option?.dataset.placeholder || '(305) 000-0000'
+      };
+    }
+
+    function formatPhoneDisplay(value) {
+      const meta = getPhoneCountryMeta();
+      let val = value.replace(/\D/g, '').slice(0, meta.max);
+      if (meta.dial === '+1') {
         if (val.length >= 7) val = `(${val.slice(0,3)}) ${val.slice(3,6)}-${val.slice(6)}`;
         else if (val.length >= 4) val = `(${val.slice(0,3)}) ${val.slice(3)}`;
         else if (val.length >= 1) val = `(${val}`;
-        e.target.value = val;
+        return val;
+      }
+      if (meta.country === 'BR' && val.length > 2) {
+        const prefix = `(${val.slice(0,2)}) `;
+        const rest = val.slice(2);
+        if (rest.length > 5) return `${prefix}${rest.slice(0,5)}-${rest.slice(5)}`;
+        return prefix + rest;
+      }
+      return val.replace(/(\d{3})(?=\d)/g, '$1 ').trim();
+    }
+
+    if (phoneInput) {
+      phoneInput.addEventListener('input', function(e) {
+        e.target.value = formatPhoneDisplay(e.target.value);
+      });
+    }
+    if (phoneCountryInput) {
+      phoneCountryInput.addEventListener('change', function() {
+        const meta = getPhoneCountryMeta();
+        phoneInput.placeholder = meta.placeholder;
+        phoneInput.value = formatPhoneDisplay(phoneInput.value);
       });
     }
 
@@ -491,9 +560,40 @@
       });
     }
 
-    function formatPhoneE164(phone) {
+    function validatePhoneNumber(phone) {
+      const meta = getPhoneCountryMeta();
       const digits = phone.replace(/\D/g, '');
-      return '+1' + digits;
+      return digits.length >= meta.min && digits.length <= meta.max;
+    }
+
+    function formatPhoneE164(phone) {
+      const meta = getPhoneCountryMeta();
+      let digits = phone.replace(/\D/g, '');
+      const dialDigits = meta.dial.replace(/\D/g, '');
+      if (digits.startsWith(dialDigits) && digits.length > meta.max) digits = digits.slice(dialDigits.length);
+      return meta.dial + digits;
+    }
+
+    function getSelectedPlanKey() {
+      return selectedPlan ? (PLAN_KEY_MAP[selectedPlan.name] || selectedPlan.name) : 'free';
+    }
+
+    function getSignupContext() {
+      const form = document.getElementById('reg-form');
+      const accountType = form.querySelector('[name="account_type"]').value;
+      const companyName = form.querySelector('[name="company_name"]')?.value?.trim() || '';
+      const planKey = getSelectedPlanKey();
+      const phoneMeta = getPhoneCountryMeta();
+      return {
+        accountType,
+        companyName,
+        phoneCountry: phoneMeta.country,
+        phoneCountryCode: phoneMeta.dial,
+        selectedPlan: selectedPlan ? selectedPlan.name : 'free',
+        planKey,
+        billingIntent: selectedPlan && selectedPlan.price > 0 ? 'checkout_required' : 'free',
+        source: 'website_registration'
+      };
     }
 
     function goToStep(step) {
@@ -552,15 +652,24 @@
       const email = form.querySelector('[name="email"]').value.trim();
       const phone = form.querySelector('[name="phone"]').value.trim();
       const password = form.querySelector('[name="password"]').value;
+      const accountType = form.querySelector('[name="account_type"]').value;
 
       if (name.split(/\s+/).length < 2) {
         status.textContent = '❌ Please enter your full name (first and last).';
         status.style.color = 'var(--brand-red)';
         return;
       }
-      const phoneDigits = phone.replace(/\D/g, '');
-      if (phoneDigits.length < 10) {
-        status.textContent = '❌ Please enter a valid 10-digit phone number.';
+      if (accountType === 'business') {
+        const companyName = form.querySelector('[name="company_name"]').value.trim();
+        if (!companyName) {
+          status.textContent = '❌ Please enter your company name.';
+          status.style.color = 'var(--brand-red)';
+          return;
+        }
+      }
+      if (!validatePhoneNumber(phone)) {
+        const meta = getPhoneCountryMeta();
+        status.textContent = `❌ Please enter a valid phone number for ${meta.dial}.`;
         status.style.color = 'var(--brand-red)';
         return;
       }
@@ -584,6 +693,7 @@
       const email = form.querySelector('[name="email"]').value.trim();
       const phone = form.querySelector('[name="phone"]').value.trim();
       const password = form.querySelector('[name="password"]').value;
+      const signupContext = getSignupContext();
 
       // Validate name has at least 2 words
       if (name.split(/\s+/).length < 2) {
@@ -594,9 +704,9 @@
       }
 
       // Validate phone
-      const phoneDigits = phone.replace(/\D/g, '');
-      if (phoneDigits.length < 10) {
-        status.textContent = '❌ Please enter a valid 10-digit phone number.';
+      if (!validatePhoneNumber(phone)) {
+        const meta = getPhoneCountryMeta();
+        status.textContent = `❌ Please enter a valid phone number for ${meta.dial}.`;
         status.style.color = 'var(--brand-red)';
         btn.disabled = false;
         return;
@@ -609,7 +719,15 @@
         password: password,
         role: 'CLIENT',
         language: 'EN',
-        preferredOtpMethod: chosenOtpMethod
+        preferredOtpMethod: chosenOtpMethod,
+        accountType: signupContext.accountType,
+        companyName: signupContext.companyName,
+        phoneCountry: signupContext.phoneCountry,
+        phoneCountryCode: signupContext.phoneCountryCode,
+        selectedPlan: signupContext.selectedPlan,
+        planKey: signupContext.planKey,
+        billingIntent: signupContext.billingIntent,
+        source: signupContext.source
       };
 
       try {
@@ -648,7 +766,7 @@
 
     function showOtpStep(sentTo) {
       const isSms = chosenOtpMethod === 'sms';
-      const icon = isSms ? '📱' : '✉️';
+      const icon = isSms ? '<i data-lucide="smartphone"></i>' : '<i data-lucide="mail"></i>';
       const title = isSms ? 'Verify Your Phone' : 'Verify Your Email';
       const desc = isSms
         ? `We sent a 6-digit verification code via SMS to <strong style="color:#fff">${sentTo}</strong>`
@@ -659,7 +777,7 @@
       const step3 = document.getElementById('step-3');
       step3.innerHTML = `
         <div class="reg-section" style="text-align:center;max-width:500px;margin:0 auto">
-          <div style="font-size:3rem;margin-bottom:16px">${icon}</div>
+          <div class="reg-modal-icon">${icon}</div>
           <h2 style="font-size:1.4rem;font-weight:800;margin:0 0 8px">${title}</h2>
           <p style="color:var(--muted);font-size:.9rem;margin:0 0 24px">${desc}</p>
           <div style="display:flex;gap:8px;justify-content:center;margin-bottom:20px">
@@ -678,6 +796,7 @@
         </div>
       `;
       document.getElementById('step-3-dot').className = 'step-dot active';
+      if(window.lucide)lucide.createIcons();
       document.getElementById('otp-input').focus();
     }
 
@@ -717,7 +836,7 @@
         }
 
         // Save auth token for subscription call
-        authToken = data.data?.token;
+        authToken = data.data?.token || data.data?.accessToken || data.token || data.accessToken;
 
         // Check if user selected a paid plan
         const isPaidPlan = selectedPlan && selectedPlan.price > 0;
@@ -727,8 +846,7 @@
           status.textContent = 'Setting up your plan payment...';
           status.style.color = '#3B7DD8';
 
-          const planKeyMap = { 'starter': 'starter', 'professional': 'pro', 'enterprise': 'enterprise' };
-          const planKey = planKeyMap[selectedPlan.name] || selectedPlan.name;
+          const planKey = getSelectedPlanKey();
 
           try {
             const checkoutRes = await fetch(`${API_BASE}/subscriptions/checkout-session`, {
@@ -739,8 +857,9 @@
               },
               body: JSON.stringify({
                 planKey: planKey,
-                successUrl: 'https://app.techtrustautosolutions.com/dashboard?checkout=success&plan=' + planKey,
-                cancelUrl: 'https://app.techtrustautosolutions.com/dashboard?checkout=cancelled'
+                selectedPlan: selectedPlan.name,
+                successUrl: `${DASHBOARD_URL}/dashboard?checkout=success&plan=${encodeURIComponent(planKey)}`,
+                cancelUrl: `${DASHBOARD_URL}/dashboard?checkout=cancelled&plan=${encodeURIComponent(planKey)}`
               })
             });
             const checkoutData = await checkoutRes.json();
@@ -750,13 +869,15 @@
               showPaymentRedirectStep(checkoutData.data.checkoutUrl, planKey);
               return;
             }
+            throw new Error(checkoutData.message || checkoutData.error || 'Could not create checkout session');
           } catch (checkoutErr) {
             console.error('Checkout session error:', checkoutErr);
-            // Fall through to success without payment - they can upgrade in dashboard
+            showCheckoutErrorStep(planKey);
+            return;
           }
         }
 
-        // Free plan or checkout failed → show success directly
+        // Free plan can finish immediately. Paid plans only finish after a checkout session is created.
         showSuccessStep(false);
 
       } catch (err) {
@@ -771,16 +892,16 @@
       const step3 = document.getElementById('step-3');
       step3.innerHTML = `
         <div class="reg-section" style="text-align:center;max-width:600px;margin:0 auto;padding:20px">
-          <div style="font-size:3rem;margin-bottom:16px">💳</div>
+          <div class="reg-modal-icon payment"><i data-lucide="credit-card"></i></div>
           <h2 style="font-size:1.4rem;font-weight:800;margin:0 0 8px;color:#4ade80">Account Verified!</h2>
           <p style="color:var(--silver);font-size:1rem;margin:0 0 24px">Now let's set up your <strong style="color:#fff">${capitalize(planKey)}</strong> plan payment.</p>
           
           <div style="background:rgba(59,125,216,.08);border:1px solid rgba(59,125,216,.2);border-radius:var(--radius);padding:20px;margin-bottom:24px;text-align:left">
             <p style="color:var(--silver);font-size:.9rem;margin:0 0 8px"><strong style="color:#fff">Secure Payment via Stripe</strong></p>
-            <p style="color:var(--muted);font-size:.85rem;margin:0 0 4px">✅ Credit / Debit Card</p>
-            <p style="color:var(--muted);font-size:.85rem;margin:0 0 4px">✅ Apple Pay (on supported devices)</p>
-            <p style="color:var(--muted);font-size:.85rem;margin:0 0 4px">✅ Google Pay (on supported devices)</p>
-            <p style="color:var(--muted);font-size:.85rem;margin:0">🔒 PCI-DSS compliant. We never store your card details.</p>
+            <p style="color:var(--muted);font-size:.85rem;margin:0 0 4px"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Credit / Debit Card</p>
+            <p style="color:var(--muted);font-size:.85rem;margin:0 0 4px"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Apple Pay (on supported devices)</p>
+            <p style="color:var(--muted);font-size:.85rem;margin:0 0 4px"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Google Pay (on supported devices)</p>
+            <p style="color:var(--muted);font-size:.85rem;margin:0"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>PCI-DSS compliant. We never store your card details.</p>
           </div>
 
           <a href="${checkoutUrl}" class="submit-btn" style="text-decoration:none;display:inline-flex;margin-bottom:12px">Continue to Payment →</a>
@@ -792,6 +913,25 @@
         </div>
       `;
       document.getElementById('step-3-dot').className = 'step-dot done';
+      if(window.lucide)lucide.createIcons();
+    }
+
+    function showCheckoutErrorStep(planKey) {
+      const step3 = document.getElementById('step-3');
+      step3.innerHTML = `
+        <div class="reg-section" style="text-align:center;max-width:600px;margin:0 auto;padding:32px 20px">
+          <div class="reg-modal-icon warning"><i data-lucide="alert-triangle"></i></div>
+          <h2 style="font-size:1.4rem;font-weight:800;margin:0 0 8px;color:#fbbf24">Account Verified — Payment Setup Needed</h2>
+          <p style="color:var(--silver);font-size:1rem;margin:0 0 12px">Your account was created, but we could not open Stripe checkout for the <strong style="color:#fff">${capitalize(planKey)}</strong> plan.</p>
+          <p style="color:var(--muted);font-size:.9rem;margin:0 0 24px">To avoid activating the wrong plan, please continue in the dashboard and finish billing there.</p>
+          <a href="${DASHBOARD_URL}/dashboard?checkout=retry&plan=${encodeURIComponent(planKey)}" class="submit-btn" style="text-decoration:none;display:inline-flex">Finish Payment in Dashboard →</a>
+          <p style="color:var(--muted);font-size:.8rem;margin-top:16px">
+            Prefer to start free? <a href="#" onclick="skipPayment();return false;" style="color:var(--accent)">Use Free plan for now</a>
+          </p>
+        </div>
+      `;
+      document.getElementById('step-3-dot').className = 'step-dot active';
+      if(window.lucide)lucide.createIcons();
     }
 
     function skipPayment() {
@@ -856,17 +996,21 @@
       
       step3.innerHTML = `
         <div class="reg-section" style="text-align:center;max-width:600px;margin:0 auto;padding:40px 20px">
-          <div style="font-size:4rem;margin-bottom:16px">🎉</div>
+          <div class="reg-modal-icon success"><i data-lucide="check-circle"></i></div>
           <h2 style="font-size:1.6rem;font-weight:900;margin:0 0 12px;color:#4ade80">Welcome to TechTrust!</h2>
           <p style="color:var(--silver);font-size:1rem;margin:0 0 8px">Your account has been created and verified successfully.</p>
           <p style="color:var(--muted);font-size:.9rem;margin:0 0 32px">${planMsg}</p>
-          <a href="https://app.techtrustautosolutions.com/login" class="submit-btn" style="text-decoration:none;display:inline-flex">Go to Dashboard →</a>
+          <a href="${DASHBOARD_URL}/login" class="submit-btn" style="text-decoration:none;display:inline-flex">Go to Dashboard →</a>
           <p style="color:var(--muted);font-size:.8rem;margin-top:16px">You will be redirected in 5 seconds...</p>
         </div>
       `;
       document.getElementById('step-3-dot').className = 'step-dot done';
-      setTimeout(() => { window.location.href = 'https://app.techtrustautosolutions.com/login'; }, 5000);
+      if(window.lucide)lucide.createIcons();
+      setTimeout(() => { window.location.href = `${DASHBOARD_URL}/login`; }, 5000);
     }
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>if(window.lucide)lucide.createIcons();</script>
 </body>
 </html>

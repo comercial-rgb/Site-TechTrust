@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TechTrust AutoSolutions — Provider Registration</title>
   <meta name="description" content="Join TechTrust as a service provider. Connect with vehicle owners and fleet operators across the United States. Offer your maintenance, repair, and vehicle services through our platform." />
+  <script>
+    window.location.replace('https://provider.techtrustautosolutions.com/register');
+  </script>
+  <noscript><meta http-equiv="refresh" content="0; url=https://provider.techtrustautosolutions.com/register"></noscript>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -46,6 +50,8 @@
     .form-group label .req{color:var(--brand-red)}
     .form-group input,.form-group select,.form-group textarea{background:#0b1220;color:var(--text);border:1px solid rgba(148,163,184,.25);border-radius:12px;padding:12px 14px;font:inherit;font-size:.9rem;transition:border-color .2s}
     .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,125,216,.15)}
+    .phone-field{display:grid;grid-template-columns:minmax(132px,.45fr) 1fr;gap:8px}
+    .phone-field select{padding-inline:10px}
     .form-group textarea{min-height:100px;resize:vertical}
     .form-divider{height:1px;background:rgba(148,163,184,.15);margin:24px 0}
     .form-subtitle{font-size:1.1rem;font-weight:700;margin:0 0 16px;color:var(--silver)}
@@ -65,8 +71,16 @@
     @media(max-width:768px){
       .form-grid{grid-template-columns:1fr}
       .header-inner{justify-content:center}
+      .phone-field{grid-template-columns:1fr}
     }
     footer{padding:30px 0;border-top:1px solid rgba(148,163,184,.18);color:var(--muted);text-align:center;font-size:.8rem}
+
+    /* Lucide icon containers */
+    .benefit-icon{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#fff;margin:0 auto 10px}
+    .benefit-icon svg{width:28px;height:28px;stroke-width:2;stroke:currentColor;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .prov-modal-icon{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#fff;margin:0 auto 16px}
+    .prov-modal-icon.success{background:linear-gradient(135deg,#22c55e,#16a34a)}
+    .prov-modal-icon svg{width:32px;height:32px;stroke-width:2;stroke:currentColor;fill:none;stroke-linecap:round;stroke-linejoin:round}
   </style>
 </head>
 <body>
@@ -91,22 +105,22 @@
       <!-- Benefits -->
       <div class="benefits-grid">
         <div class="benefit-card">
-          <div class="emoji">🚛</div>
+          <div class="benefit-icon"><i data-lucide="truck"></i></div>
           <h3>Access Vehicle Owners & Fleets</h3>
           <p>Get connected to car owners and fleet operators actively looking for service providers in your area. From individual cars to enterprise operations.</p>
         </div>
         <div class="benefit-card">
-          <div class="emoji">📲</div>
+          <div class="benefit-icon"><i data-lucide="smartphone"></i></div>
           <h3>Manage via App</h3>
           <p>Receive service requests, manage appointments, send invoices, and communicate with clients — all through our provider app.</p>
         </div>
         <div class="benefit-card">
-          <div class="emoji">💰</div>
+          <div class="benefit-icon"><i data-lucide="dollar-sign"></i></div>
           <h3>No Upfront Costs</h3>
           <p>Registration is free. We only charge a small commission on completed services. No monthly fees, no hidden charges.</p>
         </div>
         <div class="benefit-card">
-          <div class="emoji">⭐</div>
+          <div class="benefit-icon"><i data-lucide="star"></i></div>
           <h3>Build Your Reputation</h3>
           <p>Earn reviews and ratings from vehicle owners and fleet clients. Top-rated providers get featured and receive more service requests.</p>
         </div>
@@ -117,18 +131,18 @@
         <h2 style="font-size:1.3rem;font-weight:800;margin:0 0 8px">Service Categories We Accept</h2>
         <p style="color:var(--muted);font-size:.9rem;margin:0 0 16px">Select the categories that match your services when registering.</p>
         <div class="categories">
-          <span class="cat-tag">🔧 General Maintenance</span>
-          <span class="cat-tag">🛞 Tires & Alignment</span>
-          <span class="cat-tag">🛢️ Oil & Fluid Services</span>
-          <span class="cat-tag">🔋 Electrical & Battery</span>
-          <span class="cat-tag">❄️ HVAC & Climate</span>
-          <span class="cat-tag">🔩 Brake Services</span>
-          <span class="cat-tag">📷 Camera & GPS Installation</span>
-          <span class="cat-tag">🚿 Detailing & Wash</span>
-          <span class="cat-tag">🏗️ Body Work & Paint</span>
-          <span class="cat-tag">📋 DOT Inspection</span>
-          <span class="cat-tag">🚚 Heavy Duty / Diesel</span>
-          <span class="cat-tag">📡 Telematics Installation</span>
+          <span class="cat-tag">General Maintenance</span>
+          <span class="cat-tag">Tires & Alignment</span>
+          <span class="cat-tag">Oil & Fluid Services</span>
+          <span class="cat-tag">Electrical & Battery</span>
+          <span class="cat-tag">HVAC & Climate</span>
+          <span class="cat-tag">Brake Services</span>
+          <span class="cat-tag">Camera & GPS Installation</span>
+          <span class="cat-tag">Detailing & Wash</span>
+          <span class="cat-tag">Body Work & Paint</span>
+          <span class="cat-tag">DOT Inspection</span>
+          <span class="cat-tag">Heavy Duty / Diesel</span>
+          <span class="cat-tag">Telematics Installation</span>
         </div>
       </div>
 
@@ -230,7 +244,17 @@
             </div>
             <div class="form-group">
               <label>Phone <span class="req">*</span></label>
-              <input type="tel" name="phone" required placeholder="(305) 000-0000">
+              <div class="phone-field">
+                <select name="phone_country" id="phone-country" aria-label="Phone country code">
+                  <option value="US" data-dial="+1" data-min="10" data-max="10" data-placeholder="(305) 000-0000">🇺🇸 +1 US</option>
+                  <option value="BR" data-dial="+55" data-min="10" data-max="11" data-placeholder="(11) 99999-9999">🇧🇷 +55 BR</option>
+                  <option value="PT" data-dial="+351" data-min="9" data-max="9" data-placeholder="912 345 678">🇵🇹 +351 PT</option>
+                  <option value="ES" data-dial="+34" data-min="9" data-max="9" data-placeholder="612 345 678">🇪🇸 +34 ES</option>
+                  <option value="MX" data-dial="+52" data-min="10" data-max="10" data-placeholder="55 1234 5678">🇲🇽 +52 MX</option>
+                  <option value="CA" data-dial="+1" data-min="10" data-max="10" data-placeholder="(416) 000-0000">🇨🇦 +1 CA</option>
+                </select>
+                <input type="tel" name="phone" required placeholder="(305) 000-0000" autocomplete="tel-national">
+              </div>
             </div>
           </div>
 
@@ -272,7 +296,7 @@
           </div>
 
           <div style="text-align:center;margin-top:28px">
-            <button type="submit" class="submit-btn">🚀 Submit Registration</button>
+            <button type="submit" class="submit-btn">Submit Registration</button>
             <p class="terms">By registering, you agree to our <a href="/privacy.html">Privacy Policy</a> and Provider Terms of Service. Your application will be reviewed within 1-3 business days.</p>
             <p id="provider-status" style="font-size:.9rem;margin-top:12px"></p>
           </div>
@@ -289,22 +313,68 @@
   </footer>
 
   <script>
-    const API_BASE = 'https://techtrust-api.onrender.com/api/v1';
+    const TECHTRUST_CONFIG = window.TECHTRUST_CONFIG || {};
+    const API_BASE = TECHTRUST_CONFIG.apiBase || 'https://techtrust-api.onrender.com/api/v1';
+    const PROVIDER_DASHBOARD_URL = TECHTRUST_CONFIG.providerDashboardUrl || 'https://provider.techtrustautosolutions.com';
     let registeredUserId = null;
 
-    // Phone formatting
-    document.querySelector('[name="phone"]').addEventListener('input', function(e) {
-      let val = e.target.value.replace(/\D/g, '');
-      if (val.length > 10) val = val.slice(0, 10);
+    const phoneCountryInput = document.getElementById('phone-country');
+    const phoneInput = document.querySelector('[name="phone"]');
+
+    function getPhoneCountryMeta() {
+      const option = phoneCountryInput?.selectedOptions?.[0];
+      return {
+        country: phoneCountryInput?.value || 'US',
+        dial: option?.dataset.dial || '+1',
+        min: parseInt(option?.dataset.min || '10', 10),
+        max: parseInt(option?.dataset.max || '10', 10),
+        placeholder: option?.dataset.placeholder || '(305) 000-0000'
+      };
+    }
+
+    function formatPhoneDisplay(value) {
+      const meta = getPhoneCountryMeta();
+      let val = value.replace(/\D/g, '').slice(0, meta.max);
+      if (meta.dial === '+1') {
       if (val.length >= 7) val = `(${val.slice(0,3)}) ${val.slice(3,6)}-${val.slice(6)}`;
       else if (val.length >= 4) val = `(${val.slice(0,3)}) ${val.slice(3)}`;
       else if (val.length >= 1) val = `(${val}`;
-      e.target.value = val;
-    });
+        return val;
+      }
+      if (meta.country === 'BR' && val.length > 2) {
+        const prefix = `(${val.slice(0,2)}) `;
+        const rest = val.slice(2);
+        if (rest.length > 5) return `${prefix}${rest.slice(0,5)}-${rest.slice(5)}`;
+        return prefix + rest;
+      }
+      return val.replace(/(\d{3})(?=\d)/g, '$1 ').trim();
+    }
+
+    if (phoneInput) {
+      phoneInput.addEventListener('input', function(e) {
+        e.target.value = formatPhoneDisplay(e.target.value);
+      });
+    }
+    if (phoneCountryInput) {
+      phoneCountryInput.addEventListener('change', function() {
+        const meta = getPhoneCountryMeta();
+        phoneInput.placeholder = meta.placeholder;
+        phoneInput.value = formatPhoneDisplay(phoneInput.value);
+      });
+    }
+
+    function validatePhoneNumber(phone) {
+      const meta = getPhoneCountryMeta();
+      const digits = phone.replace(/\D/g, '');
+      return digits.length >= meta.min && digits.length <= meta.max;
+    }
 
     function formatPhoneE164(phone) {
-      const digits = phone.replace(/\D/g, '');
-      return '+1' + digits;
+      const meta = getPhoneCountryMeta();
+      let digits = phone.replace(/\D/g, '');
+      const dialDigits = meta.dial.replace(/\D/g, '');
+      if (digits.startsWith(dialDigits) && digits.length > meta.max) digits = digits.slice(dialDigits.length);
+      return meta.dial + digits;
     }
 
     // Map checkbox services to backend format
@@ -348,9 +418,29 @@
 
       // Validate phone
       const phone = form.querySelector('[name="phone"]').value.trim();
-      const phoneDigits = phone.replace(/\D/g, '');
-      if (phoneDigits.length < 10) {
-        status.textContent = '❌ Please enter a valid 10-digit phone number.';
+      if (!validatePhoneNumber(phone)) {
+        const meta = getPhoneCountryMeta();
+        status.textContent = `❌ Please enter a valid phone number for ${meta.dial}.`;
+        status.style.color = 'var(--brand-red)';
+        return;
+      }
+      const phoneMeta = getPhoneCountryMeta();
+
+      const state = form.querySelector('[name="state"]').value.trim().toUpperCase();
+      const zip = form.querySelector('[name="zip"]').value.trim();
+      const ein = form.querySelector('[name="ein"]').value.trim();
+      if (!/^[A-Z]{2}$/.test(state)) {
+        status.textContent = '❌ Please enter a valid 2-letter state code.';
+        status.style.color = 'var(--brand-red)';
+        return;
+      }
+      if (!/^\d{5}(-\d{4})?$/.test(zip)) {
+        status.textContent = '❌ Please enter a valid ZIP code.';
+        status.style.color = 'var(--brand-red)';
+        return;
+      }
+      if (!/^\d{2}-?\d{7}$/.test(ein)) {
+        status.textContent = '❌ Please enter a valid EIN / Tax ID.';
         status.style.color = 'var(--brand-red)';
         return;
       }
@@ -376,18 +466,27 @@
         fullName: contactName,
         email: form.querySelector('[name="email"]').value.trim(),
         phone: formatPhoneE164(phone),
+        phoneCountry: phoneMeta.country,
+        phoneCountryCode: phoneMeta.dial,
         password: pw,
         role: 'PROVIDER',
         language: 'EN',
         businessName: form.querySelector('[name="business_name"]').value.trim(),
+        businessType: form.querySelector('[name="business_type"]').value,
+        ein: ein,
+        taxId: ein,
+        yearsInBusiness: form.querySelector('[name="years"]').value,
         businessAddress: form.querySelector('[name="address"]').value.trim(),
         businessCity: form.querySelector('[name="city"]').value.trim(),
-        businessState: form.querySelector('[name="state"]').value.trim() || 'FL',
-        businessZipCode: form.querySelector('[name="zip"]').value.trim(),
+        businessState: state,
+        businessZipCode: zip,
         servicesOffered: [...new Set(services)],
         vehicleTypesServed: ['CAR', 'SUV', 'TRUCK', 'VAN'],
         sellsParts: false,
-        preferredOtpMethod: 'sms'
+        preferredOtpMethod: 'sms',
+        contactTitle: form.querySelector('[name="contact_title"]').value.trim(),
+        notes: form.querySelector('[name="notes"]').value.trim(),
+        source: 'website_provider_registration'
       };
 
       try {
@@ -427,7 +526,7 @@
       const regCard = document.querySelector('.reg-card');
       regCard.innerHTML = `
         <div style="text-align:center;padding:20px">
-          <div style="font-size:3rem;margin-bottom:16px">📱</div>
+          <div class="prov-modal-icon"><i data-lucide="smartphone"></i></div>
           <h2 style="font-size:1.4rem;font-weight:800;margin:0 0 8px">Verify Your Phone</h2>
           <p style="color:var(--muted);font-size:.9rem;margin:0 0 24px">We sent a 6-digit verification code to <strong style="color:#fff">${sentTo}</strong></p>
           <div style="display:flex;gap:8px;justify-content:center;margin-bottom:20px">
@@ -440,6 +539,7 @@
           </p>
         </div>
       `;
+      if(window.lucide)lucide.createIcons();
       document.getElementById('otp-input').focus();
       window.scrollTo({ top: regCard.offsetTop - 100, behavior: 'smooth' });
     }
@@ -518,16 +618,20 @@
       const regCard = document.querySelector('.reg-card');
       regCard.innerHTML = `
         <div style="text-align:center;padding:40px 20px">
-          <div style="font-size:4rem;margin-bottom:16px">🎉</div>
+          <div class="prov-modal-icon success"><i data-lucide="check-circle"></i></div>
           <h2 style="font-size:1.6rem;font-weight:900;margin:0 0 12px;color:#4ade80">Registration Complete!</h2>
           <p style="color:var(--silver);font-size:1rem;margin:0 0 8px">Your provider account has been created and verified.</p>
           <p style="color:var(--muted);font-size:.9rem;margin:0 0 32px">Our team will review your application. Once approved, you'll appear in search results for vehicle owners and fleet operators.</p>
-          <a href="https://provider.techtrustautosolutions.com/login" class="submit-btn" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 48px;border-radius:999px;background:linear-gradient(135deg,var(--brand-red),var(--brand-red-light));color:#fff;font-weight:800;font-size:1.1rem;border:none;box-shadow:0 4px 18px rgba(204,34,51,.35);min-width:320px">Go to Provider Dashboard →</a>
+          <a href="${PROVIDER_DASHBOARD_URL}/login" class="submit-btn" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 48px;border-radius:999px;background:linear-gradient(135deg,var(--brand-red),var(--brand-red-light));color:#fff;font-weight:800;font-size:1.1rem;border:none;box-shadow:0 4px 18px rgba(204,34,51,.35);min-width:320px">Go to Provider Dashboard →</a>
           <p style="color:var(--muted);font-size:.8rem;margin-top:16px">You will be redirected in 5 seconds...</p>
         </div>
       `;
-      setTimeout(() => { window.location.href = 'https://provider.techtrustautosolutions.com/login'; }, 5000);
+      if(window.lucide)lucide.createIcons();
+      setTimeout(() => { window.location.href = `${PROVIDER_DASHBOARD_URL}/login`; }, 5000);
     }
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>if(window.lucide)lucide.createIcons();</script>
 </body>
 </html>

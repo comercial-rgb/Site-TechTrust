@@ -45,6 +45,9 @@ module.exports = async (req, res) => {
 
     // Interpret datetime as local and block 1h
     const start = new Date(datetime);
+    if(Number.isNaN(start.getTime())){
+      return json(res, 400, { ok:false, error:'Invalid datetime' });
+    }
     const end = new Date(start.getTime() + 60*60*1000);
 
     const isoStart = start.toISOString();
@@ -63,6 +66,6 @@ module.exports = async (req, res) => {
     return json(res, 200, { ok:true, available: !hasConflict });
   }catch(err){
     console.error('[api/availability] error', err);
-    return json(res, 200, { ok:true, available:true, note:'calendar-error-assuming-available' });
+    return json(res, 503, { ok:false, available:false, error:'Availability check failed' });
   }
 };
